@@ -65,6 +65,7 @@
 * Fixed incorrect reporting units on "Feel" value in weather plugin. YQL
     always reports Fahrenheit degrees there.
 * Added a safeguard on menu cache returning items with empty Exec line.
+* Fixed maximizing windows using task bar, GDK functions not always work.
 
 0.8.2
 -------------------------------------------------------------------------

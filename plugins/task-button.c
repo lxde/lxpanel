@@ -54,6 +54,9 @@
 
 #define ALL_WORKSPACES       -1
 
+static Atom a_NET_WM_STATE_MAXIMIZED_VERT;
+static Atom a_NET_WM_STATE_MAXIMIZED_HORZ;
+
 /* -----------------------------------------------------------------------------
  * Class data
  */
@@ -282,34 +285,48 @@ static void menu_raise_window(GtkWidget * widget, GtkWidget * taskbar)
     XMapRaised(GDK_DISPLAY_XDISPLAY(gtk_widget_get_display(widget)), tk->win);
 }
 
+/* Handler for maximize/unmaximize. Taken from WNCK */
+static void do_maximize(GtkWidget *widget, Window xwindow, gboolean set)
+{
+    Screen  *screen = GDK_SCREEN_XSCREEN(gtk_widget_get_screen(widget));
+    Display *display = DisplayOfScreen(screen);
+    Window   root = RootWindowOfScreen(screen);
+    XEvent   xev;
+
+    xev.xclient.type = ClientMessage;
+    xev.xclient.serial = 0;
+    xev.xclient.send_event = True;
+    xev.xclient.display = display;
+    xev.xclient.window = xwindow;
+    xev.xclient.message_type = a_NET_WM_STATE;
+    xev.xclient.format = 32;
+    xev.xclient.data.l[0] = set ? a_NET_WM_STATE_ADD : a_NET_WM_STATE_REMOVE;
+    xev.xclient.data.l[1] = a_NET_WM_STATE_MAXIMIZED_VERT;
+    xev.xclient.data.l[2] = a_NET_WM_STATE_MAXIMIZED_HORZ;
+    xev.xclient.data.l[3] = 1; /* application */
+    xev.xclient.data.l[4] = 0;
+
+  //_wnck_error_trap_push (display);
+    XSendEvent(display,
+               root,
+               False,
+               SubstructureRedirectMask | SubstructureNotifyMask,
+               &xev);
+  //_wnck_error_trap_pop (display);
+}
+
 /* Handler for "activate" event on Restore item of right-click menu for task buttons. */
 static void menu_restore_window(GtkWidget * widget, GtkWidget * taskbar)
 {
     TaskButton *tb = get_menu_task_button(taskbar);
-#if GTK_CHECK_VERSION(2, 24, 0)
-    GdkWindow * win = gdk_x11_window_foreign_new_for_display(gtk_widget_get_display(widget),
-                                                             tb->menu_target);
-#else
-    GdkWindow * win = gdk_window_foreign_new(tb->menu_target);
-#endif
-
-    gdk_window_unmaximize(win);
-    g_object_unref(win);
+    do_maximize(GTK_WIDGET(tb), tb->menu_target, FALSE);
 }
 
 /* Handler for "activate" event on Maximize item of right-click menu for task buttons. */
 static void menu_maximize_window(GtkWidget * widget, GtkWidget * taskbar)
 {
     TaskButton *tb = get_menu_task_button(taskbar);
-#if GTK_CHECK_VERSION(2, 24, 0)
-    GdkWindow * win = gdk_x11_window_foreign_new_for_display(gtk_widget_get_display(widget),
-                                                             tb->menu_target);
-#else
-    GdkWindow * win = gdk_window_foreign_new(tb->menu_target);
-#endif
-
-    gdk_window_maximize(win);
-    g_object_unref(win);
+    do_maximize(GTK_WIDGET(tb), tb->menu_target, TRUE);
 }
 
 /* Handler for "activate" event on Iconify item of right-click menu for task buttons. */
@@ -1435,6 +1452,11 @@ static void task_button_class_init(TaskButtonClass *klass)
                                     NULL, NULL,
                                     g_cclosure_marshal_VOID__ULONG,
                                     G_TYPE_NONE, 1, G_TYPE_ULONG);
+
+    a_NET_WM_STATE_MAXIMIZED_VERT = XInternAtom(GDK_DISPLAY_XDISPLAY(gdk_display_get_default()),
+                                                "_NET_WM_STATE_MAXIMIZED_VERT", False);
+    a_NET_WM_STATE_MAXIMIZED_HORZ = XInternAtom(GDK_DISPLAY_XDISPLAY(gdk_display_get_default()),
+                                                "_NET_WM_STATE_MAXIMIZED_HORZ", False);
 }
 
 static void task_button_init(TaskButton *self)
