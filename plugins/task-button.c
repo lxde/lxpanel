@@ -266,9 +266,15 @@ static void taskbar_popup_set_position(GtkMenu * menu, gint * px, gint * py, gbo
     *push_in = TRUE;
 }
 
-/* Handler for "activate" event on Raise item of right-click menu for task buttons. */
-static void menu_raise_window(GtkWidget * widget, TaskButton * tb)
+static inline TaskButton *get_menu_task_button(GtkWidget *taskbar)
 {
+    return g_object_get_data(G_OBJECT(taskbar), "task-button-current");
+}
+
+/* Handler for "activate" event on Raise item of right-click menu for task buttons. */
+static void menu_raise_window(GtkWidget * widget, GtkWidget * taskbar)
+{
+    TaskButton *tb = get_menu_task_button(taskbar);
     TaskDetails *tk = task_details_lookup(tb, tb->menu_target);
 
     if ((tk->desktop != ALL_WORKSPACES) && (tk->desktop != tb->desktop))
@@ -277,8 +283,9 @@ static void menu_raise_window(GtkWidget * widget, TaskButton * tb)
 }
 
 /* Handler for "activate" event on Restore item of right-click menu for task buttons. */
-static void menu_restore_window(GtkWidget * widget, TaskButton * tb)
+static void menu_restore_window(GtkWidget * widget, GtkWidget * taskbar)
 {
+    TaskButton *tb = get_menu_task_button(taskbar);
 #if GTK_CHECK_VERSION(2, 24, 0)
     GdkWindow * win = gdk_x11_window_foreign_new_for_display(gtk_widget_get_display(widget),
                                                              tb->menu_target);
@@ -291,8 +298,9 @@ static void menu_restore_window(GtkWidget * widget, TaskButton * tb)
 }
 
 /* Handler for "activate" event on Maximize item of right-click menu for task buttons. */
-static void menu_maximize_window(GtkWidget * widget, TaskButton * tb)
+static void menu_maximize_window(GtkWidget * widget, GtkWidget * taskbar)
 {
+    TaskButton *tb = get_menu_task_button(taskbar);
 #if GTK_CHECK_VERSION(2, 24, 0)
     GdkWindow * win = gdk_x11_window_foreign_new_for_display(gtk_widget_get_display(widget),
                                                              tb->menu_target);
@@ -305,28 +313,31 @@ static void menu_maximize_window(GtkWidget * widget, TaskButton * tb)
 }
 
 /* Handler for "activate" event on Iconify item of right-click menu for task buttons. */
-static void menu_iconify_window(GtkWidget * widget, TaskButton * tb)
+static void menu_iconify_window(GtkWidget * widget, GtkWidget * taskbar)
 {
+    TaskButton *tb = get_menu_task_button(taskbar);
     Display *xdisplay = GDK_DISPLAY_XDISPLAY(gtk_widget_get_display(widget));
     XIconifyWindow(xdisplay, tb->menu_target, DefaultScreen(xdisplay));
 }
 
 /* Handler for "activate" event on Move to Workspace item of right-click menu for task buttons. */
-static void menu_move_to_workspace(GtkWidget * widget, TaskButton * tb)
+static void menu_move_to_workspace(GtkWidget * widget, GtkWidget * taskbar)
 {
+    TaskButton *tb = get_menu_task_button(taskbar);
     int num = GPOINTER_TO_INT(g_object_get_data(G_OBJECT(widget), "num"));
     Xclimsg(tb->menu_target, a_NET_WM_DESKTOP, num, 0, 0, 0, 0);
 }
 
 /* Handler for "activate" event on Close item of right-click menu for task buttons. */
-static void menu_close_window(GtkWidget * widget, TaskButton * tb)
+static void menu_close_window(GtkWidget * widget, GtkWidget * taskbar)
 {
+    TaskButton *tb = get_menu_task_button(taskbar);
     Xclimsgwm(tb->menu_target, a_WM_PROTOCOLS, a_WM_DELETE_WINDOW);
 }
 
 /* Make right-click menu for task buttons.
  * This depends on number of desktops and edge. */
-static GtkWidget *taskbar_make_menu(TaskButton *tb)
+static GtkWidget *taskbar_make_menu(TaskButton *tb, GtkWidget *parent)
 {
     /* Function to iterate in direction */
     void (*_m_add)(GtkMenuShell *self, GtkWidget* child);
@@ -337,22 +348,22 @@ static GtkWidget *taskbar_make_menu(TaskButton *tb)
     /* Add Raise menu item. */
     mi = gtk_menu_item_new_with_mnemonic(_("_Raise"));
     gtk_menu_shell_append(GTK_MENU_SHELL(menu), mi);
-    g_signal_connect(G_OBJECT(mi), "activate", (GCallback) menu_raise_window, tb);
+    g_signal_connect(G_OBJECT(mi), "activate", (GCallback) menu_raise_window, parent);
 
     /* Add Restore menu item. */
     mi = gtk_menu_item_new_with_mnemonic(_("R_estore"));
     gtk_menu_shell_append(GTK_MENU_SHELL(menu), mi);
-    g_signal_connect(G_OBJECT(mi), "activate", (GCallback) menu_restore_window, tb);
+    g_signal_connect(G_OBJECT(mi), "activate", (GCallback) menu_restore_window, parent);
 
     /* Add Maximize menu item. */
     mi = gtk_menu_item_new_with_mnemonic(_("Ma_ximize"));
     gtk_menu_shell_append(GTK_MENU_SHELL(menu), mi);
-    g_signal_connect(G_OBJECT(mi), "activate", (GCallback) menu_maximize_window, tb);
+    g_signal_connect(G_OBJECT(mi), "activate", (GCallback) menu_maximize_window, parent);
 
     /* Add Iconify menu item. */
     mi = gtk_menu_item_new_with_mnemonic(_("Ico_nify"));
     gtk_menu_shell_append(GTK_MENU_SHELL(menu), mi);
-    g_signal_connect(G_OBJECT(mi), "activate", (GCallback) menu_iconify_window, tb);
+    g_signal_connect(G_OBJECT(mi), "activate", (GCallback) menu_iconify_window, parent);
 
     /* FIXME: if WM is Openbox then add "Window special parameters" submenu */
 
@@ -382,7 +393,7 @@ static GtkWidget *taskbar_make_menu(TaskButton *tb)
 
             /* Set the desktop number as a property on the menu item. */
             g_object_set_data(G_OBJECT(mi), "num", GINT_TO_POINTER(i - 1));
-            g_signal_connect(mi, "activate", G_CALLBACK(menu_move_to_workspace), tb);
+            g_signal_connect(mi, "activate", G_CALLBACK(menu_move_to_workspace), parent);
             gtk_menu_shell_append(GTK_MENU_SHELL(workspace_menu), mi);
             if (G_UNLIKELY(workspace_menu0 == NULL))
                 workspace_menu0 = mi;
@@ -395,7 +406,7 @@ static GtkWidget *taskbar_make_menu(TaskButton *tb)
         /* Add "move to all workspaces" item.  This causes the window to be visible no matter what desktop is active. */
         mi = gtk_menu_item_new_with_mnemonic(_("_All workspaces"));
         g_object_set_data(G_OBJECT(mi), "num", GINT_TO_POINTER(ALL_WORKSPACES));
-        g_signal_connect(mi, "activate", G_CALLBACK(menu_move_to_workspace), tb);
+        g_signal_connect(mi, "activate", G_CALLBACK(menu_move_to_workspace), parent);
         gtk_menu_shell_append(GTK_MENU_SHELL(workspace_menu), mi);
 
         /* FIXME: add "Current workspace" item, active if not on a current */
@@ -418,7 +429,7 @@ static GtkWidget *taskbar_make_menu(TaskButton *tb)
     _m_add(GTK_MENU_SHELL(menu), gtk_separator_menu_item_new());
     mi = gtk_menu_item_new_with_mnemonic (_("_Close Window"));
     _m_add(GTK_MENU_SHELL(menu), mi);
-    g_signal_connect(G_OBJECT(mi), "activate", (GCallback)menu_close_window, tb);
+    g_signal_connect(G_OBJECT(mi), "activate", (GCallback)menu_close_window, parent);
 
     return menu;
 }
@@ -432,11 +443,12 @@ static GtkWidget *get_task_button_menu(TaskButton *tb, TaskDetails *task)
     if (menu == NULL)
     {
         /* this GtkMenu is built on demand on the parent widget */
-        menu = taskbar_make_menu(tb);
+        menu = taskbar_make_menu(tb, parent);
         gtk_widget_show_all(menu);
         g_object_set_data_full(G_OBJECT(parent), "task-button-menu",
                                g_object_ref_sink(menu), g_object_unref);
     }
+    g_object_set_data(G_OBJECT(parent), "task-button-current", tb);
     /* save current choice for our callbacks */
     tb->menu_target = task->win;
     /* notify menu makers about current choise */
@@ -1242,6 +1254,9 @@ static gboolean task_button_button_press_event(GtkWidget *widget, GdkEventButton
             /* Not a grouped-task representative, or entered from the grouped-task popup menu. */
             menu = get_task_button_menu(tb, tb->last_focused);
         }
+        /* detach menu from other button it it's already attached */
+        if ((mi = gtk_menu_get_attach_widget(GTK_MENU(menu))) != NULL)
+            gtk_menu_detach(GTK_MENU(menu));
         /* attach menu to the widget and show it */
         gtk_menu_attach_to_widget(GTK_MENU(menu), widget, NULL);
         gtk_menu_popup(GTK_MENU(menu), NULL, NULL, taskbar_popup_set_position,
@@ -1908,4 +1923,5 @@ void task_button_reset_menu(GtkWidget *parent)
         gtk_menu_detach(GTK_MENU(menu));
         g_object_set_data(G_OBJECT(parent), "task-button-menu", NULL);
     }
+    g_object_set_data(G_OBJECT(parent), "task-button-current", NULL);
 }
