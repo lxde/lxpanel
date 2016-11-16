@@ -71,6 +71,9 @@
 * Expanded launch buttons active area to launchbar borders so if clicked
     even into desktop corner, it should activate button at that corner.
 * Fixed few memory leaks in 'battery' plugin.
+* Removed unwanted conversions with energy for charge in 'battery' plugin
+    which will mess up tooltip indications, and may make rate/percentage
+    calculations invalid.
 
 0.8.2
 -------------------------------------------------------------------------

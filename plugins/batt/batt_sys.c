@@ -41,7 +41,7 @@ battery* battery_new() {
     static int battery_num = 1;
     battery * b = g_new0 ( battery, 1 );
     b->type_battery = TRUE;
-    b->capacity_unit = "mAh";
+    //b->capacity_unit = "mAh";
     b->energy_full = -1;
     b->charge_full = -1;
     b->voltage_now = -1;
@@ -55,7 +55,7 @@ battery* battery_new() {
     b->battery_num = battery_num;
     b->seconds = -1;
     b->percentage = -1;
-    b->poststr = NULL;
+    //b->poststr = NULL;
     battery_num++;
     return b;
 }
@@ -98,6 +98,7 @@ static gchar* get_gchar_from_infofile(battery *b, gchar *sys_file)
     return parse_info_file(b, sys_file);
 }
 
+#if 0 /* never used */
 void battery_print(battery *b, int show_capacity)
 {
     if ( b->type_battery )
@@ -142,7 +143,7 @@ void battery_print(battery *b, int show_capacity)
         }
     }
 }
-
+#endif
 
 static gboolean battery_inserted(gchar* path)
 {
@@ -210,7 +211,7 @@ battery* battery_update(battery *b)
             b->state = g_strdup("unavailable");
     }
 
-
+#if 0 /* those conversions might be good for text prints but are pretty wrong for tooltip and calculations */
     /* convert energy values (in mWh) to charge values (in mAh) if needed and possible */
 
     if (b->energy_full != -1 && b->charge_full == -1) {
@@ -249,7 +250,7 @@ battery* battery_update(battery *b)
         if (b->voltage_now != -1 && b->voltage_now != 0)
             b->current_now = b->power_now * 1000 / b->voltage_now;
     }
-
+#endif
 
     if (b->charge_full < MIN_CAPACITY)
         b->percentage = 0;
@@ -262,26 +263,26 @@ battery* battery_update(battery *b)
 
 
     if (b->current_now == -1) {
-        b->poststr = "rate information unavailable";
+        //b->poststr = "rate information unavailable";
         b->seconds = -1;
     } else if (!strcasecmp(b->state, "charging")) {
         if (b->current_now > MIN_PRESENT_RATE) {
             b->seconds = 3600 * (b->charge_full - b->charge_now) / b->current_now;
-            b->poststr = " until charged";
+            //b->poststr = " until charged";
         } else {
-            b->poststr = "charging at zero rate - will never fully charge.";
+            //b->poststr = "charging at zero rate - will never fully charge.";
             b->seconds = -1;
         }
     } else if (!strcasecmp(b->state, "discharging")) {
         if (b->current_now > MIN_PRESENT_RATE) {
             b->seconds = 3600 * b->charge_now / b->current_now;
-            b->poststr = " remaining";
+            //b->poststr = " remaining";
         } else {
-            b->poststr = "discharging at zero rate - will never fully discharge.";
+            //b->poststr = "discharging at zero rate - will never fully discharge.";
             b->seconds = -1;
         }
     } else {
-        b->poststr = NULL;
+        //b->poststr = NULL;
         b->seconds = -1;
     }
 

@@ -147,14 +147,16 @@ static gchar* make_tooltip(lx_battery* lx_b, gboolean isCharging)
         return NULL;
 
     if (isCharging) {
-        int hours = lx_b->b->seconds / 3600;
-        int left_seconds = lx_b->b->seconds - 3600 * hours;
-        int minutes = left_seconds / 60;
-        tooltip = g_strdup_printf(
-                _("Battery %d: %d%% charged, %d:%02d until full"),
-                lx_b->battery_number, lx_b->b->percentage,
-                hours,
-                minutes );
+        if (lx_b->b->seconds > 0) {
+            int hours = lx_b->b->seconds / 3600;
+            int left_seconds = lx_b->b->seconds - 3600 * hours;
+            int minutes = left_seconds / 60;
+            tooltip = g_strdup_printf(
+                    _("Battery %d: %d%% charged, %d:%02d until full"),
+                    lx_b->battery_number, lx_b->b->percentage,
+                    hours,
+                    minutes );
+        }
     } else {
         /* if we have enough rate information for battery */
         if (lx_b->b->percentage != 100) {

@@ -52,14 +52,14 @@ typedef struct battery {
     int seconds;
     int percentage;
     char *state;
-    const char *poststr;
-    const char *capacity_unit;
+    //const char *poststr;
+    //const char *capacity_unit;
     int type_battery;
 } battery;
 
 battery *battery_get(int);
 battery *battery_update( battery *b );
-void battery_print(battery *b, int show_capacity);
+//void battery_print(battery *b, int show_capacity);
 gboolean battery_is_charging( battery *b );
 gint battery_get_remaining( battery *b );
 void battery_free(battery* bat);
