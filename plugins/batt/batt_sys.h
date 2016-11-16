@@ -51,8 +51,9 @@ typedef struct battery {
     /* extra info */
     int seconds;
     int percentage;
-    char *state, *poststr;
-    char* capacity_unit;
+    char *state;
+    const char *poststr;
+    const char *capacity_unit;
     int type_battery;
 } battery;
 

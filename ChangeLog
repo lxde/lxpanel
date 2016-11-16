@@ -70,6 +70,7 @@
     other dialogs appear on the same workspace where preferences was.
 * Expanded launch buttons active area to launchbar borders so if clicked
     even into desktop corner, it should activate button at that corner.
+* Fixed few memory leaks in 'battery' plugin.
 
 0.8.2
 -------------------------------------------------------------------------

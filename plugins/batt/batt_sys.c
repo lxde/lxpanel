@@ -64,20 +64,17 @@ battery* battery_new() {
 static gchar* parse_info_file(battery *b, char *sys_file)
 {
     char *buf = NULL;
-    gchar *value = NULL;
     GString *filename = g_string_new(ACPI_PATH_SYS_POWER_SUPPLY);
 
     g_string_append_printf (filename, "/%s/%s", b->path, sys_file);
 
     if (g_file_get_contents(filename->str, &buf, NULL, NULL) == TRUE) {
-        value = g_strdup( buf );
-        value = g_strstrip( value );
-        g_free( buf );
+        g_strstrip( buf );
     }
 
     g_string_free(filename, TRUE);
 
-    return value;
+    return buf;
 }
 
 /* get_gint_from_infofile():
@@ -87,11 +84,13 @@ static gchar* parse_info_file(battery *b, char *sys_file)
 static gint get_gint_from_infofile(battery *b, gchar *sys_file)
 {
     gchar *file_content = parse_info_file(b, sys_file);
+    gint value = -1;
 
     if (file_content != NULL)
-        return atoi(file_content) / 1000;
+        value = atoi(file_content) / 1000;
+    g_free(file_content);
 
-    return -1;
+    return value;
 }
 
 static gchar* get_gchar_from_infofile(battery *b, gchar *sys_file)
@@ -197,16 +196,18 @@ battery* battery_update(battery *b)
 
     gctmp = get_gchar_from_infofile(b, "type");
     b->type_battery = gctmp ? (strcasecmp(gctmp, "battery") == 0) : TRUE;
+    g_free(gctmp);
 
+    g_free(b->state);
     b->state = get_gchar_from_infofile(b, "status");
     if (!b->state)
         b->state = get_gchar_from_infofile(b, "state");
     if (!b->state) {
         if (b->charge_now != -1 || b->energy_now != -1
                 || b->charge_full != -1 || b->energy_full != -1)
-            b->state = "available";
+            b->state = g_strdup("available");
         else
-            b->state = "unavailable";
+            b->state = g_strdup("unavailable");
     }
 
 
@@ -313,7 +314,7 @@ battery *battery_get(int battery_number) {
 
         if (!b->type_battery) {
             g_warning( "Not a battery: %s", batt_path );
-            g_free(b);
+            battery_free(b);
             b = NULL;
         }
     }
@@ -341,7 +342,7 @@ battery *battery_get(int battery_number) {
                 break;
             i++;
         }
-        g_free(b);
+        battery_free(b);
         b = NULL;
     }
     if (b != NULL)
@@ -358,6 +359,7 @@ void battery_free(battery* bat)
 {
     if (bat) {
         g_free(bat->path);
+        g_free(bat->state);
         g_free(bat);
     }
 }
