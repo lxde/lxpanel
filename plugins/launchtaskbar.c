@@ -368,10 +368,11 @@ static gboolean on_launchbar_drag_source(GtkWidget *widget, GdkEvent *event,
     case GDK_BUTTON_PRESS:
         if (event->button.button != 1)
             break;
-        if (lb->dragged_launcher)
-            break;
         if (lb->in_drag)
             break;
+        if (lb->dragged_launcher)
+            fm_path_unref(lb->dragged_launcher);
+        lb->dragged_launcher = NULL;
         /* check if it is a launcher where the drag begins */
         ig = PANEL_ICON_GRID(widget);
         win = event->button.window;
@@ -393,23 +394,36 @@ static gboolean on_launchbar_drag_source(GtkWidget *widget, GdkEvent *event,
             /* this should never happen */
             break;
         if (!panel_icon_grid_get_dest_at_pos(ig, (int)x, (int)y, &btn, &pos) ||
-            !PANEL_IS_LAUNCH_BUTTON(btn) || pos != PANEL_ICON_GRID_DROP_INTO)
+            !PANEL_IS_LAUNCH_BUTTON(btn))
             break;
         /* remember the current coordinates and the launcher */
         fi = launch_button_get_file_info((LaunchButton *)btn);
         if (fi == NULL)
             break;
-        /* g_debug("started dragging button #%d at %d,%d", panel_icon_grid_get_child_position(ig, btn), (int)x, (int)y); */
-        lb->in_drag = TRUE;
         lb->dragged_launcher = fm_path_ref(fm_file_info_get_path(fi));
         lb->drag_start_x = event->button.x;
         lb->drag_start_y = event->button.y;
+        if (pos != PANEL_ICON_GRID_DROP_INTO)
+            break;
+        /* g_debug("started dragging button #%d at %d,%d", panel_icon_grid_get_child_position(ig, btn), (int)x, (int)y); */
+        lb->in_drag = TRUE;
         break;
     case GDK_BUTTON_RELEASE:
         if (event->button.button != 1)
             break;
         /* forget the drag state */
         lb->in_drag = FALSE;
+        /* if user clicked somewhere on border, he/she expects nearest
+           application to be launched, see LP bug #824071. If click was
+           delivered here, it already missed the button, so handle it */
+        if (lb->dragged_launcher &&
+            /* if it was clicked outside button and didn't moved */
+            !gtk_drag_check_threshold(widget, lb->drag_start_x, lb->drag_start_y,
+                                      event->button.x, event->button.y))
+        {
+            /* g_debug("outside click detected"); */
+            lxpanel_launch_path(lb->panel, lb->dragged_launcher);
+        }
         break;
     case GDK_MOTION_NOTIFY:
         if ((event->motion.state & GDK_BUTTON1_MASK) == 0)

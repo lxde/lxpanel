@@ -68,6 +68,8 @@
 * Fixed maximizing windows using task bar, GDK functions not always work.
 * Fixed wrong bind of preferences dialog to the panel, which resulted in
     other dialogs appear on the same workspace where preferences was.
+* Expanded launch buttons active area to launchbar borders so if clicked
+    even into desktop corner, it should activate button at that corner.
 
 0.8.2
 -------------------------------------------------------------------------
