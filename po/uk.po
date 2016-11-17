@@ -1668,7 +1668,7 @@ msgid ""
 "%sCurrent Voltage:\t\t%.3lf V"
 msgstr ""
 "\n"
-"%sНапруга зараз:\t\t%.3lf В"
+"%sНапруга зараз:\t\t\t%.3lf В"
 
 #: ../plugins/batt/batt.c:237
 msgid "No batteries found"
