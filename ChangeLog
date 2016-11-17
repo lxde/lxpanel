@@ -70,10 +70,12 @@
     other dialogs appear on the same workspace where preferences was.
 * Expanded launch buttons active area to launchbar borders so if clicked
     even into desktop corner, it should activate button at that corner.
-* Fixed few memory leaks in 'battery' plugin.
-* Removed unwanted conversions with energy for charge in 'battery' plugin
+* Fixed few memory leaks in 'batt' plugin.
+* Removed unwanted conversions with energy for charge in 'batt' plugin
     which will mess up tooltip indications, and may make rate/percentage
     calculations invalid.
+* Fixed broken panel menus for 'batt' and 'monitors' plugin - the items
+    for plugin (configure and delete) were missing.
 
 0.8.2
 -------------------------------------------------------------------------

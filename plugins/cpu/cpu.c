@@ -266,6 +266,7 @@ static GtkWidget *cpu_constructor(LXPanel *panel, config_setting_t *settings)
 
     /* Allocate drawing area as a child of top level widget. */
     c->da = gtk_drawing_area_new();
+    gtk_widget_add_events(c->da, GDK_BUTTON_PRESS_MASK);
     gtk_widget_set_size_request(c->da, 40, PANEL_HEIGHT_DEFAULT);
     gtk_container_add(GTK_CONTAINER(p), c->da);
 

@@ -171,6 +171,7 @@ monitor_init(MonitorsPlugin *mp, Monitor *m, gchar *color)
     ENTER;
 
     m->da = gtk_drawing_area_new();
+    gtk_widget_add_events(m->da, GDK_BUTTON_PRESS_MASK);
     gtk_widget_set_size_request(m->da, DEFAULT_WIDTH, panel_get_height(mp->panel));
 
     monitor_set_foreground_color(mp, m, color);
