@@ -358,6 +358,8 @@ gboolean lxpanel_launch_app(const char* exec, GList* files, gboolean in_terminal
 
 extern GdkPixbuf* lxpanel_load_icon( const char* name, int width, int height, gboolean use_fallback );
 
+void Xclimsg(Window win, Atom type, long l0, long l1, long l2, long l3, long l4);
+
 
 /* Extracted from plugin.h */
 struct _Plugin;

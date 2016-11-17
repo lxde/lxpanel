@@ -4,7 +4,7 @@
  *               2008-2009 Fred Chien <fred@lxde.org>
  *               2009 Marty Jack <martyj19@comcast.net>
  *               2011-2013 Henry Gebhardt <hsggebhardt@gmail.com>
- *               2014 Andriy Grytsenko <andrej@rep.kiev.ua>
+ *               2014-2016 Andriy Grytsenko <andrej@rep.kiev.ua>
  *
  * This file is a part of LXPanel project.
  *
@@ -118,7 +118,7 @@ typedef struct {
     unsigned int normal : 1;
 } NetWMWindowType;
 
-void Xclimsg(Window win, Atom type, long l0, long l1, long l2, long l3, long l4);
+void Xclimsgx(Screen *screen, Window win, Atom type, long l0, long l1, long l2, long l3, long l4);
 void Xclimsgwm(Window win, Atom type, Atom arg);
 void *get_xaproperty (Window win, Atom prop, Atom type, int *nitems);
 char *get_textproperty(Window win, Atom prop);

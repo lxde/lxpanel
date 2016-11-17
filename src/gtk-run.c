@@ -361,29 +361,15 @@ static void activate_window(GtkWindow* toplevel_window)
 					   gdk_atom_intern_static_string ("_NET_ACTIVE_WINDOW")))
     {
         GdkWindow* window = gtk_widget_get_window(widget);
-        GdkDisplay* display = gtk_widget_get_display(widget);
-        GdkWindow* root = gdk_screen_get_root_window(screen);
 
         /* show the window first */
         gtk_widget_show(widget);
 
         /* then, activate it */
-        XClientMessageEvent xclient;
-        memset(&xclient, 0, sizeof (xclient));
-        xclient.type = ClientMessage;
-        xclient.window = GDK_WINDOW_XID(window);
-        xclient.message_type = gdk_x11_get_xatom_by_name_for_display(display,
-								    "_NET_ACTIVE_WINDOW");
-        xclient.format = 32;
-        xclient.data.l[0] = 2; /* source indication: 2 represents direct user actions. */
-        xclient.data.l[1] = gtk_get_current_event_time();
-        xclient.data.l[2] = None; /* currently active window */
-        xclient.data.l[3] = 0;
-        xclient.data.l[4] = 0;
-
-        XSendEvent(GDK_DISPLAY_XDISPLAY(display), GDK_WINDOW_XID(root), False,
-                  SubstructureRedirectMask|SubstructureNotifyMask,
-                  (XEvent *)&xclient);
+        Xclimsgx(GDK_SCREEN_XSCREEN(screen), GDK_WINDOW_XID(window),
+                 a_NET_ACTIVE_WINDOW, 2, /* source indication: 2 represents direct user actions. */
+                 gtk_get_current_event_time(),
+                 None /* currently active window */, 0, 0);
     } /* if _NET_ACTIVE_WINDOW command is not supported */
     else
         gtk_window_present(toplevel_window);

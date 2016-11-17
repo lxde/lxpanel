@@ -469,7 +469,7 @@ static void lxpanel_init(PanelToplevel *self)
 }
 
 /* Allocate and initialize new Panel structure. */
-static LXPanel* panel_allocate(void)
+static LXPanel* panel_allocate(GdkScreen *screen)
 {
     return g_object_new(LX_TYPE_PANEL,
                         "border-width", 0,
@@ -479,6 +479,7 @@ static LXPanel* panel_allocate(void)
                         "title", "panel",
                         "type-hint", GDK_WINDOW_TYPE_HINT_DOCK,
                         "window-position", GTK_WIN_POS_NONE,
+                        "screen", screen,
                         NULL);
 }
 
@@ -1237,13 +1238,12 @@ static char* gen_panel_name( int edge, gint monitor )
 static void panel_popupmenu_create_panel( GtkMenuItem* item, LXPanel* panel )
 {
     gint m, e, monitors;
-    GdkScreen *screen;
-    LXPanel *new_panel = panel_allocate();
+    GdkScreen *screen = gtk_widget_get_screen(GTK_WIDGET(panel));
+    LXPanel *new_panel = panel_allocate(screen);
     Panel *p = new_panel->priv;
     config_setting_t *global;
 
     /* Allocate the edge. */
-    screen = gtk_widget_get_screen(GTK_WIDGET(panel));
     g_assert(screen);
     monitors = gdk_screen_get_n_monitors(screen);
     /* try to allocate edge on current monitor first */
@@ -1598,7 +1598,8 @@ panel_start_gui(LXPanel *panel, config_setting_t *list)
     Atom state[3];
     XWMHints wmhints;
     gulong val;
-    Display *xdisplay = GDK_DISPLAY_XDISPLAY(gdk_display_get_default());
+    Screen *xscreen = GDK_SCREEN_XSCREEN(gtk_widget_get_screen(GTK_WIDGET(panel)));
+    Display *xdisplay = DisplayOfScreen(xscreen);
     Panel *p = panel->priv;
     GtkWidget *w = GTK_WIDGET(panel);
     config_setting_t *s;
@@ -1663,7 +1664,7 @@ panel_start_gui(LXPanel *panel, config_setting_t *list)
     /* the settings that should be done after window is mapped */
 
     /* send it to running wm */
-    Xclimsg(p->topxwin, a_NET_WM_DESKTOP, G_MAXULONG, 0, 0, 0, 0);
+    Xclimsgx(xscreen, p->topxwin, a_NET_WM_DESKTOP, G_MAXULONG, 0, 0, 0, 0);
     /* and assign it ourself just for case when wm is not running */
     val = G_MAXULONG;
     XChangeProperty(xdisplay, p->topxwin, a_NET_WM_DESKTOP, XA_CARDINAL, 32,
@@ -1998,7 +1999,7 @@ LXPanel* panel_new( const char* config_file, const char* config_name )
 
     if (G_LIKELY(config_file))
     {
-        panel = panel_allocate();
+        panel = panel_allocate(gdk_screen_get_default());
         panel->priv->name = g_strdup(config_name);
         g_debug("starting panel from file %s",config_file);
         if (!config_read_file(panel->priv->config, config_file) ||

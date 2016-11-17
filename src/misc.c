@@ -440,10 +440,14 @@ void resolve_atoms()
 
 
 void
-Xclimsg(Window win, Atom type, long l0, long l1, long l2, long l3, long l4)
+Xclimsgx(Screen *screen, Window win, Atom type, long l0, long l1, long l2, long l3, long l4)
 {
+    Display *display = DisplayOfScreen(screen);
     XClientMessageEvent xev;
     xev.type = ClientMessage;
+    xev.serial = 0;
+    xev.send_event = True;
+    xev.display = display;
     xev.window = win;
     xev.message_type = type;
     xev.format = 32;
@@ -452,9 +456,18 @@ Xclimsg(Window win, Atom type, long l0, long l1, long l2, long l3, long l4)
     xev.data.l[2] = l2;
     xev.data.l[3] = l3;
     xev.data.l[4] = l4;
-    XSendEvent(GDK_DISPLAY_XDISPLAY(gdk_display_get_default()), GDK_ROOT_WINDOW(), False,
-          (SubstructureNotifyMask | SubstructureRedirectMask),
-          (XEvent *) &xev);
+    // _error_trap_push (display);
+    XSendEvent(display, RootWindowOfScreen(screen), False,
+               (SubstructureNotifyMask | SubstructureRedirectMask),
+               (XEvent *) &xev);
+    // _error_trap_pop (display);
+}
+
+void
+Xclimsg(Window win, Atom type, long l0, long l1, long l2, long l3, long l4)
+{
+    Xclimsgx(DefaultScreenOfDisplay(GDK_DISPLAY_XDISPLAY(gdk_display_get_default())),
+             win, type, l0, l1, l2, l3, l4);
 }
 
 void

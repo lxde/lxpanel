@@ -74,6 +74,7 @@
 * Removed unwanted conversions with energy for charge in 'batt' plugin
     which will mess up tooltip indications, and may make rate/percentage
     calculations invalid.
+* Replaced Xclimsg() with Xclimsgx() to be screen aware with X11 message.
 
 0.8.2
 -------------------------------------------------------------------------

@@ -279,40 +279,21 @@ static void menu_raise_window(GtkWidget * widget, GtkWidget * taskbar)
 {
     TaskButton *tb = get_menu_task_button(taskbar);
     TaskDetails *tk = task_details_lookup(tb, tb->menu_target);
+    Screen *screen = GDK_SCREEN_XSCREEN(gtk_widget_get_screen(widget));
 
     if ((tk->desktop != ALL_WORKSPACES) && (tk->desktop != tb->desktop))
-        Xclimsg(GDK_ROOT_WINDOW(), a_NET_CURRENT_DESKTOP, tk->desktop, 0, 0, 0, 0);
-    XMapRaised(GDK_DISPLAY_XDISPLAY(gtk_widget_get_display(widget)), tk->win);
+        Xclimsgx(screen, RootWindowOfScreen(screen), a_NET_CURRENT_DESKTOP,
+                 tk->desktop, 0, 0, 0, 0);
+    XMapRaised(DisplayOfScreen(screen), tk->win);
 }
 
 /* Handler for maximize/unmaximize. Taken from WNCK */
 static void do_maximize(GtkWidget *widget, Window xwindow, gboolean set)
 {
-    Screen  *screen = GDK_SCREEN_XSCREEN(gtk_widget_get_screen(widget));
-    Display *display = DisplayOfScreen(screen);
-    Window   root = RootWindowOfScreen(screen);
-    XEvent   xev;
-
-    xev.xclient.type = ClientMessage;
-    xev.xclient.serial = 0;
-    xev.xclient.send_event = True;
-    xev.xclient.display = display;
-    xev.xclient.window = xwindow;
-    xev.xclient.message_type = a_NET_WM_STATE;
-    xev.xclient.format = 32;
-    xev.xclient.data.l[0] = set ? a_NET_WM_STATE_ADD : a_NET_WM_STATE_REMOVE;
-    xev.xclient.data.l[1] = a_NET_WM_STATE_MAXIMIZED_VERT;
-    xev.xclient.data.l[2] = a_NET_WM_STATE_MAXIMIZED_HORZ;
-    xev.xclient.data.l[3] = 1; /* application */
-    xev.xclient.data.l[4] = 0;
-
-  //_wnck_error_trap_push (display);
-    XSendEvent(display,
-               root,
-               False,
-               SubstructureRedirectMask | SubstructureNotifyMask,
-               &xev);
-  //_wnck_error_trap_pop (display);
+    Xclimsgx(GDK_SCREEN_XSCREEN(gtk_widget_get_screen(widget)), xwindow,
+             a_NET_WM_STATE, set ? a_NET_WM_STATE_ADD : a_NET_WM_STATE_REMOVE,
+             a_NET_WM_STATE_MAXIMIZED_VERT, a_NET_WM_STATE_MAXIMIZED_HORZ,
+             1 /* application */, 0);
 }
 
 /* Handler for "activate" event on Restore item of right-click menu for task buttons. */
@@ -342,7 +323,8 @@ static void menu_move_to_workspace(GtkWidget * widget, GtkWidget * taskbar)
 {
     TaskButton *tb = get_menu_task_button(taskbar);
     int num = GPOINTER_TO_INT(g_object_get_data(G_OBJECT(widget), "num"));
-    Xclimsg(tb->menu_target, a_NET_WM_DESKTOP, num, 0, 0, 0, 0);
+    Xclimsgx(GDK_SCREEN_XSCREEN(gtk_widget_get_screen(widget)), tb->menu_target,
+             a_NET_WM_DESKTOP, num, 0, 0, 0, 0);
 }
 
 /* Handler for "activate" event on Close item of right-click menu for task buttons. */
@@ -492,17 +474,20 @@ static GtkWidget *get_task_button_menu(TaskButton *tb, TaskDetails *task)
  * We also switch the active desktop and viewport if needed. */
 static void task_raise_window(TaskButton *tb, TaskDetails *tk, guint32 time)
 {
+#if GTK_CHECK_VERSION(2, 24, 0)
     GdkDisplay *display = gtk_widget_get_display(GTK_WIDGET(tb));
-    Display *xdisplay = GDK_DISPLAY_XDISPLAY(display);
+#endif
+    Screen *xscreen = GDK_SCREEN_XSCREEN(gtk_widget_get_screen(GTK_WIDGET(tb)));
+    Display *xdisplay = DisplayOfScreen(xscreen);
 
     /* Change desktop if needed. */
     if ((tk->desktop != ALL_WORKSPACES) && (tk->desktop != tb->desktop))
-        Xclimsg(GDK_ROOT_WINDOW(), a_NET_CURRENT_DESKTOP, tk->desktop, 0, 0, 0, 0);
+        Xclimsgx(xscreen, RootWindowOfScreen(xscreen), a_NET_CURRENT_DESKTOP, tk->desktop, 0, 0, 0, 0);
 
     /* Raise the window.  We can use NET_ACTIVE_WINDOW if the window manager supports it.
      * Otherwise, do it the old way with XMapRaised and XSetInputFocus. */
     if (tb->flags.use_net_active)
-        Xclimsg(tk->win, a_NET_ACTIVE_WINDOW, 2, time, 0, 0, 0);
+        Xclimsgx(xscreen, tk->win, a_NET_ACTIVE_WINDOW, 2, time, 0, 0, 0);
     else
     {
 #if GTK_CHECK_VERSION(2, 24, 0)
@@ -526,7 +511,7 @@ static void task_raise_window(TaskButton *tb, TaskDetails *tk, guint32 time)
     /* Change viewport if needed. */
     XWindowAttributes xwa;
     XGetWindowAttributes(xdisplay, tk->win, &xwa);
-    Xclimsg(tk->win, a_NET_DESKTOP_VIEWPORT, xwa.x, xwa.y, 0, 0, 0);
+    Xclimsgx(xscreen, tk->win, a_NET_DESKTOP_VIEWPORT, xwa.x, xwa.y, 0, 0, 0);
 }
 
 /* called when list of windows menu emits signal "selection-done" */
@@ -555,7 +540,8 @@ static gboolean task_button_window_do_release_event(GtkWidget *tb, TaskDetails *
     else if (event->button == 2)
     {
         /* Middle button.  Toggle the shaded state of the window. */
-        Xclimsg(task->win, a_NET_WM_STATE,
+        Xclimsgx(GDK_SCREEN_XSCREEN(gtk_widget_get_screen(tb)),
+                task->win, a_NET_WM_STATE,
                 2,      /* a_NET_WM_STATE_TOGGLE */
                 a_NET_WM_STATE_SHADED,
                 0, 0, 0);

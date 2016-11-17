@@ -99,11 +99,12 @@ static gboolean deskno_button_press_event(GtkWidget * widget, GdkEventButton * e
     int desknum = get_net_current_desktop();
     int desks = get_net_number_of_desktops();
     int newdesk = desknum + 1;
+    Screen *xscreen = GDK_SCREEN_XSCREEN(gtk_widget_get_screen(widget));
     if (newdesk >= desks)
         newdesk = 0;
 
     /* Ask the window manager to make the new desktop current. */
-    Xclimsg(GDK_ROOT_WINDOW(), a_NET_CURRENT_DESKTOP, newdesk, 0, 0, 0, 0);
+    Xclimsgx(xscreen, RootWindowOfScreen(xscreen), a_NET_CURRENT_DESKTOP, newdesk, 0, 0, 0, 0);
     return TRUE;
 }
 
@@ -112,6 +113,7 @@ static gboolean deskno_scrolled(GtkWidget * p, GdkEventScroll * ev, DesknoPlugin
 {
     int desknum = get_net_current_desktop();
     int desks = get_net_number_of_desktops();
+    Screen *xscreen = GDK_SCREEN_XSCREEN(gtk_widget_get_screen(p));
 
     switch (ev->direction) {
         case GDK_SCROLL_DOWN:
@@ -127,7 +129,7 @@ static gboolean deskno_scrolled(GtkWidget * p, GdkEventScroll * ev, DesknoPlugin
     if (desknum < 0 || desknum >= desks)
         return TRUE;
 
-    Xclimsg(GDK_ROOT_WINDOW(), a_NET_CURRENT_DESKTOP, desknum, 0, 0, 0, 0);
+    Xclimsgx(xscreen, RootWindowOfScreen(xscreen), a_NET_CURRENT_DESKTOP, desknum, 0, 0, 0, 0);
     return TRUE;
 }
 
