@@ -157,6 +157,8 @@ static gchar* make_tooltip(lx_battery* lx_b, gboolean isCharging)
                     hours,
                     minutes );
         }
+        else
+            goto _charged;
     } else {
         /* if we have enough rate information for battery */
         if (lx_b->b->percentage != 100) {
@@ -169,9 +171,10 @@ static gchar* make_tooltip(lx_battery* lx_b, gboolean isCharging)
                     hours,
                     minutes );
         } else {
+_charged:
             tooltip = g_strdup_printf(
                     _("Battery %d: %d%% charged"),
-                    lx_b->battery_number, 100 );
+                    lx_b->battery_number, lx_b->b->percentage);
         }
     }
 
