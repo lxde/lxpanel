@@ -74,8 +74,6 @@
 * Removed unwanted conversions with energy for charge in 'batt' plugin
     which will mess up tooltip indications, and may make rate/percentage
     calculations invalid.
-* Fixed broken panel menus for 'batt' and 'monitors' plugin - the items
-    for plugin (configure and delete) were missing.
 
 0.8.2
 -------------------------------------------------------------------------
