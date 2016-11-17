@@ -1122,6 +1122,7 @@ static gboolean task_update_icon_idle(gpointer user_data)
     if (g_source_is_destroyed(g_main_current_source()))
         return FALSE;
     task = user_data;
+    task->idle_loader = 0;
     for (l = task->details; l; l = l->next)
     {
         details = l->data;
