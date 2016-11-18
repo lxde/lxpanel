@@ -257,6 +257,9 @@ static void lxpanel_size_request(GtkWidget *widget, GtkRequisition *req)
     _calculate_position(panel, &rect);
     req->width = rect.width;
     req->height = rect.height;
+    /* update data ahead of configuration request */
+    p->cw = rect.width;
+    p->ch = rect.height;
 }
 
 #if GTK_CHECK_VERSION(3, 0, 0)
@@ -298,6 +301,11 @@ static void lxpanel_size_allocate(GtkWidget *widget, GtkAllocation *a)
     GdkRectangle rect;
     gint x, y;
 
+    /* some WM like mwm are too generous giving us space more that requested
+       so let correct it right now, as much as we can */
+    a->width = MAX(8, MIN(p->cw, a->width));
+    a->height = MAX(8, MIN(p->ch, a->height));
+
     GTK_WIDGET_CLASS(lxpanel_parent_class)->size_allocate(widget, a);
 
     if (p->widthtype == WIDTH_REQUEST)
@@ -319,8 +327,7 @@ static void lxpanel_size_allocate(GtkWidget *widget, GtkAllocation *a)
     {
         p->aw = a->width;
         p->ah = a->height;
-        /* FIXME: should we "correct" requested sizes? */
-        gtk_window_move(GTK_WINDOW(widget), p->ax, p->ay);
+        gdk_window_move_resize(gtk_widget_get_window(widget), p->ax, p->ay, p->aw, p->ah);
         /* SF bug #708: strut update does not work while in size allocation */
         if (!panel->priv->strut_update_queued)
             panel->priv->strut_update_queued = g_idle_add_full(G_PRIORITY_HIGH,

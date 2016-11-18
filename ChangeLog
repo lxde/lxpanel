@@ -75,6 +75,8 @@
     which will mess up tooltip indications, and may make rate/percentage
     calculations invalid.
 * Replaced Xclimsg() with Xclimsgx() to be screen aware with X11 message.
+* Added a workaround for WM like MWM which does not properly resize down
+    widgets of panel kind. It still leaves artefacts but is better now.
 
 0.8.2
 -------------------------------------------------------------------------
