@@ -77,6 +77,9 @@
 * Replaced Xclimsg() with Xclimsgx() to be screen aware with X11 message.
 * Added a workaround for WM like MWM which does not properly resize down
     widgets of panel kind. It still leaves artefacts but is better now.
+* Added a workaround on GtkBox behavior which does not send allocation
+    requests to children in some cases, so resizing of launchtaskbar on
+    panel height change was broken.
 
 0.8.2
 -------------------------------------------------------------------------

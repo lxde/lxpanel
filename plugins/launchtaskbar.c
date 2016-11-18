@@ -149,6 +149,7 @@ struct LaunchTaskBarPlugin {
     gboolean         lb_built;
     gboolean         tb_built;
     gboolean         fixed_mode;        /* if mode cannot be changed */
+    int              w, h;              /* override GtkBox bug with allocation */
 };
 
 static gchar *launchtaskbar_rc = "style 'launchtaskbar-style' = 'theme-panel'\n"
@@ -1059,6 +1060,20 @@ static void launchtaskbar_constructor_task(LaunchTaskBarPlugin *ltbp)
     gtk_widget_set_visible(ltbp->tb_icon_grid, TRUE);
 }
 
+/* Override GtkBox bug - it does not always propagate allocation to children */
+static void on_size_allocation(GtkWidget *widget, GtkAllocation *a, LaunchTaskBarPlugin *ltbp)
+{
+    if (ltbp->w != a->width || ltbp->h != a->height)
+    {
+        ltbp->w = a->width;
+        ltbp->h = a->height;
+        if (ltbp->lb_built && gtk_widget_get_visible(ltbp->lb_icon_grid))
+            gtk_widget_queue_resize(ltbp->lb_icon_grid);
+        if (ltbp->tb_built && gtk_widget_get_visible(ltbp->tb_icon_grid))
+            gtk_widget_queue_resize(ltbp->tb_icon_grid);
+    }
+}
+
 /* Plugin constructor. */
 static GtkWidget *_launchtaskbar_constructor(LXPanel *panel, config_setting_t *settings,
                                              LtbMode mode)
@@ -1115,6 +1130,9 @@ static GtkWidget *_launchtaskbar_constructor(LXPanel *panel, config_setting_t *s
                                              ltbp->icon_size, ltbp->icon_size,
                                              3, 0, height);
     gtk_box_pack_start(GTK_BOX(p), ltbp->lb_icon_grid, FALSE, TRUE, 0);
+
+    /* Setup override on GtkBox bug */
+    g_signal_connect(p, "size-allocate", G_CALLBACK(on_size_allocation), ltbp);
 
     /* Read parameters from the configuration file. */
     config_setting_lookup_int(settings, "LaunchTaskBarMode", &ltbp->mode);
