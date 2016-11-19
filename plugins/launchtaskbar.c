@@ -2283,6 +2283,8 @@ static void taskbar_property_notify_event(LaunchTaskBarPlugin *tb, XEvent *ev)
                     get_net_wm_state(win, &nws);
                     if ( ! accept_net_wm_state(&nws))
                         task_button_drop_window(tk, win, FALSE);
+                    /* else
+                        task_button_window_state_changed(tk, win, nws); */
                 }
                 else if (at == a_NET_WM_WINDOW_TYPE)
                 {

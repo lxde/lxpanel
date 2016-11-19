@@ -145,6 +145,7 @@ static gboolean task_has_urgency(Window win)
             result = TRUE;
         XFree(hints);
     }
+    //FIXME: also test _NET_WM_STATE_DEMANDS_ATTENTION flag in _NET_WM_STATE
     return result;
 }
 
@@ -235,6 +236,7 @@ static TaskDetails *task_details_for_window(TaskButton *button, Window win)
     task_update_icon(button, details, None);
     details->urgency = task_has_urgency(win);
     details->iconified = (get_wm_state(win) == IconicState);
+    // FIXME: may want _NET_WM_STATE check
     // FIXME: check if task is focused
     /* check task visibility by flags */
     details->visible = task_is_visible(button, details);
@@ -542,7 +544,7 @@ static gboolean task_button_window_do_release_event(GtkWidget *tb, TaskDetails *
         /* Middle button.  Toggle the shaded state of the window. */
         Xclimsgx(GDK_SCREEN_XSCREEN(gtk_widget_get_screen(tb)),
                 task->win, a_NET_WM_STATE,
-                2,      /* a_NET_WM_STATE_TOGGLE */
+                a_NET_WM_STATE_TOGGLE,
                 a_NET_WM_STATE_SHADED,
                 0, 0, 0);
     }
@@ -1183,6 +1185,7 @@ static gboolean task_update_visibility(TaskButton *task)
     for (l = task->details; l; l = l->next)
     {
         details = l->data;
+        details->visible = task_is_visible(task, details);
         if (!details->visible)
             continue;
         if (details->monitor == task->monitor && !details->iconified)
@@ -1628,6 +1631,25 @@ gboolean task_button_window_xprop_changed(TaskButton *button, Window win, Atom a
 
     return TRUE;
 }
+
+/* gboolean task_button_window_state_changed(TaskButton *button, Window win, NetWMState nws)
+{
+    TaskDetails *details;
+
+    g_return_val_if_fail(PANEL_IS_TASK_BUTTON(button), FALSE);
+
+    details = task_details_lookup(button, win);
+    if (details == NULL)
+        return FALSE;
+
+    details->iconified = nws.hidden;
+    g_debug("is hidden: %d",nws.hidden);
+    details->visible = task_is_visible(button, details);
+    if (task_update_visibility(button))
+        task_redraw_label(button);
+
+    return TRUE;
+} */
 
 gboolean task_button_window_focus_changed(TaskButton *button, Window *win)
 {
