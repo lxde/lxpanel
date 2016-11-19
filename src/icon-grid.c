@@ -84,6 +84,8 @@ static void icon_grid_element_check_requisition(PanelIconGrid *ig,
     requisition->height = ig->child_height;
 }
 
+static void panel_icon_grid_calculate_size(PanelIconGrid *ig, GtkRequisition *requisition);
+
 /* Establish the widget placement of an icon grid. */
 static void panel_icon_grid_size_allocate(GtkWidget *widget,
                                           GtkAllocation *allocation)
@@ -99,6 +101,7 @@ static void panel_icon_grid_size_allocate(GtkWidget *widget,
     int x_delta;
     guint next_coord;
     guint x, y;
+    gboolean need_recalc = FALSE;
     GList *ige;
     GtkWidget *child;
 
@@ -143,6 +146,8 @@ static void panel_icon_grid_size_allocate(GtkWidget *widget,
     child_height = ig->child_height;
     if (ig->orientation == GTK_ORIENTATION_HORIZONTAL && allocation->height > 1)
     {
+        if (ig->target_dimension != allocation->height)
+            need_recalc = TRUE;
         ig->target_dimension = allocation->height;
         /* Don't allow children go out of the grid */
         if ((child_height + (int)border * 2) > allocation->height)
@@ -150,6 +155,8 @@ static void panel_icon_grid_size_allocate(GtkWidget *widget,
     }
     else if (ig->orientation == GTK_ORIENTATION_VERTICAL && allocation->width > 1)
     {
+        if (ig->target_dimension != allocation->width)
+            need_recalc = TRUE;
         ig->target_dimension = allocation->width;
         /* Don't allow children go out of the grid */
         if ((child_width + (int)border * 2) > allocation->width)
@@ -158,6 +165,8 @@ static void panel_icon_grid_size_allocate(GtkWidget *widget,
 
     /* FIXME: is there any sense to recheck rows and columns again?
        GTK+ should have it done right before this call. */
+    if (need_recalc)
+        panel_icon_grid_calculate_size(ig, &req);
 
     /* Get the constrained child geometry if the allocated geometry is insufficient.
      * All children are still the same size and share equally in the deficit. */
@@ -251,16 +260,13 @@ static void panel_icon_grid_size_allocate(GtkWidget *widget,
 }
 
 /* Establish the geometry of an icon grid. */
-static void panel_icon_grid_size_request(GtkWidget *widget,
-                                         GtkRequisition *requisition)
+static void panel_icon_grid_calculate_size(PanelIconGrid *ig,
+                                           GtkRequisition *requisition)
 {
-    PanelIconGrid *ig = PANEL_ICON_GRID(widget);
     GList *ige;
     int target_dimension = MAX(ig->target_dimension, 0);
-    guint border = gtk_container_get_border_width(GTK_CONTAINER(widget));
+    guint border = gtk_container_get_border_width(GTK_CONTAINER(ig));
     guint target_borders = MAX(2 * border, ig->spacing);
-    gint old_rows = ig->rows;
-    gint old_columns = ig->columns;
     gint row = 0, w = 0;
     GtkRequisition child_requisition;
 
@@ -340,6 +346,16 @@ static void panel_icon_grid_size_request(GtkWidget *widget,
         if (ig->rows > 0)
             requisition->height = (ig->child_height + ig->spacing) * ig->rows - ig->spacing + target_borders;
     }
+}
+
+static void panel_icon_grid_size_request(GtkWidget *widget,
+                                         GtkRequisition *requisition)
+{
+    PanelIconGrid *ig = PANEL_ICON_GRID(widget);
+    gint old_rows = ig->rows;
+    gint old_columns = ig->columns;
+
+    panel_icon_grid_calculate_size(ig, requisition);
 
     /* Apply the requisition. */
     if (ig->rows != old_rows || ig->columns != old_columns)

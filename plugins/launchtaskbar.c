@@ -1068,9 +1068,17 @@ static void on_size_allocation(GtkWidget *widget, GtkAllocation *a, LaunchTaskBa
         ltbp->w = a->width;
         ltbp->h = a->height;
         if (ltbp->lb_built && gtk_widget_get_visible(ltbp->lb_icon_grid))
-            gtk_widget_queue_resize(ltbp->lb_icon_grid);
+            panel_icon_grid_set_geometry(PANEL_ICON_GRID(ltbp->lb_icon_grid),
+                                         panel_get_orientation(ltbp->panel),
+                                         ltbp->icon_size, ltbp->icon_size,
+                                         3, 0, panel_get_height(ltbp->panel));
         if (ltbp->tb_built && gtk_widget_get_visible(ltbp->tb_icon_grid))
-            gtk_widget_queue_resize(ltbp->tb_icon_grid);
+            panel_icon_grid_set_geometry(PANEL_ICON_GRID(ltbp->tb_icon_grid),
+                                         panel_get_orientation(ltbp->panel),
+                                         ((ltbp->flags.icons_only) ? ltbp->icon_size + ICON_ONLY_EXTRA : ltbp->task_width_max),
+                                         ((ltbp->flags.icons_only) ? ltbp->icon_size + ICON_ONLY_EXTRA : ltbp->icon_size + ICON_BUTTON_TRIM),
+                                         ltbp->spacing, 0,
+                                         panel_get_height(ltbp->panel));
     }
 }
 
@@ -1840,10 +1848,10 @@ static void launchtaskbar_panel_configuration_changed(LXPanel *panel, GtkWidget 
     {
         ltbp->icon_size = new_icon_size;
         panel_icon_grid_set_geometry(PANEL_ICON_GRID(ltbp->tb_icon_grid),
-            panel_get_orientation(ltbp->panel),
+            panel_get_orientation(panel),
             ((ltbp->flags.icons_only) ? ltbp->icon_size + ICON_ONLY_EXTRA : ltbp->task_width_max),
             ((ltbp->flags.icons_only) ? ltbp->icon_size + ICON_ONLY_EXTRA : ltbp->icon_size + ICON_BUTTON_TRIM),
-            ltbp->spacing, 0, panel_get_height(ltbp->panel));
+            ltbp->spacing, 0, height);
         taskbar_reset_menu(ltbp);
         taskbar_redraw(ltbp);
     }
