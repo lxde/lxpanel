@@ -43,8 +43,20 @@ typedef struct _PanelIconGridClass      PanelIconGridClass;
 extern GtkWidget * panel_icon_grid_new(
     GtkOrientation orientation, gint child_width, gint child_height, gint spacing, gint border, gint target_dimension);
 						/* Create an icon grid */
+
+/**
+ * panel_icon_grid_set_constrain_width
+ * @ig: a widget
+ * @constrain_width: value to set
+ *
+ * Changes #PanelIconGrid::constrain-width property on the @ig. This
+ * property defines whether children of @ig may be constrained in case if
+ * the size allocated to @ig isn't sufficient to give assigned size for
+ * all existing children of @ig. All children will receive the same size
+ * deficit in described case.
+ */
 extern void panel_icon_grid_set_constrain_width(PanelIconGrid * ig, gboolean constrain_width);
-						/* Set the constrain-width property */
+
 /**
  * panel_icon_grid_set_aspect_width
  * @ig: a widget
@@ -58,7 +70,7 @@ extern void panel_icon_grid_set_constrain_width(PanelIconGrid * ig, gboolean con
  * allocated.
  * Note that if #PanelIconGrid::constrain-width is set to %TRUE then the
  * #PanelIconGrid::aspect-width is ignored and behavior of widget is that
- * if #PanelIconGrid::aspect-width is set to %FALSE.
+ * as if #PanelIconGrid::aspect-width is set to %FALSE.
  *
  * Since: 0.8.0
  */

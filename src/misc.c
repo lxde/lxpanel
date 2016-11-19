@@ -728,6 +728,7 @@ get_net_wm_state(Window win, NetWMState *nws)
     } else if (state[num3] == a_NET_WM_STATE_SHADED) {
             DBG( "NET_WM_STATE_SHADED ");
             nws->shaded = 1;
+    //FIXME: modal maximized_vert maximized_horz fullscreen above below demands_attention
     } else {
         DBG( "... ");
     }

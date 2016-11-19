@@ -475,7 +475,8 @@ gint panel_icon_grid_get_child_position(PanelIconGrid * ig, GtkWidget * child)
     return g_list_index(ig->children, child);
 }
 
-/* Reorder an icon grid element. */
+/* Reorder an icon grid element.
+   Equivalent to gtk_container_child_set(ig, child, "position", pos, NULL) */
 void panel_icon_grid_reorder_child(PanelIconGrid * ig, GtkWidget * child, gint position)
 {
     GList *old_link;

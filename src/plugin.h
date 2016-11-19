@@ -75,7 +75,9 @@ G_BEGIN_DECLS
  * Callback @button_press_event is a handler for "button-press-event"
  * signal on the plugin instance. This callback would never receive any
  * right-clicks without modifier keys because panel itself will handle it
- * showing context menu.
+ * showing context menu. This callback should never return %TRUE for the
+ * button 2 (middle-click) because that will disrupt the plugins movement
+ * feature of panel (drag & drop) for that plugin.
  *
  * Callback @show_system_menu is called when lxpanel received a message
  * by 'lxpanelctl menu' command. It will be sent to each instance if more
