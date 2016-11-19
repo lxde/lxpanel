@@ -214,20 +214,15 @@ static void panel_icon_grid_size_allocate(GtkWidget *widget,
                 x = next_coord;
                 if (direction == GTK_TEXT_DIR_RTL)
                 {
-                    next_coord = x - child_allocation.width;
-                    if (x < allocation->width - x_border)
+                    if (x < allocation->width - x_border && x - child_allocation.width < x_border)
                     {
-                        next_coord -= ig->spacing;
-                        if (next_coord < x_border)
-                        {
-                            next_coord = allocation->width - x_border;
-                            y += child_height + ig->spacing;
-                        }
+                        x = allocation->width - x_border;
+                        y += child_height + ig->spacing;
                     }
+                    next_coord = x - child_allocation.width - ig->spacing;
                 }
                 else
                 {
-                    x = next_coord;
                     if (x + child_allocation.width > allocation->width - x_border && x > x_border)
                     {
                         x = x_border;
@@ -326,13 +321,15 @@ static void panel_icon_grid_size_request(GtkWidget *widget,
             {
                 gtk_widget_size_request(ige->data, &child_requisition);
                 icon_grid_element_check_requisition(ig, &child_requisition);
-                if (w > 0 && w + child_requisition.width > target_dimension)
-                {
-                    w = 0;
-                    ig->rows++;
-                }
                 if (w > 0)
+                {
                     w += ig->spacing;
+                    if (w + child_requisition.width + (int)border > target_dimension)
+                    {
+                        w = 0;
+                        ig->rows++;
+                    }
+                }
                 w += child_requisition.width;
                 requisition->width = MAX(requisition->width, w);
             }

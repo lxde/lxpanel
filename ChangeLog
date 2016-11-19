@@ -80,6 +80,7 @@
 * Added a workaround on GtkBox behavior which does not send allocation
     requests to children in some cases, so resizing of launchtaskbar on
     panel height change was broken.
+* Fixed PanelIconGrid layout on vertical panels with more than 1 column.
 
 0.8.2
 -------------------------------------------------------------------------
