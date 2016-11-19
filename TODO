@@ -23,4 +23,4 @@
 * 'usb-unmount' plugin
 * in 0.10.0 fix "GTK2+" string to just "GTK+"
 * show/hide Raise/Restore/Maximize/Iconify in button menu depending on task
-* get rid of GDK_ROOT_WINDOW() and gdk_get_default_root_window()
+* get rid of GDK_ROOT_WINDOW() and gdk_get_default_root_window() and a_WM_STATE

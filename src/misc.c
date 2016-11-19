@@ -69,7 +69,7 @@ Atom a_XROOTPMAP_ID;
 
 /* old WM spec */
 Atom a_WM_STATE;
-Atom a_WM_CLASS;
+Atom a_WM_CLASS = XA_WM_CLASS;
 Atom a_WM_DELETE_WINDOW;
 Atom a_WM_PROTOCOLS;
 
@@ -124,7 +124,6 @@ enum{
     I_UTF8_STRING,
     I_XROOTPMAP_ID,
     I_WM_STATE,
-    I_WM_CLASS,
     I_WM_DELETE_WINDOW,
     I_WM_PROTOCOLS,
 
@@ -329,7 +328,6 @@ void resolve_atoms()
     atom_names[ I_UTF8_STRING ] = "UTF8_STRING";
     atom_names[ I_XROOTPMAP_ID ] = "_XROOTPMAP_ID";
     atom_names[ I_WM_STATE ] = "WM_STATE";
-    atom_names[ I_WM_CLASS ] = "WM_CLASS";
     atom_names[ I_WM_DELETE_WINDOW ] = "WM_DELETE_WINDOW";
     atom_names[ I_WM_PROTOCOLS ] = "WM_PROTOCOLS";
     atom_names[ I_NET_WORKAREA ] = "_NET_WORKAREA";
@@ -389,7 +387,6 @@ void resolve_atoms()
     a_UTF8_STRING = atoms[ I_UTF8_STRING ];
     a_XROOTPMAP_ID = atoms[ I_XROOTPMAP_ID ];
     a_WM_STATE = atoms[ I_WM_STATE ];
-    a_WM_CLASS = atoms[ I_WM_CLASS ];
     a_WM_DELETE_WINDOW = atoms[ I_WM_DELETE_WINDOW ];
     a_WM_PROTOCOLS = atoms[ I_WM_PROTOCOLS ];
 

@@ -41,7 +41,6 @@ extern Atom a_UTF8_STRING;
 extern Atom a_XROOTPMAP_ID;
 
 extern Atom a_WM_STATE;
-extern Atom a_WM_CLASS;
 extern Atom a_WM_DELETE_WINDOW;
 extern Atom a_WM_PROTOCOLS;
 extern Atom a_NET_WORKAREA;
