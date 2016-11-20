@@ -21,6 +21,6 @@
 * check and use weather-* standard themed icons for weather plugin
 * "Remove this Launch Button" option in launchbar context menu
 * 'usb-unmount' plugin
-* in 0.10.0 fix "GTK2+" string to just "GTK+"
+* in 0.10.0 fix "GTK2+" string to just "GTK+", spelling errors "allow to"
 * show/hide Raise/Restore/Maximize/Iconify in button menu depending on task
 * get rid of GDK_ROOT_WINDOW() and gdk_get_default_root_window() and a_WM_STATE
