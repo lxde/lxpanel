@@ -24,6 +24,7 @@
 #include <string.h>
 
 #include "icon-grid.h"
+#include "panel.h" /* for panel_get_height() */
 #include "gtk-compat.h"
 
 /* Properties */
@@ -84,7 +85,25 @@ static void icon_grid_element_check_requisition(PanelIconGrid *ig,
     requisition->height = ig->child_height;
 }
 
-static void panel_icon_grid_calculate_size(PanelIconGrid *ig, GtkRequisition *requisition);
+static void panel_icon_grid_size_request(GtkWidget *widget,
+                                         GtkRequisition *requisition);
+
+static gboolean check_for_recalc(PanelIconGrid *ig)
+{
+    GtkWidget *toplevel = gtk_widget_get_toplevel((GtkWidget *)ig);
+
+    if (LX_IS_PANEL(toplevel))
+    {
+        gint height = panel_get_height((LXPanel *)toplevel);
+
+        if (height != ig->target_dimension)
+        {
+            ig->target_dimension = height;
+            return TRUE;
+        }
+    }
+    return FALSE;
+}
 
 /* Establish the widget placement of an icon grid. */
 static void panel_icon_grid_size_allocate(GtkWidget *widget,
@@ -101,7 +120,6 @@ static void panel_icon_grid_size_allocate(GtkWidget *widget,
     int x_delta;
     guint next_coord;
     guint x, y;
-    gboolean need_recalc = FALSE;
     GList *ige;
     GtkWidget *child;
 
@@ -146,18 +164,12 @@ static void panel_icon_grid_size_allocate(GtkWidget *widget,
     child_height = ig->child_height;
     if (ig->orientation == GTK_ORIENTATION_HORIZONTAL && allocation->height > 1)
     {
-        if (ig->target_dimension != allocation->height)
-            need_recalc = TRUE;
-        ig->target_dimension = allocation->height;
         /* Don't allow children go out of the grid */
         if ((child_height + (int)border * 2) > allocation->height)
             child_height = MAX(1, allocation->height - 2 * border);
     }
     else if (ig->orientation == GTK_ORIENTATION_VERTICAL && allocation->width > 1)
     {
-        if (ig->target_dimension != allocation->width)
-            need_recalc = TRUE;
-        ig->target_dimension = allocation->width;
         /* Don't allow children go out of the grid */
         if ((child_width + (int)border * 2) > allocation->width)
             child_width = MAX(1, allocation->width - 2 * border);
@@ -165,8 +177,8 @@ static void panel_icon_grid_size_allocate(GtkWidget *widget,
 
     /* FIXME: is there any sense to recheck rows and columns again?
        GTK+ should have it done right before this call. */
-    if (need_recalc)
-        panel_icon_grid_calculate_size(ig, &req);
+    if (check_for_recalc(ig))
+        panel_icon_grid_size_request(widget, &req);
 
     /* Get the constrained child geometry if the allocated geometry is insufficient.
      * All children are still the same size and share equally in the deficit. */

@@ -303,8 +303,11 @@ static void lxpanel_size_allocate(GtkWidget *widget, GtkAllocation *a)
 
     /* some WM like mwm are too generous giving us space more that requested
        so let correct it right now, as much as we can */
-    a->width = MAX(8, MIN(p->cw, a->width));
-    a->height = MAX(8, MIN(p->ch, a->height));
+    rect.x = a->x;
+    rect.y = a->y;
+    rect.width = MAX(8, MIN(p->cw, a->width));
+    rect.height = MAX(8, MIN(p->ch, a->height));
+    _calculate_position(panel, &rect);
 
     GTK_WIDGET_CLASS(lxpanel_parent_class)->size_allocate(widget, a);
 
@@ -316,10 +319,8 @@ static void lxpanel_size_allocate(GtkWidget *widget, GtkAllocation *a)
     if (!gtk_widget_get_realized(widget))
         return;
 
-    rect = *a;
     /* get real coords since a contains 0, 0 */
     gdk_window_get_origin(gtk_widget_get_window(widget), &x, &y);
-    _calculate_position(panel, &rect);
     p->ax = rect.x;
     p->ay = rect.y;
 
@@ -327,7 +328,7 @@ static void lxpanel_size_allocate(GtkWidget *widget, GtkAllocation *a)
     {
         p->aw = a->width;
         p->ah = a->height;
-        gdk_window_move_resize(gtk_widget_get_window(widget), p->ax, p->ay, p->aw, p->ah);
+        gtk_window_move(GTK_WINDOW(widget), p->ax, p->ay);
         /* SF bug #708: strut update does not work while in size allocation */
         if (!panel->priv->strut_update_queued)
             panel->priv->strut_update_queued = g_idle_add_full(G_PRIORITY_HIGH,

@@ -1,7 +1,8 @@
 0.9.1
 -------------------------------------------------------------------------
-* Fixed build without ALSA.
+* Fixed build failure without ALSA.
 * Added alternative mixers if build using OSS.
+* Fixed panel flicker with some window managers.
 
 0.9.0
 -------------------------------------------------------------------------
