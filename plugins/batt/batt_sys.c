@@ -4,6 +4,7 @@
  *      Copyright 2009 Juergen Hötzel <juergen@archlinux.org>
  *                2015 Henry Gebhardt <hsggebhardt@googlemail.com>
  *                2015 Stanislav Kozina, Ersin <xersin@users.sf.net>
+ *                2016 Andriy Grytsenko <andrej@rep.kiev.ua>
  *
  * 	Parts shameless stolen and glibified from acpi package
  * 	Copyright (C) 2001  Grahame Bowland <grahame@angrygoats.net>
@@ -295,15 +296,8 @@ battery *battery_get(int battery_number) {
     const gchar *entry;
     gchar *batt_name = NULL;
     gchar *batt_path = NULL;
-    GDir * dir = g_dir_open( ACPI_PATH_SYS_POWER_SUPPLY, 0, &error );
+    GDir * dir;
     battery *b = NULL;
-    int i;
-
-    if ( dir == NULL )
-    {
-        g_warning( "NO ACPI/sysfs support in kernel: %s", error->message );
-        return NULL;
-    }
 
     /* Try the expected path in sysfs first */
     batt_name = g_strdup_printf(ACPI_BATTERY_DEVICE_NAME "%d", battery_number);
@@ -324,13 +318,20 @@ battery *battery_get(int battery_number) {
     g_free(batt_path);
 
     if (b != NULL)
-        goto done;
+        return b;
 
     /*
      * We didn't find the expected path in sysfs.
-     * Walk the dir and blindly return n-th entry.
+     * Walk the dir and return any battery.
      */
-    i = 0;
+    dir = g_dir_open( ACPI_PATH_SYS_POWER_SUPPLY, 0, &error );
+    if ( dir == NULL )
+    {
+        g_warning( "NO ACPI/sysfs support in kernel: %s", error->message );
+        g_error_free(error);
+        return NULL;
+    }
+
     while ( ( entry = g_dir_read_name (dir) ) != NULL )
     {
         b = battery_new();
@@ -339,9 +340,7 @@ battery *battery_get(int battery_number) {
 
         /* We're looking for a battery with the selected ID */
         if (b->type_battery == TRUE) {
-            if (i == battery_number)
-                break;
-            i++;
+            break;
         }
         battery_free(b);
         b = NULL;
@@ -349,9 +348,10 @@ battery *battery_get(int battery_number) {
     if (b != NULL)
         g_warning( "Battery entry " ACPI_BATTERY_DEVICE_NAME "%d not found, using %s",
             battery_number, b->path);
+        // FIXME: update config?
     else
         g_warning( "Battery %d not found", battery_number );
-done:
+
     g_dir_close( dir );
     return b;
 }

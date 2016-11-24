@@ -1,3 +1,5 @@
+* Fixed battery selection, it appears incompatible with 0.7.2 behavior.
+
 0.9.1
 -------------------------------------------------------------------------
 * Fixed build failure without ALSA.

@@ -17,7 +17,7 @@
 * decide 'netstat' vs 'netstatus'
 * optional libnotify support (useful for battery and volume plugins)
 * pull improvements from Raspbian
-* add Most Recent support into 'menu' plugin
+* add Most Recent support into 'menu' plugin (option: ones not by Run too)
 * check and use weather-* standard themed icons for weather plugin
 * "Remove this Launch Button" option in launchbar context menu
 * 'usb-unmount' plugin
