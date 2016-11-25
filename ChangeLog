@@ -1,4 +1,6 @@
-* Fixed battery selection, it appears incompatible with 0.7.2 behavior.
+* Fixed battery selection if battery detached but another is available.
+* Fixed battery percentage calculations if charge isn't available but
+    energy is, it appears broken in 0.9.0.
 
 0.9.1
 -------------------------------------------------------------------------

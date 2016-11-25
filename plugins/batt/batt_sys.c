@@ -167,6 +167,7 @@ static gboolean battery_inserted(gchar* path)
 battery* battery_update(battery *b)
 {
     gchar *gctmp;
+    int promille;
 
     if (b == NULL)
         return NULL;
@@ -253,15 +254,17 @@ battery* battery_update(battery *b)
     }
 #endif
 
-    if (b->charge_full < MIN_CAPACITY)
-        b->percentage = 0;
-    else {
-        int promille = (b->charge_now * 1000) / b->charge_full;
-        b->percentage = (promille + 5) / 10; /* round properly */
-    }
+    if (b->charge_now != -1 && b->charge_full != -1)
+        promille = (b->charge_now * 1000) / b->charge_full;
+    else if (b->energy_full != -1 && b->energy_now != -1)
+        /* no charge data, let try energy instead */
+        promille = (b->energy_now * 1000) / b->energy_full;
+    else
+        promille = 0;
+
+    b->percentage = (promille + 5) / 10; /* round properly */
     if (b->percentage > 100)
         b->percentage = 100;
-
 
     if (b->current_now == -1) {
         //b->poststr = "rate information unavailable";
