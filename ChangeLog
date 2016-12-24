@@ -3,6 +3,7 @@
     energy is, it appears broken in 0.9.0.
 * Fixed wrong state change on task button when hovered, it shouldn't
     receive selected state until window has urgency.
+* Fixed wrong flat button appearance when hovered, it wasn't flat.
 
 0.9.1
 -------------------------------------------------------------------------

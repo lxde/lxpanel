@@ -1357,10 +1357,10 @@ static gboolean task_button_enter_notify_event(GtkWidget *widget, GdkEventCrossi
     TaskButton *tb = PANEL_TASK_BUTTON(widget);
 
     tb->entered_state = TRUE;
+    task_draw_label(tb, tb->flags.flat_button, FALSE);
     /* As a matter of policy, avoid showing selected or prelight states on flat buttons. */
     if (tb->flags.flat_button)
-        gtk_widget_set_state(widget, GTK_STATE_NORMAL);
-    task_draw_label(tb, tb->flags.flat_button, FALSE);
+        return TRUE;
     return GTK_WIDGET_CLASS(task_button_parent_class)->enter_notify_event(widget, event);
 }
 
@@ -1370,6 +1370,8 @@ static gboolean task_button_leave_notify_event(GtkWidget *widget, GdkEventCrossi
 
     tb->entered_state = FALSE;
     task_draw_label(tb, FALSE, FALSE);
+    if (tb->flags.flat_button)
+        return TRUE;
     return GTK_WIDGET_CLASS(task_button_parent_class)->leave_notify_event(widget, event);
 }
 
@@ -1800,10 +1802,15 @@ void task_button_set_flash_state(TaskButton *button, gboolean state)
                                  m_state ? GTK_STATE_SELECTED : GTK_STATE_NORMAL);
     }
     /* Set state on the button and redraw. */
-    if (!has_flash)
-        state = button->entered_state;
     if (button->flags.flat_button)
-        task_draw_label(button, state, FALSE); /* we have to redraw bold text state */
+    {
+        if (has_flash || button->has_flash)
+        {
+            if (!has_flash)
+                state = button->entered_state;
+            task_draw_label(button, state, FALSE); /* we have to redraw bold text state */
+        }
+    }
     else if (has_flash)
         gtk_widget_set_state(GTK_WIDGET(button),
                              state ? GTK_STATE_SELECTED : GTK_STATE_NORMAL);
