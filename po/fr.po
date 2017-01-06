@@ -8,15 +8,15 @@ msgstr ""
 "Project-Id-Version: lxpanel r839\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-10-24 21:15+0300\n"
-"PO-Revision-Date: 2015-03-23 23:50+0000\n"
-"Last-Translator: Jerome Leclanche <jerome@leclan.ch>\n"
+"PO-Revision-Date: 2017-01-06 14:31+0100\n"
+"Last-Translator: Yvan Masson <yvan.masson@openmailbox.org>\n"
 "Language-Team: GNOME French Team <gnomefr@traduc.org>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Pootle 2.7.0-alpha1\n"
+"X-Generator: Poedit 1.8.11\n"
 "X-POOTLE-MTIME: 1427154620.000000\n"
 "X-Pootle-Path: /fr/lxpanel/po/fr.po\n"
 "X-Pootle-Revision: 40\n"
@@ -84,16 +84,19 @@ msgstr "Confirmer"
 #. TRANSLATORS: Replace this string with your names, one name per line.
 #: ../src/panel.c:1346
 msgid "translator-credits"
-msgstr "Cilyan Olowen <gaknar@gmail.com>Julius22"
+msgstr ""
+"Cilyan Olowen <gaknar@gmail.com>\n"
+"Julius22\n"
+"Jerome Leclanche <jerome@leclan.ch>\n"
+"Yvan Masson <yvan.masson@openmailbox.org>"
 
 #: ../src/panel.c:1351
 msgid "LXPanel"
 msgstr "LXPanel"
 
 #: ../src/panel.c:1369
-#, fuzzy
 msgid "Copyright (C) 2008-2016"
-msgstr "Copyright (C) 2008-2014"
+msgstr "Copyright (C) 2008-2016"
 
 #: ../src/panel.c:1370
 msgid "Desktop panel for LXDE project"
@@ -1034,6 +1037,8 @@ msgstr "Volume"
 #: ../plugins/volumealsa/volumealsa.c:245
 msgid "ALSA (or pulseaudio) had a problem. Please check the lxpanel logs."
 msgstr ""
+"ALSA (ou pulseaudio) a rencontré un problème. Veuillez consulter les "
+"journaux de lxpanel."
 
 #: ../plugins/volumealsa/volumealsa.c:680
 msgid ""
@@ -1051,19 +1056,19 @@ msgstr "Sourdine"
 #. Just to have these translated
 #: ../plugins/volumealsa/volumealsa.c:1293
 msgid "Line"
-msgstr ""
+msgstr "Ligne"
 
 #: ../plugins/volumealsa/volumealsa.c:1293
 msgid "LineOut"
-msgstr ""
+msgstr "Sortie ligne"
 
 #: ../plugins/volumealsa/volumealsa.c:1293
 msgid "Front"
-msgstr ""
+msgstr "Façade"
 
 #: ../plugins/volumealsa/volumealsa.c:1293
 msgid "Surround"
-msgstr ""
+msgstr "Surround"
 
 #: ../plugins/volumealsa/volumealsa.c:1293
 msgid "Speaker+LO"
@@ -1071,69 +1076,66 @@ msgstr ""
 
 #: ../plugins/volumealsa/volumealsa.c:1332
 msgid "default"
-msgstr ""
+msgstr "par défaut"
 
 #. desc, index
 #: ../plugins/volumealsa/volumealsa.c:1391
 msgid "Master"
-msgstr ""
+msgstr "Master"
 
 #: ../plugins/volumealsa/volumealsa.c:1395
 msgid "PCM"
-msgstr ""
+msgstr "PCM"
 
 #: ../plugins/volumealsa/volumealsa.c:1399
 msgid "Headphone"
-msgstr ""
+msgstr "Écouteurs"
 
 #: ../plugins/volumealsa/volumealsa.c:1420
 msgid "Click for Volume Slider"
-msgstr ""
+msgstr "Clic pour le curseur de volume"
 
 #: ../plugins/volumealsa/volumealsa.c:1424
 msgid "Click for Toggle Mute"
-msgstr ""
+msgstr "Clic pour basculer la sourdine"
 
 #: ../plugins/volumealsa/volumealsa.c:1428
 msgid "Click for Open Mixer"
-msgstr ""
+msgstr "Clic pour ouvrir la console de mixage"
 
 #. setup hotkeys
 #: ../plugins/volumealsa/volumealsa.c:1432
 msgid "Hotkey for Volume Up"
-msgstr ""
+msgstr "Raccourci pour augmenter le volume"
 
 #: ../plugins/volumealsa/volumealsa.c:1434
 msgid "Hotkey for Volume Down"
-msgstr ""
+msgstr "Raccourci pour baisser le volume"
 
 #: ../plugins/volumealsa/volumealsa.c:1436
 msgid "Hotkey for Volume Mute"
-msgstr ""
+msgstr "Raccourci pour la sourdine"
 
 #: ../plugins/volumealsa/volumealsa.c:1493
-#, fuzzy
 msgid "Audio Card"
-msgstr "Son et vidéo"
+msgstr "Carte son"
 
 #: ../plugins/volumealsa/volumealsa.c:1496
 msgid "Channel to Operate"
-msgstr ""
+msgstr "Canal à commander"
 
 #: ../plugins/volumealsa/volumealsa.c:1504
 msgid "Command to Open Mixer"
-msgstr ""
+msgstr "Commande pour ouvrir la console de mixage"
 
 #: ../plugins/volumealsa/volumealsa.c:1519
-#, fuzzy
 msgid "Launch Mixer"
-msgstr "Lanceurs"
+msgstr "Ouvrir la console de mixage"
 
 #: ../plugins/volumealsa/volumealsa.c:1531
 #: ../plugins/volumealsa/volumealsa.c:1552
-#, fuzzy
 msgid "Display and control volume"
-msgstr "Afficher et contrôler le volume pour ALSA"
+msgstr "Afficher et contrôler le volume"
 
 #: ../plugins/netstat/netstat.c:183
 msgid "<Hidden Access Point>"
@@ -1748,9 +1750,8 @@ msgid "Show Extended Information"
 msgstr "Afficher les informations supplémentaires"
 
 #: ../plugins/batt/batt.c:705
-#, fuzzy
 msgid "Number of battery to monitor"
-msgstr "Interface à surveiller"
+msgstr "Numéro de la batterie à surveiller"
 
 #: ../plugins/batt/batt.c:715
 msgid "Display battery status using ACPI"
