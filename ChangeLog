@@ -1,3 +1,8 @@
+0.9.3
+-------------------------------------------------------------------------
+* Finally fixed battery calculations, it missed Power so left time was
+    always at zero.
+
 0.9.2
 -------------------------------------------------------------------------
 * Fixed battery selection if battery detached but another is available.

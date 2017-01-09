@@ -4,7 +4,7 @@
  *      Copyright 2009 Juergen Hötzel <juergen@archlinux.org>
  *                2015 Henry Gebhardt <hsggebhardt@googlemail.com>
  *                2015 Stanislav Kozina, Ersin <xersin@users.sf.net>
- *                2016 Andriy Grytsenko <andrej@rep.kiev.ua>
+ *                2016-2017 Andriy Grytsenko <andrej@rep.kiev.ua>
  *
  * 	Parts shameless stolen and glibified from acpi package
  * 	Copyright (C) 2001  Grahame Bowland <grahame@angrygoats.net>
@@ -266,13 +266,17 @@ battery* battery_update(battery *b)
     if (b->percentage > 100)
         b->percentage = 100;
 
-    if (b->current_now == -1) {
+    if (b->power_now < -1)
+        b->power_now = - b->power_now;
+    if (b->current_now == -1 && b->power_now == -1) {
         //b->poststr = "rate information unavailable";
         b->seconds = -1;
     } else if (!strcasecmp(b->state, "charging")) {
         if (b->current_now > MIN_PRESENT_RATE) {
             b->seconds = 3600 * (b->charge_full - b->charge_now) / b->current_now;
             //b->poststr = " until charged";
+        } else if (b->power_now > 0) {
+            b->seconds = 3600 * (b->energy_full - b->energy_now) / b->power_now;
         } else {
             //b->poststr = "charging at zero rate - will never fully charge.";
             b->seconds = -1;
@@ -281,6 +285,8 @@ battery* battery_update(battery *b)
         if (b->current_now > MIN_PRESENT_RATE) {
             b->seconds = 3600 * b->charge_now / b->current_now;
             //b->poststr = " remaining";
+        } else if (b->power_now > 0) {
+            b->seconds = 3600 * b->energy_now / b->power_now;
         } else {
             //b->poststr = "discharging at zero rate - will never fully discharge.";
             b->seconds = -1;
