@@ -1970,3 +1970,12 @@ void task_button_reset_menu(GtkWidget *parent)
     }
     g_object_set_data(G_OBJECT(parent), "task-button-current", NULL);
 }
+
+/* request for a minimized window to raise */
+void task_button_raise_window(TaskButton *button, guint32 time)
+{
+    if (!PANEL_IS_TASK_BUTTON(button))
+        return;
+    if (button->details)
+        task_raise_window(button, button->details->data, time);
+}

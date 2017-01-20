@@ -121,6 +121,7 @@ struct LaunchTaskBarPlugin {
     int current_desktop;           /* Current desktop, from NET_WM_CURRENT_DESKTOP */
     guint dnd_delay_timer;         /* Timer for drag and drop delay */
     gboolean dnd_task_moving;      /* User is currently moving a task button */
+    GtkWidget *dnd_delay_task;     /* Task button to raise on drag timeout */
     int icon_size;                 /* Size of task icons */
     gboolean grouped_tasks;        /* User preference: windows from same task are grouped onto a single button */
     TaskShowFlags flags;        /* User preferences flags */
@@ -1200,6 +1201,15 @@ static void launchtaskbar_destructor_task(LaunchTaskBarPlugin *ltbp)
     if (ltbp->path)
         fm_path_unref(ltbp->path);
 #endif
+
+    /* DND delay handler */
+    if (ltbp->dnd_delay_timer != 0)
+    {
+        g_source_remove(ltbp->dnd_delay_timer);
+        ltbp->dnd_delay_timer = 0;
+    }
+    if (ltbp->dnd_delay_task)
+        g_object_remove_weak_pointer(G_OBJECT(ltbp->dnd_delay_task), (gpointer *)&ltbp->dnd_delay_task);
 }
 
 /* Plugin destructor. */
@@ -2030,11 +2040,10 @@ static void on_task_menu_target_set(TaskButton *btn, gulong win, LaunchTaskBarPl
 /* Handler for "drag-motion" timeout. */
 static gboolean taskbar_button_drag_motion_timeout(LaunchTaskBarPlugin * tb)
 {
-    //guint time;
     if (g_source_is_destroyed(g_main_current_source()))
         return FALSE;
-    //time = gtk_get_current_event_time();
-    //task_raise_window(tk, ((time != 0) ? time : CurrentTime)); // ???
+
+    task_button_raise_window(PANEL_TASK_BUTTON(tb->dnd_delay_task), CurrentTime);
     tb->dnd_delay_timer = 0;
     return FALSE;
 }
@@ -2054,6 +2063,14 @@ static gboolean taskbar_button_drag_motion(GtkWidget * widget, GdkDragContext * 
         if (tb->dnd_delay_timer == 0)
             tb->dnd_delay_timer = g_timeout_add(DRAG_ACTIVE_DELAY, (GSourceFunc) taskbar_button_drag_motion_timeout, tb);
 
+        if (tb->dnd_delay_task != widget)
+        {
+            if (tb->dnd_delay_task)
+                g_object_remove_weak_pointer(G_OBJECT(tb->dnd_delay_task), (gpointer *)&tb->dnd_delay_task);
+            tb->dnd_delay_task = widget;
+            g_object_add_weak_pointer(G_OBJECT(widget), (gpointer *)&tb->dnd_delay_task);
+        }
+
         gdk_drag_status(drag_context, 0, time);
     }
     return TRUE;
@@ -2062,8 +2079,15 @@ static gboolean taskbar_button_drag_motion(GtkWidget * widget, GdkDragContext * 
 /* Handler for "drag-drop" event from taskbar button. */
 static gboolean taskbar_button_drag_drop(GtkWidget * widget, GdkDragContext * drag_context, gint x, gint y, guint time, LaunchTaskBarPlugin * tb)
 {
-    tb->dnd_task_moving = FALSE;
     GtkWidget * drag_source = gtk_drag_get_source_widget(drag_context);
+
+    tb->dnd_task_moving = FALSE;
+    /* Cancel the timer if set. */
+    if (tb->dnd_delay_timer != 0)
+    {
+        g_source_remove(tb->dnd_delay_timer);
+        tb->dnd_delay_timer = 0;
+    }
     if (drag_source != NULL && gtk_widget_get_parent(drag_source) == gtk_widget_get_parent(widget))
     {
         if (drag_source != widget)

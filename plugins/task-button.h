@@ -85,6 +85,8 @@ TaskButton *task_button_split(TaskButton *button);
 gboolean task_button_merge(TaskButton *button, TaskButton *sibling);
 /* single-instance-menu management, should be called on button parent widget */
 void task_button_reset_menu(GtkWidget *parent);
+/* request for a minimized window to raise */
+void task_button_raise_window(TaskButton *button, guint32 time);
 
 G_END_DECLS
 
