@@ -7,16 +7,16 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-10-24 21:15+0300\n"
-"PO-Revision-Date: 2014-12-03 23:58+0000\n"
-"Last-Translator: <volkangezer@gmail.com>\n"
+"PO-Revision-Date: 2017-05-22 14:39+0000\n"
+"Last-Translator: nyucel <necdetyucel@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Pootle 2.6.0-rc2\n"
-"X-POOTLE-MTIME: 1417651085.000000\n"
+"X-Generator: Pootle 2.8\n"
+"X-POOTLE-MTIME: 1495463960.442967\n"
 "X-Pootle-Path: /tr/lxpanel/po/tr.po\n"
 "X-Pootle-Revision: 0\n"
 
@@ -85,16 +85,16 @@ msgid "translator-credits"
 msgstr ""
 "Barış Çiçek <baris@teamforce.name.tr>\n"
 "Muhammet Kara <muhammetk@acikkaynak.name.tr>\n"
-"Volkan Gezer <volkangezer@gmail.com>"
+"Volkan Gezer <volkangezer@gmail.com>\n"
+"Necdet Yücel <necdetyucel@gmail.com>"
 
 #: ../src/panel.c:1351
 msgid "LXPanel"
 msgstr "LXPanel"
 
 #: ../src/panel.c:1369
-#, fuzzy
 msgid "Copyright (C) 2008-2016"
-msgstr "Telif Hakkı (C) 2008-2014"
+msgstr "Telif Hakkı (C) 2008-2016"
 
 #: ../src/panel.c:1370
 msgid "Desktop panel for LXDE project"
@@ -1027,6 +1027,8 @@ msgstr "Ses seviyesi"
 #: ../plugins/volumealsa/volumealsa.c:245
 msgid "ALSA (or pulseaudio) had a problem. Please check the lxpanel logs."
 msgstr ""
+"ALSA (vaye pulseaudio) bir problemle karşılaştı. Lütfen lxpanel günlük "
+"dosyalarına bakın."
 
 #: ../plugins/volumealsa/volumealsa.c:680
 msgid ""
@@ -1044,88 +1046,86 @@ msgstr "Sessiz"
 #. Just to have these translated
 #: ../plugins/volumealsa/volumealsa.c:1293
 msgid "Line"
-msgstr ""
+msgstr "Giriş"
 
 #: ../plugins/volumealsa/volumealsa.c:1293
 msgid "LineOut"
-msgstr ""
+msgstr "Çıkış"
 
 #: ../plugins/volumealsa/volumealsa.c:1293
 msgid "Front"
-msgstr ""
+msgstr "Ön"
 
 #: ../plugins/volumealsa/volumealsa.c:1293
 msgid "Surround"
-msgstr ""
+msgstr "Çevresel Ses"
 
 #: ../plugins/volumealsa/volumealsa.c:1293
 msgid "Speaker+LO"
-msgstr ""
+msgstr "Hoparlör+LO"
 
 #: ../plugins/volumealsa/volumealsa.c:1332
 msgid "default"
-msgstr ""
+msgstr "varsayılan"
 
 #. desc, index
 #: ../plugins/volumealsa/volumealsa.c:1391
 msgid "Master"
-msgstr ""
+msgstr "Ana"
 
 #: ../plugins/volumealsa/volumealsa.c:1395
 msgid "PCM"
-msgstr ""
+msgstr "PCM"
 
 #: ../plugins/volumealsa/volumealsa.c:1399
 msgid "Headphone"
-msgstr ""
+msgstr "Kulaklık"
 
 #: ../plugins/volumealsa/volumealsa.c:1420
 msgid "Click for Volume Slider"
-msgstr ""
+msgstr "Ses Kaydırıcı için tıklayın"
 
 #: ../plugins/volumealsa/volumealsa.c:1424
 msgid "Click for Toggle Mute"
-msgstr ""
+msgstr "Sessize almayı değiştirmek için tıklayın"
 
 #: ../plugins/volumealsa/volumealsa.c:1428
 msgid "Click for Open Mixer"
-msgstr ""
+msgstr "Karıştırıcıyı açmak için tıklayın"
 
 #. setup hotkeys
 #: ../plugins/volumealsa/volumealsa.c:1432
 msgid "Hotkey for Volume Up"
-msgstr ""
+msgstr "Sesi Açmak için Kısayol"
 
 #: ../plugins/volumealsa/volumealsa.c:1434
 msgid "Hotkey for Volume Down"
-msgstr ""
+msgstr "Sesi Azaltmak için Kısayol"
 
 #: ../plugins/volumealsa/volumealsa.c:1436
 msgid "Hotkey for Volume Mute"
-msgstr ""
+msgstr "Sessize almak için kısayol"
 
 #: ../plugins/volumealsa/volumealsa.c:1493
 msgid "Audio Card"
-msgstr ""
+msgstr "Ses Kartı"
 
 #: ../plugins/volumealsa/volumealsa.c:1496
 msgid "Channel to Operate"
-msgstr ""
+msgstr "Çalışılacak Kanal"
 
 #: ../plugins/volumealsa/volumealsa.c:1504
 msgid "Command to Open Mixer"
-msgstr ""
+msgstr "Karıştırıcıyı Açma Komutu"
 
 #: ../plugins/volumealsa/volumealsa.c:1519
-#, fuzzy
 msgid "Launch Mixer"
-msgstr "Başlatıcılar"
+msgstr "Karıştırıcıyı Başlat"
 
 #: ../plugins/volumealsa/volumealsa.c:1531
 #: ../plugins/volumealsa/volumealsa.c:1552
-#, fuzzy
 msgid "Display and control volume"
-msgstr "ALSA için ses yüksekliğini görüntüle ve kontrol et"
+msgstr "Sesi görüntüle ve kontrol et"
 
 #: ../plugins/netstat/netstat.c:183
 msgid "<Hidden Access Point>"
@@ -1581,19 +1581,19 @@ msgid "Sending/Receiving"
 msgstr "Gönderilen/Alınan"
 
 #: ../plugins/batt/batt.c:154
-#, fuzzy, c-format
+#, c-format
 msgid "Battery %d: %d%% charged, %d:%02d until full"
-msgstr "Pil: %d%% dolu, dolmasına %d:%02d var"
+msgstr "Pil %d: %d%% dolu, dolmasına %d:%02d kaldı"
 
 #: ../plugins/batt/batt.c:165
-#, fuzzy, c-format
+#, c-format
 msgid "Battery %d: %d%% charged, %d:%02d left"
-msgstr "Pil: %d%% dolu, %d:%02d kaldı"
+msgstr "Pi %d: %d%% dolu, boşalmasına %d:%02d kaldı"
 
 #: ../plugins/batt/batt.c:171
-#, fuzzy, c-format
+#, c-format
 msgid "Battery %d: %d%% charged"
-msgstr "Pil: %d%% dolu"
+msgstr "Pil %d: %d%% dolu"
 
 #: ../plugins/batt/batt.c:181
 #, c-format
@@ -1730,9 +1730,8 @@ msgid "Show Extended Information"
 msgstr "Genişletilmiş Bilgi Göster"
 
 #: ../plugins/batt/batt.c:705
-#, fuzzy
 msgid "Number of battery to monitor"
-msgstr "İzleyici arayüzü"
+msgstr "İzlenecek pil sayısı"
 
 # GYGA: Gelişmiş Yapılandırma ve Güç Arayüzü
 #: ../plugins/batt/batt.c:715
@@ -1854,7 +1853,8 @@ msgid ""
 "- postal code\n"
 "for which to retrieve the weather forecast."
 msgstr ""
-"Hava tahmini için şunları girin:\n"
+"Hava tahmini için\n"
+"şunları girin:\n"
 "- şehir, veya\n"
 "- şehir ve eyalet/ülke veya\n"
 "- posta kodu"

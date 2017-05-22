@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-10-24 21:15+0300\n"
-"PO-Revision-Date: 2015-01-01 06:47+0000\n"
-"Last-Translator: <safa1996alfulaij@gmail.com>\n"
+"PO-Revision-Date: 2017-05-22 15:08+0000\n"
+"Last-Translator: صفا الفليج <safa1996alfulaij@gmail.com>\n"
 "Language: ar\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
-"X-Generator: Pootle 2.6.0-rc2\n"
-"X-POOTLE-MTIME: 1420094824.000000\n"
+"X-Generator: Pootle 2.8\n"
+"X-POOTLE-MTIME: 1495465725.740985\n"
 "X-Pootle-Path: /ar/lxpanel/po/ar.po\n"
 "X-Pootle-Revision: 0\n"
 
@@ -730,9 +730,9 @@ msgid "Tooltip Format"
 msgstr "تنسيق التّلميح"
 
 #: ../plugins/dclock.c:435
-#, fuzzy, c-format
+#, c-format
 msgid "Format codes: man 3 strftime; %n for line break"
-msgstr "لمعرفة شفرات التنسيق: man 3 strftime؛ اكتب \\%n لبدء سطر جديد"
+msgstr "رموز التّنسيق: man 3 strftime؛ اكتب %n لبدء سطر جديد"
 
 #: ../plugins/dclock.c:436
 msgid "Action when clicked (default: display calendar)"
@@ -1577,19 +1577,19 @@ msgid "Sending/Receiving"
 msgstr "يرسل/يستقبل"
 
 #: ../plugins/batt/batt.c:154
-#, fuzzy, c-format
+#, c-format
 msgid "Battery %d: %d%% charged, %d:%02d until full"
-msgstr "البطارية: مشحونة بنسبة %d%%، وباق %d:%02d حتى تمتلئ"
+msgstr "بطارية %d: مشحونة بنسبة %d%%، وباق %d:%02d حتى تمتلئ"
 
 #: ../plugins/batt/batt.c:165
-#, fuzzy, c-format
+#, c-format
 msgid "Battery %d: %d%% charged, %d:%02d left"
-msgstr "البطارية: مشحونة بنسبة %d%%، وباق %d:%02d"
+msgstr "بطارية %d: مشحونة بنسبة %d%%، وباق %d:%02d"
 
 #: ../plugins/batt/batt.c:171
-#, fuzzy, c-format
+#, c-format
 msgid "Battery %d: %d%% charged"
-msgstr "البطارية: مشحونة بنسبة %d%%"
+msgstr "بطارية %d: مشحونة بنسبة %d%%"
 
 #: ../plugins/batt/batt.c:181
 #, c-format
