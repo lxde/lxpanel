@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-10-24 21:15+0300\n"
-"PO-Revision-Date: 2014-12-02 11:38+0000\n"
-"Last-Translator: system user <>\n"
+"PO-Revision-Date: 2017-05-22 21:17+0000\n"
+"Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: he\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Pootle 2.7.0-alpha1\n"
-"X-POOTLE-MTIME: 1417520338.000000\n"
+"X-Generator: Pootle 2.8\n"
+"X-POOTLE-MTIME: 1495487861.453428\n"
 "X-Pootle-Path: /he/lxpanel/po/he.po\n"
 "X-Pootle-Revision: 0\n"
 
@@ -1576,19 +1576,19 @@ msgid "Sending/Receiving"
 msgstr "שולח/מקבל"
 
 #: ../plugins/batt/batt.c:154
-#, fuzzy, c-format
+#, c-format
 msgid "Battery %d: %d%% charged, %d:%02d until full"
-msgstr "סוללה: נטענו %d%%,‏ נותרו %d:%02d עד שתתמלא"
+msgstr "סוללה %d: נטענו %d%%,‏ נותרו %d:%02d עד שתתמלא"
 
 #: ../plugins/batt/batt.c:165
-#, fuzzy, c-format
+#, c-format
 msgid "Battery %d: %d%% charged, %d:%02d left"
-msgstr "סוללה: נטענו %d%%,‏ נותרו %d:%02d"
+msgstr "סוללה %d: נטענו %d%%,‏ נותרו %d:%02d"
 
 #: ../plugins/batt/batt.c:171
-#, fuzzy, c-format
+#, c-format
 msgid "Battery %d: %d%% charged"
-msgstr "סוללה: נטענו %d%%"
+msgstr "סוללה %d: נטענו %d%%"
 
 #: ../plugins/batt/batt.c:181
 #, c-format
