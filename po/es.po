@@ -7,17 +7,17 @@ msgstr ""
 "Project-Id-Version: lxpanel-0.3.5.2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-10-24 21:15+0300\n"
-"PO-Revision-Date: 2014-11-21 21:55+0000\n"
-"Last-Translator: jcsl <trcs@gmx.com>\n"
+"PO-Revision-Date: 2017-05-23 02:37+0000\n"
+"Last-Translator: Adolfo Jayme Barrientos <fitojb@ubuntu.com>\n"
 "Language-Team: Spanish <daniel@tunki.org>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Pootle 2.6.0-rc2\n"
+"X-Generator: Pootle 2.8\n"
 "X-Poedit-Bookmarks: 19,-1,-1,-1,-1,-1,-1,-1,-1,-1\n"
-"X-POOTLE-MTIME: 1416606932.000000\n"
+"X-POOTLE-MTIME: 1495507057.579545\n"
 "X-Pootle-Path: /es/lxpanel/po/es.po\n"
 "X-Pootle-Revision: 0\n"
 
@@ -92,9 +92,8 @@ msgid "LXPanel"
 msgstr "LXPanel"
 
 #: ../src/panel.c:1369
-#, fuzzy
 msgid "Copyright (C) 2008-2016"
-msgstr "© 2008–2014"
+msgstr "© 2008–2016"
 
 #: ../src/panel.c:1370
 msgid "Desktop panel for LXDE project"
@@ -1024,6 +1023,8 @@ msgstr "Volumen"
 #: ../plugins/volumealsa/volumealsa.c:245
 msgid "ALSA (or pulseaudio) had a problem. Please check the lxpanel logs."
 msgstr ""
+"Se produjo un problema con ALSA (o PulseAudio). Revise los registros de "
+"lxpanel."
 
 #: ../plugins/volumealsa/volumealsa.c:680
 msgid ""
@@ -1041,11 +1042,11 @@ msgstr "Silenciar"
 #. Just to have these translated
 #: ../plugins/volumealsa/volumealsa.c:1293
 msgid "Line"
-msgstr ""
+msgstr "Línea"
 
 #: ../plugins/volumealsa/volumealsa.c:1293
 msgid "LineOut"
-msgstr ""
+msgstr "Línea de salida"
 
 #: ../plugins/volumealsa/volumealsa.c:1293
 msgid "Front"
@@ -1580,19 +1581,19 @@ msgid "Sending/Receiving"
 msgstr "Envío/recepción"
 
 #: ../plugins/batt/batt.c:154
-#, fuzzy, c-format
+#, c-format
 msgid "Battery %d: %d%% charged, %d:%02d until full"
-msgstr "Batería: %d %% de carga, %d:%02d para completar"
+msgstr "Batería %d : %d %% de carga; %d:%02d para completar"
 
 #: ../plugins/batt/batt.c:165
-#, fuzzy, c-format
+#, c-format
 msgid "Battery %d: %d%% charged, %d:%02d left"
-msgstr "Batería: %d %% de carga, quedan %d:%02d"
+msgstr "Batería %d: %d  %% de carga; quedan %d:%02d"
 
 #: ../plugins/batt/batt.c:171
-#, fuzzy, c-format
+#, c-format
 msgid "Battery %d: %d%% charged"
-msgstr "Batería: %d %% de carga"
+msgstr "Batería %d: %d  %% de carga"
 
 #: ../plugins/batt/batt.c:181
 #, c-format
@@ -1728,9 +1729,8 @@ msgid "Show Extended Information"
 msgstr "Mostrar información detallada"
 
 #: ../plugins/batt/batt.c:705
-#, fuzzy
 msgid "Number of battery to monitor"
-msgstr "Interfaz a supervisar"
+msgstr "Número de batería que supervisar"
 
 #: ../plugins/batt/batt.c:715
 msgid "Display battery status using ACPI"

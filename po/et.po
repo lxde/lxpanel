@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-10-24 21:15+0300\n"
-"PO-Revision-Date: 2014-12-02 11:34+0000\n"
-"Last-Translator: system user <>\n"
+"PO-Revision-Date: 2017-05-23 08:48+0000\n"
+"Last-Translator: Anari Jalakas <anari.jalakas@gmail.com>\n"
 "Language-Team: Gnome Estonian translation team <gnome-et@linux.ee>\n"
 "Language: et\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Pootle 2.7.0-alpha1\n"
-"X-POOTLE-MTIME: 1417520090.000000\n"
+"X-Generator: Pootle 2.8\n"
+"X-POOTLE-MTIME: 1495529318.592699\n"
 "X-Pootle-Path: /et/lxpanel/po/et.po\n"
 "X-Pootle-Revision: 0\n"
 
@@ -87,9 +87,8 @@ msgid "LXPanel"
 msgstr "LXPaneel"
 
 #: ../src/panel.c:1369
-#, fuzzy
 msgid "Copyright (C) 2008-2016"
-msgstr "Autoriõigus (C) 2008-2014"
+msgstr "Autoriõigus (C) 2008-2016"
 
 #: ../src/panel.c:1370
 msgid "Desktop panel for LXDE project"
@@ -264,9 +263,8 @@ msgid "None"
 msgstr "Mitte ükski"
 
 #: ../src/input-button.c:322
-#, fuzzy
 msgid "Custom:"
-msgstr "Muu värvus"
+msgstr "Kohandatud:"
 
 #: ../src/input-button.c:399
 #, c-format
@@ -1030,7 +1028,7 @@ msgstr "Hääletu"
 #. Just to have these translated
 #: ../plugins/volumealsa/volumealsa.c:1293
 msgid "Line"
-msgstr ""
+msgstr "Liin"
 
 #: ../plugins/volumealsa/volumealsa.c:1293
 msgid "LineOut"
@@ -1063,7 +1061,7 @@ msgstr ""
 
 #: ../plugins/volumealsa/volumealsa.c:1399
 msgid "Headphone"
-msgstr ""
+msgstr "Kõrvaklapid"
 
 #: ../plugins/volumealsa/volumealsa.c:1420
 msgid "Click for Volume Slider"
@@ -1091,9 +1089,8 @@ msgid "Hotkey for Volume Mute"
 msgstr ""
 
 #: ../plugins/volumealsa/volumealsa.c:1493
-#, fuzzy
 msgid "Audio Card"
-msgstr "Heli & video"
+msgstr "Helikaart"
 
 #: ../plugins/volumealsa/volumealsa.c:1496
 msgid "Channel to Operate"
@@ -1571,19 +1568,19 @@ msgid "Sending/Receiving"
 msgstr "Saatmine/vastuvõtt"
 
 #: ../plugins/batt/batt.c:154
-#, fuzzy, c-format
+#, c-format
 msgid "Battery %d: %d%% charged, %d:%02d until full"
-msgstr "Aku: %d%% laaditud, täitumiseni jäänud %d:%02d"
+msgstr "Aku %d: %d%% laaditud, täitumiseni jäänud %d:%02d"
 
 #: ../plugins/batt/batt.c:165
-#, fuzzy, c-format
+#, c-format
 msgid "Battery %d: %d%% charged, %d:%02d left"
-msgstr "Aku: %d%% laaditud, %d:%02d jäänud"
+msgstr "Aku %d: %d%% laaditud, %d:%02d jäänud"
 
 #: ../plugins/batt/batt.c:171
-#, fuzzy, c-format
+#, c-format
 msgid "Battery %d: %d%% charged"
-msgstr "Aku: %d%% laaditud"
+msgstr "Aku %d: %d%% laaditud"
 
 #: ../plugins/batt/batt.c:181
 #, c-format
@@ -1905,7 +1902,7 @@ msgstr "Ilmaennustus"
 
 #: ../plugins/weather/weatherwidget.c:1323
 msgid "Updates:"
-msgstr ""
+msgstr "Uuendused:"
 
 #: ../plugins/weather/weatherwidget.c:1327
 msgid "Ma_nual"
