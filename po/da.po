@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-10-24 21:15+0300\n"
-"PO-Revision-Date: 2017-05-22 22:57+0000\n"
+"PO-Revision-Date: 2017-05-23 17:28+0000\n"
 "Last-Translator: scootergrisen <scootergrisen@gmail.com>\n"
 "Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
 "Language: da\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.8\n"
-"X-POOTLE-MTIME: 1495493833.607315\n"
+"X-POOTLE-MTIME: 1495560537.042111\n"
 "X-Pootle-Path: /da/lxpanel/po/da.po\n"
 "X-Pootle-Revision: 0\n"
 
@@ -233,18 +233,16 @@ msgstr ""
 "\n"
 
 #: ../src/input-button.c:145
-#, fuzzy
 msgid "LeftBtn"
-msgstr "Venstre"
+msgstr "VenstreKnap"
 
 #: ../src/input-button.c:148
 msgid "MiddleBtn"
 msgstr ""
 
 #: ../src/input-button.c:151
-#, fuzzy
 msgid "RightBtn"
-msgstr "Højre"
+msgstr "HøjreKnap"
 
 #: ../src/input-button.c:154
 #, c-format
@@ -474,9 +472,8 @@ msgid "Err"
 msgstr "Fejl"
 
 #: ../data/ui/panel-pref.glade.h:7
-#, fuzzy
 msgid "Warn"
-msgstr "Advarsel1"
+msgstr "Advar"
 
 #: ../data/ui/panel-pref.glade.h:8
 msgid "Info"
@@ -484,7 +481,7 @@ msgstr ""
 
 #: ../data/ui/panel-pref.glade.h:9
 msgid "All"
-msgstr ""
+msgstr "Alle"
 
 #: ../data/ui/panel-pref.glade.h:10
 msgid "Panel Preferences"
@@ -517,7 +514,7 @@ msgstr "<b>Placering</b>"
 
 #: ../data/ui/panel-pref.glade.h:23
 msgid "Icon size:"
-msgstr ""
+msgstr "Ikonstørrelse:"
 
 #: ../data/ui/panel-pref.glade.h:24
 msgid "<b>Size</b>"
@@ -609,12 +606,11 @@ msgstr "<b>Skjul automatisk</b>"
 
 #: ../data/ui/panel-pref.glade.h:47
 msgid "Log level"
-msgstr ""
+msgstr "Logniveau"
 
 #: ../data/ui/panel-pref.glade.h:48
-#, fuzzy
 msgid "<b>Log level</b>"
-msgstr "<b>Netværksenhed</b>"
+msgstr "<b>Logniveau</b>"
 
 #: ../data/ui/panel-pref.glade.h:49
 msgid "Advanced"
@@ -727,9 +723,8 @@ msgid "_Close Window"
 msgstr "_Luk vindue"
 
 #: ../plugins/task-button.c:1238
-#, fuzzy
 msgid "_Close all windows"
-msgstr "_Luk vindue"
+msgstr "Luk _alle vinduer"
 
 #: ../plugins/dclock.c:431 ../plugins/dclock.c:445
 msgid "Digital Clock"
@@ -823,14 +818,12 @@ msgstr ""
 
 #: ../plugins/xkb/xkb-plugin.c:614 ../plugins/xkb/xkb-plugin.c:743
 #: ../plugins/xkb/xkb-plugin.c:921
-#, fuzzy
 msgid "Description"
-msgstr "Placering:"
+msgstr "Beskrivelse"
 
 #: ../plugins/xkb/xkb-plugin.c:619 ../plugins/xkb/xkb-plugin.c:750
-#, fuzzy
 msgid "Id"
-msgstr "Ledig"
+msgstr "Id"
 
 #. dialog
 #: ../plugins/xkb/xkb-plugin.c:714
@@ -845,12 +838,13 @@ msgid "Add Keyboard Layout"
 msgstr "Skifter for tastaturlayout"
 
 #: ../plugins/xkb/xkb-plugin.c:911 ../plugins/xkb/xkb-plugin.c:1302
+#, fuzzy
 msgid "Flag"
-msgstr ""
+msgstr "Flag"
 
 #: ../plugins/xkb/xkb-plugin.c:916 ../plugins/xkb/xkb-plugin.c:1306
 msgid "Layout"
-msgstr ""
+msgstr "Layout"
 
 #: ../plugins/xkb/xkb-plugin.c:1212 ../plugins/xkb/xkb-plugin.c:1544
 #, fuzzy
@@ -869,7 +863,7 @@ msgstr "Skifter for tastaturlayout"
 
 #: ../plugins/xkb/xkb-plugin.c:1310
 msgid "Variant"
-msgstr ""
+msgstr "Variant"
 
 #: ../plugins/xkb/xkb-plugin.c:1319
 msgid "Change Layout Option"
@@ -898,7 +892,6 @@ msgid "_Remember layout for each window"
 msgstr "_Husk layout for hvert program"
 
 #: ../plugins/xkb/xkb-plugin.c:1395
-#, fuzzy
 msgid "Show Layout as"
 msgstr "Vis layout som"
 
@@ -908,7 +901,7 @@ msgstr ""
 
 #: ../plugins/xkb/xkb-plugin.c:1457
 msgid "Text"
-msgstr ""
+msgstr "Tekst"
 
 #: ../plugins/xkb/xkb-plugin.c:1483
 msgid "Panel Icon Size"
@@ -966,9 +959,8 @@ msgid "Temperature Monitor"
 msgstr "Temperaturovervågning"
 
 #: ../plugins/thermal/thermal.c:566
-#, fuzzy
 msgid "Normal color"
-msgstr "Vælg en farve"
+msgstr "Normal farve"
 
 #: ../plugins/thermal/thermal.c:567
 #, fuzzy
@@ -1080,7 +1072,7 @@ msgstr ""
 
 #: ../plugins/volumealsa/volumealsa.c:1332
 msgid "default"
-msgstr ""
+msgstr "standard"
 
 #. desc, index
 #: ../plugins/volumealsa/volumealsa.c:1391
@@ -1089,11 +1081,11 @@ msgstr ""
 
 #: ../plugins/volumealsa/volumealsa.c:1395
 msgid "PCM"
-msgstr ""
+msgstr "PCM"
 
 #: ../plugins/volumealsa/volumealsa.c:1399
 msgid "Headphone"
-msgstr ""
+msgstr "Hovedtelefon"
 
 #: ../plugins/volumealsa/volumealsa.c:1420
 msgid "Click for Volume Slider"
@@ -1778,9 +1770,8 @@ msgid "Messaging Menu"
 msgstr ""
 
 #: ../plugins/indicator/indicator.c:868
-#, fuzzy
 msgid "Network Menu"
-msgstr "Menu for mapper"
+msgstr "Netværksmenu"
 
 #: ../plugins/indicator/indicator.c:869
 msgid "Session Menu"
@@ -1811,9 +1802,8 @@ msgid "Resource monitors"
 msgstr "Grænseflade til overvågning"
 
 #: ../plugins/monitors/monitors.c:726
-#, fuzzy
 msgid "CPU color"
-msgstr "Vælg en farve"
+msgstr "CPU-farve"
 
 #: ../plugins/monitors/monitors.c:727
 #, fuzzy
@@ -1842,9 +1832,8 @@ msgid "Enter New Location"
 msgstr ""
 
 #: ../plugins/weather/weatherwidget.c:806
-#, fuzzy
 msgid "_New Location:"
-msgstr "Netværksforbindelse"
+msgstr "_Ny placering:"
 
 #: ../plugins/weather/weatherwidget.c:817
 msgid ""
@@ -1866,9 +1855,8 @@ msgid "Location '%s' not found!"
 msgstr ""
 
 #: ../plugins/weather/weatherwidget.c:1060
-#, fuzzy
 msgid "Preferences"
-msgstr "Indstillinger for panel"
+msgstr "Indstillinger"
 
 #: ../plugins/weather/weatherwidget.c:1066
 msgid "Refresh"
@@ -1876,7 +1864,7 @@ msgstr ""
 
 #: ../plugins/weather/weatherwidget.c:1072
 msgid "Quit"
-msgstr ""
+msgstr "Afslut"
 
 #: ../plugins/weather/weatherwidget.c:1229
 #, fuzzy
@@ -1904,13 +1892,12 @@ msgid "Display"
 msgstr ""
 
 #: ../plugins/weather/weatherwidget.c:1274
-#, fuzzy
 msgid "Name:"
-msgstr "_Navn:"
+msgstr "Navn:"
 
 #: ../plugins/weather/weatherwidget.c:1278
 msgid "Units:"
-msgstr ""
+msgstr "Enheder:"
 
 #: ../plugins/weather/weatherwidget.c:1282
 msgid "_Metric (°C)"
@@ -1922,11 +1909,11 @@ msgstr ""
 
 #: ../plugins/weather/weatherwidget.c:1319
 msgid "Forecast"
-msgstr ""
+msgstr "Prognose"
 
 #: ../plugins/weather/weatherwidget.c:1323
 msgid "Updates:"
-msgstr ""
+msgstr "Opdateringer:"
 
 #: ../plugins/weather/weatherwidget.c:1327
 msgid "Ma_nual"
@@ -1938,11 +1925,11 @@ msgstr ""
 
 #: ../plugins/weather/weatherwidget.c:1352
 msgid "minutes"
-msgstr ""
+msgstr "minutter"
 
 #: ../plugins/weather/weatherwidget.c:1361
 msgid "Source:"
-msgstr ""
+msgstr "Kilde:"
 
 #: ../plugins/weather/weatherwidget.c:1477
 msgid "C_hange"
@@ -1956,7 +1943,7 @@ msgstr ""
 
 #: ../plugins/weather/weatherwidget.c:1589
 msgid "Location:"
-msgstr ""
+msgstr "Placering:"
 
 #: ../plugins/weather/weatherwidget.c:1612
 msgid "Last updated:"
@@ -1977,7 +1964,7 @@ msgstr "IP-Addresse:"
 
 #: ../plugins/weather/weatherwidget.c:1718
 msgid "Visibility:"
-msgstr ""
+msgstr "Sigtbarhed:"
 
 #: ../plugins/weather/weatherwidget.c:1746
 msgid "Wind:"
@@ -1985,11 +1972,11 @@ msgstr ""
 
 #: ../plugins/weather/weatherwidget.c:1769
 msgid "Sunrise:"
-msgstr ""
+msgstr "Solopgang:"
 
 #: ../plugins/weather/weatherwidget.c:1792
 msgid "Sunset:"
-msgstr ""
+msgstr "Solnedgang:"
 
 #: ../plugins/weather/weatherwidget.c:1898
 #: ../plugins/weather/weatherwidget.c:2234
@@ -2015,11 +2002,11 @@ msgstr ""
 
 #: ../plugins/weather/weatherwidget.c:2070
 msgid "City"
-msgstr ""
+msgstr "By"
 
 #: ../plugins/weather/weatherwidget.c:2090
 msgid "Country"
-msgstr ""
+msgstr "Land"
 
 #. make it nice and pretty
 #: ../plugins/weather/weatherwidget.c:2221
@@ -2029,11 +2016,11 @@ msgstr "Aktuelt indlæste udvidelsesmoduler"
 
 #: ../plugins/weather/weatherwidget.c:2223
 msgid "Today: "
-msgstr ""
+msgstr "I dag: "
 
 #: ../plugins/weather/weatherwidget.c:2224
 msgid "Tomorrow: "
-msgstr ""
+msgstr "I morgen: "
 
 #: ../plugins/weather/weather.c:332
 #, fuzzy
