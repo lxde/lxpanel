@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: lxpanel-0.3.5.2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-10-24 21:15+0300\n"
-"PO-Revision-Date: 2017-05-23 02:37+0000\n"
+"PO-Revision-Date: 2017-05-23 22:46+0000\n"
 "Last-Translator: Adolfo Jayme Barrientos <fitojb@ubuntu.com>\n"
 "Language-Team: Spanish <daniel@tunki.org>\n"
 "Language: es\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.8\n"
 "X-Poedit-Bookmarks: 19,-1,-1,-1,-1,-1,-1,-1,-1,-1\n"
-"X-POOTLE-MTIME: 1495507057.579545\n"
+"X-POOTLE-MTIME: 1495579564.668267\n"
 "X-Pootle-Path: /es/lxpanel/po/es.po\n"
 "X-Pootle-Revision: 0\n"
 
@@ -82,7 +82,7 @@ msgstr "Confirmar"
 #: ../src/panel.c:1346
 msgid "translator-credits"
 msgstr ""
-"Adolfo Jayme Barrientos <fitojb@ubuntu.com>, 2013-2014\n"
+"Adolfo Jayme Barrientos <fitojb@ubuntu.com>, 2013-2017\n"
 "Hugo Florentino <hugo@acdam.cu>, 2009-2012\n"
 "Guillermo Iguarán <johnnyprez@gmail.com>, 2009\n"
 "Daniel Pacheco <daniel@tunki.org>, 2008"
@@ -253,8 +253,7 @@ msgstr "Botón %s"
 #, c-format
 msgid "Key combination '%s' cannot be used as a global hotkey, sorry."
 msgstr ""
-"La combinación de teclas '%s' no se puede usar como atajo de teclado global, "
-"lo siento."
+"No se puede usar la combinación de teclas «%s» como atajo de teclado global."
 
 #: ../src/input-button.c:218 ../src/input-button.c:401
 #: ../plugins/netstatus/netstatus-iface.c:191
@@ -274,7 +273,7 @@ msgstr "Personalizado:"
 #: ../src/input-button.c:399
 #, c-format
 msgid "Cannot assign '%s' as a global hotkey: it is already bound."
-msgstr "No se puede asignar '%s' como atajo de teclado global: ya está en uso."
+msgstr "No se puede asignar «%s» como atajo de teclado global: ya está en uso."
 
 #: ../src/space.c:394 ../src/space.c:403
 msgid "Spacer"
@@ -340,7 +339,7 @@ msgstr "Combinar múltiples ventanas de aplicaciones en un solo botón"
 
 #: ../data/ui/launchtaskbar.glade.h:14
 msgid "Disable enlargement for small task icons"
-msgstr "Deshabilitar el aumento de tamaño de los iconos de tarea pequeños."
+msgstr "Desactivar el aumento de tamaño de los iconos de tarea pequeños."
 
 #: ../data/ui/launchtaskbar.glade.h:15
 msgid "Maximum width of task button"
@@ -1050,44 +1049,44 @@ msgstr "Línea de salida"
 
 #: ../plugins/volumealsa/volumealsa.c:1293
 msgid "Front"
-msgstr ""
+msgstr "Frontal"
 
 #: ../plugins/volumealsa/volumealsa.c:1293
 msgid "Surround"
-msgstr ""
+msgstr "Envolvente"
 
 #: ../plugins/volumealsa/volumealsa.c:1293
 msgid "Speaker+LO"
-msgstr ""
+msgstr "Altavoz + LS"
 
 #: ../plugins/volumealsa/volumealsa.c:1332
 msgid "default"
-msgstr ""
+msgstr "predeterminado"
 
 #. desc, index
 #: ../plugins/volumealsa/volumealsa.c:1391
 msgid "Master"
-msgstr ""
+msgstr "Maestro"
 
 #: ../plugins/volumealsa/volumealsa.c:1395
 msgid "PCM"
-msgstr ""
+msgstr "PCM"
 
 #: ../plugins/volumealsa/volumealsa.c:1399
 msgid "Headphone"
-msgstr ""
+msgstr "Auriculares"
 
 #: ../plugins/volumealsa/volumealsa.c:1420
 msgid "Click for Volume Slider"
-msgstr ""
+msgstr "Pulse para mostrar el control de volumen"
 
 #: ../plugins/volumealsa/volumealsa.c:1424
 msgid "Click for Toggle Mute"
-msgstr ""
+msgstr "Pulse para silenciar o restaurar el sonido"
 
 #: ../plugins/volumealsa/volumealsa.c:1428
 msgid "Click for Open Mixer"
-msgstr ""
+msgstr "Pulse para abrir el mezclador"
 
 #. setup hotkeys
 #: ../plugins/volumealsa/volumealsa.c:1432
@@ -1103,28 +1102,25 @@ msgid "Hotkey for Volume Mute"
 msgstr ""
 
 #: ../plugins/volumealsa/volumealsa.c:1493
-#, fuzzy
 msgid "Audio Card"
-msgstr "Audio & video"
+msgstr "Tarjeta de sonido"
 
 #: ../plugins/volumealsa/volumealsa.c:1496
 msgid "Channel to Operate"
-msgstr ""
+msgstr "Canal que operar"
 
 #: ../plugins/volumealsa/volumealsa.c:1504
 msgid "Command to Open Mixer"
-msgstr ""
+msgstr "Orden para abrir el mezclador"
 
 #: ../plugins/volumealsa/volumealsa.c:1519
-#, fuzzy
 msgid "Launch Mixer"
-msgstr "Lanzadores"
+msgstr "Abrir el mezclador"
 
 #: ../plugins/volumealsa/volumealsa.c:1531
 #: ../plugins/volumealsa/volumealsa.c:1552
-#, fuzzy
 msgid "Display and control volume"
-msgstr "Visor y control de volumen para ALSA"
+msgstr "Muestra y ajusta el volumen"
 
 #: ../plugins/netstat/netstat.c:183
 msgid "<Hidden Access Point>"

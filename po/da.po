@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-10-24 21:15+0300\n"
-"PO-Revision-Date: 2017-05-23 17:28+0000\n"
+"PO-Revision-Date: 2017-05-23 23:41+0000\n"
 "Last-Translator: scootergrisen <scootergrisen@gmail.com>\n"
 "Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
 "Language: da\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.8\n"
-"X-POOTLE-MTIME: 1495560537.042111\n"
+"X-POOTLE-MTIME: 1495582905.871765\n"
 "X-Pootle-Path: /da/lxpanel/po/da.po\n"
 "X-Pootle-Revision: 0\n"
 
@@ -477,7 +477,7 @@ msgstr "Advar"
 
 #: ../data/ui/panel-pref.glade.h:8
 msgid "Info"
-msgstr ""
+msgstr "Info"
 
 #: ../data/ui/panel-pref.glade.h:9
 msgid "All"
@@ -1775,11 +1775,11 @@ msgstr "Netværksmenu"
 
 #: ../plugins/indicator/indicator.c:869
 msgid "Session Menu"
-msgstr ""
+msgstr "Sessionsmenu"
 
 #: ../plugins/indicator/indicator.c:870
 msgid "Sound Menu"
-msgstr ""
+msgstr "Lydmenu"
 
 #: ../plugins/indicator/indicator.c:882
 #, fuzzy
@@ -1789,12 +1789,12 @@ msgstr "Tilføj en adskiller til panelet"
 #: ../plugins/monitors/monitors.c:281
 #, c-format
 msgid "CPU usage: %.2f%%"
-msgstr ""
+msgstr "CPU-forbrug: %.2f%%"
 
 #: ../plugins/monitors/monitors.c:377
 #, c-format
 msgid "RAM usage: %.1fMB (%.2f%%)"
-msgstr ""
+msgstr "RAM-forbrug: %.1fMB (%.2f%%)"
 
 #: ../plugins/monitors/monitors.c:723 ../plugins/monitors/monitors.c:808
 #, fuzzy
@@ -1812,7 +1812,7 @@ msgstr "Vis CPU-belastning"
 
 #: ../plugins/monitors/monitors.c:728
 msgid "RAM color"
-msgstr ""
+msgstr "RAM-farve"
 
 #: ../plugins/monitors/monitors.c:729
 #, fuzzy
@@ -1829,7 +1829,7 @@ msgstr ""
 
 #: ../plugins/weather/weatherwidget.c:792
 msgid "Enter New Location"
-msgstr ""
+msgstr "Indtast ny placering"
 
 #: ../plugins/weather/weatherwidget.c:806
 msgid "_New Location:"
@@ -1885,7 +1885,7 @@ msgstr "Konf_igurer"
 #: ../plugins/weather/weatherwidget.c:1249
 #: ../plugins/weather/weatherwidget.c:1521
 msgid "_Set"
-msgstr ""
+msgstr "_Sæt"
 
 #: ../plugins/weather/weatherwidget.c:1270
 msgid "Display"
@@ -1901,11 +1901,11 @@ msgstr "Enheder:"
 
 #: ../plugins/weather/weatherwidget.c:1282
 msgid "_Metric (°C)"
-msgstr ""
+msgstr "_Metrisk (°C)"
 
 #: ../plugins/weather/weatherwidget.c:1284
 msgid "_English (°F)"
-msgstr ""
+msgstr "_Engelsk (°F)"
 
 #: ../plugins/weather/weatherwidget.c:1319
 msgid "Forecast"
@@ -1921,7 +1921,7 @@ msgstr ""
 
 #: ../plugins/weather/weatherwidget.c:1331
 msgid "_Automatic, every"
-msgstr ""
+msgstr "_Automatisk, hver"
 
 #: ../plugins/weather/weatherwidget.c:1352
 msgid "minutes"
@@ -1933,7 +1933,7 @@ msgstr "Kilde:"
 
 #: ../plugins/weather/weatherwidget.c:1477
 msgid "C_hange"
-msgstr ""
+msgstr "_Skift"
 
 #. Both are available
 #: ../plugins/weather/weatherwidget.c:1565
@@ -1947,20 +1947,19 @@ msgstr "Placering:"
 
 #: ../plugins/weather/weatherwidget.c:1612
 msgid "Last updated:"
-msgstr ""
+msgstr "Sidst opdateret:"
 
 #: ../plugins/weather/weatherwidget.c:1639
 msgid "Feels like:"
-msgstr ""
+msgstr "Føles som:"
 
 #: ../plugins/weather/weatherwidget.c:1664
 msgid "Humidity:"
-msgstr ""
+msgstr "Luftfugtighed:"
 
 #: ../plugins/weather/weatherwidget.c:1691
-#, fuzzy
 msgid "Pressure:"
-msgstr "IP-Addresse:"
+msgstr "Tryk:"
 
 #: ../plugins/weather/weatherwidget.c:1718
 msgid "Visibility:"
