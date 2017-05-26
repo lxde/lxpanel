@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: master\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-10-24 21:15+0300\n"
-"PO-Revision-Date: 2017-05-23 16:17+0000\n"
+"PO-Revision-Date: 2017-05-25 16:59+0000\n"
 "Last-Translator: Baurzhan Muftakhidinov <baurthefirst@gmail.com>\n"
 "Language-Team: Kazakh <kk_KZ@googlegroups.com>\n"
 "Language: kk\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pootle 2.8\n"
-"X-POOTLE-MTIME: 1495556268.958257\n"
+"X-POOTLE-MTIME: 1495731571.601482\n"
 "X-Pootle-Path: /kk/lxpanel/po/kk.po\n"
 "X-Pootle-Revision: 0\n"
 
@@ -247,6 +247,7 @@ msgstr "Бат.%s"
 #, c-format
 msgid "Key combination '%s' cannot be used as a global hotkey, sorry."
 msgstr ""
+"'%s' пернелер комбинациясын глобалды жарлық ретінде қолдану мүмкін емес."
 
 #: ../src/input-button.c:218 ../src/input-button.c:401
 #: ../plugins/netstatus/netstatus-iface.c:191
@@ -260,14 +261,15 @@ msgid "None"
 msgstr "Жоқ"
 
 #: ../src/input-button.c:322
-#, fuzzy
 msgid "Custom:"
-msgstr "Таңдауыңызша түс"
+msgstr "Таңдауыңызша:"
 
 #: ../src/input-button.c:399
 #, c-format
 msgid "Cannot assign '%s' as a global hotkey: it is already bound."
 msgstr ""
+"\"%s\" глобалды жарлық ретінде тағайындау мүмкін емес: ол қолдануда болып "
+"тұр."
 
 #: ../src/space.c:394 ../src/space.c:403
 msgid "Spacer"
@@ -333,7 +335,7 @@ msgstr "Қолданбаның бірнеше терезесін бір баты
 
 #: ../data/ui/launchtaskbar.glade.h:14
 msgid "Disable enlargement for small task icons"
-msgstr ""
+msgstr "Тапсырмалардың кіші таңбашаларын үлкейтуге тыйым салу"
 
 #: ../data/ui/launchtaskbar.glade.h:15
 msgid "Maximum width of task button"
@@ -937,19 +939,16 @@ msgid "Temperature Monitor"
 msgstr "Температураны бақылаушысы"
 
 #: ../plugins/thermal/thermal.c:566
-#, fuzzy
 msgid "Normal color"
-msgstr "Таңдауыңызша түс"
+msgstr "Қалыпты түс"
 
 #: ../plugins/thermal/thermal.c:567
-#, fuzzy
 msgid "Warning1 color"
-msgstr "Зарядталу түсі 1"
+msgstr "Ескерту түсі 1"
 
 #: ../plugins/thermal/thermal.c:568
-#, fuzzy
 msgid "Warning2 color"
-msgstr "Зарядталу түсі 1"
+msgstr "Ескерту түсі 2"
 
 #: ../plugins/thermal/thermal.c:569
 msgid "Automatic sensor location"
@@ -967,14 +966,12 @@ msgstr "Температураның автодеңгейлері"
 
 #. FIXME: if off, disable two below
 #: ../plugins/thermal/thermal.c:572
-#, fuzzy
 msgid "Warning1 temperature"
-msgstr "1-ші ескерту температурасы"
+msgstr "Температура шегі 1"
 
 #: ../plugins/thermal/thermal.c:573
-#, fuzzy
 msgid "Warning2 temperature"
-msgstr "2-ші ескерту температурасы"
+msgstr "Температура шегі 2"
 
 #: ../plugins/thermal/thermal.c:583
 msgid "Display system temperature"
@@ -1020,6 +1017,7 @@ msgstr "Дыбыс"
 #: ../plugins/volumealsa/volumealsa.c:245
 msgid "ALSA (or pulseaudio) had a problem. Please check the lxpanel logs."
 msgstr ""
+"ALSA (немесе pulseaudio) мәселесі орын алды. lxpanel журналдарын тексеріңіз."
 
 #: ../plugins/volumealsa/volumealsa.c:680
 msgid ""
@@ -1037,88 +1035,86 @@ msgstr "Басу"
 #. Just to have these translated
 #: ../plugins/volumealsa/volumealsa.c:1293
 msgid "Line"
-msgstr ""
+msgstr "Сызықтық"
 
 #: ../plugins/volumealsa/volumealsa.c:1293
 msgid "LineOut"
-msgstr ""
+msgstr "Сызықтық шығыс"
 
 #: ../plugins/volumealsa/volumealsa.c:1293
 msgid "Front"
-msgstr ""
+msgstr "Алдыңғы"
 
 #: ../plugins/volumealsa/volumealsa.c:1293
 msgid "Surround"
-msgstr ""
+msgstr "Айнала"
 
 #: ../plugins/volumealsa/volumealsa.c:1293
 msgid "Speaker+LO"
-msgstr ""
+msgstr "Динамикке шығыс"
 
 #: ../plugins/volumealsa/volumealsa.c:1332
 msgid "default"
-msgstr ""
+msgstr "бастапқы"
 
 #. desc, index
 #: ../plugins/volumealsa/volumealsa.c:1391
 msgid "Master"
-msgstr ""
+msgstr "Басты"
 
 #: ../plugins/volumealsa/volumealsa.c:1395
 msgid "PCM"
-msgstr ""
+msgstr "PCM"
 
 #: ../plugins/volumealsa/volumealsa.c:1399
 msgid "Headphone"
-msgstr ""
+msgstr "Құлаққап"
 
 #: ../plugins/volumealsa/volumealsa.c:1420
 msgid "Click for Volume Slider"
-msgstr ""
+msgstr "Баптағыш үшін шерту"
 
 #: ../plugins/volumealsa/volumealsa.c:1424
 msgid "Click for Toggle Mute"
-msgstr ""
+msgstr "Іске қосу/сөнд. үшін шерту"
 
 #: ../plugins/volumealsa/volumealsa.c:1428
 msgid "Click for Open Mixer"
-msgstr ""
+msgstr "Микшерді ашу үшін шерту"
 
 #. setup hotkeys
 #: ../plugins/volumealsa/volumealsa.c:1432
 msgid "Hotkey for Volume Up"
-msgstr ""
+msgstr "\"Дыбысты қосу\" пернесі"
 
 #: ../plugins/volumealsa/volumealsa.c:1434
 msgid "Hotkey for Volume Down"
-msgstr ""
+msgstr "\"Дыбысты азайту\" пернесі"
 
 #: ../plugins/volumealsa/volumealsa.c:1436
 msgid "Hotkey for Volume Mute"
-msgstr ""
+msgstr "\"Дыбысты басу\" пернесі"
 
 #: ../plugins/volumealsa/volumealsa.c:1493
 msgid "Audio Card"
-msgstr ""
+msgstr "Дыбыстық картасы"
 
 #: ../plugins/volumealsa/volumealsa.c:1496
 msgid "Channel to Operate"
-msgstr ""
+msgstr "Негізгі арна"
 
 #: ../plugins/volumealsa/volumealsa.c:1504
 msgid "Command to Open Mixer"
-msgstr ""
+msgstr "Микшерді ашу командасы"
 
 #: ../plugins/volumealsa/volumealsa.c:1519
-#, fuzzy
 msgid "Launch Mixer"
-msgstr "Жөнелткіштер"
+msgstr "Микшерді жөнелту"
 
 #: ../plugins/volumealsa/volumealsa.c:1531
 #: ../plugins/volumealsa/volumealsa.c:1552
-#, fuzzy
 msgid "Display and control volume"
-msgstr "ALSA үшін дыбыс деңгейін көрсету және басқару"
+msgstr "Дыбыс деңгейін көрсету және басқару"
 
 #: ../plugins/netstat/netstat.c:183
 msgid "<Hidden Access Point>"
@@ -1673,9 +1669,8 @@ msgid "No batteries found"
 msgstr "Батареялар табылмады"
 
 #: ../plugins/batt/batt.c:534 ../plugins/batt/batt.c:667
-#, fuzzy
 msgid "Battery low"
-msgstr "Батарея бақылаушысы"
+msgstr "Батарея заряды аз"
 
 #: ../plugins/batt/batt.c:690 ../plugins/batt/batt.c:714
 msgid "Battery Monitor"
@@ -1722,9 +1717,8 @@ msgid "Show Extended Information"
 msgstr "Кеңейтілген ақпаратты көрсету"
 
 #: ../plugins/batt/batt.c:705
-#, fuzzy
 msgid "Number of battery to monitor"
-msgstr "Бақылау үшін интерфейс"
+msgstr "Бақылау үшін батарея нөмірі"
 
 #: ../plugins/batt/batt.c:715
 msgid "Display battery status using ACPI"

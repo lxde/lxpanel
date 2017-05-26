@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: lxpanel 0.5.6\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-10-24 21:15+0300\n"
-"PO-Revision-Date: 2017-05-23 19:50+0000\n"
+"PO-Revision-Date: 2017-05-25 06:59+0000\n"
 "Last-Translator: Piotr Strębski <strebski@o2.pl>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: pl\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
 "X-Generator: Pootle 2.8\n"
-"X-POOTLE-MTIME: 1495569051.844134\n"
+"X-POOTLE-MTIME: 1495695544.309291\n"
 "X-Pootle-Path: /pl/lxpanel/po/pl.po\n"
 "X-Pootle-Revision: 0\n"
 
@@ -85,10 +85,10 @@ msgstr "Potwierdzenie"
 #: ../src/panel.c:1346
 msgid "translator-credits"
 msgstr ""
-"Grzegorz Gibas <amigib@gmail.com>, 2009.\n"
-"Artur Kruszewski <mazdac@gmail.com>, 2006, 2010.\n"
-"Piotr Strębski <strebski@o2.pl>, 2013.\n"
-"Piotr Sokół <psokol@jabster.pl>, 2010, 2011, 2014."
+"Grzegorz Gibas\n"
+"Artur Kruszewski\n"
+"Piotr Sokół\n"
+"Piotr Strębski"
 
 #: ../src/panel.c:1351
 msgid "LXPanel"
@@ -1050,88 +1050,86 @@ msgstr "Wyciszenie"
 #. Just to have these translated
 #: ../plugins/volumealsa/volumealsa.c:1293
 msgid "Line"
-msgstr ""
+msgstr "Linia"
 
 #: ../plugins/volumealsa/volumealsa.c:1293
 msgid "LineOut"
-msgstr ""
+msgstr "Linia wyjściowa"
 
 #: ../plugins/volumealsa/volumealsa.c:1293
 msgid "Front"
-msgstr ""
+msgstr "Przedni"
 
 #: ../plugins/volumealsa/volumealsa.c:1293
 msgid "Surround"
-msgstr ""
+msgstr "Dźwięk przestrzenny"
 
 #: ../plugins/volumealsa/volumealsa.c:1293
 msgid "Speaker+LO"
-msgstr ""
+msgstr "Głośnik i LO"
 
 #: ../plugins/volumealsa/volumealsa.c:1332
 msgid "default"
-msgstr ""
+msgstr "domyślne"
 
 #. desc, index
 #: ../plugins/volumealsa/volumealsa.c:1391
 msgid "Master"
-msgstr ""
+msgstr "Główny"
 
 #: ../plugins/volumealsa/volumealsa.c:1395
 msgid "PCM"
-msgstr ""
+msgstr "PCM"
 
 #: ../plugins/volumealsa/volumealsa.c:1399
 msgid "Headphone"
-msgstr ""
+msgstr "Słuchawki"
 
 #: ../plugins/volumealsa/volumealsa.c:1420
 msgid "Click for Volume Slider"
-msgstr ""
+msgstr "Kliknij, aby przesunąć głośność"
 
 #: ../plugins/volumealsa/volumealsa.c:1424
 msgid "Click for Toggle Mute"
-msgstr ""
+msgstr "Kliknij, aby przełączyć wyciszenie"
 
 #: ../plugins/volumealsa/volumealsa.c:1428
 msgid "Click for Open Mixer"
-msgstr ""
+msgstr "Kliknij, aby otworzyć mikser"
 
 #. setup hotkeys
 #: ../plugins/volumealsa/volumealsa.c:1432
 msgid "Hotkey for Volume Up"
-msgstr ""
+msgstr "Klawisz skrótu do podgłaśniania"
 
 #: ../plugins/volumealsa/volumealsa.c:1434
 msgid "Hotkey for Volume Down"
-msgstr ""
+msgstr "Klawisz skrótu do ściszania"
 
 #: ../plugins/volumealsa/volumealsa.c:1436
 msgid "Hotkey for Volume Mute"
-msgstr ""
+msgstr "Klawisz skrótu do wyciszenia"
 
 #: ../plugins/volumealsa/volumealsa.c:1493
 msgid "Audio Card"
-msgstr ""
+msgstr "Karta dźwiękowa"
 
 #: ../plugins/volumealsa/volumealsa.c:1496
 msgid "Channel to Operate"
-msgstr ""
+msgstr "Kanał do działania"
 
 #: ../plugins/volumealsa/volumealsa.c:1504
 msgid "Command to Open Mixer"
-msgstr ""
+msgstr "Polecenie otwierające mikser"
 
 #: ../plugins/volumealsa/volumealsa.c:1519
-#, fuzzy
 msgid "Launch Mixer"
-msgstr "Aktywatory"
+msgstr "Uruchom mikser"
 
 #: ../plugins/volumealsa/volumealsa.c:1531
 #: ../plugins/volumealsa/volumealsa.c:1552
-#, fuzzy
 msgid "Display and control volume"
-msgstr "Wyświetla poziom głośności i steruje głośnością ALSA"
+msgstr "Wyświetla i steruje poziomem głośności"
 
 #: ../plugins/netstat/netstat.c:183
 msgid "<Hidden Access Point>"
@@ -1590,19 +1588,19 @@ msgid "Sending/Receiving"
 msgstr "Wysyłanie/odbieranie"
 
 #: ../plugins/batt/batt.c:154
-#, fuzzy, c-format
+#, c-format
 msgid "Battery %d: %d%% charged, %d:%02d until full"
-msgstr "Bateria naładowana w %d%%, pozostało do naładowania %d:%02d"
+msgstr "Bateria %d: naładowana w %d%%, pozostało do naładowania: %d:%02d"
 
 #: ../plugins/batt/batt.c:165
-#, fuzzy, c-format
+#, c-format
 msgid "Battery %d: %d%% charged, %d:%02d left"
-msgstr "Bateria naładowana w %d%%, pozostało %d:%02d"
+msgstr "Bateria %d: naładowana w %d%%, pozostało %d:%02d"
 
 #: ../plugins/batt/batt.c:171
-#, fuzzy, c-format
+#, c-format
 msgid "Battery %d: %d%% charged"
-msgstr "Bateria naładowana w %d%%"
+msgstr "Bateria %d: naładowana w %d%%"
 
 #: ../plugins/batt/batt.c:181
 #, c-format
@@ -1738,9 +1736,8 @@ msgid "Show Extended Information"
 msgstr "Wyświetlanie dodatkowych informacji"
 
 #: ../plugins/batt/batt.c:705
-#, fuzzy
 msgid "Number of battery to monitor"
-msgstr "Monitorowany interfejs:"
+msgstr "Numer baterii do monitorowania"
 
 #: ../plugins/batt/batt.c:715
 msgid "Display battery status using ACPI"

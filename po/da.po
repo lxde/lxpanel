@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-10-24 21:15+0300\n"
-"PO-Revision-Date: 2017-05-23 23:41+0000\n"
+"PO-Revision-Date: 2017-05-24 20:15+0000\n"
 "Last-Translator: scootergrisen <scootergrisen@gmail.com>\n"
 "Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
 "Language: da\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.8\n"
-"X-POOTLE-MTIME: 1495582905.871765\n"
+"X-POOTLE-MTIME: 1495656904.143009\n"
 "X-Pootle-Path: /da/lxpanel/po/da.po\n"
 "X-Pootle-Revision: 0\n"
 
@@ -79,7 +79,6 @@ msgstr "Bekræft"
 
 #. TRANSLATORS: Replace this string with your names, one name per line.
 #: ../src/panel.c:1346
-#, fuzzy
 msgid "translator-credits"
 msgstr ""
 "Joe Hansen, 2010\n"
@@ -238,7 +237,7 @@ msgstr "VenstreKnap"
 
 #: ../src/input-button.c:148
 msgid "MiddleBtn"
-msgstr ""
+msgstr "MellemKnap"
 
 #: ../src/input-button.c:151
 msgid "RightBtn"
@@ -247,7 +246,7 @@ msgstr "HøjreKnap"
 #: ../src/input-button.c:154
 #, c-format
 msgid "Btn%s"
-msgstr ""
+msgstr "Knap%s"
 
 #: ../src/input-button.c:215
 #, c-format
@@ -263,12 +262,11 @@ msgstr "Fejl"
 #. GtkRadioButton "None"
 #: ../src/input-button.c:315 ../data/ui/panel-pref.glade.h:5
 msgid "None"
-msgstr ""
+msgstr "Ingen"
 
 #: ../src/input-button.c:322
-#, fuzzy
 msgid "Custom:"
-msgstr "Vælg en farve"
+msgstr "Brugerdefineret:"
 
 #: ../src/input-button.c:399
 #, c-format
@@ -289,9 +287,8 @@ msgid "Allocate space"
 msgstr "Tildel plads"
 
 #: ../data/ui/launchtaskbar.glade.h:1 ../plugins/launchtaskbar.c:2401
-#, fuzzy
 msgid "Application Launch and Task Bar"
-msgstr "Bjælke til programstart"
+msgstr "Programstart- og opgavebjælke"
 
 #. Launchtaskbar mode: launchbar, taskbar, or combined
 #: ../data/ui/launchtaskbar.glade.h:3
@@ -300,12 +297,11 @@ msgstr "<b>Tilstand:</b>"
 
 #: ../data/ui/launchtaskbar.glade.h:4
 msgid "Launchers"
-msgstr ""
+msgstr "Programstartere"
 
 #: ../data/ui/launchtaskbar.glade.h:5
-#, fuzzy
 msgid "<b>Launchbar</b>"
-msgstr "<b>Baggrund</b>"
+msgstr "<b>Programstartbjælke</b>"
 
 #: ../data/ui/launchtaskbar.glade.h:6
 msgid "Show tooltips"
@@ -352,24 +348,20 @@ msgid "Spacing"
 msgstr "Afstand"
 
 #: ../data/ui/launchtaskbar.glade.h:17
-#, fuzzy
 msgid "<b>Taskbar</b>"
-msgstr "<b>Baggrund</b>"
+msgstr "<b>Opgavebjælke</b>"
 
 #: ../data/ui/launchtaskbar.glade.h:18
-#, fuzzy
 msgid "Only Application Launch Bar"
-msgstr "Bjælke til programstart"
+msgstr "Kun bjælke til programstart"
 
 #: ../data/ui/launchtaskbar.glade.h:19
-#, fuzzy
 msgid "Only Task Bar (Window List)"
-msgstr "Opgavelinje (vindueliste)"
+msgstr "Kun opgavebjælke (vindueliste)"
 
 #: ../data/ui/launchtaskbar.glade.h:20
-#, fuzzy
 msgid "Integrated Application Launch Bar and Task Bar"
-msgstr "Bjælke til programstart"
+msgstr "Integreret programstartbjælke og opgavebjælke"
 
 #: ../data/ui/netstatus.glade.h:1
 msgid "<b>Connection</b>"
@@ -467,7 +459,6 @@ msgid "% Percent"
 msgstr "% procent"
 
 #: ../data/ui/panel-pref.glade.h:6
-#, fuzzy
 msgid "Err"
 msgstr "Fejl"
 
@@ -504,9 +495,8 @@ msgid "Margin:"
 msgstr "Margen:"
 
 #: ../data/ui/panel-pref.glade.h:19
-#, fuzzy
 msgid "Monitor:"
-msgstr "Batteriovervågning"
+msgstr "Overvåg:"
 
 #: ../data/ui/panel-pref.glade.h:20
 msgid "<b>Position</b>"
@@ -546,7 +536,7 @@ msgstr "<b>Baggrund</b>"
 
 #: ../data/ui/panel-pref.glade.h:31
 msgid "Custom color"
-msgstr "Vælg en farve"
+msgstr "Brugerdefineret farve"
 
 #: ../data/ui/panel-pref.glade.h:33
 msgid "<b>Font</b>"
@@ -650,15 +640,15 @@ msgstr "Opgavelinje (vindueliste)"
 
 #: ../plugins/launchtaskbar.c:1919
 msgid "A_dd to Launcher"
-msgstr ""
+msgstr "Tilføj til programstarter"
 
 #: ../plugins/launchtaskbar.c:1921
 msgid "Rem_ove from Launcher"
-msgstr "_Fjern fra panelet"
+msgstr "_Fjern fra programstarter"
 
 #: ../plugins/launchtaskbar.c:1923
 msgid "_New Instance"
-msgstr ""
+msgstr "_Ny forekomst"
 
 #: ../plugins/launchtaskbar.c:2372
 msgid "Bar with buttons to launch application"
@@ -673,9 +663,10 @@ msgstr ""
 "fokus"
 
 #: ../plugins/launchtaskbar.c:2402
-#, fuzzy
 msgid "Bar with buttons to launch application and/or show all opened windows"
-msgstr "Område med knapper til start af applikationer"
+msgstr ""
+"Bjælke med knapper til start af programmer og/eller visning af alle åbne "
+"vinduer"
 
 #. Add Raise menu item.
 #: ../plugins/task-button.c:339
@@ -745,7 +736,7 @@ msgstr "Formatkoder: man 3 strftime; %n for linjeskift"
 
 #: ../plugins/dclock.c:436
 msgid "Action when clicked (default: display calendar)"
-msgstr "Hændelse ved klik (standard: vis kalender)"
+msgstr "Handling ved klik (standard: vis kalender)"
 
 #: ../plugins/dclock.c:438
 msgid "Tooltip only"
@@ -814,7 +805,7 @@ msgstr ""
 #. dialog
 #: ../plugins/xkb/xkb-plugin.c:590
 msgid "Select Keyboard Model"
-msgstr ""
+msgstr "Vælg tastaturmodel"
 
 #: ../plugins/xkb/xkb-plugin.c:614 ../plugins/xkb/xkb-plugin.c:743
 #: ../plugins/xkb/xkb-plugin.c:921
@@ -827,18 +818,15 @@ msgstr "Id"
 
 #. dialog
 #: ../plugins/xkb/xkb-plugin.c:714
-#, fuzzy
 msgid "Select Layout Change Type"
-msgstr "Vælg en billedfil"
+msgstr "Vælg ændringstype for layout"
 
 #. dialog
 #: ../plugins/xkb/xkb-plugin.c:887
-#, fuzzy
 msgid "Add Keyboard Layout"
-msgstr "Skifter for tastaturlayout"
+msgstr "Tilføj tastaturlayout"
 
 #: ../plugins/xkb/xkb-plugin.c:911 ../plugins/xkb/xkb-plugin.c:1302
-#, fuzzy
 msgid "Flag"
 msgstr "Flag"
 
@@ -847,19 +835,16 @@ msgid "Layout"
 msgstr "Layout"
 
 #: ../plugins/xkb/xkb-plugin.c:1212 ../plugins/xkb/xkb-plugin.c:1544
-#, fuzzy
 msgid "Keyboard Layout Handler"
 msgstr "Skifter for tastaturlayout"
 
 #: ../plugins/xkb/xkb-plugin.c:1235
-#, fuzzy
 msgid "Keyboard Model"
-msgstr "Tastaturindikatorer"
+msgstr "Tastaturmodel"
 
 #: ../plugins/xkb/xkb-plugin.c:1256
-#, fuzzy
 msgid "Keyboard Layouts"
-msgstr "Skifter for tastaturlayout"
+msgstr "Tastaturlayouts"
 
 #: ../plugins/xkb/xkb-plugin.c:1310
 msgid "Variant"
@@ -882,14 +867,12 @@ msgid "Keep _system layouts"
 msgstr ""
 
 #: ../plugins/xkb/xkb-plugin.c:1374
-#, fuzzy
 msgid "Per Window Settings"
-msgstr "Panelopsætning"
+msgstr "Indstillinger pr. vindue"
 
 #: ../plugins/xkb/xkb-plugin.c:1386
-#, fuzzy
 msgid "_Remember layout for each window"
-msgstr "_Husk layout for hvert program"
+msgstr "_Husk layout for hvert vindue"
 
 #: ../plugins/xkb/xkb-plugin.c:1395
 msgid "Show Layout as"
@@ -897,7 +880,7 @@ msgstr "Vis layout som"
 
 #: ../plugins/xkb/xkb-plugin.c:1456
 msgid "Custom Image"
-msgstr ""
+msgstr "Brugerdefineret billede"
 
 #: ../plugins/xkb/xkb-plugin.c:1457
 msgid "Text"
@@ -905,12 +888,11 @@ msgstr "Tekst"
 
 #: ../plugins/xkb/xkb-plugin.c:1483
 msgid "Panel Icon Size"
-msgstr ""
+msgstr "Ikonstørrelse for panel"
 
 #: ../plugins/xkb/xkb-plugin.c:1545
-#, fuzzy
 msgid "Handle keyboard layouts"
-msgstr "Skift mellem tilgængelige tastaturlayout"
+msgstr "Skift mellem tastaturlayouts"
 
 #: ../plugins/wincmd.c:205
 msgid "Left click to iconify all windows.  Middle click to shade them."
@@ -950,9 +932,8 @@ msgid "Label"
 msgstr "Mærke"
 
 #: ../plugins/dirmenu.c:366
-#, fuzzy
 msgid "Browse directory tree via menu (Author = PCMan)"
-msgstr "Gennemse mappetræet via menu (forfatter: PCMan)"
+msgstr "Gennemse mappetræet via menu (forfatter = PCMan)"
 
 #: ../plugins/thermal/thermal.c:564 ../plugins/thermal/thermal.c:582
 msgid "Temperature Monitor"
@@ -963,14 +944,12 @@ msgid "Normal color"
 msgstr "Normal farve"
 
 #: ../plugins/thermal/thermal.c:567
-#, fuzzy
 msgid "Warning1 color"
-msgstr "Opladningsfarve 1"
+msgstr "Advarsel1-farve"
 
 #: ../plugins/thermal/thermal.c:568
-#, fuzzy
 msgid "Warning2 color"
-msgstr "Opladningsfarve 1"
+msgstr "Advarsel2-farve"
 
 #: ../plugins/thermal/thermal.c:569
 msgid "Automatic sensor location"
@@ -988,14 +967,12 @@ msgstr "Automatiske temperaturniveauer"
 
 #. FIXME: if off, disable two below
 #: ../plugins/thermal/thermal.c:572
-#, fuzzy
 msgid "Warning1 temperature"
-msgstr "Advarsel1 temperatur"
+msgstr "Advarsel1-temperatur"
 
 #: ../plugins/thermal/thermal.c:573
-#, fuzzy
 msgid "Warning2 temperature"
-msgstr "Advarsel2 temperatur"
+msgstr "Advarsel2-temperatur"
 
 #: ../plugins/thermal/thermal.c:583
 msgid "Display system temperature"
@@ -1010,7 +987,7 @@ msgstr ""
 
 #: ../plugins/cpufreq/cpufreq.c:401
 msgid "CPUFreq frontend"
-msgstr ""
+msgstr "CPUFreq-frontend"
 
 #: ../plugins/cpufreq/cpufreq.c:402
 msgid "Display CPU frequency and allow to change governors and frequency"
@@ -1060,15 +1037,15 @@ msgstr ""
 
 #: ../plugins/volumealsa/volumealsa.c:1293
 msgid "Front"
-msgstr ""
+msgstr "For"
 
 #: ../plugins/volumealsa/volumealsa.c:1293
 msgid "Surround"
-msgstr ""
+msgstr "Surround"
 
 #: ../plugins/volumealsa/volumealsa.c:1293
 msgid "Speaker+LO"
-msgstr ""
+msgstr "Højttaler+LO"
 
 #: ../plugins/volumealsa/volumealsa.c:1332
 msgid "default"
@@ -1089,32 +1066,35 @@ msgstr "Hovedtelefon"
 
 #: ../plugins/volumealsa/volumealsa.c:1420
 msgid "Click for Volume Slider"
-msgstr ""
+msgstr "Klik for lydstyrkeskyder"
 
 #: ../plugins/volumealsa/volumealsa.c:1424
 msgid "Click for Toggle Mute"
-msgstr ""
+msgstr "Klik for at mute til/fra"
 
 #: ../plugins/volumealsa/volumealsa.c:1428
 msgid "Click for Open Mixer"
-msgstr ""
+msgstr "Klik for at åbne mikser"
 
 #. setup hotkeys
 #: ../plugins/volumealsa/volumealsa.c:1432
+#, fuzzy
 msgid "Hotkey for Volume Up"
-msgstr ""
+msgstr "Hotkey til lydstyrke op"
 
 #: ../plugins/volumealsa/volumealsa.c:1434
+#, fuzzy
 msgid "Hotkey for Volume Down"
-msgstr ""
+msgstr "Hotkey til lydstyrke ned"
 
 #: ../plugins/volumealsa/volumealsa.c:1436
+#, fuzzy
 msgid "Hotkey for Volume Mute"
-msgstr ""
+msgstr "Hotkey til lydstyrke mute"
 
 #: ../plugins/volumealsa/volumealsa.c:1493
 msgid "Audio Card"
-msgstr ""
+msgstr "Lydkort"
 
 #: ../plugins/volumealsa/volumealsa.c:1496
 msgid "Channel to Operate"
@@ -1122,16 +1102,16 @@ msgstr ""
 
 #: ../plugins/volumealsa/volumealsa.c:1504
 msgid "Command to Open Mixer"
-msgstr ""
+msgstr "Kommando til at åbne mikser"
 
 #: ../plugins/volumealsa/volumealsa.c:1519
 msgid "Launch Mixer"
-msgstr ""
+msgstr "Start mikser"
 
 #: ../plugins/volumealsa/volumealsa.c:1531
 #: ../plugins/volumealsa/volumealsa.c:1552
 msgid "Display and control volume"
-msgstr ""
+msgstr "Vis og styr lydstyrke"
 
 #: ../plugins/netstat/netstat.c:183
 msgid "<Hidden Access Point>"
@@ -1511,9 +1491,8 @@ msgid "Cannot open /proc/net/dev: %s"
 msgstr "Kan ikke åbne /proc/net/dev: %s"
 
 #: ../plugins/netstatus/netstatus-sysdeps.c:185
-#, fuzzy
 msgid "Could not parse /proc/net/dev. No data."
-msgstr "Kunne ikke fortolke /proc/net/dev. Ukendt format."
+msgstr "Kunne ikke fortolke /proc/net/dev. Ingen data."
 
 #: ../plugins/netstatus/netstatus-sysdeps.c:190
 msgid "Could not parse /proc/net/dev. Unknown format."
@@ -1536,9 +1515,8 @@ msgstr ""
 "%d; brx_idx = %d; btx_idx = %d;"
 
 #: ../plugins/netstatus/netstatus-sysdeps.c:312
-#, fuzzy
 msgid "Could not parse /proc/net/wireless. No data."
-msgstr "Kunne ikke fortolke /proc/net/wireless. Ukendt format."
+msgstr "Kunne ikke fortolke /proc/net/wireless. Ingen data."
 
 #: ../plugins/netstatus/netstatus-sysdeps.c:316
 msgid "Could not parse /proc/net/wireless. Unknown format."
@@ -1671,9 +1649,8 @@ msgid "No batteries found"
 msgstr "Ingen batterier fundet"
 
 #: ../plugins/batt/batt.c:534 ../plugins/batt/batt.c:667
-#, fuzzy
 msgid "Battery low"
-msgstr "Batteriovervågning"
+msgstr "Lavt batteriniveau"
 
 #: ../plugins/batt/batt.c:690 ../plugins/batt/batt.c:714
 msgid "Battery Monitor"
@@ -1720,9 +1697,8 @@ msgid "Show Extended Information"
 msgstr ""
 
 #: ../plugins/batt/batt.c:705
-#, fuzzy
 msgid "Number of battery to monitor"
-msgstr "Grænseflade til overvågning"
+msgstr "Antal batterier som skal overvåges"
 
 #: ../plugins/batt/batt.c:715
 msgid "Display battery status using ACPI"
@@ -1751,19 +1727,19 @@ msgstr "Indikatorer for tasterne CapsLock, NumLock, og ScrollLock"
 #. A label to allow for click through
 #: ../plugins/indicator/indicator.c:694
 msgid "No Indicators"
-msgstr ""
+msgstr "Ingen indikatorer"
 
 #: ../plugins/indicator/indicator.c:863 ../plugins/indicator/indicator.c:881
 msgid "Indicator applets"
-msgstr ""
+msgstr "Indikatorapplets"
 
 #: ../plugins/indicator/indicator.c:865
 msgid "Indicator Applications"
-msgstr ""
+msgstr "Indikatorprogrammer"
 
 #: ../plugins/indicator/indicator.c:866
 msgid "Clock Indicator"
-msgstr ""
+msgstr "Urindikator"
 
 #: ../plugins/indicator/indicator.c:867
 msgid "Messaging Menu"
@@ -1782,9 +1758,8 @@ msgid "Sound Menu"
 msgstr "Lydmenu"
 
 #: ../plugins/indicator/indicator.c:882
-#, fuzzy
 msgid "Add indicator applets to the panel"
-msgstr "Tilføj en adskiller til panelet"
+msgstr "Tilføj indikatorapplets til panelet"
 
 #: ../plugins/monitors/monitors.c:281
 #, c-format
@@ -1797,35 +1772,32 @@ msgid "RAM usage: %.1fMB (%.2f%%)"
 msgstr "RAM-forbrug: %.1fMB (%.2f%%)"
 
 #: ../plugins/monitors/monitors.c:723 ../plugins/monitors/monitors.c:808
-#, fuzzy
 msgid "Resource monitors"
-msgstr "Grænseflade til overvågning"
+msgstr "Ressourceovervågninger"
 
 #: ../plugins/monitors/monitors.c:726
 msgid "CPU color"
 msgstr "CPU-farve"
 
 #: ../plugins/monitors/monitors.c:727
-#, fuzzy
 msgid "Display RAM usage"
-msgstr "Vis CPU-belastning"
+msgstr "Vis RAM-forbrug"
 
 #: ../plugins/monitors/monitors.c:728
 msgid "RAM color"
 msgstr "RAM-farve"
 
 #: ../plugins/monitors/monitors.c:729
-#, fuzzy
 msgid "Action when clicked (default: lxtask)"
-msgstr "Hændelse ved klik (standard: vis kalender)"
+msgstr "Handling ved klik (standard: lxtask)"
 
 #: ../plugins/monitors/monitors.c:809
 msgid "Display monitors (CPU, RAM)"
-msgstr ""
+msgstr "Vis overvågninger (CPU, RAM)"
 
 #: ../plugins/weather/weatherwidget.c:52
 msgid "[N/A]"
-msgstr ""
+msgstr "-"
 
 #: ../plugins/weather/weatherwidget.c:792
 msgid "Enter New Location"
@@ -1847,12 +1819,12 @@ msgstr ""
 #: ../plugins/weather/weatherwidget.c:854
 #: ../plugins/weather/weatherwidget.c:987
 msgid "You must specify a location."
-msgstr ""
+msgstr "Du skal angive en placering."
 
 #: ../plugins/weather/weatherwidget.c:901
 #, c-format
 msgid "Location '%s' not found!"
-msgstr ""
+msgstr "Placering \"%s\" ikke fundet!"
 
 #: ../plugins/weather/weatherwidget.c:1060
 msgid "Preferences"
@@ -1860,27 +1832,24 @@ msgstr "Indstillinger"
 
 #: ../plugins/weather/weatherwidget.c:1066
 msgid "Refresh"
-msgstr ""
+msgstr "Opdater"
 
 #: ../plugins/weather/weatherwidget.c:1072
 msgid "Quit"
 msgstr "Afslut"
 
 #: ../plugins/weather/weatherwidget.c:1229
-#, fuzzy
 msgid "Weather Preferences"
-msgstr "Indstillinger for panel"
+msgstr "Indstillinger for vejr"
 
 #: ../plugins/weather/weatherwidget.c:1243
-#, fuzzy
 msgid "Current Location"
-msgstr "Orientering"
+msgstr "Nuværende placering"
 
 #: ../plugins/weather/weatherwidget.c:1247
 #: ../plugins/weather/weatherwidget.c:1524
-#, fuzzy
 msgid "None configured"
-msgstr "Konf_igurer"
+msgstr "Ingen konfigureret"
 
 #: ../plugins/weather/weatherwidget.c:1249
 #: ../plugins/weather/weatherwidget.c:1521
@@ -1889,7 +1858,7 @@ msgstr "_Sæt"
 
 #: ../plugins/weather/weatherwidget.c:1270
 msgid "Display"
-msgstr ""
+msgstr "Visning"
 
 #: ../plugins/weather/weatherwidget.c:1274
 msgid "Name:"
@@ -1917,7 +1886,7 @@ msgstr "Opdateringer:"
 
 #: ../plugins/weather/weatherwidget.c:1327
 msgid "Ma_nual"
-msgstr ""
+msgstr "Ma_nuelt"
 
 #: ../plugins/weather/weatherwidget.c:1331
 msgid "_Automatic, every"
@@ -1939,7 +1908,7 @@ msgstr "_Skift"
 #: ../plugins/weather/weatherwidget.c:1565
 #, c-format
 msgid "Current Conditions for %s"
-msgstr ""
+msgstr "Aktuelle forhold for %s"
 
 #: ../plugins/weather/weatherwidget.c:1589
 msgid "Location:"
@@ -1967,7 +1936,7 @@ msgstr "Sigtbarhed:"
 
 #: ../plugins/weather/weatherwidget.c:1746
 msgid "Wind:"
-msgstr ""
+msgstr "Vind:"
 
 #: ../plugins/weather/weatherwidget.c:1769
 msgid "Sunrise:"
@@ -1981,18 +1950,18 @@ msgstr "Solnedgang:"
 #: ../plugins/weather/weatherwidget.c:2234
 #, c-format
 msgid "Forecast for %s unavailable."
-msgstr ""
+msgstr "Prognose for %s utilgængelig."
 
 #: ../plugins/weather/weatherwidget.c:1907
 #: ../plugins/weather/weatherwidget.c:2239
-#, fuzzy, c-format
+#, c-format
 msgid "Location not set."
-msgstr "Kommando til at logge ud er ikke valgt"
+msgstr "Placering ikke sat."
 
 #: ../plugins/weather/weatherwidget.c:1924
 #, c-format
 msgid "Searching for '%s'..."
-msgstr ""
+msgstr "Søger efter \"%s\"..."
 
 #: ../plugins/weather/weatherwidget.c:2050
 #, c-format
@@ -2009,9 +1978,8 @@ msgstr "Land"
 
 #. make it nice and pretty
 #: ../plugins/weather/weatherwidget.c:2221
-#, fuzzy
 msgid "Currently in "
-msgstr "Aktuelt indlæste udvidelsesmoduler"
+msgstr "Aktuelt i "
 
 #: ../plugins/weather/weatherwidget.c:2223
 msgid "Today: "
@@ -2022,13 +1990,12 @@ msgid "Tomorrow: "
 msgstr "I morgen: "
 
 #: ../plugins/weather/weather.c:332
-#, fuzzy
 msgid "Weather Plugin"
-msgstr "Enkelt udvidelsesmodul til skift af arbejdsområde"
+msgstr "Vejr-plugin"
 
 #: ../plugins/weather/weather.c:333
 msgid "Show weather conditions for a location."
-msgstr ""
+msgstr "Vis vejrforhold for en placering."
 
 #~ msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
 #~ msgstr " --log <tal> -- set logniveau 0-5. 0 - intet 5 - snaksalig\n"
