@@ -8,17 +8,17 @@ msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-10-24 21:15+0300\n"
-"PO-Revision-Date: 2014-12-02 11:46+0000\n"
-"Last-Translator: system user <>\n"
+"PO-Revision-Date: 2017-05-29 21:42+0000\n"
+"Last-Translator: Moo <hazap@hotmail.com>\n"
 "Language-Team: Lietuvių <>\n"
 "Language: lt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n"
-"%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Pootle 2.7.0-alpha1\n"
-"X-POOTLE-MTIME: 1417520772.000000\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"(n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Pootle 2.8\n"
+"X-POOTLE-MTIME: 1496094121.616868\n"
 "X-Pootle-Path: /lt/lxpanel/po/lt.po\n"
 "X-Pootle-Revision: 0\n"
 
@@ -27,10 +27,12 @@ msgid ""
 "Space reservation is not available for this panel because there is another "
 "monitor beyond this edge and reservation would cover it if enabled."
 msgstr ""
+"Vietos rezervavimas šiam skydeliui yra neprieinamas, kadangi už šio krašto "
+"yra kitas monitorius ir, įjungus rezervavimą, jis būtų uždengtas."
 
 #: ../src/configurator.c:632
 msgid "Currently loaded plugins"
-msgstr "Šiuo metu įkrauti priedai"
+msgstr "Šiuo metu įkelti įskiepiai"
 
 #: ../src/configurator.c:641
 msgid "Stretch"
@@ -38,19 +40,19 @@ msgstr "Ištempti"
 
 #: ../src/configurator.c:778
 msgid "Add plugin to panel"
-msgstr "Įdėti priedą į skydelį"
+msgstr "Pridėti įskiepį į skydelį"
 
 #: ../src/configurator.c:806
 msgid "Available plugins"
-msgstr "Prieinami priedai"
+msgstr "Prieinami įskiepiai"
 
 #: ../src/configurator.c:1427
 msgid "Logout command is not set"
-msgstr "Atsijungimo komanda nenustatyta"
+msgstr "Atsijungimo komanda yra nenustatyta"
 
 #: ../src/configurator.c:1495
 msgid "Select a directory"
-msgstr "Pasirinkite aplanką"
+msgstr "Pasirinkite katalogą"
 
 #: ../src/configurator.c:1495 ../src/configurator.c:1607
 msgid "Select a file"
@@ -62,7 +64,7 @@ msgstr "N_aršyti"
 
 #: ../src/panel.c:1283
 msgid "There is no room for another panel. All the edges are taken."
-msgstr "Nėra vietos kitam skydeliui. Visi kampai užimti."
+msgstr "Nėra vietos kitam skydeliui. Visi kraštai užimti."
 
 #: ../src/panel.c:1309
 msgid ""
@@ -70,7 +72,7 @@ msgid ""
 "<b>Warning: This can not be recovered.</b>"
 msgstr ""
 "Ar tikrai norite ištrinti šį skydelį?\n"
-"<b>Įspėjimas: skydelio atkurti neįmanoma.</b>"
+"<b>Įspėjimas: Šio veiksmo neįmanoma bus atkurti.</b>"
 
 #: ../src/panel.c:1311
 msgid "Confirm"
@@ -81,20 +83,20 @@ msgstr "Patvirtinti"
 msgid "translator-credits"
 msgstr ""
 "Julius Vitkauskas <zadintuvas@gmail.com>\n"
-"Algimantas Margevičius <margevicius.algimantas@gmail.com>"
+"Algimantas Margevičius <margevicius.algimantas@gmail.com>\n"
+"Moo"
 
 #: ../src/panel.c:1351
 msgid "LXPanel"
 msgstr "LXPanel"
 
 #: ../src/panel.c:1369
-#, fuzzy
 msgid "Copyright (C) 2008-2016"
-msgstr "Autorinės teisės (C) 2008-2013"
+msgstr "Autorių teisės (C) 2008-2016"
 
 #: ../src/panel.c:1370
 msgid "Desktop panel for LXDE project"
-msgstr "LXDE projekto darbastalio skydelis"
+msgstr "LXDE projekto darbalaukio skydelis"
 
 #: ../src/panel.c:1412
 #, c-format
@@ -103,12 +105,12 @@ msgstr "„%s“ nustatymai"
 
 #: ../src/panel.c:1433
 msgid "Add / Remove Panel Items"
-msgstr "Pridėti/pašalinti skydelio elementus"
+msgstr "Pridėti/šalinti skydelio elementus"
 
 #: ../src/panel.c:1441
 #, c-format
 msgid "Remove \"%s\" From Panel"
-msgstr "Pašalinti „%s“ iš skydelio"
+msgstr "Šalinti „%s“ iš skydelio"
 
 #: ../src/panel.c:1453
 msgid "Panel Settings"
@@ -156,7 +158,7 @@ msgstr "Apačia"
 
 #: ../src/plugin.c:348
 msgid "No file manager is configured."
-msgstr "Jokia failų naršyklė nesukonfigūruota."
+msgstr "Nėra sukonfigūruota jokia failų tvarkytuvė."
 
 #. { "configure", N_("Preferences"), configure },
 #: ../src/gtk-run.c:398 ../src/main.c:69 ../plugins/menu.c:718
@@ -178,12 +180,13 @@ msgstr "Atsijungti"
 #: ../src/main.c:323
 #, c-format
 msgid "lxpanel %s - lightweight GTK2+ panel for UNIX desktops\n"
-msgstr "lxpanel %s - lengvas GTK2+ skydelis UNIX darbastaliams\n"
+msgstr ""
+"lxpanel %s - supaprastintas GTK2+ skydelis, skirtas UNIX darbalaukiams\n"
 
 #: ../src/main.c:324
 #, c-format
 msgid "Command line options:\n"
-msgstr "Komandinės eilutės parametrai:\n"
+msgstr "Komandų eilutės parametrai:\n"
 
 #: ../src/main.c:325
 #, c-format
@@ -226,32 +229,32 @@ msgid ""
 "\n"
 msgstr ""
 "\n"
-"Aplankykite http://lxde.org/ norėdami gauti daugiau informacijos.\n"
+"Išsamesnei informacijai, apsilankykite http://lxde.org/.\n"
 "\n"
 
 #: ../src/input-button.c:145
-#, fuzzy
 msgid "LeftBtn"
-msgstr "Kairė"
+msgstr "Kairysis mygtukas"
 
 #: ../src/input-button.c:148
 msgid "MiddleBtn"
-msgstr ""
+msgstr "Vidurinysis mygtukas"
 
 #: ../src/input-button.c:151
-#, fuzzy
 msgid "RightBtn"
-msgstr "Dešinė"
+msgstr "Dešinysis mygtukas"
 
 #: ../src/input-button.c:154
 #, c-format
 msgid "Btn%s"
-msgstr ""
+msgstr "%s mygtukas"
 
 #: ../src/input-button.c:215
 #, c-format
 msgid "Key combination '%s' cannot be used as a global hotkey, sorry."
 msgstr ""
+"Atleiskite, klavišų kombinacija \"%s\" negali būti naudojama kaip visuotinis "
+"spartusis klavišas."
 
 #: ../src/input-button.c:218 ../src/input-button.c:401
 #: ../plugins/netstatus/netstatus-iface.c:191
@@ -262,17 +265,18 @@ msgstr "Klaida"
 #. GtkRadioButton "None"
 #: ../src/input-button.c:315 ../data/ui/panel-pref.glade.h:5
 msgid "None"
-msgstr "Nieko"
+msgstr "Nėra"
 
 #: ../src/input-button.c:322
-#, fuzzy
 msgid "Custom:"
-msgstr "Pasirinktinė spalva"
+msgstr "Tinkinta:"
 
 #: ../src/input-button.c:399
 #, c-format
 msgid "Cannot assign '%s' as a global hotkey: it is already bound."
 msgstr ""
+"Nepavyksta susieti \"%s\" kaip visuotinį spartųjį klavišą: jis jau yra "
+"susietas."
 
 #: ../src/space.c:394 ../src/space.c:403
 msgid "Spacer"
@@ -285,7 +289,7 @@ msgstr "Dydis"
 
 #: ../src/space.c:404
 msgid "Allocate space"
-msgstr "Atlaisvina vietą"
+msgstr "Paskirstyti vietą"
 
 #: ../data/ui/launchtaskbar.glade.h:1 ../plugins/launchtaskbar.c:2401
 msgid "Application Launch and Task Bar"
@@ -294,7 +298,7 @@ msgstr "Programos paleidimas ir užduočių juosta"
 #. Launchtaskbar mode: launchbar, taskbar, or combined
 #: ../data/ui/launchtaskbar.glade.h:3
 msgid "<b>Mode:</b>"
-msgstr "<b>Režimas:</b>"
+msgstr "<b>Veiksena:</b>"
 
 #: ../data/ui/launchtaskbar.glade.h:4
 msgid "Launchers"
@@ -302,11 +306,11 @@ msgstr "Leistukai"
 
 #: ../data/ui/launchtaskbar.glade.h:5
 msgid "<b>Launchbar</b>"
-msgstr "<b>Paleidimo juosta</b>"
+msgstr "<b>Leistukų juosta</b>"
 
 #: ../data/ui/launchtaskbar.glade.h:6
 msgid "Show tooltips"
-msgstr "Rodyti patarimus"
+msgstr "Rodyti paaiškinimus"
 
 #: ../data/ui/launchtaskbar.glade.h:7
 msgid "Icons only"
@@ -318,12 +322,13 @@ msgstr "Plokšti mygtukai"
 
 #: ../data/ui/launchtaskbar.glade.h:9
 msgid "Show windows from all desktops"
-msgstr "Rodyti langus iš visų darbastalių"
+msgstr "Rodyti langus iš visų darbalaukių"
 
 #: ../data/ui/launchtaskbar.glade.h:10
 msgid "Only show windows on the same monitor as the task bar"
 msgstr ""
-"Rodyti tik tuos langus kurie tame pačiame monitoriuje kaip ir užduočių juosta"
+"Rodyti tik tuos langus, kurie tame pačiame monitoriuje kaip ir užduočių "
+"juosta"
 
 #: ../data/ui/launchtaskbar.glade.h:11
 msgid "Use mouse wheel"
@@ -331,7 +336,7 @@ msgstr "Naudoti pelės ratuką"
 
 #: ../data/ui/launchtaskbar.glade.h:12
 msgid "Flash when there is any window requiring attention"
-msgstr "Sumirksėti, kai langas reikalauja dėmesio"
+msgstr "Blykčioti, kai langas reikalauja dėmesio"
 
 #: ../data/ui/launchtaskbar.glade.h:13
 msgid "Combine multiple application windows into a single button"
@@ -339,7 +344,7 @@ msgstr "Sujungti tos pačios programos langus į vieną mygtuką"
 
 #: ../data/ui/launchtaskbar.glade.h:14
 msgid "Disable enlargement for small task icons"
-msgstr ""
+msgstr "Išjungti mažų užduočių piktogramų didinimą"
 
 #: ../data/ui/launchtaskbar.glade.h:15
 msgid "Maximum width of task button"
@@ -379,7 +384,7 @@ msgstr "Pavadi_nimas:"
 
 #: ../data/ui/netstatus.glade.h:4
 msgid "<b>Activity</b>"
-msgstr "<b>Aktyvumas</b>"
+msgstr "<b>Veikla</b>"
 
 #: ../data/ui/netstatus.glade.h:5
 msgid "Received:"
@@ -417,7 +422,7 @@ msgstr "Paskirtis:"
 #: ../data/ui/netstatus.glade.h:14 ../plugins/netstat/netstat.c:372
 #: ../plugins/netstat/netstat.c:383
 msgid "Broadcast:"
-msgstr "Transliacija:"
+msgstr "Transliavimas:"
 
 #: ../data/ui/netstatus.glade.h:15
 msgid "Subnet Mask:"
@@ -453,7 +458,7 @@ msgstr "Dinaminis"
 
 #: ../data/ui/panel-pref.glade.h:2
 msgid "Pixels"
-msgstr "Pikseliai"
+msgstr "pikseliai"
 
 #: ../data/ui/panel-pref.glade.h:4
 #, no-c-format
@@ -466,23 +471,23 @@ msgstr "Klaidos"
 
 #: ../data/ui/panel-pref.glade.h:7
 msgid "Warn"
-msgstr "Perspėjimai"
+msgstr "Įspėjimai"
 
 #: ../data/ui/panel-pref.glade.h:8
 msgid "Info"
-msgstr "Info"
+msgstr "Informacija"
 
 #: ../data/ui/panel-pref.glade.h:9
 msgid "All"
-msgstr "Viskas"
+msgstr "Visi"
 
 #: ../data/ui/panel-pref.glade.h:10
 msgid "Panel Preferences"
-msgstr "Skydelio nustatymai"
+msgstr "Skydelio nuostatos"
 
 #: ../data/ui/panel-pref.glade.h:15
 msgid "Edge:"
-msgstr "Kampas:"
+msgstr "Kraštas:"
 
 #: ../data/ui/panel-pref.glade.h:16 ../plugins/volumealsa/volumealsa.c:1293
 msgid "Center"
@@ -498,7 +503,7 @@ msgstr "Paraštė:"
 
 #: ../data/ui/panel-pref.glade.h:19
 msgid "Monitor:"
-msgstr "Stebėjimas:"
+msgstr "Monitorius:"
 
 #: ../data/ui/panel-pref.glade.h:20
 msgid "<b>Position</b>"
@@ -506,7 +511,7 @@ msgstr "<b>Pozicija</b>"
 
 #: ../data/ui/panel-pref.glade.h:23
 msgid "Icon size:"
-msgstr "Piktogramos dydis:"
+msgstr "Piktogramų dydis:"
 
 #: ../data/ui/panel-pref.glade.h:24
 msgid "<b>Size</b>"
@@ -522,15 +527,15 @@ msgstr "Sistemos tema"
 
 #: ../data/ui/panel-pref.glade.h:27
 msgid "Solid color (with opacity)"
-msgstr "Spalva (su permatomumu)"
+msgstr "Vientisa spalva (su nepermatomumu)"
 
 #: ../data/ui/panel-pref.glade.h:28 ../plugins/xkb/xkb-plugin.c:1455
 msgid "Image"
-msgstr "Paveikslėlis"
+msgstr "Paveikslas"
 
 #: ../data/ui/panel-pref.glade.h:29
 msgid "Select an image file"
-msgstr "Pasirinkite paveiksliuką"
+msgstr "Pasirinkite paveikslą"
 
 #: ../data/ui/panel-pref.glade.h:30
 msgid "<b>Background</b>"
@@ -538,7 +543,7 @@ msgstr "<b>Fonas</b>"
 
 #: ../data/ui/panel-pref.glade.h:31
 msgid "Custom color"
-msgstr "Pasirinktinė spalva"
+msgstr "Tinkinta spalva"
 
 #: ../data/ui/panel-pref.glade.h:33
 msgid "<b>Font</b>"
@@ -550,7 +555,7 @@ msgstr "Išvaizda"
 
 #: ../data/ui/panel-pref.glade.h:35
 msgid "Panel Applets"
-msgstr "Skydelio priedai"
+msgstr "Skydelio programėlės"
 
 #: ../data/ui/panel-pref.glade.h:36
 msgid "Logout Command:"
@@ -562,7 +567,7 @@ msgstr "Terminalo emuliatorius:"
 
 #: ../data/ui/panel-pref.glade.h:38
 msgid "File Manager:"
-msgstr "Failų tvarkyklė:"
+msgstr "Failų tvarkytuvė:"
 
 #: ../data/ui/panel-pref.glade.h:39
 msgid "<b>Set Preferred Applications</b>"
@@ -570,11 +575,11 @@ msgstr "<b>Nustatyti pageidaujamas programas</b>"
 
 #: ../data/ui/panel-pref.glade.h:40
 msgid "Make window managers treat the panel as dock"
-msgstr "Langų tvarkyklės skydelį matys kaip doką"
+msgstr "Langų tvarkytuvės elgsis su skydeliu kaip su doku"
 
 #: ../data/ui/panel-pref.glade.h:41
 msgid "Reserve space, and not covered by maximized windows"
-msgstr "Rezervuota vieta neuždengiama išdidintų langų"
+msgstr "Rezervuota vieta neuždengiama išskleistų langų"
 
 #: ../data/ui/panel-pref.glade.h:42
 msgid "<b>Properties</b>"
@@ -582,11 +587,11 @@ msgstr "<b>Savybės</b>"
 
 #: ../data/ui/panel-pref.glade.h:43
 msgid "Minimize panel when not in use"
-msgstr "Sumažinti skydelį kai jis nenaudojamas"
+msgstr "Suskleisti skydelį, kai jis nenaudojamas"
 
 #: ../data/ui/panel-pref.glade.h:44
 msgid "Size when minimized"
-msgstr "Dydis sumažinus"
+msgstr "Dydis suskleidus"
 
 #: ../data/ui/panel-pref.glade.h:45
 msgid "pixels"
@@ -594,43 +599,43 @@ msgstr "pikselių"
 
 #: ../data/ui/panel-pref.glade.h:46
 msgid "<b>Automatic hiding</b>"
-msgstr "<b>Automatinis paslėpimas</b>"
+msgstr "<b>Automatinis slėpimas</b>"
 
 #: ../data/ui/panel-pref.glade.h:47
 msgid "Log level"
-msgstr "Žurnalo lygis"
+msgstr "Registravimo lygis"
 
 #: ../data/ui/panel-pref.glade.h:48
 msgid "<b>Log level</b>"
-msgstr "<b>Žurnalo lygis</b>"
+msgstr "<b>Registravimo lygis</b>"
 
 #: ../data/ui/panel-pref.glade.h:49
 msgid "Advanced"
-msgstr "Sudėtingesni"
+msgstr "Išplėstiniai"
 
 #: ../plugins/cpu/cpu.c:308
 msgid "CPU Usage Monitor"
-msgstr "CPU apkrovimo stebėjimo priemonė"
+msgstr "Procesoriaus naudojimo prižiūryklė"
 
 #: ../plugins/cpu/cpu.c:309 ../plugins/monitors/monitors.c:725
 msgid "Display CPU usage"
-msgstr "Rodo CPU apkrovimą"
+msgstr "Rodo procesoriaus naudojimą"
 
 #: ../plugins/deskno/deskno.c:208 ../plugins/deskno/deskno.c:228
 msgid "Desktop Number / Workspace Name"
-msgstr "Darbastalio numeris / Darbo vietos pavadinimas"
+msgstr "Darbalaukio numeris / Darbo srities pavadinimas"
 
 #: ../plugins/deskno/deskno.c:210 ../plugins/dclock.c:437
 msgid "Bold font"
-msgstr "Paryškintas šriftas"
+msgstr "Pusjuodis šriftas"
 
 #: ../plugins/deskno/deskno.c:211
 msgid "Display desktop names"
-msgstr "Rodyti darbastalių pavadinimus"
+msgstr "Rodyti darbalaukių pavadinimus"
 
 #: ../plugins/deskno/deskno.c:229
 msgid "Display workspace number, by cmeury@users.sf.net"
-msgstr "Rodo darbastalio numerį. Parašė cmeury@users.sf.net"
+msgstr "Rodo darbalaukio numerį. Sukūrė cmeury@users.sf.net"
 
 #: ../plugins/launchtaskbar.c:1768 ../plugins/launchtaskbar.c:2371
 msgid "Application Launch Bar"
@@ -638,7 +643,7 @@ msgstr "Programų paleidimo juosta"
 
 #: ../plugins/launchtaskbar.c:1771 ../plugins/launchtaskbar.c:2381
 msgid "Task Bar (Window List)"
-msgstr "Užduočių juosta (langų sąrašas)"
+msgstr "Užduočių juosta (Langų sąrašas)"
 
 #: ../plugins/launchtaskbar.c:1919
 msgid "A_dd to Launcher"
@@ -646,74 +651,74 @@ msgstr "_Pridėti į leistuką"
 
 #: ../plugins/launchtaskbar.c:1921
 msgid "Rem_ove from Launcher"
-msgstr "_Pašalinti iš leistuko"
+msgstr "_Šalinti iš leistuko"
 
 #: ../plugins/launchtaskbar.c:1923
 msgid "_New Instance"
-msgstr "_Nauja kopija"
+msgstr "_Naujas egzempliorius"
 
 #: ../plugins/launchtaskbar.c:2372
 msgid "Bar with buttons to launch application"
-msgstr "Juosta su mygtukais, skirtais paleisti programoms"
+msgstr "Juosta su mygtukais, skirtais paleisti programas"
 
 #: ../plugins/launchtaskbar.c:2382
 msgid ""
 "Taskbar shows all opened windows and allow to iconify them, shade or get "
 "focus"
 msgstr ""
-"Užduočių juosta rodo visus atidarytus langus ir leidžia juos sumažinti bei "
-"išdidinti"
+"Užduočių juosta rodo visus atvertus langus ir leidžia juos suskleisti, "
+"užraityti bei fokusuoti"
 
 #: ../plugins/launchtaskbar.c:2402
 msgid "Bar with buttons to launch application and/or show all opened windows"
 msgstr ""
-"Juosta su mygtukais, skirtais paleisti programoms ar parodyti visus atvertus "
-"langus"
+"Juosta su mygtukais, skirtais paleisti programas ir/ar parodyti visus "
+"atvertus langus"
 
 #. Add Raise menu item.
 #: ../plugins/task-button.c:339
 msgid "_Raise"
-msgstr "Pa_rodyti"
+msgstr "Iš_kelti"
 
 #. Add Restore menu item.
 #: ../plugins/task-button.c:344
 msgid "R_estore"
-msgstr "At_statyti"
+msgstr "A_tkurti"
 
 #. Add Maximize menu item.
 #: ../plugins/task-button.c:349
 msgid "Ma_ximize"
-msgstr "Iš_didinti"
+msgstr "Iš_skleisti"
 
 #. Add Iconify menu item.
 #: ../plugins/task-button.c:354
 msgid "Ico_nify"
-msgstr "Su_mažinti"
+msgstr "Susk_leisti"
 
 #: ../plugins/task-button.c:375
 #, c-format
 msgid "Workspace _%d"
-msgstr "Darbo vieta _%d"
+msgstr "Darbo sritis _%d"
 
 #: ../plugins/task-button.c:380
 #, c-format
 msgid "Workspace %d"
-msgstr "Darbo vieta %d"
+msgstr "Darbo sritis %d"
 
 #. Add "move to all workspaces" item.  This causes the window to be visible no matter what desktop is active.
 #: ../plugins/task-button.c:397
 msgid "_All workspaces"
-msgstr "Visos d_arbo vietos"
+msgstr "Visos d_arbo sritys"
 
 #. FIXME: add "Current workspace" item, active if not on a current
 #. Add Move to Workspace menu item as a submenu.
 #: ../plugins/task-button.c:405
 msgid "_Move to Workspace"
-msgstr "Per_kelti į darbo vietą"
+msgstr "Per_kelti į darbo sritį"
 
 #: ../plugins/task-button.c:420
 msgid "_Close Window"
-msgstr "_Uždaryti langą"
+msgstr "_Užverti langą"
 
 #: ../plugins/task-button.c:1238
 msgid "_Close all windows"
@@ -729,32 +734,32 @@ msgstr "Laikrodžio formatas"
 
 #: ../plugins/dclock.c:434
 msgid "Tooltip Format"
-msgstr "Patarimų formatas"
+msgstr "Paaiškinimų formatas"
 
 #: ../plugins/dclock.c:435
-#, fuzzy, c-format
+#, c-format
 msgid "Format codes: man 3 strftime; %n for line break"
-msgstr "Formatų kodai: man 3 strftime; \\%n naujai eilutei"
+msgstr "Formatų kodai: man 3 strftime; %n naujai eilutei"
 
 #: ../plugins/dclock.c:436
 msgid "Action when clicked (default: display calendar)"
-msgstr "Veiksmas paspaudus (numatyta: rodyti kalendorių)"
+msgstr "Veiksmas spustelėjus (numatytasis: rodyti kalendorių)"
 
 #: ../plugins/dclock.c:438
 msgid "Tooltip only"
-msgstr "Tik patarimas"
+msgstr "Tik paaiškinimas"
 
 #: ../plugins/dclock.c:439
 msgid "Center text"
-msgstr "Tekstas centre"
+msgstr "Centruoti tekstą"
 
 #: ../plugins/dclock.c:446
 msgid "Display digital clock and tooltip"
-msgstr "Rodyti skaitmeninį laikrodį ir patarimus"
+msgstr "Rodyti skaitmeninį laikrodį ir paaiškinimus"
 
 #: ../plugins/menu.c:360
 msgid "Add to desktop"
-msgstr "Pridėti į darbastalį"
+msgstr "Pridėti į darbalaukį"
 
 #: ../plugins/menu.c:367
 msgid "Properties"
@@ -770,7 +775,7 @@ msgstr "Piktograma"
 
 #: ../plugins/menu.c:998
 msgid "Application Menu"
-msgstr "Programos meniu"
+msgstr "Programų meniu"
 
 #: ../plugins/separator.c:73
 msgid "Separator"
@@ -778,19 +783,20 @@ msgstr "Skirtukas"
 
 #: ../plugins/separator.c:74
 msgid "Add a separator to the panel"
-msgstr "Įdėti skirtuką į skydelį"
+msgstr "Pridėti skirtuką į skydelį"
 
 #: ../plugins/pager.c:114
 msgid "Sorry, there was no window manager configuration program found."
 msgstr ""
+"Atleiskite, nebuvo rasta jokia langų tvarkytuvės konfigūravimo programa."
 
 #: ../plugins/pager.c:166 ../plugins/pager.c:182
 msgid "Desktop Pager"
-msgstr "Darbastalio puslapiuotojas"
+msgstr "Darbalaukių puslapiuotojas"
 
 #: ../plugins/pager.c:167 ../plugins/pager.c:183
 msgid "Simple pager plugin"
-msgstr "Paprastas puslapiuotojas"
+msgstr "Paprastas puslapiuotojo įskiepis"
 
 #: ../plugins/tray.c:691
 msgid "System Tray"
@@ -802,7 +808,7 @@ msgstr "Sistemos dėklas"
 
 #: ../plugins/xkb/xkb-plugin.c:409
 msgid "New session is required for this option to take effect"
-msgstr "Šiai parinkčiai įsigalioti reikia naujos sesijos"
+msgstr "Šiai parinkčiai įsigalioti reikia naujo seanso"
 
 #. dialog
 #: ../plugins/xkb/xkb-plugin.c:590
@@ -812,7 +818,7 @@ msgstr "Pasirinkite klaviatūros modelį"
 #: ../plugins/xkb/xkb-plugin.c:614 ../plugins/xkb/xkb-plugin.c:743
 #: ../plugins/xkb/xkb-plugin.c:921
 msgid "Description"
-msgstr "Aprašymas"
+msgstr "Aprašas"
 
 #: ../plugins/xkb/xkb-plugin.c:619 ../plugins/xkb/xkb-plugin.c:750
 msgid "Id"
@@ -830,7 +836,7 @@ msgstr "Pridėti klaviatūros išdėstymą"
 
 #: ../plugins/xkb/xkb-plugin.c:911 ../plugins/xkb/xkb-plugin.c:1302
 msgid "Flag"
-msgstr "Žymė"
+msgstr "Vėliavėlė"
 
 #: ../plugins/xkb/xkb-plugin.c:916 ../plugins/xkb/xkb-plugin.c:1306
 msgid "Layout"
@@ -854,7 +860,7 @@ msgstr "Variantas"
 
 #: ../plugins/xkb/xkb-plugin.c:1319
 msgid "Change Layout Option"
-msgstr "Keisti išdėstymo parinktis"
+msgstr "Išdėstymo keitimo parinktis"
 
 #: ../plugins/xkb/xkb-plugin.c:1339
 msgid "Advanced setxkbmap Options"
@@ -870,11 +876,11 @@ msgstr "_Palikti sistemos išdėstymus"
 
 #: ../plugins/xkb/xkb-plugin.c:1374
 msgid "Per Window Settings"
-msgstr "Nustatymai konkrečiam langui"
+msgstr "Atskirų langų nustatymai"
 
 #: ../plugins/xkb/xkb-plugin.c:1386
 msgid "_Remember layout for each window"
-msgstr "_Atsiminti išdėstymą kiekvienam langui"
+msgstr "_Prisiminti išdėstymą kiekvienam atskiram langui"
 
 #: ../plugins/xkb/xkb-plugin.c:1395
 msgid "Show Layout as"
@@ -882,7 +888,7 @@ msgstr "Rodyti išdėstymą kaip"
 
 #: ../plugins/xkb/xkb-plugin.c:1456
 msgid "Custom Image"
-msgstr "Pasirinktinis paveikslėlis"
+msgstr "Pasirinktinis paveikslas"
 
 #: ../plugins/xkb/xkb-plugin.c:1457
 msgid "Text"
@@ -899,23 +905,23 @@ msgstr "Tvarkyti klaviatūros išdėstymus"
 #: ../plugins/wincmd.c:205
 msgid "Left click to iconify all windows.  Middle click to shade them."
 msgstr ""
-"Kairysis pelės mygtukas sumažina visus langus.  Vidurinysis suskleidžia juos."
+"Kairysis pelės mygtukas suskleidžia visus langus.  Vidurinysis juos užraito."
 
 #: ../plugins/wincmd.c:243 ../plugins/wincmd.c:253
 msgid "Minimize All Windows"
-msgstr "Sumažinti visus langus"
+msgstr "Suskleisti visus langus"
 
 #: ../plugins/wincmd.c:245
 msgid "Alternately iconify/shade and raise"
-msgstr "Sumažinti/suskleisti ir išdidinti kitu būdu"
+msgstr "Suskleisti/užraityti kitu būdu"
 
 #: ../plugins/wincmd.c:254
 msgid ""
 "Sends commands to all desktop windows.\n"
 "Supported commands are 1) iconify and 2) shade"
 msgstr ""
-"Nusiunčia komandas visiems darbastalio langams.\n"
-"Palaikomos komandos yra 1) sumažinti ir 2) suskleisti"
+"Nusiunčia komandas visiems darbalaukio langams.\n"
+"Palaikomos komandos yra 1) suskleisti ir 2) užraityti"
 
 #: ../plugins/dirmenu.c:213
 msgid "Open in _Terminal"
@@ -923,11 +929,11 @@ msgstr "Atverti _terminale"
 
 #: ../plugins/dirmenu.c:355 ../plugins/dirmenu.c:365
 msgid "Directory Menu"
-msgstr "Aplanko meniu"
+msgstr "Katalogo meniu"
 
 #: ../plugins/dirmenu.c:357
 msgid "Directory"
-msgstr "Aplankas"
+msgstr "Katalogas"
 
 #: ../plugins/dirmenu.c:358
 msgid "Label"
@@ -935,15 +941,15 @@ msgstr "Etiketė"
 
 #: ../plugins/dirmenu.c:366
 msgid "Browse directory tree via menu (Author = PCMan)"
-msgstr "Naršyti aplankus per meniu (Autorius = PCMan)"
+msgstr "Naršyti katalogų medį per meniu (Autorius = PCMan)"
 
 #: ../plugins/thermal/thermal.c:564 ../plugins/thermal/thermal.c:582
 msgid "Temperature Monitor"
-msgstr "Temperatūros stebyklė"
+msgstr "Temperatūros prižiūryklė"
 
 #: ../plugins/thermal/thermal.c:566
 msgid "Normal color"
-msgstr "Įprastos spalvos"
+msgstr "Normali spalva"
 
 #: ../plugins/thermal/thermal.c:567
 msgid "Warning1 color"
@@ -955,12 +961,12 @@ msgstr "2-o įspėjimo spalva"
 
 #: ../plugins/thermal/thermal.c:569
 msgid "Automatic sensor location"
-msgstr "Automatinė sensoriaus vieta"
+msgstr "Automatinė jutiklio vieta"
 
 #. FIXME: if off, disable next one
 #: ../plugins/thermal/thermal.c:570
 msgid "Sensor"
-msgstr "Sensorius"
+msgstr "Jutiklis"
 
 #. FIXME: create a list to select instead
 #: ../plugins/thermal/thermal.c:571
@@ -969,14 +975,12 @@ msgstr "Automatiniai temperatūros lygiai"
 
 #. FIXME: if off, disable two below
 #: ../plugins/thermal/thermal.c:572
-#, fuzzy
 msgid "Warning1 temperature"
-msgstr "„Perspėjimas 1“ temperatūra"
+msgstr "1-o įspėjimo temperatūra"
 
 #: ../plugins/thermal/thermal.c:573
-#, fuzzy
 msgid "Warning2 temperature"
-msgstr "„Perspėjimas 2“ temperatūra"
+msgstr "2-o įspėjimo temperatūra"
 
 #: ../plugins/thermal/thermal.c:583
 msgid "Display system temperature"
@@ -989,7 +993,7 @@ msgid ""
 "Governor: %s"
 msgstr ""
 "Dažnis: %d MHz\n"
-"Nustatymas: %s"
+"Reguliatorius: %s"
 
 #: ../plugins/cpufreq/cpufreq.c:401
 msgid "CPUFreq frontend"
@@ -997,37 +1001,38 @@ msgstr "CpuFreq grafinė sąsaja"
 
 #: ../plugins/cpufreq/cpufreq.c:402
 msgid "Display CPU frequency and allow to change governors and frequency"
-msgstr "Rodo CPU dažnį ir leidžia keisti nustatymus ir dažnį"
+msgstr "Rodo procesoriaus dažnį ir leidžia keisti reguliatorius ir dažnį"
 
 #. FIXME: display current level in tooltip. ex: "Volume Control: 80%"
 #. Display current level in tooltip.
 #: ../plugins/volume/volume.c:282 ../plugins/volumealsa/volumealsa.c:597
 #: ../plugins/volumealsa/volumealsa.c:955
 msgid "Volume control"
-msgstr "Garsumo valdymas"
+msgstr "Garsio reguliavimas"
 
 #: ../plugins/volume/volume.c:290 ../plugins/volumealsa/volumealsa.c:1491
 #: ../plugins/volumealsa/volumealsa.c:1530
 #: ../plugins/volumealsa/volumealsa.c:1551
 msgid "Volume Control"
-msgstr "Garsumo valdymas"
+msgstr "Garsio reguliavimas"
 
 #. Create a frame as the child of the viewport.
 #: ../plugins/volume/volume-impl.c:115 ../plugins/volumealsa/volumealsa.c:874
 msgid "Volume"
-msgstr "Garsumas"
+msgstr "Garsis"
 
 #: ../plugins/volumealsa/volumealsa.c:245
 msgid "ALSA (or pulseaudio) had a problem. Please check the lxpanel logs."
 msgstr ""
+"ALSA (ar pulseaudio) susidūrė su problema. Patikrinkite lxpanel žurnalus."
 
 #: ../plugins/volumealsa/volumealsa.c:680
 msgid ""
 "Error, you need to install an application to configure the sound "
 "(pavucontrol, alsamixer ...)"
 msgstr ""
-"Klaida, norint konfigūruoti garsą turite įdiegti tam skirtą programą "
-"(pavucontrol, alsamixer...)"
+"Klaida, norint konfigūruoti garsą, turite įdiegti tam skirtą programą ("
+"pavucontrol, alsamixer ...)"
 
 #. Create a check button as the child of the vertical box.
 #: ../plugins/volumealsa/volumealsa.c:893
@@ -1037,88 +1042,86 @@ msgstr "Nutildyti"
 #. Just to have these translated
 #: ../plugins/volumealsa/volumealsa.c:1293
 msgid "Line"
-msgstr ""
+msgstr "Linija"
 
 #: ../plugins/volumealsa/volumealsa.c:1293
 msgid "LineOut"
-msgstr ""
+msgstr "Išvadinė linija"
 
 #: ../plugins/volumealsa/volumealsa.c:1293
 msgid "Front"
-msgstr ""
+msgstr "Priekinė"
 
 #: ../plugins/volumealsa/volumealsa.c:1293
 msgid "Surround"
-msgstr ""
+msgstr "Erdvinė"
 
 #: ../plugins/volumealsa/volumealsa.c:1293
 msgid "Speaker+LO"
-msgstr ""
+msgstr "Garsiakalbis+LO"
 
 #: ../plugins/volumealsa/volumealsa.c:1332
 msgid "default"
-msgstr ""
+msgstr "numatytasis"
 
 #. desc, index
 #: ../plugins/volumealsa/volumealsa.c:1391
 msgid "Master"
-msgstr ""
+msgstr "Pagrindinis"
 
 #: ../plugins/volumealsa/volumealsa.c:1395
 msgid "PCM"
-msgstr ""
+msgstr "PCM"
 
 #: ../plugins/volumealsa/volumealsa.c:1399
 msgid "Headphone"
-msgstr ""
+msgstr "Ausinė"
 
 #: ../plugins/volumealsa/volumealsa.c:1420
 msgid "Click for Volume Slider"
-msgstr ""
+msgstr "Spustelėkite, norėdami pamatyti garsio slankiklį"
 
 #: ../plugins/volumealsa/volumealsa.c:1424
 msgid "Click for Toggle Mute"
-msgstr ""
+msgstr "Spustelėkite, norėdami perjungti nutildymą"
 
 #: ../plugins/volumealsa/volumealsa.c:1428
 msgid "Click for Open Mixer"
-msgstr ""
+msgstr "Spustelėkite, norėdami atverti maišiklį"
 
 #. setup hotkeys
 #: ../plugins/volumealsa/volumealsa.c:1432
 msgid "Hotkey for Volume Up"
-msgstr ""
+msgstr "Spartusis klavišas, skirtas garsinti"
 
 #: ../plugins/volumealsa/volumealsa.c:1434
 msgid "Hotkey for Volume Down"
-msgstr ""
+msgstr "Spartusis klavišas, skirtas tildyti"
 
 #: ../plugins/volumealsa/volumealsa.c:1436
 msgid "Hotkey for Volume Mute"
-msgstr ""
+msgstr "Spartusis klavišas, skirtas nutildyti garsį"
 
 #: ../plugins/volumealsa/volumealsa.c:1493
 msgid "Audio Card"
-msgstr ""
+msgstr "Garso plokštė"
 
 #: ../plugins/volumealsa/volumealsa.c:1496
 msgid "Channel to Operate"
-msgstr ""
+msgstr "Kanalas, kurį paveikti"
 
 #: ../plugins/volumealsa/volumealsa.c:1504
 msgid "Command to Open Mixer"
-msgstr ""
+msgstr "Komanda, skirta atverti maišiklį"
 
 #: ../plugins/volumealsa/volumealsa.c:1519
-#, fuzzy
 msgid "Launch Mixer"
-msgstr "Leistukai"
+msgstr "Paleisti maišiklį"
 
 #: ../plugins/volumealsa/volumealsa.c:1531
 #: ../plugins/volumealsa/volumealsa.c:1552
-#, fuzzy
 msgid "Display and control volume"
-msgstr "Rodymas ir ALSA garso valdymas"
+msgstr "Rodyti ir reguliuoti garsį"
 
 #: ../plugins/netstat/netstat.c:183
 msgid "<Hidden Access Point>"
@@ -1126,12 +1129,12 @@ msgstr "<Paslėptas prieigos taškas>"
 
 #: ../plugins/netstat/netstat.c:220
 msgid "Wireless Networks not found in range"
-msgstr "Nerasta jokių bevielio ryšio tinklų"
+msgstr "Nerasta jokių belaidžio ryšio tinklų"
 
 #. Repair
 #: ../plugins/netstat/netstat.c:256
 msgid "Repair"
-msgstr "Taisyti"
+msgstr "Pataisyti"
 
 #. interface down
 #: ../plugins/netstat/netstat.c:261
@@ -1140,7 +1143,7 @@ msgstr "Išjungti"
 
 #: ../plugins/netstat/netstat.c:352
 msgid "Wireless Connection has no connectivity"
-msgstr "Bevielis ryšys neturi jokio jungiamumo"
+msgstr "Belaidis ryšys neturi jokio jungiamumo"
 
 #: ../plugins/netstat/netstat.c:354
 msgid "Network cable is plugged out"
@@ -1167,7 +1170,7 @@ msgstr "Tinklo kaukė:"
 #: ../plugins/netstat/netstat.c:363 ../plugins/netstat/netstat.c:375
 #: ../plugins/netstat/netstat.c:386
 msgid "Activity"
-msgstr "Aktyvumas"
+msgstr "Veikla"
 
 #: ../plugins/netstat/netstat.c:363 ../plugins/netstat/netstat.c:375
 #: ../plugins/netstat/netstat.c:386
@@ -1191,7 +1194,7 @@ msgstr "paketų"
 
 #: ../plugins/netstat/netstat.c:368 ../plugins/netstatus/netstatus-iface.c:173
 msgid "Wireless"
-msgstr "Bevielis"
+msgstr "Belaidis"
 
 #: ../plugins/netstat/netstat.c:370
 msgid "Protocol:"
@@ -1199,7 +1202,7 @@ msgstr "Protokolas:"
 
 #: ../plugins/netstat/netstat.c:374 ../plugins/netstat/netstat.c:385
 msgid "HW Address:"
-msgstr "HW adresas:"
+msgstr "AĮ adresas:"
 
 #: ../plugins/netstat/netstat.c:505
 msgid "Manage Networks"
@@ -1219,7 +1222,7 @@ msgid ""
 "This wireless network was encrypted.\n"
 "You must have the encryption key."
 msgstr ""
-"Šis bevielis tinklas yra šifruojamas.\n"
+"Šis belaidis tinklas yra šifruojamas.\n"
 "Jūs privalote turėti šifravimo raktą."
 
 #: ../plugins/netstat/passwd_gui.c:106
@@ -1228,7 +1231,7 @@ msgstr "Šifravimo raktas:"
 
 #: ../plugins/netstatus/netstatus.c:154 ../plugins/netstatus/netstatus.c:166
 msgid "Network Status Monitor"
-msgstr "Tinklo būsenos stebėjimo priemonė"
+msgstr "Tinklo būsenos prižiūryklė"
 
 #: ../plugins/netstatus/netstatus.c:156
 msgid "Interface to monitor"
@@ -1240,7 +1243,7 @@ msgstr "Konfigūracijos įrankis"
 
 #: ../plugins/netstatus/netstatus.c:167
 msgid "Monitor network status"
-msgstr "Stebi tinklo būseną"
+msgstr "Stebėti tinklo būseną"
 
 #: ../plugins/netstatus/netstatus-dialog.c:52
 #: ../plugins/netstatus/netstatus-dialog.c:316
@@ -1270,7 +1273,7 @@ msgid ""
 "There was an error displaying help:\n"
 "%s"
 msgstr ""
-"Bandant parodyti pagalbą įvyko klaida:\n"
+"Rodant žinyną, įvyko klaida:\n"
 "%s"
 
 #: ../plugins/netstatus/netstatus-icon.c:381
@@ -1288,23 +1291,23 @@ msgstr "Sąsaja"
 
 #: ../plugins/netstatus/netstatus-icon.c:848
 msgid "The current interface the icon is monitoring."
-msgstr "Sąsaja, kurią stebi piktograma."
+msgstr "Esama sąsaja, kurią piktograma stebi."
 
 #: ../plugins/netstatus/netstatus-icon.c:855
 msgid "Orientation"
-msgstr "Pozicija"
+msgstr "Orientacija"
 
 #: ../plugins/netstatus/netstatus-icon.c:856
 msgid "The orientation of the tray."
-msgstr "Sistemos dėklo pozicija."
+msgstr "Sistemos dėklo orientacija."
 
 #: ../plugins/netstatus/netstatus-icon.c:864
 msgid "Tooltips Enabled"
-msgstr "Patarimai Įjungti"
+msgstr "Paaiškinimai įjungti"
 
 #: ../plugins/netstatus/netstatus-icon.c:865
 msgid "Whether or not the icon's tooltips are enabled."
-msgstr "Nesvarbu ar patarimų piktogramos įjungtos."
+msgstr "Ar piktogramų paaiškinimai įjungti, ar ne."
 
 #: ../plugins/netstatus/netstatus-icon.c:872
 msgid "Show Signal"
@@ -1312,7 +1315,7 @@ msgstr "Rodyti signalo stiprumą"
 
 #: ../plugins/netstatus/netstatus-icon.c:873
 msgid "Whether or not the signal strength should be displayed."
-msgstr "Rodyti ar nerodyti signalo stiprumo."
+msgstr "Rodyti ar nerodyti signalo stiprumą."
 
 #: ../plugins/netstatus/netstatus-icon.c:982
 #, c-format
@@ -1352,7 +1355,7 @@ msgstr "Sąsajos paketų/baitų statistika"
 
 #: ../plugins/netstatus/netstatus-iface.c:174
 msgid "Whether the interface is a wireless interface"
-msgstr "Ar sąsaja yra bevielė sąsaja"
+msgstr "Ar sąsaja yra belaidė, ar ne"
 
 #: ../plugins/netstatus/netstatus-iface.c:181
 msgid "Signal"
@@ -1360,7 +1363,7 @@ msgstr "Signalas"
 
 #: ../plugins/netstatus/netstatus-iface.c:182
 msgid "Wireless signal strength percentage"
-msgstr "Bevielio signalo stiprumas procentais"
+msgstr "Belaidžio signalo stiprumas procentais"
 
 #: ../plugins/netstatus/netstatus-iface.c:192
 msgid "The current error condition"
@@ -1370,7 +1373,7 @@ msgstr "Dabartinė klaidos būsena"
 #: ../plugins/netstatus/netstatus-iface.c:1205
 #, c-format
 msgid "Unable to open socket: %s"
-msgstr "Neįmanoma atidaryti jungties: %s"
+msgstr "Nepavyko atidaryti lizdo: %s"
 
 #: ../plugins/netstatus/netstatus-iface.c:502
 #: ../plugins/netstatus/netstatus-iface.c:1231
@@ -1393,7 +1396,7 @@ msgstr "AMPR AX.25"
 #: ../plugins/netstatus/netstatus-iface.c:897
 #: ../plugins/netstatus/netstatus-iface.c:1017
 msgid "16/4 Mbps Token Ring"
-msgstr "16/4 Mbps Token Ring"
+msgstr "16/4 Mbps estafetinis žiedas"
 
 #: ../plugins/netstatus/netstatus-iface.c:900
 msgid "ARCnet"
@@ -1401,7 +1404,7 @@ msgstr "ARCnet"
 
 #: ../plugins/netstatus/netstatus-iface.c:906
 msgid "Frame Relay DLCI"
-msgstr "Frame Relay DLCI"
+msgstr "Kadrinis perdavimas DLCI"
 
 #: ../plugins/netstatus/netstatus-iface.c:912
 msgid "Metricom Starmode IP"
@@ -1409,23 +1412,23 @@ msgstr "Metricom Starmode IP"
 
 #: ../plugins/netstatus/netstatus-iface.c:915
 msgid "Serial Line IP"
-msgstr "Serial Line IP"
+msgstr "Nuosekliosios linijos IP"
 
 #: ../plugins/netstatus/netstatus-iface.c:918
 msgid "VJ Serial Line IP"
-msgstr "VJ Serial Line IP"
+msgstr "VJ nuosekliosios linijos IP"
 
 #: ../plugins/netstatus/netstatus-iface.c:921
 msgid "6-bit Serial Line IP"
-msgstr "6-bit Serial Line IP"
+msgstr "6-bitų nuosekliosios linijos IP"
 
 #: ../plugins/netstatus/netstatus-iface.c:924
 msgid "VJ 6-bit Serial Line IP"
-msgstr "VJ 6-bit Serial Line IP"
+msgstr "VJ 6-bitų nuosekliosios linijos IP"
 
 #: ../plugins/netstatus/netstatus-iface.c:930
 msgid "Adaptive Serial Line IP"
-msgstr "Adaptive Serial Line IP"
+msgstr "Adaptyvios nuosekliosios linijos IP"
 
 #: ../plugins/netstatus/netstatus-iface.c:933
 msgid "AMPR ROSE"
@@ -1433,7 +1436,7 @@ msgstr "AMPR ROSE"
 
 #: ../plugins/netstatus/netstatus-iface.c:936
 msgid "Generic X.25"
-msgstr "Generic X.25"
+msgstr "Bendrinis X.25"
 
 #: ../plugins/netstatus/netstatus-iface.c:939
 msgid "Point-to-Point Protocol"
@@ -1453,11 +1456,11 @@ msgstr "IPIP tunelis"
 
 #: ../plugins/netstatus/netstatus-iface.c:963
 msgid "Frame Relay Access Device"
-msgstr "Frame Relay priėjimo įrenginys"
+msgstr "Kadrinio perdavimo prieigos įrenginys"
 
 #: ../plugins/netstatus/netstatus-iface.c:969
 msgid "Local Loopback"
-msgstr "Vietinė grįžtamoji sąsaja"
+msgstr "Vietinis kilpinis sujungimas"
 
 #: ../plugins/netstatus/netstatus-iface.c:975
 msgid "Fiber Distributed Data Interface"
@@ -1496,21 +1499,21 @@ msgstr "Tinklo įrenginių nerasta"
 #: ../plugins/netstatus/netstatus-sysdeps.c:180
 #, c-format
 msgid "Cannot open /proc/net/dev: %s"
-msgstr "Negalima atverti /proc/net/dev: %s"
+msgstr "Nepavyksta atverti /proc/net/dev: %s"
 
 #: ../plugins/netstatus/netstatus-sysdeps.c:185
 msgid "Could not parse /proc/net/dev. No data."
-msgstr "Nepavyko apdoroti /proc/net/dev. Nėra duomenų."
+msgstr "Nepavyko išanalizuoti /proc/net/dev. Nėra duomenų."
 
 #: ../plugins/netstatus/netstatus-sysdeps.c:190
 msgid "Could not parse /proc/net/dev. Unknown format."
-msgstr "Negalima apdoroti /proc/net/dev: nežnomas formatas."
+msgstr "Nepavyko išanalizuoti /proc/net/dev. Nežinomas formatas."
 
 #: ../plugins/netstatus/netstatus-sysdeps.c:205
 #: ../plugins/netstatus/netstatus-sysdeps.c:332
 #, c-format
 msgid "Could not parse interface name from '%s'"
-msgstr "Negalima apdoroti sąsajos pavadinimo iš „%s“"
+msgstr "Nepavyko išanalizuoti sąsajos pavadinimo iš „%s“"
 
 #: ../plugins/netstatus/netstatus-sysdeps.c:218
 #: ../plugins/netstatus/netstatus-sysdeps.c:647
@@ -1519,40 +1522,41 @@ msgid ""
 "Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; "
 "brx_idx = %d; btx_idx = %d;"
 msgstr ""
-"Negalima apdoroti sąsajos statistikos iš „%s“. prx_idx = %d; ptx_idx = %d; "
-"brx_idx = %d; btx_idx = %d;"
+"Nepavyko išanalizuoti sąsajos statistikos iš „%s“. prx_idx = %d; ptx_idx = "
+"%d; brx_idx = %d; btx_idx = %d;"
 
 #: ../plugins/netstatus/netstatus-sysdeps.c:312
 msgid "Could not parse /proc/net/wireless. No data."
-msgstr "Nepavyko apdoroti /proc/net/wireless. Nėra duomenų."
+msgstr "Nepavyko išanalizuoti /proc/net/wireless. Nėra duomenų."
 
 #: ../plugins/netstatus/netstatus-sysdeps.c:316
 msgid "Could not parse /proc/net/wireless. Unknown format."
-msgstr "Negalima apdoroti /proc/net/wireless: nežnomas formatas."
+msgstr "Nepavyko išanalizuoti /proc/net/wireless. Nežinomas formatas."
 
 #: ../plugins/netstatus/netstatus-sysdeps.c:343
 #, c-format
 msgid "Could not parse wireless details from '%s'. link_idx = %d;"
-msgstr "Negalima apdoroti bevielio tinklo informacijos iš „%s“. link_idx = %d;"
+msgstr ""
+"Nepavyko išanalizuoti belaidžio tinklo informacijos iš „%s“. link_idx = %d;"
 
 #: ../plugins/netstatus/netstatus-sysdeps.c:416
 #, c-format
 msgid "Could not connect to interface, '%s'"
-msgstr "Negalima prisijungti prie sąsajos, „%s“"
+msgstr "Nepavyko prisijungti prie sąsajos, „%s“"
 
 #: ../plugins/netstatus/netstatus-sysdeps.c:422
 #, c-format
 msgid "Could not send ioctl to interface, '%s'"
-msgstr "Negalima nusiųsti ioctl į sąsają, „%s“"
+msgstr "Nepavyko išsiųsti ioctl į sąsają, „%s“"
 
 #: ../plugins/netstatus/netstatus-sysdeps.c:600
 #, c-format
 msgid "Could not parse command line '%s': %s"
-msgstr "Negalima apdoroti komandinės eilutės „%s“: %s"
+msgstr "Nepavyko išanalizuoti komandų eilutės „%s“: %s"
 
 #: ../plugins/netstatus/netstatus-sysdeps.c:637
 msgid "Could not parse 'netstat' output. Unknown format"
-msgstr "Negalima apdoroti „netstat“ išvesties: nežinomas formatas"
+msgstr "Nepavyko išanalizuoti „netstat“ išvesties. Nežinomas formatas"
 
 #: ../plugins/netstatus/netstatus-util.c:152
 msgid "Disconnected"
@@ -1560,7 +1564,7 @@ msgstr "Atsijungta"
 
 #: ../plugins/netstatus/netstatus-util.c:155
 msgid "Idle"
-msgstr "Nieko nedaroma"
+msgstr "Neveiklus"
 
 #: ../plugins/netstatus/netstatus-util.c:158
 msgid "Sending"
@@ -1575,19 +1579,19 @@ msgid "Sending/Receiving"
 msgstr "Siunčiama/Gaunama"
 
 #: ../plugins/batt/batt.c:154
-#, fuzzy, c-format
+#, c-format
 msgid "Battery %d: %d%% charged, %d:%02d until full"
-msgstr "Baterija: %d%% įkrauta, %d:%02d iki pilnumo"
+msgstr "Baterija %d: %d%% įkrauta, %d:%02d iki pilnos"
 
 #: ../plugins/batt/batt.c:165
-#, fuzzy, c-format
+#, c-format
 msgid "Battery %d: %d%% charged, %d:%02d left"
-msgstr "Baterija: %d%% įkrauta, %d:%02d liko"
+msgstr "Baterija %d: %d%% įkrauta, liko %d:%02d"
 
 #: ../plugins/batt/batt.c:171
-#, fuzzy, c-format
+#, c-format
 msgid "Battery %d: %d%% charged"
-msgstr "Baterija: %d%% įkrauta"
+msgstr "Baterija %d: %d%% įkrauta"
 
 #: ../plugins/batt/batt.c:181
 #, c-format
@@ -1596,7 +1600,7 @@ msgid ""
 "%sEnergy full design:\t\t%5d mWh"
 msgstr ""
 "\n"
-"%sMaksimali jėga:\t\t%5d mWh"
+"%sDaugiausiai energijos pagal projektavimą:\t\t%5d mWh"
 
 #: ../plugins/batt/batt.c:183
 #, c-format
@@ -1605,7 +1609,7 @@ msgid ""
 "%sEnergy full:\t\t\t%5d mWh"
 msgstr ""
 "\n"
-"%sPilna jėga:\t\t\t%5d mWh"
+"%sDaugiausiai energijos:\t\t\t%5d mWh"
 
 #: ../plugins/batt/batt.c:185
 #, c-format
@@ -1614,7 +1618,7 @@ msgid ""
 "%sEnergy now:\t\t\t%5d mWh"
 msgstr ""
 "\n"
-"%sJėga dabar:\t\t\t%5d mWh"
+"%sŠiuo metu energijos:\t\t\t%5d mWh"
 
 #: ../plugins/batt/batt.c:187
 #, c-format
@@ -1623,7 +1627,7 @@ msgid ""
 "%sPower now:\t\t\t%5d mW"
 msgstr ""
 "\n"
-"%sPajėgumas dabar:\t\t\t%5d mW"
+"%sŠiuo metu galios:\t\t\t%5d mW"
 
 #: ../plugins/batt/batt.c:190
 #, c-format
@@ -1632,7 +1636,7 @@ msgid ""
 "%sCharge full design:\t%5d mAh"
 msgstr ""
 "\n"
-"%sMaksimaliai įkrauta:\t%5d mAh"
+"%sDidžiausia įkrova pagal projektavimą:\t%5d mAh"
 
 #: ../plugins/batt/batt.c:192
 #, c-format
@@ -1641,7 +1645,7 @@ msgid ""
 "%sCharge full:\t\t\t%5d mAh"
 msgstr ""
 "\n"
-"%sPilnai įkrautal:\t\t\t%5d mAh"
+"%sDidžiausia įkrova:\t\t\t%5d mAh"
 
 #: ../plugins/batt/batt.c:194
 #, c-format
@@ -1650,7 +1654,7 @@ msgid ""
 "%sCharge now:\t\t\t%5d mAh"
 msgstr ""
 "\n"
-"%sĮkrauta dabar:\t\t\t%5d mAh"
+"%sDabartinė įkrova:\t\t\t%5d mAh"
 
 #: ../plugins/batt/batt.c:196
 #, c-format
@@ -1659,7 +1663,7 @@ msgid ""
 "%sCurrent now:\t\t\t%5d mA"
 msgstr ""
 "\n"
-"%sSrovė dabar:\t\t\t%5d mA"
+"%sŠiuo metu el. srovė:\t\t\t%5d mA"
 
 #: ../plugins/batt/batt.c:199
 #, c-format
@@ -1668,24 +1672,23 @@ msgid ""
 "%sCurrent Voltage:\t\t%.3lf V"
 msgstr ""
 "\n"
-"%sDabartinis voltažas:\t\t%.3lf V"
+"%sDabartinė įtampa:\t\t%.3lf V"
 
 #: ../plugins/batt/batt.c:237
 msgid "No batteries found"
-msgstr "Nerasta baterijų"
+msgstr "Baterijų nerasta"
 
 #: ../plugins/batt/batt.c:534 ../plugins/batt/batt.c:667
-#, fuzzy
 msgid "Battery low"
-msgstr "Baterijos įkrovos stebyklė"
+msgstr "Baigiasi baterija"
 
 #: ../plugins/batt/batt.c:690 ../plugins/batt/batt.c:714
 msgid "Battery Monitor"
-msgstr "Baterijos įkrovos stebyklė"
+msgstr "Baterijos prižiūryklė"
 
 #: ../plugins/batt/batt.c:692
 msgid "Hide if there is no battery"
-msgstr "Slėpti, jeigu nėra baterijų"
+msgstr "Slėpti, jeigu nėra baterijos"
 
 #: ../plugins/batt/batt.c:693
 msgid "Alarm command"
@@ -1701,40 +1704,39 @@ msgstr "Fono spalva"
 
 #: ../plugins/batt/batt.c:696
 msgid "Charging color 1"
-msgstr "Įkrovos spalva 1"
+msgstr "Įkrovimo spalva 1"
 
 #: ../plugins/batt/batt.c:697
 msgid "Charging color 2"
-msgstr "Įkrovos spalva 2"
+msgstr "Įkrovimo spalva 2"
 
 #: ../plugins/batt/batt.c:698
 msgid "Discharging color 1"
-msgstr "Iškrovos spalva 1"
+msgstr "Iškrovimo spalva 1"
 
 #: ../plugins/batt/batt.c:699
 msgid "Discharging color 2"
-msgstr "Iškrovos spalva 2"
+msgstr "Iškrovimo spalva 2"
 
 #: ../plugins/batt/batt.c:700
 msgid "Border width"
-msgstr "Paraštės plotis"
+msgstr "Rėmelio plotis"
 
 #: ../plugins/batt/batt.c:704
 msgid "Show Extended Information"
-msgstr "Rodyti papildomą informaciją"
+msgstr "Rodyti išplėstinę informaciją"
 
 #: ../plugins/batt/batt.c:705
-#, fuzzy
 msgid "Number of battery to monitor"
-msgstr "Stebėti sąsają"
+msgstr "Baterijos, kurią stebėti, numeris"
 
 #: ../plugins/batt/batt.c:715
 msgid "Display battery status using ACPI"
-msgstr "Rodo baterijos įkrovimo lygį naudojant ACPI"
+msgstr "Rodo baterijos buseną, naudojant ACPI"
 
 #: ../plugins/kbled/kbled.c:203 ../plugins/kbled/kbled.c:234
 msgid "Keyboard LED"
-msgstr "Klaviatūros lemputės"
+msgstr "Klaviatūros šviesos diodai"
 
 #: ../plugins/kbled/kbled.c:205
 msgid "Show CapsLock"
@@ -1750,7 +1752,7 @@ msgstr "Rodyti ScrollLock"
 
 #: ../plugins/kbled/kbled.c:235
 msgid "Indicators for CapsLock, NumLock, and ScrollLock keys"
-msgstr "Indikatoriai CapsLock, NumLock ir ScrollLock klavišams"
+msgstr "Indikatoriai, skirti CapsLock, NumLock ir ScrollLock klavišams"
 
 #. A label to allow for click through
 #: ../plugins/indicator/indicator.c:694
@@ -1763,7 +1765,7 @@ msgstr "Indikatoriaus programėlės"
 
 #: ../plugins/indicator/indicator.c:865
 msgid "Indicator Applications"
-msgstr "Indikatoriaus programėlės"
+msgstr "Indikatoriaus programos"
 
 #: ../plugins/indicator/indicator.c:866
 msgid "Clock Indicator"
@@ -1787,29 +1789,29 @@ msgstr "Garso meniu"
 
 #: ../plugins/indicator/indicator.c:882
 msgid "Add indicator applets to the panel"
-msgstr "Pridėti indikatoriaus programėlę į skydelį"
+msgstr "Pridėti indikatoriaus programėles į skydelį"
 
 #: ../plugins/monitors/monitors.c:281
 #, c-format
 msgid "CPU usage: %.2f%%"
-msgstr "CPU apkrova: %.2f%%"
+msgstr "Procesoriaus naudojimas: %.2f%%"
 
 #: ../plugins/monitors/monitors.c:377
 #, c-format
 msgid "RAM usage: %.1fMB (%.2f%%)"
-msgstr "RAM apkrova: %.1fMB (%.2f%%)"
+msgstr "RAM naudojimas: %.1fMB (%.2f%%)"
 
 #: ../plugins/monitors/monitors.c:723 ../plugins/monitors/monitors.c:808
 msgid "Resource monitors"
-msgstr "Resursų stebyklės"
+msgstr "Išteklių prižiūryklės"
 
 #: ../plugins/monitors/monitors.c:726
 msgid "CPU color"
-msgstr "CPU spalva"
+msgstr "Procesoriaus spalva"
 
 #: ../plugins/monitors/monitors.c:727
 msgid "Display RAM usage"
-msgstr "Rodo CPU naudojimą"
+msgstr "Rodo RAM naudojimą"
 
 #: ../plugins/monitors/monitors.c:728
 msgid "RAM color"
@@ -1817,15 +1819,15 @@ msgstr "RAM spalva"
 
 #: ../plugins/monitors/monitors.c:729
 msgid "Action when clicked (default: lxtask)"
-msgstr "Veiksmas paspaudus (numatytasis: lxtask)"
+msgstr "Veiksmas spustelėjus (numatytasis: lxtask)"
 
 #: ../plugins/monitors/monitors.c:809
 msgid "Display monitors (CPU, RAM)"
-msgstr "Rodyti stebykles (CPU, RAM)"
+msgstr "Rodyti prižiūrykles (Procesoriaus, RAM)"
 
 #: ../plugins/weather/weatherwidget.c:52
 msgid "[N/A]"
-msgstr "[N/A]"
+msgstr "[Nėra]"
 
 #: ../plugins/weather/weatherwidget.c:792
 msgid "Enter New Location"
@@ -1847,12 +1849,12 @@ msgstr ""
 "- miestą, ar\n"
 "- miestą ir valstiją/šalį, ar\n"
 "- pašto kodą\n"
-"vietos kurios prognozę norite gauti."
+"tos vietos, kurios orų prognozę norite gauti."
 
 #: ../plugins/weather/weatherwidget.c:854
 #: ../plugins/weather/weatherwidget.c:987
 msgid "You must specify a location."
-msgstr "Turite nurodyti vietą."
+msgstr "Privalote nurodyti vietą."
 
 #: ../plugins/weather/weatherwidget.c:901
 #, c-format
@@ -1861,19 +1863,19 @@ msgstr "Vieta „%s“ nerasta!"
 
 #: ../plugins/weather/weatherwidget.c:1060
 msgid "Preferences"
-msgstr "Nustatymai"
+msgstr "Nuostatos"
 
 #: ../plugins/weather/weatherwidget.c:1066
 msgid "Refresh"
-msgstr "Atnaujinti"
+msgstr "Įkelti iš naujo"
 
 #: ../plugins/weather/weatherwidget.c:1072
 msgid "Quit"
-msgstr "Baigti"
+msgstr "Išeiti"
 
 #: ../plugins/weather/weatherwidget.c:1229
 msgid "Weather Preferences"
-msgstr "Oro sąlygų stebyklės nustatymai"
+msgstr "Orų nuostatos"
 
 #: ../plugins/weather/weatherwidget.c:1243
 msgid "Current Location"
@@ -1895,7 +1897,7 @@ msgstr "Rodymas"
 
 #: ../plugins/weather/weatherwidget.c:1274
 msgid "Name:"
-msgstr "Pavadinimas"
+msgstr "Pavadinimas:"
 
 #: ../plugins/weather/weatherwidget.c:1278
 msgid "Units:"
@@ -1903,7 +1905,7 @@ msgstr "Vienetai:"
 
 #: ../plugins/weather/weatherwidget.c:1282
 msgid "_Metric (°C)"
-msgstr "_Metrinė (°C)"
+msgstr "_Metriniai (°C)"
 
 #: ../plugins/weather/weatherwidget.c:1284
 msgid "_English (°F)"
@@ -1911,7 +1913,7 @@ msgstr "_Anglų (°F)"
 
 #: ../plugins/weather/weatherwidget.c:1319
 msgid "Forecast"
-msgstr "Prognozė"
+msgstr "Orų prognozė"
 
 #: ../plugins/weather/weatherwidget.c:1323
 msgid "Updates:"
@@ -1927,7 +1929,7 @@ msgstr "_Automatiškai, kas"
 
 #: ../plugins/weather/weatherwidget.c:1352
 msgid "minutes"
-msgstr "minutes"
+msgstr "minučių"
 
 #: ../plugins/weather/weatherwidget.c:1361
 msgid "Source:"
@@ -1941,7 +1943,7 @@ msgstr "_Pakeisti"
 #: ../plugins/weather/weatherwidget.c:1565
 #, c-format
 msgid "Current Conditions for %s"
-msgstr "Dabartinės sąlygos %s"
+msgstr "Dabartinės sąlygos, %s"
 
 #: ../plugins/weather/weatherwidget.c:1589
 msgid "Location:"
@@ -1957,7 +1959,7 @@ msgstr "Jaučiama kaip:"
 
 #: ../plugins/weather/weatherwidget.c:1664
 msgid "Humidity:"
-msgstr "Santykinis drėgnumas:"
+msgstr "Drėgnumas:"
 
 #: ../plugins/weather/weatherwidget.c:1691
 msgid "Pressure:"
@@ -2012,23 +2014,23 @@ msgstr "Šalis"
 #. make it nice and pretty
 #: ../plugins/weather/weatherwidget.c:2221
 msgid "Currently in "
-msgstr "Šiuo metu"
+msgstr "Šiuo metu "
 
 #: ../plugins/weather/weatherwidget.c:2223
 msgid "Today: "
-msgstr "Šiandien:"
+msgstr "Šiandien: "
 
 #: ../plugins/weather/weatherwidget.c:2224
 msgid "Tomorrow: "
-msgstr "Rytoj:"
+msgstr "Rytoj: "
 
 #: ../plugins/weather/weather.c:332
 msgid "Weather Plugin"
-msgstr "Oro įskiepis"
+msgstr "Orų įskiepis"
 
 #: ../plugins/weather/weather.c:333
 msgid "Show weather conditions for a location."
-msgstr "Rodyti vietos oro sąlygas ir prognozes."
+msgstr "Rodyti vietos orų sąlygas ir prognozes."
 
 #~ msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
 #~ msgstr ""

@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: lxpanel-0.3.5.2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-10-24 21:15+0300\n"
-"PO-Revision-Date: 2017-05-23 22:46+0000\n"
-"Last-Translator: Adolfo Jayme Barrientos <fitojb@ubuntu.com>\n"
+"PO-Revision-Date: 2017-05-27 07:00+0000\n"
+"Last-Translator: haciendasanpedro <haciendasanpedro@yahoo.com>\n"
 "Language-Team: Spanish <daniel@tunki.org>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.8\n"
 "X-Poedit-Bookmarks: 19,-1,-1,-1,-1,-1,-1,-1,-1,-1\n"
-"X-POOTLE-MTIME: 1495579564.668267\n"
+"X-POOTLE-MTIME: 1495868410.004539\n"
 "X-Pootle-Path: /es/lxpanel/po/es.po\n"
 "X-Pootle-Revision: 0\n"
 
@@ -1091,15 +1091,15 @@ msgstr "Pulse para abrir el mezclador"
 #. setup hotkeys
 #: ../plugins/volumealsa/volumealsa.c:1432
 msgid "Hotkey for Volume Up"
-msgstr ""
+msgstr "TeclaCaliente para aumentar el volumen "
 
 #: ../plugins/volumealsa/volumealsa.c:1434
 msgid "Hotkey for Volume Down"
-msgstr ""
+msgstr "TeclaCaliente para bajar el volumen"
 
 #: ../plugins/volumealsa/volumealsa.c:1436
 msgid "Hotkey for Volume Mute"
-msgstr ""
+msgstr "TeclaCaliente para silenciar"
 
 #: ../plugins/volumealsa/volumealsa.c:1493
 msgid "Audio Card"
