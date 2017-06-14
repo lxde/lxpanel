@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-10-24 21:15+0300\n"
-"PO-Revision-Date: 2014-12-05 08:58+0000\n"
+"PO-Revision-Date: 2017-06-04 10:08+0000\n"
 "Last-Translator: Andika Triwidada <andika@gmail.com>\n"
 "Language-Team: Indonesian <translation-team-id@lists.sourceforge.net>\n"
 "Language: id\n"
@@ -16,8 +16,8 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Pootle 2.6.0-rc2\n"
-"X-POOTLE-MTIME: 1417769938.000000\n"
+"X-Generator: Pootle 2.8\n"
+"X-POOTLE-MTIME: 1496570882.305071\n"
 "X-Pootle-Path: /id/lxpanel/po/id.po\n"
 "X-Pootle-Revision: 0\n"
 
@@ -87,9 +87,8 @@ msgid "LXPanel"
 msgstr "LXPanel"
 
 #: ../src/panel.c:1369
-#, fuzzy
 msgid "Copyright (C) 2008-2016"
-msgstr "Hak Cipta (C) 2008-2014"
+msgstr "Hak Cipta (C) 2008-2016"
 
 #: ../src/panel.c:1370
 msgid "Desktop panel for LXDE project"
@@ -1060,7 +1059,7 @@ msgstr ""
 
 #: ../plugins/volumealsa/volumealsa.c:1395
 msgid "PCM"
-msgstr ""
+msgstr "PCM"
 
 #: ../plugins/volumealsa/volumealsa.c:1399
 msgid "Headphone"
@@ -1567,19 +1566,19 @@ msgid "Sending/Receiving"
 msgstr "Mengirim/Menerima"
 
 #: ../plugins/batt/batt.c:154
-#, fuzzy, c-format
+#, c-format
 msgid "Battery %d: %d%% charged, %d:%02d until full"
-msgstr "Baterai: %d%% terisi, %d:%02d sampai penuh"
+msgstr "Baterai %d: %d%% terisi, %d:%02d sampai penuh"
 
 #: ../plugins/batt/batt.c:165
-#, fuzzy, c-format
+#, c-format
 msgid "Battery %d: %d%% charged, %d:%02d left"
-msgstr "Baterai: %d%% terisi, %d:%02d tersisa"
+msgstr "Baterai %d: %d%% terisi, %d:%02d tersisa"
 
 #: ../plugins/batt/batt.c:171
-#, fuzzy, c-format
+#, c-format
 msgid "Battery %d: %d%% charged"
-msgstr "Baterai: %d%% terisi"
+msgstr "Baterai %d: %d%% terisi"
 
 #: ../plugins/batt/batt.c:181
 #, c-format
@@ -1715,9 +1714,8 @@ msgid "Show Extended Information"
 msgstr "Tampilkan Informasi Yang Diperluas"
 
 #: ../plugins/batt/batt.c:705
-#, fuzzy
 msgid "Number of battery to monitor"
-msgstr "Antarmuka untuk dimonitor"
+msgstr "Banyaknya baterai yang akan dipantau"
 
 #: ../plugins/batt/batt.c:715
 msgid "Display battery status using ACPI"

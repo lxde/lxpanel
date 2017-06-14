@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-10-24 21:15+0300\n"
-"PO-Revision-Date: 2017-05-24 20:15+0000\n"
+"PO-Revision-Date: 2017-06-10 15:02+0000\n"
 "Last-Translator: scootergrisen <scootergrisen@gmail.com>\n"
 "Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
 "Language: da\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.8\n"
-"X-POOTLE-MTIME: 1495656904.143009\n"
+"X-POOTLE-MTIME: 1497106954.528256\n"
 "X-Pootle-Path: /da/lxpanel/po/da.po\n"
 "X-Pootle-Revision: 0\n"
 
@@ -28,6 +28,9 @@ msgid ""
 "Space reservation is not available for this panel because there is another "
 "monitor beyond this edge and reservation would cover it if enabled."
 msgstr ""
+"Pladsreservation er ikke tilgængelig til dette panel fordi der er en anden "
+"skærm udenfor denne kant og reservation ville dække den, hvis det er "
+"aktiveret."
 
 #: ../src/configurator.c:632
 msgid "Currently loaded plugins"
@@ -252,6 +255,7 @@ msgstr "Knap%s"
 #, c-format
 msgid "Key combination '%s' cannot be used as a global hotkey, sorry."
 msgstr ""
+"Tastekombinationen '%s' kan ikke bruges som en global hottast, beklager."
 
 #: ../src/input-button.c:218 ../src/input-button.c:401
 #: ../plugins/netstatus/netstatus-iface.c:191
@@ -271,7 +275,7 @@ msgstr "Brugerdefineret:"
 #: ../src/input-button.c:399
 #, c-format
 msgid "Cannot assign '%s' as a global hotkey: it is already bound."
-msgstr ""
+msgstr "Kan ikke tildele '%s' som en global hottast: den er allerede bundet."
 
 #: ../src/space.c:394 ../src/space.c:403
 msgid "Spacer"
@@ -321,7 +325,7 @@ msgstr "Vis vinduer fra alle arbejdsområder"
 
 #: ../data/ui/launchtaskbar.glade.h:10
 msgid "Only show windows on the same monitor as the task bar"
-msgstr ""
+msgstr "Vis kun vinduer på den samme skærm som opgavebjælken"
 
 #: ../data/ui/launchtaskbar.glade.h:11
 msgid "Use mouse wheel"
@@ -337,7 +341,7 @@ msgstr "Saml flere programvinduer i en knap"
 
 #: ../data/ui/launchtaskbar.glade.h:14
 msgid "Disable enlargement for small task icons"
-msgstr ""
+msgstr "Deaktivér forstørring af små opgaveikoner"
 
 #: ../data/ui/launchtaskbar.glade.h:15
 msgid "Maximum width of task button"
@@ -781,6 +785,8 @@ msgstr "Tilføj en adskiller til panelet"
 #: ../plugins/pager.c:114
 msgid "Sorry, there was no window manager configuration program found."
 msgstr ""
+"Beklager, der blev ikke fundet noget konfigurationsprogram for "
+"vindueshåndtering."
 
 #: ../plugins/pager.c:166 ../plugins/pager.c:182
 msgid "Desktop Pager"
@@ -800,7 +806,7 @@ msgstr "Statusfelt"
 
 #: ../plugins/xkb/xkb-plugin.c:409
 msgid "New session is required for this option to take effect"
-msgstr ""
+msgstr "Ny session kræves for at denne valgmulighed kan træde i kraft"
 
 #. dialog
 #: ../plugins/xkb/xkb-plugin.c:590
@@ -852,19 +858,19 @@ msgstr "Variant"
 
 #: ../plugins/xkb/xkb-plugin.c:1319
 msgid "Change Layout Option"
-msgstr ""
+msgstr "Skift layoutvalgmulighed"
 
 #: ../plugins/xkb/xkb-plugin.c:1339
 msgid "Advanced setxkbmap Options"
-msgstr ""
+msgstr "Avancerede setxkbmap-valgmuligheder"
 
 #: ../plugins/xkb/xkb-plugin.c:1360
 msgid "Do _not reset existing options"
-msgstr ""
+msgstr "Nulstil _ikke eksisterende valgmuligheder"
 
 #: ../plugins/xkb/xkb-plugin.c:1365
 msgid "Keep _system layouts"
-msgstr ""
+msgstr "Behold _systemlayouts"
 
 #: ../plugins/xkb/xkb-plugin.c:1374
 msgid "Per Window Settings"
@@ -984,6 +990,8 @@ msgid ""
 "Frequency: %d MHz\n"
 "Governor: %s"
 msgstr ""
+"Frekvens: %d MHz\n"
+"Governor: %s"
 
 #: ../plugins/cpufreq/cpufreq.c:401
 msgid "CPUFreq frontend"
@@ -991,7 +999,7 @@ msgstr "CPUFreq-frontend"
 
 #: ../plugins/cpufreq/cpufreq.c:402
 msgid "Display CPU frequency and allow to change governors and frequency"
-msgstr ""
+msgstr "Vis CPU-frekvens og tillad at ændring af governors og frekvens"
 
 #. FIXME: display current level in tooltip. ex: "Volume Control: 80%"
 #. Display current level in tooltip.
@@ -1014,12 +1022,15 @@ msgstr "Lydstyrke"
 #: ../plugins/volumealsa/volumealsa.c:245
 msgid "ALSA (or pulseaudio) had a problem. Please check the lxpanel logs."
 msgstr ""
+"ALSA (eller pulseaudio) havde et problem. Tjek venligst lxpanel-loggene."
 
 #: ../plugins/volumealsa/volumealsa.c:680
 msgid ""
 "Error, you need to install an application to configure the sound "
 "(pavucontrol, alsamixer ...)"
 msgstr ""
+"Fejl, du skal installere et program til at konfigurere lyden (pavucontrol, "
+"alsamixer ...)"
 
 #. Create a check button as the child of the vertical box.
 #: ../plugins/volumealsa/volumealsa.c:893
@@ -1029,11 +1040,11 @@ msgstr "Lyd fra"
 #. Just to have these translated
 #: ../plugins/volumealsa/volumealsa.c:1293
 msgid "Line"
-msgstr ""
+msgstr "Linje"
 
 #: ../plugins/volumealsa/volumealsa.c:1293
 msgid "LineOut"
-msgstr ""
+msgstr "LinjeUd"
 
 #: ../plugins/volumealsa/volumealsa.c:1293
 msgid "Front"
@@ -1054,7 +1065,7 @@ msgstr "standard"
 #. desc, index
 #: ../plugins/volumealsa/volumealsa.c:1391
 msgid "Master"
-msgstr ""
+msgstr "Master"
 
 #: ../plugins/volumealsa/volumealsa.c:1395
 msgid "PCM"
@@ -1078,19 +1089,16 @@ msgstr "Klik for at åbne mikser"
 
 #. setup hotkeys
 #: ../plugins/volumealsa/volumealsa.c:1432
-#, fuzzy
 msgid "Hotkey for Volume Up"
-msgstr "Hotkey til lydstyrke op"
+msgstr "Hottast til lydstyrke op"
 
 #: ../plugins/volumealsa/volumealsa.c:1434
-#, fuzzy
 msgid "Hotkey for Volume Down"
-msgstr "Hotkey til lydstyrke ned"
+msgstr "Hottast til lydstyrke ned"
 
 #: ../plugins/volumealsa/volumealsa.c:1436
-#, fuzzy
 msgid "Hotkey for Volume Mute"
-msgstr "Hotkey til lydstyrke mute"
+msgstr "Hottast til lydstyrke mute"
 
 #: ../plugins/volumealsa/volumealsa.c:1493
 msgid "Audio Card"
@@ -1098,7 +1106,7 @@ msgstr "Lydkort"
 
 #: ../plugins/volumealsa/volumealsa.c:1496
 msgid "Channel to Operate"
-msgstr ""
+msgstr "Kanal som skal styres"
 
 #: ../plugins/volumealsa/volumealsa.c:1504
 msgid "Command to Open Mixer"
@@ -1587,6 +1595,8 @@ msgid ""
 "\n"
 "%sEnergy full design:\t\t%5d mWh"
 msgstr ""
+"\n"
+"%sEnergi fuld-design:\t\t%5d mWh"
 
 #: ../plugins/batt/batt.c:183
 #, c-format
@@ -1594,6 +1604,8 @@ msgid ""
 "\n"
 "%sEnergy full:\t\t\t%5d mWh"
 msgstr ""
+"\n"
+"%sEnergi fuld:\t\t\t%5d mWh"
 
 #: ../plugins/batt/batt.c:185
 #, c-format
@@ -1601,6 +1613,8 @@ msgid ""
 "\n"
 "%sEnergy now:\t\t\t%5d mWh"
 msgstr ""
+"\n"
+"%sEnergi nu:\t\t\t%5d mWh"
 
 #: ../plugins/batt/batt.c:187
 #, c-format
@@ -1608,6 +1622,8 @@ msgid ""
 "\n"
 "%sPower now:\t\t\t%5d mW"
 msgstr ""
+"\n"
+"%sStrøm nu:\t\t\t%5d mW"
 
 #: ../plugins/batt/batt.c:190
 #, c-format
@@ -1615,6 +1631,8 @@ msgid ""
 "\n"
 "%sCharge full design:\t%5d mAh"
 msgstr ""
+"\n"
+"%sLader fuld-design:\t%5d mAh"
 
 #: ../plugins/batt/batt.c:192
 #, c-format
@@ -1622,6 +1640,8 @@ msgid ""
 "\n"
 "%sCharge full:\t\t\t%5d mAh"
 msgstr ""
+"\n"
+"%sLader fuld:\t\t\t%5d mAh"
 
 #: ../plugins/batt/batt.c:194
 #, c-format
@@ -1629,6 +1649,8 @@ msgid ""
 "\n"
 "%sCharge now:\t\t\t%5d mAh"
 msgstr ""
+"\n"
+"%sLader nu:\t\t\t%5d mAh"
 
 #: ../plugins/batt/batt.c:196
 #, c-format
@@ -1636,6 +1658,8 @@ msgid ""
 "\n"
 "%sCurrent now:\t\t\t%5d mA"
 msgstr ""
+"\n"
+"%sNuværende nu:\t\t\t%5d mA"
 
 #: ../plugins/batt/batt.c:199
 #, c-format
@@ -1643,6 +1667,8 @@ msgid ""
 "\n"
 "%sCurrent Voltage:\t\t%.3lf V"
 msgstr ""
+"\n"
+"%sNuværende spænding:\t\t%.3lf V"
 
 #: ../plugins/batt/batt.c:237
 msgid "No batteries found"
@@ -1694,7 +1720,7 @@ msgstr "Kantbredde"
 
 #: ../plugins/batt/batt.c:704
 msgid "Show Extended Information"
-msgstr ""
+msgstr "Vis udviddet information"
 
 #: ../plugins/batt/batt.c:705
 msgid "Number of battery to monitor"
@@ -1743,7 +1769,7 @@ msgstr "Urindikator"
 
 #: ../plugins/indicator/indicator.c:867
 msgid "Messaging Menu"
-msgstr ""
+msgstr "Beskedgivningsmenu"
 
 #: ../plugins/indicator/indicator.c:868
 msgid "Network Menu"
@@ -1815,6 +1841,11 @@ msgid ""
 "- postal code\n"
 "for which to retrieve the weather forecast."
 msgstr ""
+"Indtast:\n"
+"- by, eller\n"
+"- by og stat/land, eller\n"
+"- postnummer\n"
+"som der skal hentes vejrprognose for."
 
 #: ../plugins/weather/weatherwidget.c:854
 #: ../plugins/weather/weatherwidget.c:987
@@ -1966,7 +1997,7 @@ msgstr "Søger efter \"%s\"..."
 #: ../plugins/weather/weatherwidget.c:2050
 #, c-format
 msgid "Location matches for '%s'"
-msgstr ""
+msgstr "Placeringsmatch for '%s'"
 
 #: ../plugins/weather/weatherwidget.c:2070
 msgid "City"

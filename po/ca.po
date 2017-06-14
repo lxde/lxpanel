@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: LXPanel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-10-24 21:15+0300\n"
-"PO-Revision-Date: 2017-05-24 08:40+0000\n"
+"PO-Revision-Date: 2017-06-12 14:46+0000\n"
 "Last-Translator: Davidmp <rbndavid@gmail.com>\n"
 "Language-Team: David Medina <rbndavid@gmail.com>\n"
 "Language: ca\n"
@@ -19,7 +19,7 @@ msgstr ""
 "X-Generator: Pootle 2.8\n"
 "X-Pootle-Path: /ca/lxpanel/po/ca.po\n"
 "X-Pootle-Revision: 0\n"
-"X-POOTLE-MTIME: 1495615221.457860\n"
+"X-POOTLE-MTIME: 1497278774.936894\n"
 
 #: ../src/configurator.c:148
 msgid ""
@@ -101,7 +101,7 @@ msgstr "Plafó d'escriptori per al projecte LXDE"
 #: ../src/panel.c:1412
 #, c-format
 msgid "\"%s\" Settings"
-msgstr "\"%s\" Preferències"
+msgstr "Paràmetres \"%s\""
 
 #: ../src/panel.c:1433
 msgid "Add / Remove Panel Items"
@@ -114,7 +114,7 @@ msgstr "Elimina \"%s\" del plafó"
 
 #: ../src/panel.c:1453
 msgid "Panel Settings"
-msgstr "Preferències del plafó"
+msgstr "Configuració del plafó"
 
 #: ../src/panel.c:1459
 msgid "Create New Panel"
@@ -570,7 +570,7 @@ msgstr "<b>Definir les aplicacions preferides</b>"
 
 #: ../data/ui/panel-pref.glade.h:40
 msgid "Make window managers treat the panel as dock"
-msgstr "Fes que els gestors de finestres tractin el plafó com un acoblador"
+msgstr "Fes que els gestors de finestres tractin el plafó com a acoblador"
 
 #: ../data/ui/panel-pref.glade.h:41
 msgid "Reserve space, and not covered by maximized windows"
@@ -662,12 +662,12 @@ msgid ""
 "focus"
 msgstr ""
 "La barra de tasques mostra totes les finestres obertes i permet iconificar-"
-"les, ombrejar-les o obtenir el focus"
+"les, plegar-les o obtenir el focus"
 
 #: ../plugins/launchtaskbar.c:2402
 msgid "Bar with buttons to launch application and/or show all opened windows"
 msgstr ""
-"Barra amb botons per llançar aplicacions i/o mostrar totes les finestres "
+"Barra amb botons per llançar aplicacions i / o mostrar totes les finestres "
 "obertes"
 
 #. Add Raise menu item.
@@ -902,7 +902,7 @@ msgstr "Gestiona les disposicions de teclat"
 msgid "Left click to iconify all windows.  Middle click to shade them."
 msgstr ""
 "Feu clic amb el botó contrari per iconificar totes les finestres. Amb el "
-"botó del mig, per ombrejar-les."
+"botó del mig, per plegar-les."
 
 #: ../plugins/wincmd.c:243 ../plugins/wincmd.c:253
 msgid "Minimize All Windows"
@@ -910,7 +910,7 @@ msgstr "Minimitza totes les finestres"
 
 #: ../plugins/wincmd.c:245
 msgid "Alternately iconify/shade and raise"
-msgstr "Alternativament iconifica/ombreja i aixeca"
+msgstr "Alternativament iconifica / plega i aixeca"
 
 #: ../plugins/wincmd.c:254
 msgid ""
@@ -918,7 +918,7 @@ msgid ""
 "Supported commands are 1) iconify and 2) shade"
 msgstr ""
 "Envia ordres a les finestres de tots els escriptoris.\n"
-"Les ordres disponibles són 1) iconifica i 2) ombreja"
+"Les ordres disponibles són 1) iconifica i 2) plega"
 
 #: ../plugins/dirmenu.c:213
 msgid "Open in _Terminal"
@@ -1323,7 +1323,8 @@ msgid ""
 "\n"
 "%s"
 msgstr ""
-"Contacteu amb l'administrador del sistema per resoldre el problema següent:\n"
+"Si us plau, contacteu amb l'administrador del sistema per resoldre el "
+"problema següent:\n"
 "\n"
 "%s"
 
