@@ -9,17 +9,17 @@ msgstr ""
 "Project-Id-Version: LXPanel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-11-01 00:50+0200\n"
-"PO-Revision-Date: 2016-11-03 14:14+0100\n"
-"Last-Translator: Jay Alexander Fleming <tito.nehru.naser@gmail.com>\n"
+"PO-Revision-Date: 2017-06-27 10:47+0000\n"
+"Last-Translator: Jay A. Fleming <tito.nehru.naser@gmail.com>\n"
 "Language-Team: \n"
 "Language: sr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Poedit 1.7.6\n"
-"X-POOTLE-MTIME: 1430512301.000000\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Pootle 2.8\n"
+"X-POOTLE-MTIME: 1498560469.781569\n"
 "X-Pootle-Path: /sr/lxpanel/po/sr.po\n"
 "X-Pootle-Revision: 976\n"
 
@@ -90,7 +90,7 @@ msgstr "ЛИкс-Панел"
 
 #: ../src/panel.c:1369
 msgid "Copyright (C) 2008-2016"
-msgstr "Ауторска права — 2008-2016."
+msgstr "Права творца — 2008-2017."
 
 #: ../src/panel.c:1370
 msgid "Desktop panel for LXDE project"
@@ -343,7 +343,7 @@ msgstr "Иконе задатака су мање од других икона �
 
 #: ../data/ui/launchtaskbar.glade.h:16
 msgid "Maximum width of task button"
-msgstr "Највећа ширина дугмета задатка"
+msgstr "Највећа ширина дугмади задатака"
 
 #: ../data/ui/launchtaskbar.glade.h:17
 msgid "Spacing"
@@ -542,7 +542,7 @@ msgstr "Боја по избору"
 
 #: ../data/ui/panel-pref.glade.h:33
 msgid "<b>Font</b>"
-msgstr "<b>Словни лик</b>"
+msgstr "<b>Словолик</b>"
 
 #: ../data/ui/panel-pref.glade.h:34
 msgid "Appearance"
