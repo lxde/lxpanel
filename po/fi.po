@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-10-24 21:15+0300\n"
-"PO-Revision-Date: 2014-11-22 17:47+0000\n"
+"PO-Revision-Date: 2017-07-19 16:43+0000\n"
 "Last-Translator: Juhani Numminen <juhaninumminen0@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: fi\n"
@@ -15,8 +15,8 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Pootle 2.6.0-rc2\n"
-"X-POOTLE-MTIME: 1416678423.000000\n"
+"X-Generator: Pootle 2.8\n"
+"X-POOTLE-MTIME: 1500482631.038653\n"
 "X-Pootle-Path: /fi/lxpanel/po/fi.po\n"
 "X-Pootle-Revision: 0\n"
 
@@ -88,9 +88,8 @@ msgid "LXPanel"
 msgstr "LXPanel"
 
 #: ../src/panel.c:1369
-#, fuzzy
 msgid "Copyright (C) 2008-2016"
-msgstr "Copyright (C) 2008–2014"
+msgstr "Copyright (C) 2008–2016"
 
 #: ../src/panel.c:1370
 msgid "Desktop panel for LXDE project"
@@ -1017,7 +1016,7 @@ msgstr "Voimakkuus"
 
 #: ../plugins/volumealsa/volumealsa.c:245
 msgid "ALSA (or pulseaudio) had a problem. Please check the lxpanel logs."
-msgstr ""
+msgstr "Ongelma ALSAssa (tai PulseAudiossa). Tarkista lxpanelin loki."
 
 #: ../plugins/volumealsa/volumealsa.c:680
 msgid ""
@@ -1034,19 +1033,19 @@ msgstr "Hiljennä"
 #. Just to have these translated
 #: ../plugins/volumealsa/volumealsa.c:1293
 msgid "Line"
-msgstr ""
+msgstr "Linja"
 
 #: ../plugins/volumealsa/volumealsa.c:1293
 msgid "LineOut"
-msgstr ""
+msgstr "Linjaulostulo"
 
 #: ../plugins/volumealsa/volumealsa.c:1293
 msgid "Front"
-msgstr ""
+msgstr "Etu"
 
 #: ../plugins/volumealsa/volumealsa.c:1293
 msgid "Surround"
-msgstr ""
+msgstr "Surround"
 
 #: ../plugins/volumealsa/volumealsa.c:1293
 msgid "Speaker+LO"
@@ -1054,69 +1053,66 @@ msgstr ""
 
 #: ../plugins/volumealsa/volumealsa.c:1332
 msgid "default"
-msgstr ""
+msgstr "oletus"
 
 #. desc, index
 #: ../plugins/volumealsa/volumealsa.c:1391
 msgid "Master"
-msgstr ""
+msgstr "Pää"
 
 #: ../plugins/volumealsa/volumealsa.c:1395
 msgid "PCM"
-msgstr ""
+msgstr "PCM"
 
 #: ../plugins/volumealsa/volumealsa.c:1399
 msgid "Headphone"
-msgstr ""
+msgstr "Kuulokkeet"
 
 #: ../plugins/volumealsa/volumealsa.c:1420
 msgid "Click for Volume Slider"
-msgstr ""
+msgstr "Avaa äänenvoimakkuuden säädin napsauttamalla"
 
 #: ../plugins/volumealsa/volumealsa.c:1424
 msgid "Click for Toggle Mute"
-msgstr ""
+msgstr "Vaimenna tai palauta ääni napsauttamalla"
 
 #: ../plugins/volumealsa/volumealsa.c:1428
 msgid "Click for Open Mixer"
-msgstr ""
+msgstr "Avaa mikseri napsauttamalla"
 
 #. setup hotkeys
 #: ../plugins/volumealsa/volumealsa.c:1432
 msgid "Hotkey for Volume Up"
-msgstr ""
+msgstr "Pikanäppäin äänenvoimakkuuden lisäämiseen"
 
 #: ../plugins/volumealsa/volumealsa.c:1434
 msgid "Hotkey for Volume Down"
-msgstr ""
+msgstr "Pikanäppäin äänenvoimakkuuden vähentämiseen"
 
 #: ../plugins/volumealsa/volumealsa.c:1436
 msgid "Hotkey for Volume Mute"
-msgstr ""
+msgstr "Pikanäppäin vaimentamiseen"
 
 #: ../plugins/volumealsa/volumealsa.c:1493
-#, fuzzy
 msgid "Audio Card"
-msgstr "Ääni & video"
+msgstr "Äänikortti"
 
 #: ../plugins/volumealsa/volumealsa.c:1496
 msgid "Channel to Operate"
-msgstr ""
+msgstr "Muutettava kanava"
 
 #: ../plugins/volumealsa/volumealsa.c:1504
 msgid "Command to Open Mixer"
-msgstr ""
+msgstr "Mikserin avauskomento"
 
 #: ../plugins/volumealsa/volumealsa.c:1519
-#, fuzzy
 msgid "Launch Mixer"
-msgstr "Käynnistimet"
+msgstr "Käynnistä mikseri"
 
 #: ../plugins/volumealsa/volumealsa.c:1531
 #: ../plugins/volumealsa/volumealsa.c:1552
-#, fuzzy
 msgid "Display and control volume"
-msgstr "Näytä ja muuta ALSA-äänenvoimakkuutta"
+msgstr "Näytä ja muuta äänenvoimakkuutta"
 
 #: ../plugins/netstat/netstat.c:183
 msgid "<Hidden Access Point>"
@@ -1575,19 +1571,19 @@ msgid "Sending/Receiving"
 msgstr "Lähettää/vastaanottaa"
 
 #: ../plugins/batt/batt.c:154
-#, fuzzy, c-format
+#, c-format
 msgid "Battery %d: %d%% charged, %d:%02d until full"
-msgstr "Akku: %d %%, %d:%02d kunnes täynnä"
+msgstr "Akku %d: %d %%, %d:%02d kunnes täynnä"
 
 #: ../plugins/batt/batt.c:165
-#, fuzzy, c-format
+#, c-format
 msgid "Battery %d: %d%% charged, %d:%02d left"
-msgstr "Akku: %d %%, %d:%02d jäljellä"
+msgstr "Akku %d: %d %%, %d:%02d jäljellä"
 
 #: ../plugins/batt/batt.c:171
-#, fuzzy, c-format
+#, c-format
 msgid "Battery %d: %d%% charged"
-msgstr "Akku: %d %%"
+msgstr "Akku %d: %d %%"
 
 #: ../plugins/batt/batt.c:181
 #, c-format
@@ -1723,9 +1719,8 @@ msgid "Show Extended Information"
 msgstr "Näytä lisätiedot"
 
 #: ../plugins/batt/batt.c:705
-#, fuzzy
 msgid "Number of battery to monitor"
-msgstr "Valvottava laite"
+msgstr "Valvottavan akun numero"
 
 #: ../plugins/batt/batt.c:715
 msgid "Display battery status using ACPI"
