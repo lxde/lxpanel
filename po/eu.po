@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-10-24 21:15+0300\n"
-"PO-Revision-Date: 2015-05-05 20:22+0000\n"
+"PO-Revision-Date: 2017-10-11 19:44+0000\n"
 "Last-Translator: Asier Iturralde Sarasola <asier.iturralde@gmail.com>\n"
 "Language-Team: Basque <alainmendi@gmail.com>\n"
 "Language: eu\n"
@@ -15,8 +15,8 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Pootle 2.7.0-alpha1\n"
-"X-POOTLE-MTIME: 1430857320.000000\n"
+"X-Generator: Pootle 2.8\n"
+"X-POOTLE-MTIME: 1507751081.212096\n"
 "X-Pootle-Path: /eu/lxpanel/po/eu.po\n"
 "X-Pootle-Revision: 1878\n"
 
@@ -25,6 +25,9 @@ msgid ""
 "Space reservation is not available for this panel because there is another "
 "monitor beyond this edge and reservation would cover it if enabled."
 msgstr ""
+"Lekua erreserbatzea ez dago erabilgarri panel honetan, ertz honen beste "
+"aldean beste monitore bat dagoelako eta erreserbatzea gaituz gero estaliko "
+"lukeelako."
 
 #: ../src/configurator.c:632
 msgid "Currently loaded plugins"
@@ -60,7 +63,7 @@ msgstr "_Arakatu"
 
 #: ../src/panel.c:1283
 msgid "There is no room for another panel. All the edges are taken."
-msgstr ""
+msgstr "Ez dago beste panel batentzako lekurik. Ertz guztiak hartuta daude."
 
 #: ../src/panel.c:1309
 msgid ""
@@ -84,9 +87,8 @@ msgid "LXPanel"
 msgstr "LXPanel"
 
 #: ../src/panel.c:1369
-#, fuzzy
 msgid "Copyright (C) 2008-2016"
-msgstr "Copyright-a (C) 2008-2014"
+msgstr "Copyright-a (C) 2008-2016"
 
 #: ../src/panel.c:1370
 msgid "Desktop panel for LXDE project"
@@ -333,7 +335,7 @@ msgstr "Konbinatu hainbat aplikazio-leiho botoi bakar batean"
 
 #: ../data/ui/launchtaskbar.glade.h:14
 msgid "Disable enlargement for small task icons"
-msgstr ""
+msgstr "Desgaitu ataza-ikono txikiak handitzea"
 
 #: ../data/ui/launchtaskbar.glade.h:15
 msgid "Maximum width of task button"
@@ -660,9 +662,10 @@ msgstr ""
 "edo fokua ezartzea ahalbidetzen du"
 
 #: ../plugins/launchtaskbar.c:2402
-#, fuzzy
 msgid "Bar with buttons to launch application and/or show all opened windows"
-msgstr "Aplikazioak abiarazteko botoiak dituen barra"
+msgstr ""
+"Aplikazioak abiarazteko botoiak dituen barra eta/edo erakutsi irekitako "
+"leiho guztiak"
 
 #. Add Raise menu item.
 #: ../plugins/task-button.c:339
@@ -777,6 +780,7 @@ msgstr "Gehitu bereizle bat panelari"
 #: ../plugins/pager.c:114
 msgid "Sorry, there was no window manager configuration program found."
 msgstr ""
+"Sentitzen dugu, ez da leiho-kudeatzailearen konfigurazio-programarik aurkitu."
 
 #: ../plugins/pager.c:166 ../plugins/pager.c:182
 msgid "Desktop Pager"
@@ -1014,6 +1018,7 @@ msgstr "Bolumena"
 #: ../plugins/volumealsa/volumealsa.c:245
 msgid "ALSA (or pulseaudio) had a problem. Please check the lxpanel logs."
 msgstr ""
+"ALSAk (edo pulseaudio-k) arazo bat izan du. Mesedez egiaztatu lxpanel log-ak."
 
 #: ../plugins/volumealsa/volumealsa.c:680
 msgid ""
@@ -1031,88 +1036,86 @@ msgstr "Mututu"
 #. Just to have these translated
 #: ../plugins/volumealsa/volumealsa.c:1293
 msgid "Line"
-msgstr ""
+msgstr "Lerroa"
 
 #: ../plugins/volumealsa/volumealsa.c:1293
 msgid "LineOut"
-msgstr ""
+msgstr "Lerro irteera"
 
 #: ../plugins/volumealsa/volumealsa.c:1293
 msgid "Front"
-msgstr ""
+msgstr "Aurrealdea"
 
 #: ../plugins/volumealsa/volumealsa.c:1293
 msgid "Surround"
-msgstr ""
+msgstr "Surround"
 
 #: ../plugins/volumealsa/volumealsa.c:1293
 msgid "Speaker+LO"
-msgstr ""
+msgstr "Bozgorailua + LO"
 
 #: ../plugins/volumealsa/volumealsa.c:1332
 msgid "default"
-msgstr ""
+msgstr "lehenetsia"
 
 #. desc, index
 #: ../plugins/volumealsa/volumealsa.c:1391
 msgid "Master"
-msgstr ""
+msgstr "Maisua"
 
 #: ../plugins/volumealsa/volumealsa.c:1395
 msgid "PCM"
-msgstr ""
+msgstr "PCM"
 
 #: ../plugins/volumealsa/volumealsa.c:1399
 msgid "Headphone"
-msgstr ""
+msgstr "Entzungailua"
 
 #: ../plugins/volumealsa/volumealsa.c:1420
 msgid "Click for Volume Slider"
-msgstr ""
+msgstr "Klikatu bolumen graduatzailearentzat"
 
 #: ../plugins/volumealsa/volumealsa.c:1424
 msgid "Click for Toggle Mute"
-msgstr ""
+msgstr "Klikatu mututzea txandakatzeko"
 
 #: ../plugins/volumealsa/volumealsa.c:1428
 msgid "Click for Open Mixer"
-msgstr ""
+msgstr "Klikatu nahasgailua irekitzeko"
 
 #. setup hotkeys
 #: ../plugins/volumealsa/volumealsa.c:1432
 msgid "Hotkey for Volume Up"
-msgstr ""
+msgstr "Bolumena igotzeko laster-tekla"
 
 #: ../plugins/volumealsa/volumealsa.c:1434
 msgid "Hotkey for Volume Down"
-msgstr ""
+msgstr "Bolumena jaisteko laster-tekla"
 
 #: ../plugins/volumealsa/volumealsa.c:1436
 msgid "Hotkey for Volume Mute"
-msgstr ""
+msgstr "Bolumena mututzeko laster-tekla"
 
 #: ../plugins/volumealsa/volumealsa.c:1493
 msgid "Audio Card"
-msgstr ""
+msgstr "Audio-txartela"
 
 #: ../plugins/volumealsa/volumealsa.c:1496
 msgid "Channel to Operate"
-msgstr ""
+msgstr "Erabiliko den kanala"
 
 #: ../plugins/volumealsa/volumealsa.c:1504
 msgid "Command to Open Mixer"
-msgstr ""
+msgstr "Nahasgailua irekitzeko komandoa"
 
 #: ../plugins/volumealsa/volumealsa.c:1519
-#, fuzzy
 msgid "Launch Mixer"
-msgstr "Abiarazleak"
+msgstr "Abiarazi nahasgailua"
 
 #: ../plugins/volumealsa/volumealsa.c:1531
 #: ../plugins/volumealsa/volumealsa.c:1552
-#, fuzzy
 msgid "Display and control volume"
-msgstr "Bistaratu eta kontrolatu ALSAren bolumena"
+msgstr "Bistaratu eta kontrolatu bolumena"
 
 #: ../plugins/netstat/netstat.c:183
 msgid "<Hidden Access Point>"
@@ -1570,19 +1573,19 @@ msgid "Sending/Receiving"
 msgstr "Bidaltzen/Jasotzen"
 
 #: ../plugins/batt/batt.c:154
-#, fuzzy, c-format
+#, c-format
 msgid "Battery %d: %d%% charged, %d:%02d until full"
-msgstr "Bateria: %d%% kargatuta, %d:%02d falta"
+msgstr "Bateria %d: %% %d kargatuta, %d:%02d falta"
 
 #: ../plugins/batt/batt.c:165
-#, fuzzy, c-format
+#, c-format
 msgid "Battery %d: %d%% charged, %d:%02d left"
-msgstr "Bateria: %d%% kargatuta, %d:%02d falta"
+msgstr "Bateria %d: %% %d kargatuta, %d:%02d falta"
 
 #: ../plugins/batt/batt.c:171
-#, fuzzy, c-format
+#, c-format
 msgid "Battery %d: %d%% charged"
-msgstr "Bateria: %d%% kargatuta"
+msgstr "Bateria %d: %% %d kargatuta"
 
 #: ../plugins/batt/batt.c:181
 #, c-format
@@ -1590,6 +1593,8 @@ msgid ""
 "\n"
 "%sEnergy full design:\t\t%5d mWh"
 msgstr ""
+"\n"
+"%sDiseinuko energia osoa:\t\t%5d mWh"
 
 #: ../plugins/batt/batt.c:183
 #, c-format
@@ -1597,6 +1602,8 @@ msgid ""
 "\n"
 "%sEnergy full:\t\t\t%5d mWh"
 msgstr ""
+"\n"
+"%sEnergia osoa:\t\t\t%5d mWh"
 
 #: ../plugins/batt/batt.c:185
 #, c-format
@@ -1604,6 +1611,8 @@ msgid ""
 "\n"
 "%sEnergy now:\t\t\t%5d mWh"
 msgstr ""
+"\n"
+"%sEnergia orain:\t\t\t%5d mWh"
 
 #: ../plugins/batt/batt.c:187
 #, c-format
@@ -1611,6 +1620,8 @@ msgid ""
 "\n"
 "%sPower now:\t\t\t%5d mW"
 msgstr ""
+"\n"
+"%sPotentzia orain:\t\t\t%5d mW"
 
 #: ../plugins/batt/batt.c:190
 #, c-format
@@ -1618,6 +1629,8 @@ msgid ""
 "\n"
 "%sCharge full design:\t%5d mAh"
 msgstr ""
+"\n"
+"%sDiseinuko karga osoa:\t%5d mAh"
 
 #: ../plugins/batt/batt.c:192
 #, c-format
@@ -1625,6 +1638,8 @@ msgid ""
 "\n"
 "%sCharge full:\t\t\t%5d mAh"
 msgstr ""
+"\n"
+"%sKarga osoa:\t\t\t%5d mAh"
 
 #: ../plugins/batt/batt.c:194
 #, c-format
@@ -1632,6 +1647,8 @@ msgid ""
 "\n"
 "%sCharge now:\t\t\t%5d mAh"
 msgstr ""
+"\n"
+"%sKarga orain:\t\t\t%5d mAh"
 
 #: ../plugins/batt/batt.c:196
 #, c-format
@@ -1639,6 +1656,8 @@ msgid ""
 "\n"
 "%sCurrent now:\t\t\t%5d mA"
 msgstr ""
+"\n"
+"%sKorrontea orain:\t\t\t%5d mA"
 
 #: ../plugins/batt/batt.c:199
 #, c-format
@@ -1646,6 +1665,8 @@ msgid ""
 "\n"
 "%sCurrent Voltage:\t\t%.3lf V"
 msgstr ""
+"\n"
+"%sKorrontearen tentsioa:\t\t%.3lf V"
 
 #: ../plugins/batt/batt.c:237
 msgid "No batteries found"
@@ -1700,9 +1721,8 @@ msgid "Show Extended Information"
 msgstr "Erakutsi informazio hedatua"
 
 #: ../plugins/batt/batt.c:705
-#, fuzzy
 msgid "Number of battery to monitor"
-msgstr "Monitoreatu beharreko interfazea"
+msgstr "Kontrolatu beharreko bateriaren zenbakia"
 
 #: ../plugins/batt/batt.c:715
 msgid "Display battery status using ACPI"
@@ -1801,7 +1821,7 @@ msgstr "Bistaratu monitoreak (PUZ, RAM)"
 
 #: ../plugins/weather/weatherwidget.c:52
 msgid "[N/A]"
-msgstr ""
+msgstr "[E/E]"
 
 #: ../plugins/weather/weatherwidget.c:792
 msgid "Enter New Location"

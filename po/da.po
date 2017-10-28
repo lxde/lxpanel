@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-10-24 21:15+0300\n"
-"PO-Revision-Date: 2017-06-10 15:02+0000\n"
+"PO-Revision-Date: 2017-08-16 23:37+0000\n"
 "Last-Translator: scootergrisen <scootergrisen@gmail.com>\n"
 "Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
 "Language: da\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.8\n"
-"X-POOTLE-MTIME: 1497106954.528256\n"
+"X-POOTLE-MTIME: 1502926647.310281\n"
 "X-Pootle-Path: /da/lxpanel/po/da.po\n"
 "X-Pootle-Revision: 0\n"
 
@@ -34,7 +34,7 @@ msgstr ""
 
 #: ../src/configurator.c:632
 msgid "Currently loaded plugins"
-msgstr "Aktuelt indlæste udvidelsesmoduler"
+msgstr "Nuværende indlæste plugins"
 
 #: ../src/configurator.c:641
 msgid "Stretch"
@@ -42,11 +42,11 @@ msgstr "Stræk"
 
 #: ../src/configurator.c:778
 msgid "Add plugin to panel"
-msgstr "Tilføj udvidelsesmodul til panelet"
+msgstr "Tilføj plugin til panelet"
 
 #: ../src/configurator.c:806
 msgid "Available plugins"
-msgstr "Tilgængelige udvidelsesmoduler"
+msgstr "Tilgængelige plugins"
 
 #: ../src/configurator.c:1427
 msgid "Logout command is not set"
@@ -104,7 +104,7 @@ msgstr "Panel for LXDE-projektet"
 #: ../src/panel.c:1412
 #, c-format
 msgid "\"%s\" Settings"
-msgstr "Opsætning for »%s«"
+msgstr "Opsætning for \"%s\""
 
 #: ../src/panel.c:1433
 msgid "Add / Remove Panel Items"
@@ -113,7 +113,7 @@ msgstr "Tilføj/fjern objekter på panelet"
 #: ../src/panel.c:1441
 #, c-format
 msgid "Remove \"%s\" From Panel"
-msgstr "Fjern »%s« fra panelet"
+msgstr "Fjern \"%s\" fra panelet"
 
 #: ../src/panel.c:1453
 msgid "Panel Settings"
@@ -794,7 +794,7 @@ msgstr "Arbejdsområdeskifter"
 
 #: ../plugins/pager.c:167 ../plugins/pager.c:183
 msgid "Simple pager plugin"
-msgstr "Enkelt udvidelsesmodul til skift af arbejdsområde"
+msgstr "Enkelt plugin til skift af arbejdsområde"
 
 #: ../plugins/tray.c:691
 msgid "System Tray"
@@ -1288,7 +1288,7 @@ msgstr "Grænseflade"
 
 #: ../plugins/netstatus/netstatus-icon.c:848
 msgid "The current interface the icon is monitoring."
-msgstr "Den aktuelle grænseflade, der overvåges af ikonet."
+msgstr "Den nuværende grænseflade, der overvåges af ikonet."
 
 #: ../plugins/netstatus/netstatus-icon.c:855
 msgid "Orientation"
@@ -1364,7 +1364,7 @@ msgstr "Signalstyrke i procent"
 
 #: ../plugins/netstatus/netstatus-iface.c:192
 msgid "The current error condition"
-msgstr "Aktuel fejltilstand"
+msgstr "Nuværende fejltilstand"
 
 #: ../plugins/netstatus/netstatus-iface.c:440
 #: ../plugins/netstatus/netstatus-iface.c:1205
@@ -1939,7 +1939,7 @@ msgstr "_Skift"
 #: ../plugins/weather/weatherwidget.c:1565
 #, c-format
 msgid "Current Conditions for %s"
-msgstr "Aktuelle forhold for %s"
+msgstr "Nuværende forhold for %s"
 
 #: ../plugins/weather/weatherwidget.c:1589
 msgid "Location:"

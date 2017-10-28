@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: LXPanel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-10-24 21:15+0300\n"
-"PO-Revision-Date: 2017-06-12 14:46+0000\n"
+"PO-Revision-Date: 2017-09-14 15:09+0000\n"
 "Last-Translator: Davidmp <rbndavid@gmail.com>\n"
 "Language-Team: David Medina <rbndavid@gmail.com>\n"
 "Language: ca\n"
@@ -19,7 +19,7 @@ msgstr ""
 "X-Generator: Pootle 2.8\n"
 "X-Pootle-Path: /ca/lxpanel/po/ca.po\n"
 "X-Pootle-Revision: 0\n"
-"X-POOTLE-MTIME: 1497278774.936894\n"
+"X-POOTLE-MTIME: 1505401779.101885\n"
 
 #: ../src/configurator.c:148
 msgid ""
@@ -56,7 +56,7 @@ msgstr "Trieu un directori"
 
 #: ../src/configurator.c:1495 ../src/configurator.c:1607
 msgid "Select a file"
-msgstr "Treieu un fitxer"
+msgstr "Trieu un fitxer"
 
 #: ../src/configurator.c:1640
 msgid "_Browse"
@@ -876,7 +876,7 @@ msgstr "Per preferències de la finestra"
 
 #: ../plugins/xkb/xkb-plugin.c:1386
 msgid "_Remember layout for each window"
-msgstr "_Recorda la disposició per a cada finestra"
+msgstr "_Recorda la disposició de cada finestra"
 
 #: ../plugins/xkb/xkb-plugin.c:1395
 msgid "Show Layout as"

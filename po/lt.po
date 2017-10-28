@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-10-24 21:15+0300\n"
-"PO-Revision-Date: 2017-05-29 21:42+0000\n"
+"PO-Revision-Date: 2017-10-03 08:36+0000\n"
 "Last-Translator: Moo <hazap@hotmail.com>\n"
 "Language-Team: Lietuvių <>\n"
 "Language: lt\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "(n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Pootle 2.8\n"
-"X-POOTLE-MTIME: 1496094121.616868\n"
+"X-POOTLE-MTIME: 1507019800.579203\n"
 "X-Pootle-Path: /lt/lxpanel/po/lt.po\n"
 "X-Pootle-Revision: 0\n"
 
@@ -1740,19 +1740,21 @@ msgstr "Klaviatūros šviesos diodai"
 
 #: ../plugins/kbled/kbled.c:205
 msgid "Show CapsLock"
-msgstr "Rodyti CapsLock"
+msgstr "Rodyti Didž (CapsLock)"
 
 #: ../plugins/kbled/kbled.c:206
 msgid "Show NumLock"
-msgstr "Rodyti NumLock"
+msgstr "Rodyti Skaitm (NumLock)"
 
 #: ../plugins/kbled/kbled.c:207
 msgid "Show ScrollLock"
-msgstr "Rodyti ScrollLock"
+msgstr "Rodyti Slinkti (ScrollLock)"
 
 #: ../plugins/kbled/kbled.c:235
 msgid "Indicators for CapsLock, NumLock, and ScrollLock keys"
-msgstr "Indikatoriai, skirti CapsLock, NumLock ir ScrollLock klavišams"
+msgstr ""
+"Indikatoriai, skirti Didž (CapsLock), Skaitm (NumLock) ir Slinkti "
+"(ScrollLock) klavišams"
 
 #. A label to allow for click through
 #: ../plugins/indicator/indicator.c:694
