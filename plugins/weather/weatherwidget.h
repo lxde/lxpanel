@@ -69,6 +69,8 @@ void weather_save_configuration(GtkWidget * pWeather, LocationInfo * pLocation);
 void weather_set_label_text(GtkWidget * pWeather, GtkWidget * label,
                             const gchar * text);
 
+void gtk_weather_render        (GtkWeather * weather);
+
 G_END_DECLS
 
 #endif

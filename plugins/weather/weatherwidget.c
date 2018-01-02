@@ -145,7 +145,6 @@ static guint gtk_weather_signals[LAST_SIGNAL] = {0};
 /* Function declarations. */
 static void gtk_weather_class_init    (GtkWeatherClass * klass);
 static void gtk_weather_init          (GtkWeather * weather);
-static void gtk_weather_render        (GtkWeather * weather);
 static void gtk_weather_size_allocate (GtkWidget * widget, GtkAllocation * allocation);
 
 static void gtk_weather_destroy       (GObject * object);
@@ -452,7 +451,7 @@ gtk_weather_size_allocate(GtkWidget * widget, GtkAllocation * allocation)
  *
  * @param weather Pointer to the instance of this widget.
  */
-static void
+void
 gtk_weather_render(GtkWeather * weather)
 {
   GtkWeatherPrivate * priv = GTK_WEATHER_GET_PRIVATE(weather);

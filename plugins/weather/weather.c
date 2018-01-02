@@ -298,6 +298,11 @@ weather_configuration_changed(LXPanel *pPanel, GtkWidget *pWidget)
               (panel_get_orientation(pPanel) == GTK_ORIENTATION_VERTICAL)?"VERTICAL":"NONE",
               pPanel->width, panel_get_height(pPanel), 
               panel_get_icon_size(pPanel));
+
+      WeatherPluginPrivate * pPriv = (WeatherPluginPrivate *) lxpanel_plugin_get_data(pWidget);
+      GtkWeather * weather = GTK_WEATHER(pPriv->pWeather_);
+      gtk_weather_render(weather);
+
     }
 }
 
