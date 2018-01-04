@@ -3,6 +3,7 @@
  * Copyright (C) 2009 Dongxu Li <song6song@sourceforge.net>
  *               2012 Julien Lavergne <gilir@ubuntu.com>
  *               2014 Andriy Grytsenko <andrej@rep.kiev.ua>
+ *               2018 number Zero <numzero@users.sf.net>
  *
  * This file is part of lxpanel.
  *
@@ -32,6 +33,7 @@
 #endif
 #include <libwnck/libwnck.h>
 
+#include "misc.h"
 #include "plugin.h"
 
 typedef struct
@@ -65,6 +67,30 @@ static void on_size_allocate(GtkWidget *p, GdkRectangle *allocation, LXPanel *pa
     on_realize(p, panel);
 }
 
+static gboolean on_scroll_event(GtkWidget * p, GdkEventScroll * ev, LXPanel *panel)
+{
+    int desknum = get_net_current_desktop();
+    int desks = get_net_number_of_desktops();
+    Screen *xscreen = GDK_SCREEN_XSCREEN(gtk_widget_get_screen(p));
+
+    switch (ev->direction) {
+        case GDK_SCROLL_DOWN:
+            desknum++;
+            break;
+        case GDK_SCROLL_UP:
+            desknum--;
+            break;
+        default:
+            return FALSE;
+    }
+
+    if (desknum < 0 || desknum >= desks)
+        return TRUE;
+
+    Xclimsgx(xscreen, RootWindowOfScreen(xscreen), a_NET_CURRENT_DESKTOP, desknum, 0, 0, 0, 0);
+    return TRUE;
+}
+
 static GtkWidget *pager_constructor(LXPanel *panel, config_setting_t *settings)
 {
     GtkWidget *p, *w;
@@ -88,6 +114,7 @@ static GtkWidget *pager_constructor(LXPanel *panel, config_setting_t *settings)
     /* we cannot configure pager until it added into widgets hierarchy */
     g_signal_connect(p, "realize", G_CALLBACK(on_realize), panel);
     g_signal_connect(p, "size-allocate", G_CALLBACK(on_size_allocate), panel);
+    g_signal_connect(p, "scroll-event", G_CALLBACK(on_scroll_event), panel);
     wnck_pager_set_display_mode(d->pager, WNCK_PAGER_DISPLAY_CONTENT);
 
     gtk_widget_show(w);
