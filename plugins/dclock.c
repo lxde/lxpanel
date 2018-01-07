@@ -9,6 +9,7 @@
  *               2012-2014 Henry Gebhardt <hsggebhardt@gmail.com>
  *               2012 Piotr Sipika <Piotr.Sipika@gmail.com>
  *               2014-2016 Andriy Grytsenko <andrej@rep.kiev.ua>
+ *               2018 Mamoru TASAKA <mtasaka@fedoraproject.org>
  *
  * This file is a part of LXPanel project.
  *
