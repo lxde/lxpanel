@@ -16,6 +16,7 @@
  *               2014-2016 Andriy Grytsenko <andrej@rep.kiev.ua>
  *               2015 Rafał Mużyło <galtgendo@gmail.com>
  *               2015 Hanno Zulla <hhz@users.sf.net>
+ *               2018 Mamoru TASAKA <mtasaka@fedoraproject.org>
  *
  * This file is a part of LXPanel project.
  *
@@ -1803,7 +1804,7 @@ void lxpanel_draw_label_text_with_color(LXPanel * p, GtkWidget * label, const ch
                                     gboolean bold, float custom_size_factor,
                                     GdkColor *color)
 {
-    panel_draw_label_text_with_color(p->priv, label, text, bold, custom_size_factor, 0, color);
+    panel_draw_label_text_with_color(p->priv, label, text, bold, custom_size_factor, FALSE, color);
 }
 
 void panel_set_panel_configuration_changed(Panel *p)

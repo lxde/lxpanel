@@ -1,4 +1,6 @@
-* Fixed delayed application of font cnahges on dclock and weather plugins.
+* Added new API: lxpanel_draw_label_text_with_color().
+* Fixed delayed application of font cnahges on some plugins: dclock, weather,
+    thermal.
 * Allowed switching workplaces by scrolling over the pager.
 
 0.9.3
