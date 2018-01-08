@@ -111,6 +111,22 @@ extern void lxpanel_draw_label_text(LXPanel * p, GtkWidget * label, const char *
                                     gboolean custom_color);
 
 /**
+ * lxpanel_draw_label_text_with_color
+ * @p: a panel instance
+ * @label: a label widget
+ * @text: (allow-none): text for the label
+ * @bold: %TRUE if text should be bold
+ * @custom_size_factor: scale factor for font size
+ * @color: GdkColor for drawing text
+ *
+ * Changes @label to contain @text with appropriate attributes using the
+ * panel @p settings.
+ */
+extern void lxpanel_draw_label_text_with_color(LXPanel * p, GtkWidget * label, const char * text,
+                                    gboolean bold, float custom_size_factor,
+                                    GdkColor *color);
+
+/**
  * lxpanel_config_save
  * @p: a panel instance
  *

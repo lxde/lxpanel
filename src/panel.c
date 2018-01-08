@@ -1720,9 +1720,10 @@ void panel_adjust_geometry_terminology(Panel * p)
 }
 
 /* Draw text into a label, with the user preference color and optionally bold. */
-void panel_draw_label_text(Panel * p, GtkWidget * label, const char * text,
+static
+void panel_draw_label_text_with_color(Panel * p, GtkWidget * label, const char * text,
                            gboolean bold, float custom_size_factor,
-                           gboolean custom_color)
+                           gboolean custom_color, GdkColor *gdkcolor)
 {
     if (text == NULL)
     {
@@ -1758,12 +1759,13 @@ void panel_draw_label_text(Panel * p, GtkWidget * label, const char * text,
     }
 
     gchar * formatted_text;
-    if ((custom_color) && (p->usefontcolor))
+    if (gdkcolor || ((custom_color) && (p->usefontcolor)))
     {
         /* Color, optionally bold. */
+        guint32 rgb24 = gdkcolor ? gcolor2rgb24(gdkcolor) : gcolor2rgb24(&p->gfontcolor);
         formatted_text = g_strdup_printf("<span font_desc=\"%d\" color=\"#%06x\">%s%s%s</span>",
                 font_desc,
-                gcolor2rgb24(&p->gfontcolor),
+                rgb24,
                 ((bold) ? "<b>" : ""),
                 valid_markup,
                 ((bold) ? "</b>" : ""));
@@ -1783,11 +1785,25 @@ void panel_draw_label_text(Panel * p, GtkWidget * label, const char * text,
     g_free(escaped_text);
 }
 
+void panel_draw_label_text(Panel * p, GtkWidget * label, const char * text,
+                           gboolean bold, float custom_size_factor,
+                           gboolean custom_color)
+{
+    panel_draw_label_text_with_color(p, label, text, bold, custom_size_factor, custom_color, NULL);
+}
+
 void lxpanel_draw_label_text(LXPanel * p, GtkWidget * label, const char * text,
                            gboolean bold, float custom_size_factor,
                            gboolean custom_color)
 {
     panel_draw_label_text(p->priv, label, text, bold, custom_size_factor, custom_color);
+}
+
+void lxpanel_draw_label_text_with_color(LXPanel * p, GtkWidget * label, const char * text,
+                                    gboolean bold, float custom_size_factor,
+                                    GdkColor *color)
+{
+    panel_draw_label_text_with_color(p->priv, label, text, bold, custom_size_factor, 0, color);
 }
 
 void panel_set_panel_configuration_changed(Panel *p)

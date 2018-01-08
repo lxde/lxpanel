@@ -279,9 +279,8 @@ update_display(thermal *th)
         lxpanel_draw_label_text(th->panel, th->namew, "NA", TRUE, 1, TRUE);
     else
     {
-        snprintf(buffer, sizeof(buffer), "<span color=\"#%06x\"><b>%02d</b></span>",
-                 gcolor2rgb24(&color), temp);
-        gtk_label_set_markup (GTK_LABEL(th->namew), buffer) ;
+        snprintf(buffer, sizeof(buffer), "%02d", temp);
+        lxpanel_draw_label_text_with_color(th->panel, th->namew, buffer, TRUE, 1, &color);
     }
 
     g_string_truncate(th->tip, 0);
