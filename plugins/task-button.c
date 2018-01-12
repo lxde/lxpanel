@@ -1720,6 +1720,7 @@ gboolean task_button_window_reconfigured(TaskButton *button, Window win)
        monitor than before, redraw the task button */
     old_mon = details->monitor;
     new_mon = get_window_monitor(details->win);
+    details->monitor = new_mon;
 
     if (button->flags.same_monitor_only
         && (old_mon == button->monitor || new_mon == button->monitor))
@@ -1729,7 +1730,6 @@ gboolean task_button_window_reconfigured(TaskButton *button, Window win)
         task_redraw_label(button);
         // FIXME: test if need to update menu
     }
-    details->monitor = new_mon;
     return TRUE;
 }
 

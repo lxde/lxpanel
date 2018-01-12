@@ -10,6 +10,7 @@
 * Added possibility to use few weather providers for weather widget.
 * Disabled Yahoo! Weather because they removed free API support.
 * Added OpenWeatherMap weather provider.
+* Fixed wrong application position on taskbar in multihead configuration.
 
 0.9.3
 -------------------------------------------------------------------------
