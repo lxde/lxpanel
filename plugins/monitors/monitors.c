@@ -748,6 +748,10 @@ monitors_apply_config (gpointer user_data)
 start:
     for (i = 0; i < N_MONITORS; i++)
     {
+        /* User may remove color value. In such case, reset to the default */
+        if (!colors[i])
+            colors[i] = g_strndup(default_colors[i], COLOR_SIZE-1);
+
         if (mp->displayed_monitors[i])
             current_n_monitors++;
 
