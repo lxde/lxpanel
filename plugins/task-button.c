@@ -1538,7 +1538,15 @@ void task_button_update_windows_list(TaskButton *button, Window *list, gint n)
         l = next; /* go next details */
     }
     if (button->details == NULL) /* all windows were deleted */
+    {
+        GList *menu_list = gtk_menu_get_for_attach_widget(GTK_WIDGET(button));
+        for (; menu_list; menu_list = menu_list->next)
+        {
+            GtkMenu *menu = GTK_MENU(menu_list->data);
+            gtk_menu_detach(menu);
+        }
         gtk_widget_destroy(GTK_WIDGET(button));
+    }
     else if (has_removed && task_update_visibility(button))
         task_redraw_label(button);
     // FIXME: test if need to update menu
