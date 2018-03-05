@@ -213,6 +213,9 @@ static inline char *_user_config_file_name(const char *name1, const char *name2)
 }
 #endif
 
+void load_global_config(void);
+void free_global_config(void);
+
 //void _queue_panel_calculate_size(Panel *panel);
 
 /* FIXME: optional definitions */

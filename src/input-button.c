@@ -72,6 +72,8 @@ void _marshal_BOOLEAN__STRING (GClosure     *closure,
 
 #define PANEL_TYPE_CFG_INPUT_BUTTON     (config_input_button_get_type())
 
+extern GType config_input_button_get_type (void) G_GNUC_CONST;
+
 typedef struct _PanelCfgInputButton      PanelCfgInputButton;
 typedef struct _PanelCfgInputButtonClass PanelCfgInputButtonClass;
 

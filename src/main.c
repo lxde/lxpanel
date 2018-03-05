@@ -450,9 +450,6 @@ static gboolean start_all_panels( )
     return all_panels != NULL;
 }
 
-void load_global_config();
-void free_global_config();
-
 static void _ensure_user_config_dirs(void)
 {
     char *dir = g_build_filename(g_get_user_config_dir(), "lxpanel", cprofile,

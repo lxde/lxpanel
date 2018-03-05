@@ -772,7 +772,7 @@ static void paint_root_pixmap(LXPanel *panel, cairo_t *cr)
 #endif
 }
 
-void _panel_determine_background_pixmap(LXPanel * panel)
+static void _panel_determine_background_pixmap(LXPanel * panel)
 {
 #if GTK_CHECK_VERSION(3, 0, 0)
     cairo_pattern_t *pattern;

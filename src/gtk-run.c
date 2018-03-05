@@ -37,6 +37,7 @@
 #include <unistd.h>
 
 #include "misc.h"
+#include "private.h"
 #ifndef DISABLE_MENU
 #include <menu-cache.h>
 #endif
