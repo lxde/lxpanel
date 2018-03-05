@@ -1541,11 +1541,13 @@ void task_button_update_windows_list(TaskButton *button, Window *list, gint n)
     if (button->details == NULL) /* all windows were deleted */
     {
         GList *menu_list = gtk_menu_get_for_attach_widget(GTK_WIDGET(button));
-        for (; menu_list; menu_list = menu_list->next)
+        menu_list = g_list_copy(menu_list);
+        for (l = menu_list; l; l = l->next)
         {
-            GtkMenu *menu = GTK_MENU(menu_list->data);
+            GtkMenu *menu = GTK_MENU(l->data);
             gtk_menu_detach(menu);
         }
+        g_list_free(menu_list);
         gtk_widget_destroy(GTK_WIDGET(button));
     }
     else if (has_removed && task_update_visibility(button))
