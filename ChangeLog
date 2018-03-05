@@ -2,6 +2,9 @@
 * Allowed switching workplaces by scrolling over the pager.
 * Added new API: lxpanel_draw_label_text_with_color().
 * Fixed not-applicable font setting on thermal plugin.
+* Fixed crash on right-click task button after some task was killed using menu
+    on another task button.
+* Fixed crash after color was removed from monitor plugin configuration.
 
 0.9.3
 -------------------------------------------------------------------------

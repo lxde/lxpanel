@@ -11,6 +11,7 @@
  *               2012 Rafał Mużyło <galtgendo@gmail.com>
  *               2014-2016 Andriy Grytsenko <andrej@rep.kiev.ua>
  *               2015 Rafał Mużyło <galtgendo@gmail.com>
+ *               2018 Mamoru TASAKA <mtasaka@fedoraproject.org>
  *
  * <terms>
  * Copyright (c) 2008-2014 LxDE Developers, see the file AUTHORS for details.

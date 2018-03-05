@@ -14,6 +14,7 @@
  *               2014 Andy Balaam <axis3x3@users.sf.net>
  *               2015 Balló György <ballogyor@gmail.com>
  *               2015 Rafał Mużyło <galtgendo@gmail.com>
+ *               2018 Mamoru TASAKA <mtasaka@fedoraproject.org>
  *
  * This file is a part of LXPanel project.
  *
