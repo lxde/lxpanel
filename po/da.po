@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-10-24 21:15+0300\n"
-"PO-Revision-Date: 2017-08-16 23:37+0000\n"
+"PO-Revision-Date: 2017-11-01 07:36+0000\n"
 "Last-Translator: scootergrisen <scootergrisen@gmail.com>\n"
 "Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
 "Language: da\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.8\n"
-"X-POOTLE-MTIME: 1502926647.310281\n"
+"X-POOTLE-MTIME: 1509521769.534636\n"
 "X-Pootle-Path: /da/lxpanel/po/da.po\n"
 "X-Pootle-Revision: 0\n"
 
@@ -798,11 +798,11 @@ msgstr "Enkelt plugin til skift af arbejdsområde"
 
 #: ../plugins/tray.c:691
 msgid "System Tray"
-msgstr "Statusfelt"
+msgstr "Systembakke"
 
 #: ../plugins/tray.c:692
 msgid "System tray"
-msgstr "Statusfelt"
+msgstr "Systembakke"
 
 #: ../plugins/xkb/xkb-plugin.c:409
 msgid "New session is required for this option to take effect"

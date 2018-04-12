@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-10-24 21:15+0300\n"
-"PO-Revision-Date: 2017-05-22 21:17+0000\n"
+"PO-Revision-Date: 2017-11-14 12:14+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: he\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.8\n"
-"X-POOTLE-MTIME: 1495487861.453428\n"
+"X-POOTLE-MTIME: 1510661643.508293\n"
 "X-Pootle-Path: /he/lxpanel/po/he.po\n"
 "X-Pootle-Revision: 0\n"
 
@@ -87,9 +87,8 @@ msgid "LXPanel"
 msgstr "תכנית הלוחות LXPanel"
 
 #: ../src/panel.c:1369
-#, fuzzy
 msgid "Copyright (C) 2008-2016"
-msgstr "כל הזכויות שמורות (C)‏ 2008-‎2014"
+msgstr "כל הזכויות שמורות (C)‏ 2008-‎2016"
 
 #: ../src/panel.c:1370
 msgid "Desktop panel for LXDE project"
@@ -646,7 +645,7 @@ msgstr "סרגל המשימות (רשימת החלונות)"
 
 #: ../plugins/launchtaskbar.c:1919
 msgid "A_dd to Launcher"
-msgstr ""
+msgstr "הו_ספה למשגר"
 
 #: ../plugins/launchtaskbar.c:1921
 msgid "Rem_ove from Launcher"
@@ -654,7 +653,7 @@ msgstr "ה_סרה מהלוח"
 
 #: ../plugins/launchtaskbar.c:1923
 msgid "_New Instance"
-msgstr ""
+msgstr "מו_פע חדש"
 
 #: ../plugins/launchtaskbar.c:2372
 msgid "Bar with buttons to launch application"
@@ -669,9 +668,8 @@ msgstr ""
 "אותם או לקבל עבורם מיקוד"
 
 #: ../plugins/launchtaskbar.c:2402
-#, fuzzy
 msgid "Bar with buttons to launch application and/or show all opened windows"
-msgstr "סרגל עם לחצנים לטעינת יישומים"
+msgstr "סרגל עם לחצנים לטעינת יישומים ו/או הצגת כל החלונות הפתוחים"
 
 #. Add Raise menu item.
 #: ../plugins/task-button.c:339
@@ -719,9 +717,8 @@ msgid "_Close Window"
 msgstr "_סגירת החלון"
 
 #: ../plugins/task-button.c:1238
-#, fuzzy
 msgid "_Close all windows"
-msgstr "_סגירת החלון"
+msgstr "_סגירת כל החלונות"
 
 #: ../plugins/dclock.c:431 ../plugins/dclock.c:445
 msgid "Digital Clock"
@@ -786,7 +783,7 @@ msgstr "הוספת מפריד ללוח"
 
 #: ../plugins/pager.c:114
 msgid "Sorry, there was no window manager configuration program found."
-msgstr ""
+msgstr "לא נמצאה תכנית לעריכת תצורה למנהל חלונות, עמך הסליחה."
 
 #: ../plugins/pager.c:166 ../plugins/pager.c:182
 msgid "Desktop Pager"
@@ -806,7 +803,7 @@ msgstr "אזור הדיווחים"
 
 #: ../plugins/xkb/xkb-plugin.c:409
 msgid "New session is required for this option to take effect"
-msgstr ""
+msgstr "נדרשת הפעלה חדשה כדי שהאפשרות הזאת תיכנס לתוקף."
 
 #. dialog
 #: ../plugins/xkb/xkb-plugin.c:590
@@ -819,9 +816,8 @@ msgid "Description"
 msgstr "תיאור"
 
 #: ../plugins/xkb/xkb-plugin.c:619 ../plugins/xkb/xkb-plugin.c:750
-#, fuzzy
 msgid "Id"
-msgstr "בהמתנה"
+msgstr "מזהה"
 
 #. dialog
 #: ../plugins/xkb/xkb-plugin.c:714
@@ -867,11 +863,11 @@ msgstr "הגדרות מתקדמות ל־setxkbmap"
 
 #: ../plugins/xkb/xkb-plugin.c:1360
 msgid "Do _not reset existing options"
-msgstr ""
+msgstr "_לא לאפס אפשרויות קיימות"
 
 #: ../plugins/xkb/xkb-plugin.c:1365
 msgid "Keep _system layouts"
-msgstr ""
+msgstr "לה_שאיר את פריסות המערכת"
 
 #: ../plugins/xkb/xkb-plugin.c:1374
 msgid "Per Window Settings"
@@ -938,9 +934,8 @@ msgid "Label"
 msgstr "תווית"
 
 #: ../plugins/dirmenu.c:366
-#, fuzzy
 msgid "Browse directory tree via menu (Author = PCMan)"
-msgstr "עיון בעץ התיקיות באמצעות תפריט (נוצר על ידי: PCMan)"
+msgstr "עיון בעץ התיקיות באמצעות תפריט (פיתוח = PCMan)"
 
 #: ../plugins/thermal/thermal.c:564 ../plugins/thermal/thermal.c:582
 msgid "Temperature Monitor"
@@ -991,10 +986,12 @@ msgid ""
 "Frequency: %d MHz\n"
 "Governor: %s"
 msgstr ""
+"תדירות: %d מה״ץ\n"
+"מושל: %s"
 
 #: ../plugins/cpufreq/cpufreq.c:401
 msgid "CPUFreq frontend"
-msgstr ""
+msgstr "מנשק CPUFreq"
 
 #: ../plugins/cpufreq/cpufreq.c:402
 msgid "Display CPU frequency and allow to change governors and frequency"
@@ -1058,67 +1055,66 @@ msgstr ""
 
 #: ../plugins/volumealsa/volumealsa.c:1332
 msgid "default"
-msgstr ""
+msgstr "בררת מחדל"
 
 #. desc, index
 #: ../plugins/volumealsa/volumealsa.c:1391
 msgid "Master"
-msgstr ""
+msgstr "ראשי"
 
 #: ../plugins/volumealsa/volumealsa.c:1395
 msgid "PCM"
-msgstr ""
+msgstr "PCM"
 
 #: ../plugins/volumealsa/volumealsa.c:1399
 msgid "Headphone"
-msgstr ""
+msgstr "אזניות"
 
 #: ../plugins/volumealsa/volumealsa.c:1420
 msgid "Click for Volume Slider"
-msgstr ""
+msgstr "יש ללחוץ לקבלת פס גלילת עצמת שמע"
 
 #: ../plugins/volumealsa/volumealsa.c:1424
 msgid "Click for Toggle Mute"
-msgstr ""
+msgstr "יש ללחוץ כדי להשתיק/להשמיע"
 
 #: ../plugins/volumealsa/volumealsa.c:1428
 msgid "Click for Open Mixer"
-msgstr ""
+msgstr "יש ללחוץ כדי לפתוח את המערבל"
 
 #. setup hotkeys
 #: ../plugins/volumealsa/volumealsa.c:1432
 msgid "Hotkey for Volume Up"
-msgstr ""
+msgstr "מקש חם להגברת עצמת השמע"
 
 #: ../plugins/volumealsa/volumealsa.c:1434
 msgid "Hotkey for Volume Down"
-msgstr ""
+msgstr "מקש חם להנמכת עצמת השמע"
 
 #: ../plugins/volumealsa/volumealsa.c:1436
 msgid "Hotkey for Volume Mute"
-msgstr ""
+msgstr "מקש חם להשתקה"
 
 #: ../plugins/volumealsa/volumealsa.c:1493
 msgid "Audio Card"
-msgstr ""
+msgstr "כרטיס קול"
 
 #: ../plugins/volumealsa/volumealsa.c:1496
 msgid "Channel to Operate"
-msgstr ""
+msgstr "ערוץ לפעולה"
 
 #: ../plugins/volumealsa/volumealsa.c:1504
 msgid "Command to Open Mixer"
-msgstr ""
+msgstr "פקודה לפתיחת מערבל"
 
 #: ../plugins/volumealsa/volumealsa.c:1519
-#, fuzzy
 msgid "Launch Mixer"
-msgstr "משגרים"
+msgstr "הפעלת מערבל"
 
 #: ../plugins/volumealsa/volumealsa.c:1531
 #: ../plugins/volumealsa/volumealsa.c:1552
 msgid "Display and control volume"
-msgstr ""
+msgstr "הצגה ושליטה בעצמת השמע"
 
 #: ../plugins/netstat/netstat.c:183
 msgid "<Hidden Access Point>"
@@ -1498,9 +1494,8 @@ msgid "Cannot open /proc/net/dev: %s"
 msgstr "לא ניתן לפתוח את ‎/proc/net/dev‏: %s"
 
 #: ../plugins/netstatus/netstatus-sysdeps.c:185
-#, fuzzy
 msgid "Could not parse /proc/net/dev. No data."
-msgstr "לא ניתן לנתח את /proc/net/dev. מבנה בלתי מוכר."
+msgstr "לא ניתן לנתח את ‎/proc/net/dev. אין נתונים."
 
 #: ../plugins/netstatus/netstatus-sysdeps.c:190
 msgid "Could not parse /proc/net/dev. Unknown format."
@@ -1523,9 +1518,8 @@ msgstr ""
 "%d; btx_idx = %d;"
 
 #: ../plugins/netstatus/netstatus-sysdeps.c:312
-#, fuzzy
 msgid "Could not parse /proc/net/wireless. No data."
-msgstr "לא ניתן לנתח את /proc/net/wireless. מבנה בלתי מוכר."
+msgstr "לא ניתן לנתח את ‎/proc/net/wireless. אין נתונים."
 
 #: ../plugins/netstatus/netstatus-sysdeps.c:316
 msgid "Could not parse /proc/net/wireless. Unknown format."
@@ -1658,9 +1652,8 @@ msgid "No batteries found"
 msgstr "לא נמצאו סוללות"
 
 #: ../plugins/batt/batt.c:534 ../plugins/batt/batt.c:667
-#, fuzzy
 msgid "Battery low"
-msgstr "צג הסוללה"
+msgstr "סוללה חלשה"
 
 #: ../plugins/batt/batt.c:690 ../plugins/batt/batt.c:714
 msgid "Battery Monitor"
@@ -1707,9 +1700,8 @@ msgid "Show Extended Information"
 msgstr "הצגת מידע מפורט"
 
 #: ../plugins/batt/batt.c:705
-#, fuzzy
 msgid "Number of battery to monitor"
-msgstr "מנשק למעקב"
+msgstr "מספר הסוללות למעקב"
 
 #: ../plugins/batt/batt.c:715
 msgid "Display battery status using ACPI"
@@ -1808,7 +1800,7 @@ msgstr "הצגת צגי מעקב (מעבד, זיכרון)"
 
 #: ../plugins/weather/weatherwidget.c:52
 msgid "[N/A]"
-msgstr ""
+msgstr "[לא זמין]"
 
 #: ../plugins/weather/weatherwidget.c:792
 msgid "Enter New Location"
@@ -1886,11 +1878,11 @@ msgstr "יחידות:"
 
 #: ../plugins/weather/weatherwidget.c:1282
 msgid "_Metric (°C)"
-msgstr ""
+msgstr "מ_טרי (‎°C)"
 
 #: ../plugins/weather/weatherwidget.c:1284
 msgid "_English (°F)"
-msgstr ""
+msgstr "_אימפריאלי (‎°F)"
 
 #: ../plugins/weather/weatherwidget.c:1319
 msgid "Forecast"
@@ -1902,11 +1894,11 @@ msgstr "עדכונים:"
 
 #: ../plugins/weather/weatherwidget.c:1327
 msgid "Ma_nual"
-msgstr ""
+msgstr "י_דני"
 
 #: ../plugins/weather/weatherwidget.c:1331
 msgid "_Automatic, every"
-msgstr ""
+msgstr "אוטומטי, _בכל"
 
 #: ../plugins/weather/weatherwidget.c:1352
 msgid "minutes"
@@ -1917,15 +1909,14 @@ msgid "Source:"
 msgstr "מקור:"
 
 #: ../plugins/weather/weatherwidget.c:1477
-#, fuzzy
 msgid "C_hange"
-msgstr "החלפת הסוג"
+msgstr "_שינוי"
 
 #. Both are available
 #: ../plugins/weather/weatherwidget.c:1565
 #, c-format
 msgid "Current Conditions for %s"
-msgstr ""
+msgstr "תנאים נוכחיים עבור %s"
 
 #: ../plugins/weather/weatherwidget.c:1589
 msgid "Location:"
