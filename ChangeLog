@@ -5,6 +5,8 @@
 * Fixed crash on right-click task button after some task was killed using menu
     on another task button.
 * Fixed crash after color was removed from monitor plugin configuration.
+* Aligned used memory calculation in lxpanel monitor with 'free' command line
+    utility.
 
 0.9.3
 -------------------------------------------------------------------------

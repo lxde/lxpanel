@@ -12,6 +12,7 @@
  *               2014-2016 Andriy Grytsenko <andrej@rep.kiev.ua>
  *               2015 Rafał Mużyło <galtgendo@gmail.com>
  *               2018 Mamoru TASAKA <mtasaka@fedoraproject.org>
+ *               2019 Carles Pina i Estany <carles@pina.cat>
  *
  * <terms>
  * Copyright (c) 2008-2014 LxDE Developers, see the file AUTHORS for details.
@@ -306,7 +307,8 @@ mem_update(Monitor * m)
     long int mem_free  = 0;
     long int mem_buffers = 0;
     long int mem_cached = 0;
-    unsigned int readmask = 0x8 | 0x4 | 0x2 | 0x1;
+    long int mem_sreclaimable = 0;
+    unsigned int readmask = 0x10 | 0x8 | 0x4 | 0x2 | 0x1;
 
     if (!m->stats || !m->pixmap)
         RET(TRUE);
@@ -335,6 +337,10 @@ mem_update(Monitor * m)
             readmask ^= 0x8;
             continue;
         }
+        if (sscanf(buf, "SReclaimable: %ld kB\n", &mem_sreclaimable) == 1) {
+            readmask ^= 0x10;
+            continue;
+        }
     }
 
     fclose(meminfo);
@@ -352,13 +358,13 @@ mem_update(Monitor * m)
      * 'free', because it can be flushed fairly quickly, and generally
      * isn't necessary to keep in memory.
      * It is hard to draw the line, which caches should be counted as free,
-     * and which not. Pagecaches, dentry, and inode caches are quickly
-     * filled up again for almost any use case. Hence I would not count
-     * them as 'free'.
+     * and which not. 'free' command line utility from procps counts
+     * SReclaimable as free so it's counted it here as well (note that
+     * 'man free' doesn't specify this)
      * 'mem_cached' definitely counts as 'free' because it is immediately
      * released should any application need it. */
     m->stats[m->ring_cursor] = (mem_total - mem_buffers - mem_free -
-            mem_cached) / (float)mem_total;
+            mem_cached - mem_sreclaimable) / (float)mem_total;
 
     m->ring_cursor++;
     if (m->ring_cursor >= m->pixmap_width)
