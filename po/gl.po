@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-01 00:50+0200\n"
+"POT-Creation-Date: 2019-02-22 00:29+0200\n"
 "PO-Revision-Date: 2017-05-24 05:46+0000\n"
 "Last-Translator: Miguel Anxo Bouzada <mbouzada@gmail.com>\n"
 "Language-Team: Galician <proxecto@trasno.net>\n"
@@ -45,27 +45,27 @@ msgstr "Engadir un complemento ao panel"
 msgid "Available plugins"
 msgstr "Complementos dispoñíbeis"
 
-#: ../src/configurator.c:1428
+#: ../src/configurator.c:1427
 msgid "Logout command is not set"
 msgstr "A orde para saír non foi configurada"
 
-#: ../src/configurator.c:1496
+#: ../src/configurator.c:1495
 msgid "Select a directory"
 msgstr "Seleccionar un cartafol"
 
-#: ../src/configurator.c:1496 ../src/configurator.c:1608
+#: ../src/configurator.c:1495 ../src/configurator.c:1607
 msgid "Select a file"
 msgstr "Seleccionar un ficheiro"
 
-#: ../src/configurator.c:1641
+#: ../src/configurator.c:1640
 msgid "_Browse"
 msgstr "_Examinar"
 
-#: ../src/panel.c:1283
+#: ../src/panel.c:1292
 msgid "There is no room for another panel. All the edges are taken."
 msgstr "Non hai espazo para outro panel. Todos os bordos están ocupados."
 
-#: ../src/panel.c:1309
+#: ../src/panel.c:1318
 msgid ""
 "Really delete this panel?\n"
 "<b>Warning: This can not be recovered.</b>"
@@ -73,12 +73,12 @@ msgstr ""
 "Confirma que quere retirar este panel?\n"
 "<b>Advertencia: Isto non poderá desfacerse.</b>"
 
-#: ../src/panel.c:1311
+#: ../src/panel.c:1320
 msgid "Confirm"
 msgstr "Confirmar"
 
 #. TRANSLATORS: Replace this string with your names, one name per line.
-#: ../src/panel.c:1346
+#: ../src/panel.c:1355
 msgid "translator-credits"
 msgstr ""
 "Indalecio Freiría Santos <ifreiria@gmail.com>, 2009.\n"
@@ -86,73 +86,73 @@ msgstr ""
 "2015, 2016, 2017.\n"
 "Proxecto Trasno <proxecto@trasno.net>."
 
-#: ../src/panel.c:1351
+#: ../src/panel.c:1360
 msgid "LXPanel"
 msgstr "LXPanel"
 
-#: ../src/panel.c:1369
+#: ../src/panel.c:1378
 msgid "Copyright (C) 2008-2019"
 msgstr "Copyright (C) 2008-2019"
 
-#: ../src/panel.c:1370
+#: ../src/panel.c:1379
 msgid "Desktop panel for LXDE project"
 msgstr "Panel de escritorio para o proxecto LXDE"
 
-#: ../src/panel.c:1412
+#: ../src/panel.c:1421
 #, c-format
 msgid "\"%s\" Settings"
 msgstr "Configuración de «%s»"
 
-#: ../src/panel.c:1433
+#: ../src/panel.c:1442
 msgid "Add / Remove Panel Items"
 msgstr "Engadir / Eliminar elementos do panel"
 
-#: ../src/panel.c:1441
+#: ../src/panel.c:1450
 #, c-format
 msgid "Remove \"%s\" From Panel"
 msgstr "Eliminar «%s» do panel"
 
-#: ../src/panel.c:1453
+#: ../src/panel.c:1462
 msgid "Panel Settings"
 msgstr "Configuración do panel"
 
-#: ../src/panel.c:1459
+#: ../src/panel.c:1468
 msgid "Create New Panel"
 msgstr "Crear un panel novo"
 
-#: ../src/panel.c:1465
+#: ../src/panel.c:1474
 msgid "Delete This Panel"
 msgstr "Eliminar este panel"
 
-#: ../src/panel.c:1476
+#: ../src/panel.c:1485
 msgid "About"
 msgstr "Sobre"
 
-#: ../src/panel.c:1483
+#: ../src/panel.c:1492
 msgid "Panel"
 msgstr "Panel"
 
-#: ../src/panel.c:1698 ../src/panel.c:1706 ../data/ui/panel-pref.glade.h:22
+#: ../src/panel.c:1708 ../src/panel.c:1716 ../data/ui/panel-pref.glade.h:22
 msgid "Height:"
 msgstr "Altura:"
 
-#: ../src/panel.c:1699 ../src/panel.c:1705 ../data/ui/panel-pref.glade.h:21
+#: ../src/panel.c:1709 ../src/panel.c:1715 ../data/ui/panel-pref.glade.h:21
 msgid "Width:"
 msgstr "Largura:"
 
-#: ../src/panel.c:1700 ../data/ui/panel-pref.glade.h:13
+#: ../src/panel.c:1710 ../data/ui/panel-pref.glade.h:13
 msgid "Left"
 msgstr "Esquerda"
 
-#: ../src/panel.c:1701 ../data/ui/panel-pref.glade.h:14
+#: ../src/panel.c:1711 ../data/ui/panel-pref.glade.h:14
 msgid "Right"
 msgstr "Dereita"
 
-#: ../src/panel.c:1707 ../data/ui/panel-pref.glade.h:12
+#: ../src/panel.c:1717 ../data/ui/panel-pref.glade.h:12
 msgid "Top"
 msgstr "Arriba"
 
-#: ../src/panel.c:1708 ../data/ui/panel-pref.glade.h:11
+#: ../src/panel.c:1718 ../data/ui/panel-pref.glade.h:11
 msgid "Bottom"
 msgstr "Abaixo"
 
@@ -161,11 +161,11 @@ msgid "No file manager is configured."
 msgstr "O xestor de ficheiros non está configurado."
 
 #. { "configure", N_("Preferences"), configure },
-#: ../src/gtk-run.c:398 ../src/main.c:69 ../plugins/menu.c:718
+#: ../src/gtk-run.c:385 ../src/main.c:69 ../plugins/menu.c:718
 msgid "Run"
 msgstr "Executar"
 
-#: ../src/gtk-run.c:412
+#: ../src/gtk-run.c:399
 msgid "Enter the command you want to execute:"
 msgstr "Introduza a orde a executar:"
 
@@ -231,46 +231,46 @@ msgstr ""
 "Visite http://lxde.org/ para obter máis detalles.\n"
 "\n"
 
-#: ../src/input-button.c:145
+#: ../src/input-button.c:147
 msgid "LeftBtn"
 msgstr "BtnEsq"
 
-#: ../src/input-button.c:148
+#: ../src/input-button.c:150
 msgid "MiddleBtn"
 msgstr "BtnMedio"
 
-#: ../src/input-button.c:151
+#: ../src/input-button.c:153
 msgid "RightBtn"
 msgstr "BtnDer"
 
-#: ../src/input-button.c:154
+#: ../src/input-button.c:156
 #, c-format
 msgid "Btn%s"
 msgstr "Btn%s"
 
-#: ../src/input-button.c:215
+#: ../src/input-button.c:228
 #, c-format
 msgid "Key combination '%s' cannot be used as a global hotkey, sorry."
 msgstr ""
 "Non é posíbel empregar a combinación de teclas «%s» como una tecla de acceso "
 "directo global."
 
-#: ../src/input-button.c:218 ../src/input-button.c:401
+#: ../src/input-button.c:231 ../src/input-button.c:415
 #: ../plugins/netstatus/netstatus-iface.c:191
 #: ../plugins/netstatus/netstatus-util.c:167
 msgid "Error"
 msgstr "Erro"
 
 #. GtkRadioButton "None"
-#: ../src/input-button.c:315 ../data/ui/panel-pref.glade.h:5
+#: ../src/input-button.c:329 ../data/ui/panel-pref.glade.h:5
 msgid "None"
 msgstr "Ningún"
 
-#: ../src/input-button.c:322
+#: ../src/input-button.c:336
 msgid "Custom:"
 msgstr "Personalizado:"
 
-#: ../src/input-button.c:399
+#: ../src/input-button.c:413
 #, c-format
 msgid "Cannot assign '%s' as a global hotkey: it is already bound."
 msgstr ""
@@ -282,7 +282,7 @@ msgid "Spacer"
 msgstr "Espazador"
 
 #: ../src/space.c:396 ../data/ui/panel-pref.glade.h:32
-#: ../plugins/batt/batt.c:702
+#: ../plugins/batt/batt.c:710
 msgid "Size"
 msgstr "Tamaño"
 
@@ -290,7 +290,7 @@ msgstr "Tamaño"
 msgid "Allocate space"
 msgstr "Asignar espazo"
 
-#: ../data/ui/launchtaskbar.glade.h:1 ../plugins/launchtaskbar.c:2417
+#: ../data/ui/launchtaskbar.glade.h:1 ../plugins/launchtaskbar.c:2482
 msgid "Application Launch and Task Bar"
 msgstr "Barra de tarefas e iniciador de aplicacións"
 
@@ -491,7 +491,7 @@ msgstr "Preferencias do panel"
 msgid "Edge:"
 msgstr "Bordo:"
 
-#: ../data/ui/panel-pref.glade.h:16 ../plugins/volumealsa/volumealsa.c:1291
+#: ../data/ui/panel-pref.glade.h:16 ../plugins/volumealsa/volumealsa.c:1313
 msgid "Center"
 msgstr "Centro"
 
@@ -615,55 +615,55 @@ msgstr "<b>Nivel do rexistro</b>"
 msgid "Advanced"
 msgstr "Avanzado"
 
-#: ../plugins/cpu/cpu.c:308
+#: ../plugins/cpu/cpu.c:310
 msgid "CPU Usage Monitor"
 msgstr "Monitor do uso do procesador"
 
-#: ../plugins/cpu/cpu.c:309 ../plugins/monitors/monitors.c:725
+#: ../plugins/cpu/cpu.c:311 ../plugins/monitors/monitors.c:734
 msgid "Display CPU usage"
 msgstr "Amosar o uso do procesador"
 
-#: ../plugins/deskno/deskno.c:208 ../plugins/deskno/deskno.c:228
+#: ../plugins/deskno/deskno.c:210 ../plugins/deskno/deskno.c:230
 msgid "Desktop Number / Workspace Name"
 msgstr "Número de escritorio / área de traballo"
 
-#: ../plugins/deskno/deskno.c:210 ../plugins/dclock.c:437
+#: ../plugins/deskno/deskno.c:212 ../plugins/dclock.c:439
 msgid "Bold font"
 msgstr "Negriña"
 
-#: ../plugins/deskno/deskno.c:211
+#: ../plugins/deskno/deskno.c:213
 msgid "Display desktop names"
 msgstr "Amosar os nomes dos escritorios"
 
-#: ../plugins/deskno/deskno.c:229
+#: ../plugins/deskno/deskno.c:231
 msgid "Display workspace number, by cmeury@users.sf.net"
 msgstr "Amosa o número da área de traballo, por cmeury@users.sf.net"
 
-#: ../plugins/launchtaskbar.c:1781 ../plugins/launchtaskbar.c:2387
+#: ../plugins/launchtaskbar.c:1831 ../plugins/launchtaskbar.c:2452
 msgid "Application Launch Bar"
 msgstr "Barra de aplicacións"
 
-#: ../plugins/launchtaskbar.c:1784 ../plugins/launchtaskbar.c:2397
+#: ../plugins/launchtaskbar.c:1834 ../plugins/launchtaskbar.c:2462
 msgid "Task Bar (Window List)"
 msgstr "Barra de tarefas (lista de xanelas)"
 
-#: ../plugins/launchtaskbar.c:1935
+#: ../plugins/launchtaskbar.c:1985
 msgid "A_dd to Launcher"
 msgstr "E_ngadir ao iniciador"
 
-#: ../plugins/launchtaskbar.c:1937
+#: ../plugins/launchtaskbar.c:1987
 msgid "Rem_ove from Launcher"
 msgstr "Re_tirar do iniciador"
 
-#: ../plugins/launchtaskbar.c:1939
+#: ../plugins/launchtaskbar.c:1989
 msgid "_New Instance"
 msgstr "Instancia _nova"
 
-#: ../plugins/launchtaskbar.c:2388
+#: ../plugins/launchtaskbar.c:2453
 msgid "Bar with buttons to launch application"
 msgstr "Barra de aceso a aplicacións"
 
-#: ../plugins/launchtaskbar.c:2398
+#: ../plugins/launchtaskbar.c:2463
 msgid ""
 "Taskbar shows all opened windows and allow to iconify them, shade or get "
 "focus"
@@ -671,91 +671,91 @@ msgstr ""
 "A barra de tarefas amosa todas as xanelas abertas e permite minimizalas, "
 "repregalas ou enfocalas"
 
-#: ../plugins/launchtaskbar.c:2418
+#: ../plugins/launchtaskbar.c:2483
 msgid "Bar with buttons to launch application and/or show all opened windows"
 msgstr ""
 "Barra con botóns para iniciar aplicacións e/ou amosar todas as xanelas "
 "abertas"
 
 #. Add Raise menu item.
-#: ../plugins/task-button.c:338
+#: ../plugins/task-button.c:352
 msgid "_Raise"
 msgstr "_Erguer"
 
 #. Add Restore menu item.
-#: ../plugins/task-button.c:343
+#: ../plugins/task-button.c:357
 msgid "R_estore"
 msgstr "_Restaurar"
 
 #. Add Maximize menu item.
-#: ../plugins/task-button.c:348
+#: ../plugins/task-button.c:362
 msgid "Ma_ximize"
 msgstr "Ma_ximizar"
 
 #. Add Iconify menu item.
-#: ../plugins/task-button.c:353
+#: ../plugins/task-button.c:367
 msgid "Ico_nify"
 msgstr "Ico_nificar"
 
-#: ../plugins/task-button.c:374
+#: ../plugins/task-button.c:388
 #, c-format
 msgid "Workspace _%d"
 msgstr "Área de traballo _%d"
 
-#: ../plugins/task-button.c:379
+#: ../plugins/task-button.c:393
 #, c-format
 msgid "Workspace %d"
 msgstr "Área de traballo %d"
 
 #. Add "move to all workspaces" item.  This causes the window to be visible no matter what desktop is active.
-#: ../plugins/task-button.c:396
+#: ../plugins/task-button.c:410
 msgid "_All workspaces"
 msgstr "_Todas as áreas de traballo"
 
 #. FIXME: add "Current workspace" item, active if not on a current
 #. Add Move to Workspace menu item as a submenu.
-#: ../plugins/task-button.c:404
+#: ../plugins/task-button.c:418
 msgid "_Move to Workspace"
 msgstr "_Mover á área de traballo"
 
-#: ../plugins/task-button.c:419
+#: ../plugins/task-button.c:433
 msgid "_Close Window"
 msgstr "_Pechar a xanela"
 
-#: ../plugins/task-button.c:1235
+#: ../plugins/task-button.c:1256
 msgid "_Close all windows"
 msgstr "_Pechar todas as xanelas"
 
-#: ../plugins/dclock.c:431 ../plugins/dclock.c:445
+#: ../plugins/dclock.c:433 ../plugins/dclock.c:453
 msgid "Digital Clock"
 msgstr "Reloxo dixital"
 
-#: ../plugins/dclock.c:433
+#: ../plugins/dclock.c:435
 msgid "Clock Format"
 msgstr "Formato da hora"
 
-#: ../plugins/dclock.c:434
+#: ../plugins/dclock.c:436
 msgid "Tooltip Format"
 msgstr "Formato da mensaxe emerxente"
 
-#: ../plugins/dclock.c:435
+#: ../plugins/dclock.c:437
 #, c-format
 msgid "Format codes: man 3 strftime; %n for line break"
 msgstr "Códigos de formato: man 3 strftime; %n para salto de liña"
 
-#: ../plugins/dclock.c:436
+#: ../plugins/dclock.c:438
 msgid "Action when clicked (default: display calendar)"
 msgstr "Acción ao premer (predeterminado: amosar o calendario)"
 
-#: ../plugins/dclock.c:438
+#: ../plugins/dclock.c:440
 msgid "Tooltip only"
 msgstr "Só mensaxe emerxente"
 
-#: ../plugins/dclock.c:439
+#: ../plugins/dclock.c:441
 msgid "Center text"
 msgstr "Centrar o texto"
 
-#: ../plugins/dclock.c:446
+#: ../plugins/dclock.c:454
 msgid "Display digital clock and tooltip"
 msgstr "Amosar o reloxo dixital e a mensaxe emerxente"
 
@@ -787,15 +787,15 @@ msgstr "Separador"
 msgid "Add a separator to the panel"
 msgstr "Engadir un separador ao panel"
 
-#: ../plugins/pager.c:114
+#: ../plugins/pager.c:141
 msgid "Sorry, there was no window manager configuration program found."
 msgstr "Nos se atopou un programa de configuración do xestor de xanelas."
 
-#: ../plugins/pager.c:166 ../plugins/pager.c:182
+#: ../plugins/pager.c:193 ../plugins/pager.c:209
 msgid "Desktop Pager"
 msgstr "Escritorios virtuais"
 
-#: ../plugins/pager.c:167 ../plugins/pager.c:183
+#: ../plugins/pager.c:194 ../plugins/pager.c:210
 msgid "Simple pager plugin"
 msgstr "Complemento sinxelo para escritorios virtuais"
 
@@ -903,21 +903,20 @@ msgstr "Tamaño das iconas do panel"
 msgid "Handle keyboard layouts"
 msgstr "Xestionar as disposicións de teclado"
 
-#: ../plugins/wincmd.c:205
+#: ../plugins/wincmd.c:207
 msgid "Left click to iconify all windows.  Middle click to shade them."
 msgstr ""
-"Botón esquerdo para minimizar todas as xanelas.  Botón medio para "
-"repregalas."
+"Botón esquerdo para minimizar todas as xanelas.  Botón medio para repregalas."
 
-#: ../plugins/wincmd.c:243 ../plugins/wincmd.c:253
+#: ../plugins/wincmd.c:245 ../plugins/wincmd.c:255
 msgid "Minimize All Windows"
 msgstr "Minimizar todas as xanelas"
 
-#: ../plugins/wincmd.c:245
+#: ../plugins/wincmd.c:247
 msgid "Alternately iconify/shade and raise"
 msgstr "Alternar entre minimizar/repregar e elevar"
 
-#: ../plugins/wincmd.c:254
+#: ../plugins/wincmd.c:256
 msgid ""
 "Sends commands to all desktop windows.\n"
 "Supported commands are 1) iconify and 2) shade"
@@ -945,46 +944,46 @@ msgstr "Etiqueta"
 msgid "Browse directory tree via menu (Author = PCMan)"
 msgstr "Examinar a árbore de directorios por medio do menú (Author = PCMan)"
 
-#: ../plugins/thermal/thermal.c:564 ../plugins/thermal/thermal.c:582
+#: ../plugins/thermal/thermal.c:563 ../plugins/thermal/thermal.c:581
 msgid "Temperature Monitor"
 msgstr "Monitor de temperatura"
 
-#: ../plugins/thermal/thermal.c:566
+#: ../plugins/thermal/thermal.c:565
 msgid "Normal color"
 msgstr "Cor normal"
 
-#: ../plugins/thermal/thermal.c:567
+#: ../plugins/thermal/thermal.c:566
 msgid "Warning1 color"
 msgstr "Cor de aviso 1"
 
-#: ../plugins/thermal/thermal.c:568
+#: ../plugins/thermal/thermal.c:567
 msgid "Warning2 color"
 msgstr "Cor de aviso 2"
 
-#: ../plugins/thermal/thermal.c:569
+#: ../plugins/thermal/thermal.c:568
 msgid "Automatic sensor location"
 msgstr "Localización automática do sensor"
 
 #. FIXME: if off, disable next one
-#: ../plugins/thermal/thermal.c:570
+#: ../plugins/thermal/thermal.c:569
 msgid "Sensor"
 msgstr "Sensor"
 
 #. FIXME: create a list to select instead
-#: ../plugins/thermal/thermal.c:571
+#: ../plugins/thermal/thermal.c:570
 msgid "Automatic temperature levels"
 msgstr "Niveis automáticos de temperatura"
 
 #. FIXME: if off, disable two below
-#: ../plugins/thermal/thermal.c:572
+#: ../plugins/thermal/thermal.c:571
 msgid "Warning1 temperature"
 msgstr "Aviso de temperatura 1"
 
-#: ../plugins/thermal/thermal.c:573
+#: ../plugins/thermal/thermal.c:572
 msgid "Warning2 temperature"
 msgstr "Aviso de temperatura 2"
 
-#: ../plugins/thermal/thermal.c:583
+#: ../plugins/thermal/thermal.c:582
 msgid "Display system temperature"
 msgstr "Amosar a temperatura do sistema"
 
@@ -1012,12 +1011,12 @@ msgstr ""
 "ALSA (ou pulseaudio) tivo un problema. Comprobe os rexistros de lxpanel."
 
 #. Display current level in tooltip.
-#: ../plugins/volumealsa/volumealsa.c:597
-#: ../plugins/volumealsa/volumealsa.c:952
+#: ../plugins/volumealsa/volumealsa.c:613
+#: ../plugins/volumealsa/volumealsa.c:973
 msgid "Volume control"
 msgstr "Control de volume"
 
-#: ../plugins/volumealsa/volumealsa.c:680
+#: ../plugins/volumealsa/volumealsa.c:701
 msgid ""
 "Error, you need to install an application to configure the sound "
 "(pavucontrol, alsamixer ...)"
@@ -1026,102 +1025,102 @@ msgstr ""
 "(pavucontol, alsamixer ...)"
 
 #. Create a frame as the child of the viewport.
-#: ../plugins/volumealsa/volumealsa.c:874
+#: ../plugins/volumealsa/volumealsa.c:895
 msgid "Volume"
 msgstr "Volume"
 
 #. Create a check button as the child of the vertical box.
-#: ../plugins/volumealsa/volumealsa.c:893
+#: ../plugins/volumealsa/volumealsa.c:914
 msgid "Mute"
 msgstr "Silenciar"
 
 #. Just to have these translated
-#: ../plugins/volumealsa/volumealsa.c:1291
+#: ../plugins/volumealsa/volumealsa.c:1313
 msgid "Line"
 msgstr "Liña"
 
-#: ../plugins/volumealsa/volumealsa.c:1291
+#: ../plugins/volumealsa/volumealsa.c:1313
 msgid "LineOut"
 msgstr "Saída de liña"
 
-#: ../plugins/volumealsa/volumealsa.c:1291
+#: ../plugins/volumealsa/volumealsa.c:1313
 msgid "Front"
 msgstr "Frontal"
 
-#: ../plugins/volumealsa/volumealsa.c:1291
+#: ../plugins/volumealsa/volumealsa.c:1313
 msgid "Surround"
 msgstr "Envolvente"
 
-#: ../plugins/volumealsa/volumealsa.c:1291
+#: ../plugins/volumealsa/volumealsa.c:1313
 msgid "Speaker+LO"
 msgstr "Altofalante+SL"
 
-#: ../plugins/volumealsa/volumealsa.c:1330
+#: ../plugins/volumealsa/volumealsa.c:1352
 msgid "default"
 msgstr "predeterminada"
 
 #. desc, index
-#: ../plugins/volumealsa/volumealsa.c:1390
+#: ../plugins/volumealsa/volumealsa.c:1412
 msgid "Master"
 msgstr "Mestra"
 
-#: ../plugins/volumealsa/volumealsa.c:1394
+#: ../plugins/volumealsa/volumealsa.c:1416
 msgid "PCM"
 msgstr "PCM"
 
-#: ../plugins/volumealsa/volumealsa.c:1398
+#: ../plugins/volumealsa/volumealsa.c:1420
 msgid "Headphone"
 msgstr "Auriculares"
 
-#: ../plugins/volumealsa/volumealsa.c:1420
+#: ../plugins/volumealsa/volumealsa.c:1442
 msgid "Click for Volume Slider"
 msgstr "Prema para o esvarador do volume"
 
-#: ../plugins/volumealsa/volumealsa.c:1424
+#: ../plugins/volumealsa/volumealsa.c:1446
 msgid "Click for Toggle Mute"
 msgstr "Prema para alternar o silenciador do volume"
 
-#: ../plugins/volumealsa/volumealsa.c:1428
+#: ../plugins/volumealsa/volumealsa.c:1450
 msgid "Click for Open Mixer"
 msgstr "Prema para abrir o mesturador"
 
 #. setup hotkeys
-#: ../plugins/volumealsa/volumealsa.c:1432
+#: ../plugins/volumealsa/volumealsa.c:1454
 msgid "Hotkey for Volume Up"
 msgstr "Atallo de teclado para subir o volume"
 
-#: ../plugins/volumealsa/volumealsa.c:1434
+#: ../plugins/volumealsa/volumealsa.c:1456
 msgid "Hotkey for Volume Down"
 msgstr "Atallo de teclado para baixar o volume"
 
-#: ../plugins/volumealsa/volumealsa.c:1436
+#: ../plugins/volumealsa/volumealsa.c:1458
 msgid "Hotkey for Volume Mute"
 msgstr "Atallo de teclado para silenciar o volume"
 
-#: ../plugins/volumealsa/volumealsa.c:1492
-#: ../plugins/volumealsa/volumealsa.c:1531
-#: ../plugins/volumealsa/volumealsa.c:1552
+#: ../plugins/volumealsa/volumealsa.c:1514
+#: ../plugins/volumealsa/volumealsa.c:1553
+#: ../plugins/volumealsa/volumealsa.c:1574
 msgid "Volume Control"
 msgstr "Control de volume"
 
-#: ../plugins/volumealsa/volumealsa.c:1494
+#: ../plugins/volumealsa/volumealsa.c:1516
 msgid "Audio Card"
 msgstr "Tarxeta de son"
 
-#: ../plugins/volumealsa/volumealsa.c:1497
+#: ../plugins/volumealsa/volumealsa.c:1519
 msgid "Channel to Operate"
 msgstr "Canle para operar"
 
-#: ../plugins/volumealsa/volumealsa.c:1505
+#: ../plugins/volumealsa/volumealsa.c:1527
 msgid "Command to Open Mixer"
 msgstr "Orde para abrir o mesturador"
 
-#: ../plugins/volumealsa/volumealsa.c:1520
+#: ../plugins/volumealsa/volumealsa.c:1542
 msgid "Launch Mixer"
 msgstr "Iniciador do mesturador"
 
-#: ../plugins/volumealsa/volumealsa.c:1532
-#: ../plugins/volumealsa/volumealsa.c:1553
+#: ../plugins/volumealsa/volumealsa.c:1554
+#: ../plugins/volumealsa/volumealsa.c:1575
 msgid "Display and control volume"
 msgstr "Vista e control do volume"
 
@@ -1338,7 +1337,7 @@ msgid "The interface name"
 msgstr "Nome da interface"
 
 #: ../plugins/netstatus/netstatus-iface.c:156
-#: ../plugins/weather/weatherwidget.c:2080
+#: ../plugins/weather/weatherwidget.c:2136
 msgid "State"
 msgstr "Estado"
 
@@ -1578,22 +1577,22 @@ msgstr "Recibindo"
 msgid "Sending/Receiving"
 msgstr "Enviando/Recibindo"
 
-#: ../plugins/batt/batt.c:154
-#, c-format, c-format
+#: ../plugins/batt/batt.c:155
+#, c-format
 msgid "Battery %d: %d%% charged, %d:%02d until full"
 msgstr "Batería %d: %d%% de carga, %d:%02d para completar"
 
-#: ../plugins/batt/batt.c:165
-#, c-format, c-format
+#: ../plugins/batt/batt.c:169
+#, c-format
 msgid "Battery %d: %d%% charged, %d:%02d left"
 msgstr "Batería %d: %d%% de carga, %d:%02d restante"
 
-#: ../plugins/batt/batt.c:171
-#, c-format, c-format
+#: ../plugins/batt/batt.c:176
+#, c-format
 msgid "Battery %d: %d%% charged"
 msgstr "Batería %d: %d%% de carga"
 
-#: ../plugins/batt/batt.c:181
+#: ../plugins/batt/batt.c:186
 #, c-format
 msgid ""
 "\n"
@@ -1602,7 +1601,7 @@ msgstr ""
 "\n"
 "%sDeseño da enerxía total:\t\t%5d mWh"
 
-#: ../plugins/batt/batt.c:183
+#: ../plugins/batt/batt.c:188
 #, c-format
 msgid ""
 "\n"
@@ -1611,7 +1610,7 @@ msgstr ""
 "\n"
 "%sEnerxía total:\t\t\t%5d mWh"
 
-#: ../plugins/batt/batt.c:185
+#: ../plugins/batt/batt.c:190
 #, c-format
 msgid ""
 "\n"
@@ -1620,7 +1619,7 @@ msgstr ""
 "\n"
 "%sEnerxía actual:\t\t\t%5d mWh"
 
-#: ../plugins/batt/batt.c:187
+#: ../plugins/batt/batt.c:192
 #, c-format
 msgid ""
 "\n"
@@ -1629,7 +1628,7 @@ msgstr ""
 "\n"
 "%sPotencia actual:\t\t\t%5d mW"
 
-#: ../plugins/batt/batt.c:190
+#: ../plugins/batt/batt.c:195
 #, c-format
 msgid ""
 "\n"
@@ -1638,7 +1637,7 @@ msgstr ""
 "\n"
 "%sDeseño da carga completa:\t%5d mAh"
 
-#: ../plugins/batt/batt.c:192
+#: ../plugins/batt/batt.c:197
 #, c-format
 msgid ""
 "\n"
@@ -1647,7 +1646,7 @@ msgstr ""
 "\n"
 "%sCarga completa:\t\t\t%5d mAh"
 
-#: ../plugins/batt/batt.c:194
+#: ../plugins/batt/batt.c:199
 #, c-format
 msgid ""
 "\n"
@@ -1656,7 +1655,7 @@ msgstr ""
 "\n"
 "%sCarga actual:\t\t\t%5d mAh"
 
-#: ../plugins/batt/batt.c:196
+#: ../plugins/batt/batt.c:201
 #, c-format
 msgid ""
 "\n"
@@ -1665,7 +1664,7 @@ msgstr ""
 "\n"
 "%sCorrente actual:\t\t\t%5d mA"
 
-#: ../plugins/batt/batt.c:199
+#: ../plugins/batt/batt.c:204
 #, c-format
 msgid ""
 "\n"
@@ -1674,63 +1673,63 @@ msgstr ""
 "\n"
 "%sVoltaxe actual:\t\t%.3lf V"
 
-#: ../plugins/batt/batt.c:237
+#: ../plugins/batt/batt.c:242
 msgid "No batteries found"
 msgstr "Non se atoparon baterías"
 
-#: ../plugins/batt/batt.c:534 ../plugins/batt/batt.c:667
+#: ../plugins/batt/batt.c:542 ../plugins/batt/batt.c:675
 msgid "Battery low"
 msgstr "Batería baixa"
 
-#: ../plugins/batt/batt.c:690 ../plugins/batt/batt.c:714
+#: ../plugins/batt/batt.c:698 ../plugins/batt/batt.c:722
 msgid "Battery Monitor"
 msgstr "Monitor da batería"
 
-#: ../plugins/batt/batt.c:692
+#: ../plugins/batt/batt.c:700
 msgid "Hide if there is no battery"
 msgstr "Agochar se non hai baterías"
 
-#: ../plugins/batt/batt.c:693
+#: ../plugins/batt/batt.c:701
 msgid "Alarm command"
 msgstr "Orde de alarma"
 
-#: ../plugins/batt/batt.c:694
+#: ../plugins/batt/batt.c:702
 msgid "Alarm time (minutes left)"
 msgstr "Hora de alarma (minutos restantes)"
 
-#: ../plugins/batt/batt.c:695
+#: ../plugins/batt/batt.c:703
 msgid "Background color"
 msgstr "Cor de fondo"
 
-#: ../plugins/batt/batt.c:696
+#: ../plugins/batt/batt.c:704
 msgid "Charging color 1"
 msgstr "Cor de carga n°1"
 
-#: ../plugins/batt/batt.c:697
+#: ../plugins/batt/batt.c:705
 msgid "Charging color 2"
 msgstr "Cor de carga n°2"
 
-#: ../plugins/batt/batt.c:698
+#: ../plugins/batt/batt.c:706
 msgid "Discharging color 1"
 msgstr "Cor de descarga n°1"
 
-#: ../plugins/batt/batt.c:699
+#: ../plugins/batt/batt.c:707
 msgid "Discharging color 2"
 msgstr "Cor de descarga n°2"
 
-#: ../plugins/batt/batt.c:700
+#: ../plugins/batt/batt.c:708
 msgid "Border width"
 msgstr "Largura do bordo"
 
-#: ../plugins/batt/batt.c:704
+#: ../plugins/batt/batt.c:712
 msgid "Show Extended Information"
 msgstr "Amosar a información estendida"
 
-#: ../plugins/batt/batt.c:705
+#: ../plugins/batt/batt.c:713
 msgid "Number of battery to monitor"
 msgstr "Número da batería que supervisar"
 
-#: ../plugins/batt/batt.c:715
+#: ../plugins/batt/batt.c:723
 msgid "Display battery status using ACPI"
 msgstr "Amosar o estado da batería por medio de ACPI"
 
@@ -1791,37 +1790,37 @@ msgstr "Menú de son"
 msgid "Add indicator applets to the panel"
 msgstr "Engadir un indicador de miniaplicacións ao panel"
 
-#: ../plugins/monitors/monitors.c:281
+#: ../plugins/monitors/monitors.c:285
 #, c-format
 msgid "CPU usage: %.2f%%"
 msgstr "Uso da CPU: %.2f%%"
 
-#: ../plugins/monitors/monitors.c:377
+#: ../plugins/monitors/monitors.c:386
 #, c-format
 msgid "RAM usage: %.1fMB (%.2f%%)"
 msgstr "Uso da RAM: %.1fMB (%.2f%%)"
 
-#: ../plugins/monitors/monitors.c:723 ../plugins/monitors/monitors.c:808
+#: ../plugins/monitors/monitors.c:732 ../plugins/monitors/monitors.c:821
 msgid "Resource monitors"
 msgstr "Monitores de recursos"
 
-#: ../plugins/monitors/monitors.c:726
+#: ../plugins/monitors/monitors.c:735
 msgid "CPU color"
 msgstr "Cor da CPU"
 
-#: ../plugins/monitors/monitors.c:727
+#: ../plugins/monitors/monitors.c:736
 msgid "Display RAM usage"
 msgstr "Amosar o uso da RAM"
 
-#: ../plugins/monitors/monitors.c:728
+#: ../plugins/monitors/monitors.c:737
 msgid "RAM color"
 msgstr "Cor da RAM"
 
-#: ../plugins/monitors/monitors.c:729
+#: ../plugins/monitors/monitors.c:738
 msgid "Action when clicked (default: lxtask)"
 msgstr "Acción ao premer (predeterminado: lxtask)"
 
-#: ../plugins/monitors/monitors.c:809
+#: ../plugins/monitors/monitors.c:822
 msgid "Display monitors (CPU, RAM)"
 msgstr "Amosar os monitores (CPU, RAM)"
 
@@ -1829,15 +1828,15 @@ msgstr "Amosar os monitores (CPU, RAM)"
 msgid "[N/A]"
 msgstr "[N/D]"
 
-#: ../plugins/weather/weatherwidget.c:792
+#: ../plugins/weather/weatherwidget.c:807
 msgid "Enter New Location"
 msgstr "Introduza a nova localización"
 
-#: ../plugins/weather/weatherwidget.c:806
+#: ../plugins/weather/weatherwidget.c:821
 msgid "_New Location:"
 msgstr "_Nova localización:"
 
-#: ../plugins/weather/weatherwidget.c:817
+#: ../plugins/weather/weatherwidget.c:832
 msgid ""
 "Enter the:\n"
 "- city, or\n"
@@ -1851,186 +1850,270 @@ msgstr ""
 "- código postal\n"
 "para onde se obtén o prognóstico do tempo."
 
-#: ../plugins/weather/weatherwidget.c:854
-#: ../plugins/weather/weatherwidget.c:987
+#: ../plugins/weather/weatherwidget.c:869
+#: ../plugins/weather/weatherwidget.c:1002
 msgid "You must specify a location."
 msgstr "Debe especificar unha localización."
 
-#: ../plugins/weather/weatherwidget.c:901
+#: ../plugins/weather/weatherwidget.c:916
 #, c-format
 msgid "Location '%s' not found!"
 msgstr "Non foi posíbel atopar «%s»"
 
-#: ../plugins/weather/weatherwidget.c:1060
+#: ../plugins/weather/weatherwidget.c:1075
 msgid "Preferences"
 msgstr "Preferencias"
 
-#: ../plugins/weather/weatherwidget.c:1066
+#: ../plugins/weather/weatherwidget.c:1081
 msgid "Refresh"
 msgstr "Actualizar"
 
-#: ../plugins/weather/weatherwidget.c:1072
+#: ../plugins/weather/weatherwidget.c:1087
 msgid "Quit"
 msgstr "Saír"
 
-#: ../plugins/weather/weatherwidget.c:1229
+#: ../plugins/weather/weatherwidget.c:1254
 msgid "Weather Preferences"
 msgstr "Preferencias da meteoroloxía"
 
-#: ../plugins/weather/weatherwidget.c:1243
+#: ../plugins/weather/weatherwidget.c:1268
 msgid "Current Location"
 msgstr "Localización actual"
 
-#: ../plugins/weather/weatherwidget.c:1247
-#: ../plugins/weather/weatherwidget.c:1524
+#: ../plugins/weather/weatherwidget.c:1272
+#: ../plugins/weather/weatherwidget.c:1574
 msgid "None configured"
 msgstr "Sen configurar"
 
-#: ../plugins/weather/weatherwidget.c:1249
-#: ../plugins/weather/weatherwidget.c:1521
+#: ../plugins/weather/weatherwidget.c:1274
+#: ../plugins/weather/weatherwidget.c:1571
 msgid "_Set"
 msgstr "_Definir"
 
-#: ../plugins/weather/weatherwidget.c:1270
+#: ../plugins/weather/weatherwidget.c:1295
 msgid "Display"
 msgstr "Amosar"
 
-#: ../plugins/weather/weatherwidget.c:1274
+#: ../plugins/weather/weatherwidget.c:1299
 msgid "Name:"
 msgstr "Nome:"
 
-#: ../plugins/weather/weatherwidget.c:1278
+#: ../plugins/weather/weatherwidget.c:1303
 msgid "Units:"
 msgstr "Unidades:"
 
-#: ../plugins/weather/weatherwidget.c:1282
+#: ../plugins/weather/weatherwidget.c:1307
 msgid "_Metric (°C)"
 msgstr "_Métrica (°C)"
 
-#: ../plugins/weather/weatherwidget.c:1284
+#: ../plugins/weather/weatherwidget.c:1309
 msgid "_English (°F)"
 msgstr "_Inglesa (°F)"
 
-#: ../plugins/weather/weatherwidget.c:1319
+#: ../plugins/weather/weatherwidget.c:1344
 msgid "Forecast"
 msgstr "Prognóstico"
 
-#: ../plugins/weather/weatherwidget.c:1323
+#: ../plugins/weather/weatherwidget.c:1348
 msgid "Updates:"
 msgstr "Actualizacións:"
 
-#: ../plugins/weather/weatherwidget.c:1327
+#: ../plugins/weather/weatherwidget.c:1352
 msgid "Ma_nual"
 msgstr "Ma_nual"
 
-#: ../plugins/weather/weatherwidget.c:1331
+#: ../plugins/weather/weatherwidget.c:1356
 msgid "_Automatic, every"
 msgstr "_Automaticamente, cada"
 
-#: ../plugins/weather/weatherwidget.c:1352
+#: ../plugins/weather/weatherwidget.c:1377
 msgid "minutes"
 msgstr "minutos"
 
-#: ../plugins/weather/weatherwidget.c:1361
+#: ../plugins/weather/weatherwidget.c:1386
 msgid "Source:"
 msgstr "Orixe:"
 
-#: ../plugins/weather/weatherwidget.c:1477
+#: ../plugins/weather/weatherwidget.c:1522
 msgid "C_hange"
 msgstr "Ca_mbiar"
 
 #. Both are available
-#: ../plugins/weather/weatherwidget.c:1565
+#: ../plugins/weather/weatherwidget.c:1613
 #, c-format
 msgid "Current Conditions for %s"
 msgstr "Condicións actuais de %s"
 
-#: ../plugins/weather/weatherwidget.c:1589
+#: ../plugins/weather/weatherwidget.c:1637
 msgid "Location:"
 msgstr "Localización:"
 
-#: ../plugins/weather/weatherwidget.c:1612
+#: ../plugins/weather/weatherwidget.c:1660
 msgid "Last updated:"
 msgstr "Última actualización:"
 
-#: ../plugins/weather/weatherwidget.c:1639
+#: ../plugins/weather/weatherwidget.c:1694
 msgid "Feels like:"
 msgstr "Sensación térmica:"
 
-#: ../plugins/weather/weatherwidget.c:1664
+#: ../plugins/weather/weatherwidget.c:1720
 msgid "Humidity:"
 msgstr "Humidade:"
 
-#: ../plugins/weather/weatherwidget.c:1691
+#: ../plugins/weather/weatherwidget.c:1747
 msgid "Pressure:"
 msgstr "Presión:"
 
-#: ../plugins/weather/weatherwidget.c:1718
+#: ../plugins/weather/weatherwidget.c:1774
 msgid "Visibility:"
 msgstr "Visibilidade:"
 
-#: ../plugins/weather/weatherwidget.c:1746
+#: ../plugins/weather/weatherwidget.c:1802
 msgid "Wind:"
 msgstr "Vento:"
 
-#: ../plugins/weather/weatherwidget.c:1769
+#: ../plugins/weather/weatherwidget.c:1825
 msgid "Sunrise:"
 msgstr "Abrente:"
 
-#: ../plugins/weather/weatherwidget.c:1792
+#: ../plugins/weather/weatherwidget.c:1848
 msgid "Sunset:"
 msgstr "Solpor:"
 
-#: ../plugins/weather/weatherwidget.c:1898
-#: ../plugins/weather/weatherwidget.c:2234
+#: ../plugins/weather/weatherwidget.c:1954
+#: ../plugins/weather/weatherwidget.c:2295
 #, c-format
 msgid "Forecast for %s unavailable."
 msgstr "Non está dispoñíbel o prognóstico para %s"
 
-#: ../plugins/weather/weatherwidget.c:1907
-#: ../plugins/weather/weatherwidget.c:2239
+#: ../plugins/weather/weatherwidget.c:1963
+#: ../plugins/weather/weatherwidget.c:2300
 #, c-format
 msgid "Location not set."
 msgstr "Non foi configurada a localización"
 
-#: ../plugins/weather/weatherwidget.c:1924
+#: ../plugins/weather/weatherwidget.c:1980
 #, c-format
 msgid "Searching for '%s'..."
 msgstr "Buscando «%s»…"
 
-#: ../plugins/weather/weatherwidget.c:2050
+#: ../plugins/weather/weatherwidget.c:2106
 #, c-format
 msgid "Location matches for '%s'"
 msgstr "Coincidencias de localizacións para «%s»"
 
-#: ../plugins/weather/weatherwidget.c:2070
+#: ../plugins/weather/weatherwidget.c:2126
 msgid "City"
 msgstr "Cidade"
 
-#: ../plugins/weather/weatherwidget.c:2090
+#: ../plugins/weather/weatherwidget.c:2146
 msgid "Country"
 msgstr "País"
 
 #. make it nice and pretty
-#: ../plugins/weather/weatherwidget.c:2221
+#: ../plugins/weather/weatherwidget.c:2278
 msgid "Currently in "
 msgstr "Actualmente en "
 
-#: ../plugins/weather/weatherwidget.c:2223
+#: ../plugins/weather/weatherwidget.c:2281
 msgid "Today: "
 msgstr "Hoxe: "
 
-#: ../plugins/weather/weatherwidget.c:2224
+#: ../plugins/weather/weatherwidget.c:2282
 msgid "Tomorrow: "
 msgstr "Mañá: "
 
-#: ../plugins/weather/weather.c:332
+#: ../plugins/weather/weather.c:419
 msgid "Weather Plugin"
 msgstr "Complemento de tempo climático"
 
-#: ../plugins/weather/weather.c:333
+#: ../plugins/weather/weather.c:420
 msgid "Show weather conditions for a location."
 msgstr "Amosa as condicións meteorolóxicas para unha localización."
+
+#: ../plugins/weather/yahooutil.c:51
+msgid "N"
+msgstr ""
+
+#: ../plugins/weather/yahooutil.c:52
+msgid "NNE"
+msgstr ""
+
+#: ../plugins/weather/yahooutil.c:53
+msgid "NE"
+msgstr ""
+
+#: ../plugins/weather/yahooutil.c:54
+msgid "ENE"
+msgstr ""
+
+#: ../plugins/weather/yahooutil.c:55
+msgid "E"
+msgstr ""
+
+#: ../plugins/weather/yahooutil.c:56
+msgid "ESE"
+msgstr ""
+
+#: ../plugins/weather/yahooutil.c:57
+msgid "SE"
+msgstr ""
+
+#: ../plugins/weather/yahooutil.c:58
+msgid "SSE"
+msgstr ""
+
+#: ../plugins/weather/yahooutil.c:59
+msgid "S"
+msgstr ""
+
+#: ../plugins/weather/yahooutil.c:60
+msgid "SSW"
+msgstr ""
+
+#: ../plugins/weather/yahooutil.c:61
+msgid "SW"
+msgstr ""
+
+#: ../plugins/weather/yahooutil.c:62
+msgid "WSW"
+msgstr ""
+
+#: ../plugins/weather/yahooutil.c:63
+msgid "W"
+msgstr ""
+
+#: ../plugins/weather/yahooutil.c:64
+msgid "WNW"
+msgstr ""
+
+#: ../plugins/weather/yahooutil.c:65
+msgid "NW"
+msgstr ""
+
+#: ../plugins/weather/yahooutil.c:66
+msgid "NNW"
+msgstr ""
+
+#: ../plugins/weather/yahooutil.c:1086
+msgid "Yahoo! Weather"
+msgstr ""
+
+#: ../plugins/weather/openweathermap.c:347
+msgid "Mph"
+msgstr ""
+
+#: ../plugins/weather/openweathermap.c:347
+msgid "m/s"
+msgstr ""
+
+#: ../plugins/weather/openweathermap.c:501
+msgid "m"
+msgstr ""
+
+#: ../plugins/weather/openweathermap.c:916
+msgid "OpenWeatherMap"
+msgstr ""
 
 #~ msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
 #~ msgstr ""

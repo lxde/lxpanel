@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-24 21:15+0300\n"
+"POT-Creation-Date: 2019-02-22 00:29+0200\n"
 "PO-Revision-Date: 2016-11-08 16:39+0100\n"
 "Last-Translator: Peter Czifra <czifi@freestart.hu>\n"
 "Language-Team: Hungarian <hu@li.org>\n"
@@ -24,8 +24,12 @@ msgstr ""
 "X-Pootle-Revision: 2332\n"
 
 #: ../src/configurator.c:148
-msgid "Space reservation is not available for this panel because there is another monitor beyond this edge and reservation would cover it if enabled."
-msgstr "A helymegőrzés nem elérhető ezen a panelen mert az él alatt egy másik monitor van és ha a engedélyezve van a helymegőrzés lefedheti azt."
+msgid ""
+"Space reservation is not available for this panel because there is another "
+"monitor beyond this edge and reservation would cover it if enabled."
+msgstr ""
+"A helymegőrzés nem elérhető ezen a panelen mert az él alatt egy másik "
+"monitor van és ha a engedélyezve van a helymegőrzés lefedheti azt."
 
 #: ../src/configurator.c:632
 msgid "Currently loaded plugins"
@@ -35,11 +39,11 @@ msgstr "Jelenleg betöltött bővítmények"
 msgid "Stretch"
 msgstr "Nyújtás"
 
-#: ../src/configurator.c:778
+#: ../src/configurator.c:779
 msgid "Add plugin to panel"
 msgstr "Bővítmény hozzáadása a panelhez"
 
-#: ../src/configurator.c:806
+#: ../src/configurator.c:807
 msgid "Available plugins"
 msgstr "Elérhető bővítmények"
 
@@ -59,11 +63,11 @@ msgstr "Válassz egy fájlt"
 msgid "_Browse"
 msgstr "_Tallózás"
 
-#: ../src/panel.c:1283
+#: ../src/panel.c:1292
 msgid "There is no room for another panel. All the edges are taken."
 msgstr "Nincs több hely egy másik panelnek. Az összes él foglalt."
 
-#: ../src/panel.c:1309
+#: ../src/panel.c:1318
 msgid ""
 "Really delete this panel?\n"
 "<b>Warning: This can not be recovered.</b>"
@@ -71,12 +75,12 @@ msgstr ""
 "Valóban törlöd ezt a panelt?\n"
 "<b>Figyelmeztetés: ez nem vonható vissza.</b>"
 
-#: ../src/panel.c:1311
+#: ../src/panel.c:1320
 msgid "Confirm"
 msgstr "Megerősítés"
 
 #. TRANSLATORS: Replace this string with your names, one name per line.
-#: ../src/panel.c:1346
+#: ../src/panel.c:1355
 msgid "translator-credits"
 msgstr ""
 "Basák Péter Zsolt <shiki@biomernok.hu>\n"
@@ -85,73 +89,73 @@ msgstr ""
 "Úr Balázs <urbalazs@gmail.com>\n"
 "Czifra Péter <czifrapeter@gmail.com>"
 
-#: ../src/panel.c:1351
+#: ../src/panel.c:1360
 msgid "LXPanel"
 msgstr "LXPanel"
 
-#: ../src/panel.c:1369
+#: ../src/panel.c:1378
 msgid "Copyright (C) 2008-2019"
 msgstr "Copyright (C) 2008-2019"
 
-#: ../src/panel.c:1370
+#: ../src/panel.c:1379
 msgid "Desktop panel for LXDE project"
 msgstr "Asztali panel az LXDE projekthez"
 
-#: ../src/panel.c:1412
+#: ../src/panel.c:1421
 #, c-format
 msgid "\"%s\" Settings"
 msgstr "\"%s\" beállításai"
 
-#: ../src/panel.c:1433
+#: ../src/panel.c:1442
 msgid "Add / Remove Panel Items"
 msgstr "Panel-elemek hozzáadása/eltávolítása"
 
-#: ../src/panel.c:1441
+#: ../src/panel.c:1450
 #, c-format
 msgid "Remove \"%s\" From Panel"
 msgstr "\"%s\" eltávolítása a panelról"
 
-#: ../src/panel.c:1453
+#: ../src/panel.c:1462
 msgid "Panel Settings"
 msgstr "Panelbeállítások"
 
-#: ../src/panel.c:1459
+#: ../src/panel.c:1468
 msgid "Create New Panel"
 msgstr "Új panel létrehozása"
 
-#: ../src/panel.c:1465
+#: ../src/panel.c:1474
 msgid "Delete This Panel"
 msgstr "Panel törlése"
 
-#: ../src/panel.c:1476
+#: ../src/panel.c:1485
 msgid "About"
 msgstr "Névjegy"
 
-#: ../src/panel.c:1483
+#: ../src/panel.c:1492
 msgid "Panel"
 msgstr "Panel"
 
-#: ../src/panel.c:1698 ../src/panel.c:1706 ../data/ui/panel-pref.glade.h:22
+#: ../src/panel.c:1708 ../src/panel.c:1716 ../data/ui/panel-pref.glade.h:22
 msgid "Height:"
 msgstr "Magasság:"
 
-#: ../src/panel.c:1699 ../src/panel.c:1705 ../data/ui/panel-pref.glade.h:21
+#: ../src/panel.c:1709 ../src/panel.c:1715 ../data/ui/panel-pref.glade.h:21
 msgid "Width:"
 msgstr "Szélesség:"
 
-#: ../src/panel.c:1700 ../data/ui/panel-pref.glade.h:13
+#: ../src/panel.c:1710 ../data/ui/panel-pref.glade.h:13
 msgid "Left"
 msgstr "Balra"
 
-#: ../src/panel.c:1701 ../data/ui/panel-pref.glade.h:14
+#: ../src/panel.c:1711 ../data/ui/panel-pref.glade.h:14
 msgid "Right"
 msgstr "Jobbra"
 
-#: ../src/panel.c:1707 ../data/ui/panel-pref.glade.h:12
+#: ../src/panel.c:1717 ../data/ui/panel-pref.glade.h:12
 msgid "Top"
 msgstr "Fent"
 
-#: ../src/panel.c:1708 ../data/ui/panel-pref.glade.h:11
+#: ../src/panel.c:1718 ../data/ui/panel-pref.glade.h:11
 msgid "Bottom"
 msgstr "Lent"
 
@@ -160,11 +164,11 @@ msgid "No file manager is configured."
 msgstr "Nincs fájlkezelő beállítva."
 
 #. { "configure", N_("Preferences"), configure },
-#: ../src/gtk-run.c:398 ../src/main.c:69 ../plugins/menu.c:718
+#: ../src/gtk-run.c:385 ../src/main.c:69 ../plugins/menu.c:718
 msgid "Run"
 msgstr "Futtatás"
 
-#: ../src/gtk-run.c:412
+#: ../src/gtk-run.c:399
 msgid "Enter the command you want to execute:"
 msgstr "Futtatandó parancs:"
 
@@ -230,44 +234,46 @@ msgstr ""
 "A részletekért látogasd meg a http://lxde.org/ oldalt.\n"
 "\n"
 
-#: ../src/input-button.c:145
+#: ../src/input-button.c:147
 msgid "LeftBtn"
 msgstr "Bal gomb"
 
-#: ../src/input-button.c:148
+#: ../src/input-button.c:150
 msgid "MiddleBtn"
 msgstr "Középső gomb"
 
-#: ../src/input-button.c:151
+#: ../src/input-button.c:153
 msgid "RightBtn"
 msgstr "Jobb gomb"
 
-#: ../src/input-button.c:154
+#: ../src/input-button.c:156
 #, c-format
 msgid "Btn%s"
 msgstr "%s gomb"
 
-#: ../src/input-button.c:215
+#: ../src/input-button.c:228
 #, c-format
 msgid "Key combination '%s' cannot be used as a global hotkey, sorry."
-msgstr "Elnézést, a(z) „%s” billentyűkombináció nem használható globális gyorsbillentyűként."
+msgstr ""
+"Elnézést, a(z) „%s” billentyűkombináció nem használható globális "
+"gyorsbillentyűként."
 
-#: ../src/input-button.c:218 ../src/input-button.c:401
+#: ../src/input-button.c:231 ../src/input-button.c:415
 #: ../plugins/netstatus/netstatus-iface.c:191
 #: ../plugins/netstatus/netstatus-util.c:167
 msgid "Error"
 msgstr "Hiba"
 
 #. GtkRadioButton "None"
-#: ../src/input-button.c:315 ../data/ui/panel-pref.glade.h:5
+#: ../src/input-button.c:329 ../data/ui/panel-pref.glade.h:5
 msgid "None"
 msgstr "Nincs"
 
-#: ../src/input-button.c:322
+#: ../src/input-button.c:336
 msgid "Custom:"
 msgstr "Egyéni:"
 
-#: ../src/input-button.c:399
+#: ../src/input-button.c:413
 #, c-format
 msgid "Cannot assign '%s' as a global hotkey: it is already bound."
 msgstr "Nem lehet '%s'-t globális gyorsbillentyűnek beállítani: már foglalt."
@@ -277,7 +283,7 @@ msgid "Spacer"
 msgstr "Távtartó"
 
 #: ../src/space.c:396 ../data/ui/panel-pref.glade.h:32
-#: ../plugins/batt/batt.c:702
+#: ../plugins/batt/batt.c:710
 msgid "Size"
 msgstr "Méret"
 
@@ -285,7 +291,7 @@ msgstr "Méret"
 msgid "Allocate space"
 msgstr "Hely lefoglalása"
 
-#: ../data/ui/launchtaskbar.glade.h:1 ../plugins/launchtaskbar.c:2401
+#: ../data/ui/launchtaskbar.glade.h:1 ../plugins/launchtaskbar.c:2482
 msgid "Application Launch and Task Bar"
 msgstr "Alkalmazás-indítás és feladatsáv"
 
@@ -339,26 +345,30 @@ msgid "Disable enlargement for small task icons"
 msgstr "Kis feladatikonok nagyításának letiltása"
 
 #: ../data/ui/launchtaskbar.glade.h:15
+msgid "Show task icons smaller than rest of panel icons"
+msgstr ""
+
+#: ../data/ui/launchtaskbar.glade.h:16
 msgid "Maximum width of task button"
 msgstr "Gombok max. szélessége:"
 
-#: ../data/ui/launchtaskbar.glade.h:16
+#: ../data/ui/launchtaskbar.glade.h:17
 msgid "Spacing"
 msgstr "Térköz"
 
-#: ../data/ui/launchtaskbar.glade.h:17
+#: ../data/ui/launchtaskbar.glade.h:18
 msgid "<b>Taskbar</b>"
 msgstr "<b>Feladatsáv</b>"
 
-#: ../data/ui/launchtaskbar.glade.h:18
+#: ../data/ui/launchtaskbar.glade.h:19
 msgid "Only Application Launch Bar"
 msgstr "Csak alkalmazásindító-sáv"
 
-#: ../data/ui/launchtaskbar.glade.h:19
+#: ../data/ui/launchtaskbar.glade.h:20
 msgid "Only Task Bar (Window List)"
 msgstr "Csak feladatsáv (ablaklista)"
 
-#: ../data/ui/launchtaskbar.glade.h:20
+#: ../data/ui/launchtaskbar.glade.h:21
 msgid "Integrated Application Launch Bar and Task Bar"
 msgstr "Integrált alkalmazásindító-sáv és feladatsáv"
 
@@ -481,7 +491,7 @@ msgstr "A panel beállításai"
 msgid "Edge:"
 msgstr "Szél:"
 
-#: ../data/ui/panel-pref.glade.h:16 ../plugins/volumealsa/volumealsa.c:1293
+#: ../data/ui/panel-pref.glade.h:16 ../plugins/volumealsa/volumealsa.c:1313
 msgid "Center"
 msgstr "Középre"
 
@@ -605,141 +615,145 @@ msgstr "<b>Naplózási szint</b>"
 msgid "Advanced"
 msgstr "Haladó"
 
-#: ../plugins/cpu/cpu.c:308
+#: ../plugins/cpu/cpu.c:310
 msgid "CPU Usage Monitor"
 msgstr "CPU-használat figyelő"
 
-#: ../plugins/cpu/cpu.c:309 ../plugins/monitors/monitors.c:725
+#: ../plugins/cpu/cpu.c:311 ../plugins/monitors/monitors.c:734
 msgid "Display CPU usage"
 msgstr "CPU-használat mutatása"
 
-#: ../plugins/deskno/deskno.c:208 ../plugins/deskno/deskno.c:228
+#: ../plugins/deskno/deskno.c:210 ../plugins/deskno/deskno.c:230
 msgid "Desktop Number / Workspace Name"
 msgstr "Munkaasztal száma / Munkaterület neve"
 
-#: ../plugins/deskno/deskno.c:210 ../plugins/dclock.c:437
+#: ../plugins/deskno/deskno.c:212 ../plugins/dclock.c:439
 msgid "Bold font"
 msgstr "Félkövér betű"
 
-#: ../plugins/deskno/deskno.c:211
+#: ../plugins/deskno/deskno.c:213
 msgid "Display desktop names"
 msgstr "Asztalnevek kijelzése"
 
-#: ../plugins/deskno/deskno.c:229
+#: ../plugins/deskno/deskno.c:231
 msgid "Display workspace number, by cmeury@users.sf.net"
 msgstr "Munkaterület számának kijelzése: cmeury@users.sf.net"
 
-#: ../plugins/launchtaskbar.c:1768 ../plugins/launchtaskbar.c:2371
+#: ../plugins/launchtaskbar.c:1831 ../plugins/launchtaskbar.c:2452
 msgid "Application Launch Bar"
 msgstr "Alkalmazás-indító"
 
-#: ../plugins/launchtaskbar.c:1771 ../plugins/launchtaskbar.c:2381
+#: ../plugins/launchtaskbar.c:1834 ../plugins/launchtaskbar.c:2462
 msgid "Task Bar (Window List)"
 msgstr "Ablaklista"
 
-#: ../plugins/launchtaskbar.c:1919
+#: ../plugins/launchtaskbar.c:1985
 msgid "A_dd to Launcher"
 msgstr "_Hozzáadás az indítóhoz"
 
-#: ../plugins/launchtaskbar.c:1921
+#: ../plugins/launchtaskbar.c:1987
 msgid "Rem_ove from Launcher"
 msgstr "_Eltávolítás az indítóból"
 
-#: ../plugins/launchtaskbar.c:1923
+#: ../plugins/launchtaskbar.c:1989
 msgid "_New Instance"
 msgstr "Ú_j példány"
 
-#: ../plugins/launchtaskbar.c:2372
+#: ../plugins/launchtaskbar.c:2453
 msgid "Bar with buttons to launch application"
 msgstr "Alkalmazás-indító gombokkal"
 
-#: ../plugins/launchtaskbar.c:2382
-msgid "Taskbar shows all opened windows and allow to iconify them, shade or get focus"
-msgstr "Mutatja a megnyitott ablakokat és lehetővé teszi az ikonizálást, felgörgetést és a közöttük lévő váltást"
+#: ../plugins/launchtaskbar.c:2463
+msgid ""
+"Taskbar shows all opened windows and allow to iconify them, shade or get "
+"focus"
+msgstr ""
+"Mutatja a megnyitott ablakokat és lehetővé teszi az ikonizálást, "
+"felgörgetést és a közöttük lévő váltást"
 
-#: ../plugins/launchtaskbar.c:2402
+#: ../plugins/launchtaskbar.c:2483
 msgid "Bar with buttons to launch application and/or show all opened windows"
 msgstr "Sáv alkalmazás-indító gombokkal és/vagy mutassa a megnyitott ablakokat"
 
 #. Add Raise menu item.
-#: ../plugins/task-button.c:339
+#: ../plugins/task-button.c:352
 msgid "_Raise"
 msgstr "_Előhozás"
 
 #. Add Restore menu item.
-#: ../plugins/task-button.c:344
+#: ../plugins/task-button.c:357
 msgid "R_estore"
 msgstr "_Visszaállítás"
 
 #. Add Maximize menu item.
-#: ../plugins/task-button.c:349
+#: ../plugins/task-button.c:362
 msgid "Ma_ximize"
 msgstr "Ma_ximalizálás"
 
 #. Add Iconify menu item.
-#: ../plugins/task-button.c:354
+#: ../plugins/task-button.c:367
 msgid "Ico_nify"
 msgstr "Iko_nizálás"
 
-#: ../plugins/task-button.c:375
+#: ../plugins/task-button.c:388
 #, c-format
 msgid "Workspace _%d"
 msgstr "_%d. munkaterület"
 
-#: ../plugins/task-button.c:380
+#: ../plugins/task-button.c:393
 #, c-format
 msgid "Workspace %d"
 msgstr "%d. munkaterület"
 
 #. Add "move to all workspaces" item.  This causes the window to be visible no matter what desktop is active.
-#: ../plugins/task-button.c:397
+#: ../plugins/task-button.c:410
 msgid "_All workspaces"
 msgstr "_Minden munkaterület"
 
 #. FIXME: add "Current workspace" item, active if not on a current
 #. Add Move to Workspace menu item as a submenu.
-#: ../plugins/task-button.c:405
+#: ../plugins/task-button.c:418
 msgid "_Move to Workspace"
 msgstr "Á_thelyezés másik munkaterületre"
 
-#: ../plugins/task-button.c:420
+#: ../plugins/task-button.c:433
 msgid "_Close Window"
 msgstr "A_blak bezárása"
 
-#: ../plugins/task-button.c:1238
+#: ../plugins/task-button.c:1256
 msgid "_Close all windows"
 msgstr "Minden _ablak bezárása"
 
-#: ../plugins/dclock.c:431 ../plugins/dclock.c:445
+#: ../plugins/dclock.c:433 ../plugins/dclock.c:453
 msgid "Digital Clock"
 msgstr "Digitális óra"
 
-#: ../plugins/dclock.c:433
+#: ../plugins/dclock.c:435
 msgid "Clock Format"
 msgstr "Óra formátuma"
 
-#: ../plugins/dclock.c:434
+#: ../plugins/dclock.c:436
 msgid "Tooltip Format"
 msgstr "Eszköztipp formátuma"
 
-#: ../plugins/dclock.c:435
+#: ../plugins/dclock.c:437
 #, c-format
 msgid "Format codes: man 3 strftime; %n for line break"
 msgstr "Formázó kódok: man 3 strftime; %n a sortöréshez"
 
-#: ../plugins/dclock.c:436
+#: ../plugins/dclock.c:438
 msgid "Action when clicked (default: display calendar)"
 msgstr "Kattintásra elvégzendő művelet (alapesetben: naptár mutatása)"
 
-#: ../plugins/dclock.c:438
+#: ../plugins/dclock.c:440
 msgid "Tooltip only"
 msgstr "Csak eszköztippek"
 
-#: ../plugins/dclock.c:439
+#: ../plugins/dclock.c:441
 msgid "Center text"
 msgstr "Középre igazítás"
 
-#: ../plugins/dclock.c:446
+#: ../plugins/dclock.c:454
 msgid "Display digital clock and tooltip"
 msgstr "Digitális óra és eszköztippek"
 
@@ -771,15 +785,15 @@ msgstr "Elválasztó"
 msgid "Add a separator to the panel"
 msgstr "Elválasztó hozzáadása a panelhez"
 
-#: ../plugins/pager.c:114
+#: ../plugins/pager.c:141
 msgid "Sorry, there was no window manager configuration program found."
 msgstr "Nem találtam ablakkezelő beállító programot."
 
-#: ../plugins/pager.c:166 ../plugins/pager.c:182
+#: ../plugins/pager.c:193 ../plugins/pager.c:209
 msgid "Desktop Pager"
 msgstr "Munkaterület-váltó"
 
-#: ../plugins/pager.c:167 ../plugins/pager.c:183
+#: ../plugins/pager.c:194 ../plugins/pager.c:210
 msgid "Simple pager plugin"
 msgstr "Egyszerű munkaterület-váltó"
 
@@ -887,19 +901,19 @@ msgstr "Panelikon méret"
 msgid "Handle keyboard layouts"
 msgstr "Billentyűzetkiosztások kezelése"
 
-#: ../plugins/wincmd.c:205
+#: ../plugins/wincmd.c:207
 msgid "Left click to iconify all windows.  Middle click to shade them."
 msgstr "Bal egérgomb: minden ablakot ikonizál. Jobb gomb: mindet felgörgeti."
 
-#: ../plugins/wincmd.c:243 ../plugins/wincmd.c:253
+#: ../plugins/wincmd.c:245 ../plugins/wincmd.c:255
 msgid "Minimize All Windows"
 msgstr "Ablakok minimalizálása"
 
-#: ../plugins/wincmd.c:245
+#: ../plugins/wincmd.c:247
 msgid "Alternately iconify/shade and raise"
 msgstr "Más ikonizálás/felgörgetés és előhozás"
 
-#: ../plugins/wincmd.c:254
+#: ../plugins/wincmd.c:256
 msgid ""
 "Sends commands to all desktop windows.\n"
 "Supported commands are 1) iconify and 2) shade"
@@ -927,46 +941,46 @@ msgstr "Címke"
 msgid "Browse directory tree via menu (Author = PCMan)"
 msgstr "Könyvtárstruktúra böngészése a menün keresztül (Szerző: PCMan)"
 
-#: ../plugins/thermal/thermal.c:564 ../plugins/thermal/thermal.c:582
+#: ../plugins/thermal/thermal.c:563 ../plugins/thermal/thermal.c:581
 msgid "Temperature Monitor"
 msgstr "Hőmérsékletfigyelő"
 
-#: ../plugins/thermal/thermal.c:566
+#: ../plugins/thermal/thermal.c:565
 msgid "Normal color"
 msgstr "Normál szín"
 
-#: ../plugins/thermal/thermal.c:567
+#: ../plugins/thermal/thermal.c:566
 msgid "Warning1 color"
 msgstr "Figyelmeztetés1 szín"
 
-#: ../plugins/thermal/thermal.c:568
+#: ../plugins/thermal/thermal.c:567
 msgid "Warning2 color"
 msgstr "Figyelmeztetés2 szín"
 
-#: ../plugins/thermal/thermal.c:569
+#: ../plugins/thermal/thermal.c:568
 msgid "Automatic sensor location"
 msgstr "Automatikus érzékelő-elhelyezés"
 
 #. FIXME: if off, disable next one
-#: ../plugins/thermal/thermal.c:570
+#: ../plugins/thermal/thermal.c:569
 msgid "Sensor"
 msgstr "Érzékelő"
 
 #. FIXME: create a list to select instead
-#: ../plugins/thermal/thermal.c:571
+#: ../plugins/thermal/thermal.c:570
 msgid "Automatic temperature levels"
 msgstr "Automatikus hőmérséklet szintek"
 
 #. FIXME: if off, disable two below
-#: ../plugins/thermal/thermal.c:572
+#: ../plugins/thermal/thermal.c:571
 msgid "Warning1 temperature"
 msgstr "Figyelmeztetés1 hőmérséklete"
 
-#: ../plugins/thermal/thermal.c:573
+#: ../plugins/thermal/thermal.c:572
 msgid "Warning2 temperature"
 msgstr "Figyelmeztetés2 hőmérséklete"
 
-#: ../plugins/thermal/thermal.c:583
+#: ../plugins/thermal/thermal.c:582
 msgid "Display system temperature"
 msgstr "Rendszerhőmérséklet kijelzése"
 
@@ -985,120 +999,126 @@ msgstr "CPUFreq előtétprogram"
 
 #: ../plugins/cpufreq/cpufreq.c:402
 msgid "Display CPU frequency and allow to change governors and frequency"
-msgstr "CPU frekvencia megjelenítése, továbbá a kormányzók és a frekvencia módosításának lehetővé tétele"
-
-#. FIXME: display current level in tooltip. ex: "Volume Control: 80%"
-#. Display current level in tooltip.
-#: ../plugins/volume/volume.c:282 ../plugins/volumealsa/volumealsa.c:597
-#: ../plugins/volumealsa/volumealsa.c:955
-msgid "Volume control"
-msgstr "Hangerőszabályzó"
-
-#: ../plugins/volume/volume.c:290 ../plugins/volumealsa/volumealsa.c:1491
-#: ../plugins/volumealsa/volumealsa.c:1530
-#: ../plugins/volumealsa/volumealsa.c:1551
-msgid "Volume Control"
-msgstr "Hangerőszabályzó"
-
-#. Create a frame as the child of the viewport.
-#: ../plugins/volume/volume-impl.c:115 ../plugins/volumealsa/volumealsa.c:874
-msgid "Volume"
-msgstr "Hangerő"
+msgstr ""
+"CPU frekvencia megjelenítése, továbbá a kormányzók és a frekvencia "
+"módosításának lehetővé tétele"
 
 #: ../plugins/volumealsa/volumealsa.c:245
 msgid "ALSA (or pulseaudio) had a problem. Please check the lxpanel logs."
-msgstr "ALSA (vagy pulseaudio) problémát jelzett. Ellenőrizze a lxpanel logját."
+msgstr ""
+"ALSA (vagy pulseaudio) problémát jelzett. Ellenőrizze a lxpanel logját."
 
-#: ../plugins/volumealsa/volumealsa.c:680
-msgid "Error, you need to install an application to configure the sound (pavucontrol, alsamixer ...)"
-msgstr "Hiba, a hang beállításához telepítenie kell egy alkalmazást (pavucontol, alsamixer…)"
+#. Display current level in tooltip.
+#: ../plugins/volumealsa/volumealsa.c:613
+#: ../plugins/volumealsa/volumealsa.c:973
+msgid "Volume control"
+msgstr "Hangerőszabályzó"
+
+#: ../plugins/volumealsa/volumealsa.c:701
+msgid ""
+"Error, you need to install an application to configure the sound "
+"(pavucontrol, alsamixer ...)"
+msgstr ""
+"Hiba, a hang beállításához telepítenie kell egy alkalmazást (pavucontol, "
+"alsamixer…)"
+
+#. Create a frame as the child of the viewport.
+#: ../plugins/volumealsa/volumealsa.c:895
+msgid "Volume"
+msgstr "Hangerő"
 
 #. Create a check button as the child of the vertical box.
-#: ../plugins/volumealsa/volumealsa.c:893
+#: ../plugins/volumealsa/volumealsa.c:914
 msgid "Mute"
 msgstr "Némítás"
 
 #. Just to have these translated
-#: ../plugins/volumealsa/volumealsa.c:1293
+#: ../plugins/volumealsa/volumealsa.c:1313
 msgid "Line"
 msgstr "Vonal"
 
-#: ../plugins/volumealsa/volumealsa.c:1293
+#: ../plugins/volumealsa/volumealsa.c:1313
 msgid "LineOut"
 msgstr "Vonal kiement"
 
-#: ../plugins/volumealsa/volumealsa.c:1293
+#: ../plugins/volumealsa/volumealsa.c:1313
 msgid "Front"
 msgstr "Elülső"
 
-#: ../plugins/volumealsa/volumealsa.c:1293
+#: ../plugins/volumealsa/volumealsa.c:1313
 msgid "Surround"
 msgstr "Térhatás"
 
-#: ../plugins/volumealsa/volumealsa.c:1293
+#: ../plugins/volumealsa/volumealsa.c:1313
 msgid "Speaker+LO"
 msgstr "Hangszóró+Vonal kimenet"
 
-#: ../plugins/volumealsa/volumealsa.c:1332
+#: ../plugins/volumealsa/volumealsa.c:1352
 msgid "default"
 msgstr "alapértelmezett"
 
 #. desc, index
-#: ../plugins/volumealsa/volumealsa.c:1391
+#: ../plugins/volumealsa/volumealsa.c:1412
 msgid "Master"
 msgstr "Mester"
 
-#: ../plugins/volumealsa/volumealsa.c:1395
+#: ../plugins/volumealsa/volumealsa.c:1416
 msgid "PCM"
 msgstr "PCM"
 
-#: ../plugins/volumealsa/volumealsa.c:1399
+#: ../plugins/volumealsa/volumealsa.c:1420
 msgid "Headphone"
 msgstr "Fülhallgató"
 
-#: ../plugins/volumealsa/volumealsa.c:1420
+#: ../plugins/volumealsa/volumealsa.c:1442
 msgid "Click for Volume Slider"
 msgstr "Kattintás a hangerőszabályzóért"
 
-#: ../plugins/volumealsa/volumealsa.c:1424
+#: ../plugins/volumealsa/volumealsa.c:1446
 msgid "Click for Toggle Mute"
 msgstr "Kattintás a némítás váltásért"
 
-#: ../plugins/volumealsa/volumealsa.c:1428
+#: ../plugins/volumealsa/volumealsa.c:1450
 msgid "Click for Open Mixer"
 msgstr "Kattintás a mixer megyitásáért"
 
 #. setup hotkeys
-#: ../plugins/volumealsa/volumealsa.c:1432
+#: ../plugins/volumealsa/volumealsa.c:1454
 msgid "Hotkey for Volume Up"
 msgstr "Hangosítás gyorsbillentyű"
 
-#: ../plugins/volumealsa/volumealsa.c:1434
+#: ../plugins/volumealsa/volumealsa.c:1456
 msgid "Hotkey for Volume Down"
 msgstr "Halkítás gyorsbillentyű"
 
-#: ../plugins/volumealsa/volumealsa.c:1436
+#: ../plugins/volumealsa/volumealsa.c:1458
 msgid "Hotkey for Volume Mute"
 msgstr "Némítás gyorsbillentyű"
 
-#: ../plugins/volumealsa/volumealsa.c:1493
+#: ../plugins/volumealsa/volumealsa.c:1514
+#: ../plugins/volumealsa/volumealsa.c:1553
+#: ../plugins/volumealsa/volumealsa.c:1574
+msgid "Volume Control"
+msgstr "Hangerőszabályzó"
+
+#: ../plugins/volumealsa/volumealsa.c:1516
 msgid "Audio Card"
 msgstr "Hangkártya"
 
-#: ../plugins/volumealsa/volumealsa.c:1496
+#: ../plugins/volumealsa/volumealsa.c:1519
 msgid "Channel to Operate"
 msgstr "Használni kívánt csatorna"
 
-#: ../plugins/volumealsa/volumealsa.c:1504
+#: ../plugins/volumealsa/volumealsa.c:1527
 msgid "Command to Open Mixer"
 msgstr "Parancs a mixer megnyitásához"
 
-#: ../plugins/volumealsa/volumealsa.c:1519
+#: ../plugins/volumealsa/volumealsa.c:1542
 msgid "Launch Mixer"
 msgstr "Hangkeverő indítása"
 
-#: ../plugins/volumealsa/volumealsa.c:1531
-#: ../plugins/volumealsa/volumealsa.c:1552
+#: ../plugins/volumealsa/volumealsa.c:1554
+#: ../plugins/volumealsa/volumealsa.c:1575
 msgid "Display and control volume"
 msgstr "Hangerő megjelenítése és vezérlése"
 
@@ -1315,7 +1335,7 @@ msgid "The interface name"
 msgstr "A csatoló neve"
 
 #: ../plugins/netstatus/netstatus-iface.c:156
-#: ../plugins/weather/weatherwidget.c:2080
+#: ../plugins/weather/weatherwidget.c:2136
 msgid "State"
 msgstr "Állapot"
 
@@ -1496,8 +1516,12 @@ msgstr "Nem lehet feldolgozni a csatoló nevét ebből: '%s'"
 #: ../plugins/netstatus/netstatus-sysdeps.c:218
 #: ../plugins/netstatus/netstatus-sysdeps.c:647
 #, c-format
-msgid "Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; brx_idx = %d; btx_idx = %d;"
-msgstr "Nem lehet feldolgozni a csatoló statisztikáját ebből: '%s'. prx_idx = %d; ptx_idx = %d; brx_idx = %d; btx_idx = %d;"
+msgid ""
+"Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; "
+"brx_idx = %d; btx_idx = %d;"
+msgstr ""
+"Nem lehet feldolgozni a csatoló statisztikáját ebből: '%s'. prx_idx = %d; "
+"ptx_idx = %d; brx_idx = %d; btx_idx = %d;"
 
 #: ../plugins/netstatus/netstatus-sysdeps.c:312
 msgid "Could not parse /proc/net/wireless. No data."
@@ -1510,7 +1534,9 @@ msgstr "Nem lehet feldolgozni a /proc/net/wireless fájlt. Ismeretlen formátum.
 #: ../plugins/netstatus/netstatus-sysdeps.c:343
 #, c-format
 msgid "Could not parse wireless details from '%s'. link_idx = %d;"
-msgstr "Nem lehet feldolgozni a vezeték nélküli csatoló részleteit ebből: '%s'. link_idx = %d;"
+msgstr ""
+"Nem lehet feldolgozni a vezeték nélküli csatoló részleteit ebből: '%s'. "
+"link_idx = %d;"
 
 #: ../plugins/netstatus/netstatus-sysdeps.c:416
 #, c-format
@@ -1551,22 +1577,22 @@ msgstr "Fogadás"
 msgid "Sending/Receiving"
 msgstr "Küldés/fogadás"
 
-#: ../plugins/batt/batt.c:154
+#: ../plugins/batt/batt.c:155
 #, c-format
 msgid "Battery %d: %d%% charged, %d:%02d until full"
 msgstr "Akkumulátor %d töltöttség: %d%%, még %d:%02d a teljes feltöltésig"
 
-#: ../plugins/batt/batt.c:165
+#: ../plugins/batt/batt.c:169
 #, c-format
 msgid "Battery %d: %d%% charged, %d:%02d left"
 msgstr "Akkumulátor %d töltöttség: %d%%, még %d:%02d van hátra"
 
-#: ../plugins/batt/batt.c:171
+#: ../plugins/batt/batt.c:176
 #, c-format
 msgid "Battery %d: %d%% charged"
 msgstr "Akkumulátor %d töltöttség: %d%%"
 
-#: ../plugins/batt/batt.c:181
+#: ../plugins/batt/batt.c:186
 #, c-format
 msgid ""
 "\n"
@@ -1575,7 +1601,7 @@ msgstr ""
 "\n"
 "%sTervezett teljes energia:\t\t%5d mWh"
 
-#: ../plugins/batt/batt.c:183
+#: ../plugins/batt/batt.c:188
 #, c-format
 msgid ""
 "\n"
@@ -1584,7 +1610,7 @@ msgstr ""
 "\n"
 "%sTeljes energia:\t\t\t%5d mWh"
 
-#: ../plugins/batt/batt.c:185
+#: ../plugins/batt/batt.c:190
 #, c-format
 msgid ""
 "\n"
@@ -1593,7 +1619,7 @@ msgstr ""
 "\n"
 "%sJelenlegi energia:\t\t\t%5d mWh"
 
-#: ../plugins/batt/batt.c:187
+#: ../plugins/batt/batt.c:192
 #, c-format
 msgid ""
 "\n"
@@ -1602,7 +1628,7 @@ msgstr ""
 "\n"
 "%sPillanatnyi teljesítmény:\t\t\t%5d mW"
 
-#: ../plugins/batt/batt.c:190
+#: ../plugins/batt/batt.c:195
 #, c-format
 msgid ""
 "\n"
@@ -1611,7 +1637,7 @@ msgstr ""
 "\n"
 "%sTeljes tervezett töltés:\t%5d mAh"
 
-#: ../plugins/batt/batt.c:192
+#: ../plugins/batt/batt.c:197
 #, c-format
 msgid ""
 "\n"
@@ -1620,7 +1646,7 @@ msgstr ""
 "\n"
 "%sTeljes töltés:\t\t\t%5d mAh"
 
-#: ../plugins/batt/batt.c:194
+#: ../plugins/batt/batt.c:199
 #, c-format
 msgid ""
 "\n"
@@ -1629,7 +1655,7 @@ msgstr ""
 "\n"
 "%sPillanatnyi töltés:\t\t\t%5d mAh"
 
-#: ../plugins/batt/batt.c:196
+#: ../plugins/batt/batt.c:201
 #, c-format
 msgid ""
 "\n"
@@ -1638,7 +1664,7 @@ msgstr ""
 "\n"
 "%sPillanatnyi áram:\t\t\t%5d mA"
 
-#: ../plugins/batt/batt.c:199
+#: ../plugins/batt/batt.c:204
 #, c-format
 msgid ""
 "\n"
@@ -1647,63 +1673,63 @@ msgstr ""
 "\n"
 "%sJelenlegi feszültség:\t\t%.3lf V"
 
-#: ../plugins/batt/batt.c:237
+#: ../plugins/batt/batt.c:242
 msgid "No batteries found"
 msgstr "Nem található akkumulátor"
 
-#: ../plugins/batt/batt.c:534 ../plugins/batt/batt.c:667
+#: ../plugins/batt/batt.c:542 ../plugins/batt/batt.c:675
 msgid "Battery low"
 msgstr "Az akkumulátor gyenge"
 
-#: ../plugins/batt/batt.c:690 ../plugins/batt/batt.c:714
+#: ../plugins/batt/batt.c:698 ../plugins/batt/batt.c:722
 msgid "Battery Monitor"
 msgstr "Akkumulátor-figyelő"
 
-#: ../plugins/batt/batt.c:692
+#: ../plugins/batt/batt.c:700
 msgid "Hide if there is no battery"
 msgstr "Elrejtés, ha nincs akkumulátor"
 
-#: ../plugins/batt/batt.c:693
+#: ../plugins/batt/batt.c:701
 msgid "Alarm command"
 msgstr "Figyelmeztetés parancs"
 
-#: ../plugins/batt/batt.c:694
+#: ../plugins/batt/batt.c:702
 msgid "Alarm time (minutes left)"
 msgstr "Figyelmeztessen, ha a hátralévő idő kevesebb, mint ennyi perc:"
 
-#: ../plugins/batt/batt.c:695
+#: ../plugins/batt/batt.c:703
 msgid "Background color"
 msgstr "Háttérszín"
 
-#: ../plugins/batt/batt.c:696
+#: ../plugins/batt/batt.c:704
 msgid "Charging color 1"
 msgstr "Töltési szín 1"
 
-#: ../plugins/batt/batt.c:697
+#: ../plugins/batt/batt.c:705
 msgid "Charging color 2"
 msgstr "Töltési szín 2"
 
-#: ../plugins/batt/batt.c:698
+#: ../plugins/batt/batt.c:706
 msgid "Discharging color 1"
 msgstr "Kisülési szín 1"
 
-#: ../plugins/batt/batt.c:699
+#: ../plugins/batt/batt.c:707
 msgid "Discharging color 2"
 msgstr "Kisülési szín 2"
 
-#: ../plugins/batt/batt.c:700
+#: ../plugins/batt/batt.c:708
 msgid "Border width"
 msgstr "Keret mérete"
 
-#: ../plugins/batt/batt.c:704
+#: ../plugins/batt/batt.c:712
 msgid "Show Extended Information"
 msgstr "Kiterjesztett információk megjelenítése"
 
-#: ../plugins/batt/batt.c:705
+#: ../plugins/batt/batt.c:713
 msgid "Number of battery to monitor"
 msgstr "A figyelt akkumulátor száma"
 
-#: ../plugins/batt/batt.c:715
+#: ../plugins/batt/batt.c:723
 msgid "Display battery status using ACPI"
 msgstr "Akkumulátor állapotának kijelzése ACPI segítségével"
 
@@ -1764,37 +1790,37 @@ msgstr "Hang menü"
 msgid "Add indicator applets to the panel"
 msgstr "Indikátor kisalkalmazások hozzáadása a panelhez"
 
-#: ../plugins/monitors/monitors.c:281
+#: ../plugins/monitors/monitors.c:285
 #, c-format
 msgid "CPU usage: %.2f%%"
 msgstr "CPU használat: %.2f%%"
 
-#: ../plugins/monitors/monitors.c:377
+#: ../plugins/monitors/monitors.c:386
 #, c-format
 msgid "RAM usage: %.1fMB (%.2f%%)"
 msgstr "RAM használat: %.1fMB (%.2f%%)"
 
-#: ../plugins/monitors/monitors.c:723 ../plugins/monitors/monitors.c:808
+#: ../plugins/monitors/monitors.c:732 ../plugins/monitors/monitors.c:821
 msgid "Resource monitors"
 msgstr "Erőforrás monitorozók"
 
-#: ../plugins/monitors/monitors.c:726
+#: ../plugins/monitors/monitors.c:735
 msgid "CPU color"
 msgstr "CPU szín"
 
-#: ../plugins/monitors/monitors.c:727
+#: ../plugins/monitors/monitors.c:736
 msgid "Display RAM usage"
 msgstr "RAM használat mutatása"
 
-#: ../plugins/monitors/monitors.c:728
+#: ../plugins/monitors/monitors.c:737
 msgid "RAM color"
 msgstr "RAM szín"
 
-#: ../plugins/monitors/monitors.c:729
+#: ../plugins/monitors/monitors.c:738
 msgid "Action when clicked (default: lxtask)"
 msgstr "Kattintásra elvégzendő művelet (alapesetben: naptár mutatása)"
 
-#: ../plugins/monitors/monitors.c:809
+#: ../plugins/monitors/monitors.c:822
 msgid "Display monitors (CPU, RAM)"
 msgstr "Erőforrás monitorozók mutatása"
 
@@ -1802,15 +1828,15 @@ msgstr "Erőforrás monitorozók mutatása"
 msgid "[N/A]"
 msgstr "[N/A]"
 
-#: ../plugins/weather/weatherwidget.c:792
+#: ../plugins/weather/weatherwidget.c:807
 msgid "Enter New Location"
 msgstr "Új hely megadása"
 
-#: ../plugins/weather/weatherwidget.c:806
+#: ../plugins/weather/weatherwidget.c:821
 msgid "_New Location:"
 msgstr "Ú_j hely:"
 
-#: ../plugins/weather/weatherwidget.c:817
+#: ../plugins/weather/weatherwidget.c:832
 msgid ""
 "Enter the:\n"
 "- city, or\n"
@@ -1824,186 +1850,270 @@ msgstr ""
 "- az irányítószámot,\n"
 "amelyhez időjárás-előrejelzést szeretne lekérni."
 
-#: ../plugins/weather/weatherwidget.c:854
-#: ../plugins/weather/weatherwidget.c:987
+#: ../plugins/weather/weatherwidget.c:869
+#: ../plugins/weather/weatherwidget.c:1002
 msgid "You must specify a location."
 msgstr "Meg kell adnia egy helyet."
 
-#: ../plugins/weather/weatherwidget.c:901
+#: ../plugins/weather/weatherwidget.c:916
 #, c-format
 msgid "Location '%s' not found!"
 msgstr "A(z) „%s” hely nem található!"
 
-#: ../plugins/weather/weatherwidget.c:1060
+#: ../plugins/weather/weatherwidget.c:1075
 msgid "Preferences"
 msgstr "Beállítások"
 
-#: ../plugins/weather/weatherwidget.c:1066
+#: ../plugins/weather/weatherwidget.c:1081
 msgid "Refresh"
 msgstr "Frissítés"
 
-#: ../plugins/weather/weatherwidget.c:1072
+#: ../plugins/weather/weatherwidget.c:1087
 msgid "Quit"
 msgstr "Kilépés"
 
-#: ../plugins/weather/weatherwidget.c:1229
+#: ../plugins/weather/weatherwidget.c:1254
 msgid "Weather Preferences"
 msgstr "Időjárás beállításai"
 
-#: ../plugins/weather/weatherwidget.c:1243
+#: ../plugins/weather/weatherwidget.c:1268
 msgid "Current Location"
 msgstr "Jelenlegi hely"
 
-#: ../plugins/weather/weatherwidget.c:1247
-#: ../plugins/weather/weatherwidget.c:1524
+#: ../plugins/weather/weatherwidget.c:1272
+#: ../plugins/weather/weatherwidget.c:1574
 msgid "None configured"
 msgstr "Semmi sincs beállítva"
 
-#: ../plugins/weather/weatherwidget.c:1249
-#: ../plugins/weather/weatherwidget.c:1521
+#: ../plugins/weather/weatherwidget.c:1274
+#: ../plugins/weather/weatherwidget.c:1571
 msgid "_Set"
 msgstr "_Beállítás"
 
-#: ../plugins/weather/weatherwidget.c:1270
+#: ../plugins/weather/weatherwidget.c:1295
 msgid "Display"
 msgstr "Megjelenítés"
 
-#: ../plugins/weather/weatherwidget.c:1274
+#: ../plugins/weather/weatherwidget.c:1299
 msgid "Name:"
 msgstr "Név:"
 
-#: ../plugins/weather/weatherwidget.c:1278
+#: ../plugins/weather/weatherwidget.c:1303
 msgid "Units:"
 msgstr "Mértékegység:"
 
-#: ../plugins/weather/weatherwidget.c:1282
+#: ../plugins/weather/weatherwidget.c:1307
 msgid "_Metric (°C)"
 msgstr "_Metrikus (°C)"
 
-#: ../plugins/weather/weatherwidget.c:1284
+#: ../plugins/weather/weatherwidget.c:1309
 msgid "_English (°F)"
 msgstr "_Angol (°F)"
 
-#: ../plugins/weather/weatherwidget.c:1319
+#: ../plugins/weather/weatherwidget.c:1344
 msgid "Forecast"
 msgstr "Előrejelzés"
 
-#: ../plugins/weather/weatherwidget.c:1323
+#: ../plugins/weather/weatherwidget.c:1348
 msgid "Updates:"
 msgstr "Frissítések:"
 
-#: ../plugins/weather/weatherwidget.c:1327
+#: ../plugins/weather/weatherwidget.c:1352
 msgid "Ma_nual"
 msgstr "_Kézi"
 
-#: ../plugins/weather/weatherwidget.c:1331
+#: ../plugins/weather/weatherwidget.c:1356
 msgid "_Automatic, every"
 msgstr "_Automatikus, minden"
 
-#: ../plugins/weather/weatherwidget.c:1352
+#: ../plugins/weather/weatherwidget.c:1377
 msgid "minutes"
 msgstr "percben"
 
-#: ../plugins/weather/weatherwidget.c:1361
+#: ../plugins/weather/weatherwidget.c:1386
 msgid "Source:"
 msgstr "Forrás:"
 
-#: ../plugins/weather/weatherwidget.c:1477
+#: ../plugins/weather/weatherwidget.c:1522
 msgid "C_hange"
 msgstr "_Módosítás"
 
 #. Both are available
-#: ../plugins/weather/weatherwidget.c:1565
+#: ../plugins/weather/weatherwidget.c:1613
 #, c-format
 msgid "Current Conditions for %s"
 msgstr "Jelenlegi időjárás itt: %s"
 
-#: ../plugins/weather/weatherwidget.c:1589
+#: ../plugins/weather/weatherwidget.c:1637
 msgid "Location:"
 msgstr "Hely:"
 
-#: ../plugins/weather/weatherwidget.c:1612
+#: ../plugins/weather/weatherwidget.c:1660
 msgid "Last updated:"
 msgstr "Utoljára frissítve:"
 
-#: ../plugins/weather/weatherwidget.c:1639
+#: ../plugins/weather/weatherwidget.c:1694
 msgid "Feels like:"
 msgstr "Hőérzet:"
 
-#: ../plugins/weather/weatherwidget.c:1664
+#: ../plugins/weather/weatherwidget.c:1720
 msgid "Humidity:"
 msgstr "Páratartalom:"
 
-#: ../plugins/weather/weatherwidget.c:1691
+#: ../plugins/weather/weatherwidget.c:1747
 msgid "Pressure:"
 msgstr "Nyomás:"
 
-#: ../plugins/weather/weatherwidget.c:1718
+#: ../plugins/weather/weatherwidget.c:1774
 msgid "Visibility:"
 msgstr "Látási viszonyok:"
 
-#: ../plugins/weather/weatherwidget.c:1746
+#: ../plugins/weather/weatherwidget.c:1802
 msgid "Wind:"
 msgstr "Szél:"
 
-#: ../plugins/weather/weatherwidget.c:1769
+#: ../plugins/weather/weatherwidget.c:1825
 msgid "Sunrise:"
 msgstr "Napkelte:"
 
-#: ../plugins/weather/weatherwidget.c:1792
+#: ../plugins/weather/weatherwidget.c:1848
 msgid "Sunset:"
 msgstr "Napnyugta:"
 
-#: ../plugins/weather/weatherwidget.c:1898
-#: ../plugins/weather/weatherwidget.c:2234
+#: ../plugins/weather/weatherwidget.c:1954
+#: ../plugins/weather/weatherwidget.c:2295
 #, c-format
 msgid "Forecast for %s unavailable."
 msgstr "Nem érhető el előrejelzés ehhez: %s."
 
-#: ../plugins/weather/weatherwidget.c:1907
-#: ../plugins/weather/weatherwidget.c:2239
+#: ../plugins/weather/weatherwidget.c:1963
+#: ../plugins/weather/weatherwidget.c:2300
 #, c-format
 msgid "Location not set."
 msgstr "A hely nincs beállítva."
 
-#: ../plugins/weather/weatherwidget.c:1924
+#: ../plugins/weather/weatherwidget.c:1980
 #, c-format
 msgid "Searching for '%s'..."
 msgstr "„%s” keresése…"
 
-#: ../plugins/weather/weatherwidget.c:2050
+#: ../plugins/weather/weatherwidget.c:2106
 #, c-format
 msgid "Location matches for '%s'"
 msgstr "'%s' találati helyei"
 
-#: ../plugins/weather/weatherwidget.c:2070
+#: ../plugins/weather/weatherwidget.c:2126
 msgid "City"
 msgstr "Város"
 
-#: ../plugins/weather/weatherwidget.c:2090
+#: ../plugins/weather/weatherwidget.c:2146
 msgid "Country"
 msgstr "Ország"
 
 #. make it nice and pretty
-#: ../plugins/weather/weatherwidget.c:2221
+#: ../plugins/weather/weatherwidget.c:2278
 msgid "Currently in "
 msgstr "Jelenleg ebben: "
 
-#: ../plugins/weather/weatherwidget.c:2223
+#: ../plugins/weather/weatherwidget.c:2281
 msgid "Today: "
 msgstr "Ma: "
 
-#: ../plugins/weather/weatherwidget.c:2224
+#: ../plugins/weather/weatherwidget.c:2282
 msgid "Tomorrow: "
 msgstr "Holnap: "
 
-#: ../plugins/weather/weather.c:332
+#: ../plugins/weather/weather.c:419
 msgid "Weather Plugin"
 msgstr "Időjárás bővítmény"
 
-#: ../plugins/weather/weather.c:333
+#: ../plugins/weather/weather.c:420
 msgid "Show weather conditions for a location."
 msgstr "Időjárási viszonyok megjelenítése egy helyhez."
+
+#: ../plugins/weather/yahooutil.c:51
+msgid "N"
+msgstr ""
+
+#: ../plugins/weather/yahooutil.c:52
+msgid "NNE"
+msgstr ""
+
+#: ../plugins/weather/yahooutil.c:53
+msgid "NE"
+msgstr ""
+
+#: ../plugins/weather/yahooutil.c:54
+msgid "ENE"
+msgstr ""
+
+#: ../plugins/weather/yahooutil.c:55
+msgid "E"
+msgstr ""
+
+#: ../plugins/weather/yahooutil.c:56
+msgid "ESE"
+msgstr ""
+
+#: ../plugins/weather/yahooutil.c:57
+msgid "SE"
+msgstr ""
+
+#: ../plugins/weather/yahooutil.c:58
+msgid "SSE"
+msgstr ""
+
+#: ../plugins/weather/yahooutil.c:59
+msgid "S"
+msgstr ""
+
+#: ../plugins/weather/yahooutil.c:60
+msgid "SSW"
+msgstr ""
+
+#: ../plugins/weather/yahooutil.c:61
+msgid "SW"
+msgstr ""
+
+#: ../plugins/weather/yahooutil.c:62
+msgid "WSW"
+msgstr ""
+
+#: ../plugins/weather/yahooutil.c:63
+msgid "W"
+msgstr ""
+
+#: ../plugins/weather/yahooutil.c:64
+msgid "WNW"
+msgstr ""
+
+#: ../plugins/weather/yahooutil.c:65
+msgid "NW"
+msgstr ""
+
+#: ../plugins/weather/yahooutil.c:66
+msgid "NNW"
+msgstr ""
+
+#: ../plugins/weather/yahooutil.c:1086
+msgid "Yahoo! Weather"
+msgstr ""
+
+#: ../plugins/weather/openweathermap.c:347
+msgid "Mph"
+msgstr ""
+
+#: ../plugins/weather/openweathermap.c:347
+msgid "m/s"
+msgstr ""
+
+#: ../plugins/weather/openweathermap.c:501
+msgid "m"
+msgstr ""
+
+#: ../plugins/weather/openweathermap.c:916
+msgid "OpenWeatherMap"
+msgstr ""
 
 #~ msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
 #~ msgstr ""
