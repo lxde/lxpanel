@@ -26,24 +26,6 @@
 #include <glib.h>
 #include <gtk/gtk.h>
 
-#define WIND_DIRECTION(x) ( \
-  ((x>=350 && x<=360) || (x>=0 && x<=11 ))?"N": \
-  (x>11   && x<=33 )?"NNE": \
-  (x>33   && x<=57 )?"NE":  \
-  (x>57   && x<=79 )?"ENE": \
-  (x>79   && x<=101)?"E":   \
-  (x>101  && x<=123)?"ESE": \
-  (x>123  && x<=147)?"SE":  \
-  (x>147  && x<=169)?"SSE": \
-  (x>169  && x<=192)?"S":   \
-  (x>192  && x<=214)?"SSW": \
-  (x>214  && x<=236)?"SW":  \
-  (x>236  && x<=258)?"WSW": \
-  (x>258  && x<=282)?"W":   \
-  (x>282  && x<=304)?"WNW": \
-  (x>304  && x<=326)?"NW":  \
-  (x>326  && x<=349)?"NNW":"")
-
 typedef enum
 {
   STEADY, // 0
@@ -96,7 +78,7 @@ typedef struct
  *
  */
 void
-freeForecast(gpointer pData);
+freeForecast(ForecastInfo * pData);
 
 /**
  * Prints the contents of the supplied entry to stdout
@@ -105,6 +87,6 @@ freeForecast(gpointer pData);
  *
  */
 void
-printForecast(gpointer pEntry);
+printForecast(ForecastInfo * pEntry);
 
 #endif

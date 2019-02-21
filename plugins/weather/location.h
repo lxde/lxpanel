@@ -38,6 +38,8 @@ typedef struct
   gchar * pcState_;
   gchar * pcCountry_;
   gchar * pcWOEID_;
+  gdouble dLatitude_;
+  gdouble dLongitude_;
   gchar cUnits_;
   guint uiInterval_;
   gboolean bEnabled_;
@@ -68,7 +70,7 @@ extern const gchar * LocationInfoFieldNames[];
  *
  */
 void
-freeLocation(gpointer pData);
+freeLocation(LocationInfo * pData);
 
 /**
  * Prints the contents of the supplied entry to stdout
@@ -77,7 +79,7 @@ freeLocation(gpointer pData);
  *
  */
 void
-printLocation(gpointer pEntry);
+printLocation(LocationInfo * pEntry);
 
 /**
  * Sets the alias for the location
@@ -87,7 +89,7 @@ printLocation(gpointer pEntry);
  *
  */
 void
-setLocationAlias(gpointer pEntry, gpointer pData);
+setLocationAlias(LocationInfo * pEntry, const gchar * pData);
 
 /**
  * Copies a location entry.
@@ -100,6 +102,6 @@ setLocationAlias(gpointer pEntry, gpointer pData);
  *       the caller.
  */
 void
-copyLocation(gpointer * pDestination, gpointer pSource);
+copyLocation(LocationInfo ** pDestination, LocationInfo * pSource);
 
 #endif

@@ -270,9 +270,19 @@ if test x"$compile_alsa" = "xno"; then
     fi
 else
     dnl use $plugin_volumealsa for backward compatibility
-    if test -n $plugin_volumealsa; then
+    if test -n "$plugin_volumealsa"; then
         plugin_volume=volume.la
     fi
+fi
+
+if test -n "$plugin_weather"; then
+    curl-config --help &>/dev/null || {
+        AC_MSG_ERROR([weather plugin requires libcurl development files])
+    }
+    CURL_CFLAGS=$(curl-config --cflags)
+    CURL_LIBS=$(curl-config --libs)
+    AC_SUBST(CURL_CFLAGS)
+    AC_SUBST(CURL_LIBS)
 fi
 
 dnl Exclude indicator support when there is no support.

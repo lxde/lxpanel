@@ -1,5 +1,6 @@
-/**
- * Copyright (c) 2012-2014 Piotr Sipika; see the AUTHORS file for more.
+/*
+ * Copyright (C) 2012-2014 Piotr Sipika.
+ * Copyright (C) 2019 Andriy Grytsenko <andrej@rep.kiev.ua>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -14,30 +15,20 @@
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software Foundation,
  * Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
- * 
+ *
  * See the COPYRIGHT file for more information.
  */
 
-/* Provides http protocol utility functions */
+#ifndef _OPENWEATHERMAP_H_
+#define _OPENWEATHERMAP_H_ 1
 
-#ifndef LXWEATHER_HTTPUTIL_HEADER
-#define LXWEATHER_HTTPUTIL_HEADER
+#include "providers.h"
 
-#include <glib.h>
-#include <curl/curl.h>
+/* retrieved from openweathermap.org */
+#define WEATHER_APPID "42005bf4482b716fb9646286ca99a2a7"
 
-/**
- * Returns the contents of the requested URL
- *
- * @param pczURL The URL to retrieve [in].
- * @param pcData A pointer to a null-terminated buffer containing the textual
- *         representation of the response. Must be freed by the caller. [out].
- * @param piDataSize The resulting data length [out].
- * @param headers Extra headers for GET request [in].
- *
- * @return The return code supplied by CURL
- */
-CURLcode
-getURL(const gchar * pczURL, gchar ** pcData, gint * piDataSize, const gchar ** headers);
+extern provider_callback_info OpenWeatherMapCallbacks;
 
-#endif
+GList *getOSMLocationInfo(ProviderInfo * instance, const gchar * pczLocation);
+
+#endif /* _OPENWEATHERMAP_H_ */

@@ -7,6 +7,9 @@
 * Fixed crash after color was removed from monitor plugin configuration.
 * Aligned used memory calculation in lxpanel monitor with 'free' command line
     utility.
+* Added possibility to use few weather providers for weather widget.
+* Disabled Yahoo! Weather because they removed free API support.
+* Added OpenWeatherMap weather provider.
 
 0.9.3
 -------------------------------------------------------------------------

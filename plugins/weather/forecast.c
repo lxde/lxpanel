@@ -66,14 +66,12 @@ freeForecastUnits(ForecastUnits * pEntry)
  *
  */
 void
-freeForecast(gpointer pData)
+freeForecast(ForecastInfo * pEntry)
 {
-  if (!pData)
+  if (!pEntry)
     {
       return;
     }
-
-  ForecastInfo * pEntry = (ForecastInfo *)pData;
 
   freeForecastUnits(&pEntry->units_);
 
@@ -98,7 +96,7 @@ freeForecast(gpointer pData)
       g_object_unref(pEntry->pImage_);
     }
 
-  g_free(pData);
+  g_free(pEntry);
 }
 
 /**
@@ -108,17 +106,15 @@ freeForecast(gpointer pData)
  *
  */
 void
-printForecast(gpointer pEntry G_GNUC_UNUSED)
+printForecast(ForecastInfo * pInfo G_GNUC_UNUSED)
 {
 #ifdef DEBUG
-  if (!pEntry)
+  if (!pInfo)
     {
       LXW_LOG(LXW_ERROR, "forecast::printForecast(): Entry: NULL");
       
       return;
     }
-  
-  ForecastInfo * pInfo = (ForecastInfo *)pEntry;
   
   LXW_LOG(LXW_VERBOSE, "Forecast at %s:", (const char *)pInfo->pcTime_);
   LXW_LOG(LXW_VERBOSE, "\tTemperature: %d%s", 

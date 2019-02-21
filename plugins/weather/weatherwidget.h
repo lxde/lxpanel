@@ -23,6 +23,8 @@
 #ifndef __WEATHERWIDGET_H__
 #define __WEATHERWIDGET_H__
 
+#include "providers.h"
+
 #include <gtk/gtk.h>
 #include <glib.h>
 
@@ -55,14 +57,16 @@ struct _GtkWeatherClass
 };
 
 GType       gtk_weather_get_type(void) G_GNUC_CONST;
-GtkWidget * gtk_weather_new(void);
+GtkWeather * gtk_weather_new(void);
 #ifdef USE_STANDALONE
-void        gtk_weather_run_preferences_dialog(GtkWidget * widget);
-void        gtk_weather_run_popup_menu(GtkWidget * widget);
+void        gtk_weather_run_preferences_dialog(GtkWeather * weather);
+void        gtk_weather_run_popup_menu(GtkWeather * weather);
 #endif
-void        gtk_weather_run_conditions_dialog(GtkWidget * widget);
-gchar *     gtk_weather_get_tooltip_text(GtkWidget * widget);
-GtkWidget * gtk_weather_create_preferences_dialog(GtkWidget * widget);
+void        gtk_weather_run_conditions_dialog(GtkWeather * weather);
+gchar *     gtk_weather_get_tooltip_text(GtkWeather * weather);
+GtkWidget * gtk_weather_create_preferences_dialog(GtkWeather * weather, provider_callback_info ** list);
+int         gtk_weather_set_provider(GtkWeather * weather, provider_callback_info * provider);
+provider_callback_info * gtk_weather_get_provider(GtkWeather * weather);
 
 /* if USE_STANDALONE is used then application should provide these functions */
 void weather_save_configuration(GtkWidget * pWeather, LocationInfo * pLocation);

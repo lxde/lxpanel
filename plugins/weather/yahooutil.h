@@ -23,43 +23,8 @@
 #ifndef LXWEATHER_YAHOOUTIL_HEADER
 #define LXWEATHER_YAHOOUTIL_HEADER
 
-#include <glib.h>
+#include "providers.h"
 
-/**
- * Retrieves the details for the specified location
- *
- * @param pczLocation The string containing the name/code of the location
- *
- * @return A pointer to a list of LocationInfo entries, possibly empty, 
- *         if no details were found. Caller is responsible for freeing the list.
- */
-GList *
-getLocationInfo(const gchar * pczLocation);
-
-/**
- * Retrieves the forecast for the specified location WOEID
- *
- * @param pczWOEID The string containing the WOEID of the location
- * @param czUnits The character containing the units for the forecast (c|f)
- * @param pForecast The pointer to the forecast to be filled. If set to NULL,
- *                  a new one will be allocated.
- *
- */
-void
-getForecastInfo(const gchar * pczWOEID, const gchar czUnits, gpointer pForecast);
-
-/**
- * Initializes the internals: XML and HTTP
- *
- */
-void
-initializeYahooUtil(void);
-
-/**
- * Cleans up the internals: XML and HTTP
- *
- */
-void
-cleanupYahooUtil(void);
+extern provider_callback_info YahooCallbacks;
 
 #endif

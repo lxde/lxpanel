@@ -1,5 +1,6 @@
 /**
  * Copyright (c) 2012-2014 Piotr Sipika; see the AUTHORS file for more.
+ * Copyright (c) 2019 Andriy Grytsenko <andrej@rep.kiev.ua>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -22,31 +23,29 @@
 
 #include "httputil.h"
 
-#include <libxml/nanohttp.h>
-#include <libxml/xmlmemory.h>
-
+#include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 
-/**
- * Cleans up the nano HTTP state
- *
- * @param pContext HTTP Context
- * @param pContentType Content-type container
- */
-static void
-cleanup(void * pContext, char * pContentType)
+struct wdata_t {
+    char *buff;
+    size_t alloc;
+};
+
+static size_t write_data(void *buffer, size_t size, size_t nmemb, void *userp)
 {
-  if (pContext)
-    {
-      xmlNanoHTTPClose(pContext);
-    }
+    struct wdata_t *data = userp;
+    size_t todo = size * nmemb;
+    size_t new_alloc = data->alloc + todo;
 
-  if (pContentType)
-    {
-      xmlFree(pContentType);
-    }
-
-  xmlNanoHTTPCleanup();
+    if (todo == 0)
+        return 0;
+    data->buff = realloc(data->buff, new_alloc + 1);
+    if (data->buff == NULL)
+        return 0; /* is that correct? */
+    memcpy(&data->buff[data->alloc], buffer, todo);
+    data->alloc = new_alloc;
+    return todo;
 }
 
 /**
@@ -59,107 +58,44 @@ cleanup(void * pContext, char * pContentType)
  * @return A pointer to a null-terminated buffer containing the textual 
  *         representation of the response. Must be freed by the caller.
  */
-gpointer
-getURL(const gchar * pczURL, gint * piRetCode, gint * piDataSize)
+CURLcode
+getURL(const gchar * pczURL, gchar ** pcData, gint * piDataSize, const gchar ** pccHeaders)
 {
-  /* nanohttp magic */
-#define iBufReadSize 1024
-  gint iReadSize = 0;
-  gint iCurrSize = 0;
+    struct curl_slist *headers=NULL;
+    CURL *curl;
+    CURLcode res;
+    struct wdata_t data = { NULL, 0 };
 
-  gpointer pInBuffer = NULL;
-  gpointer pInBufferRef = NULL;
+    if (!pczURL)
+        return CURLE_URL_MALFORMAT;
 
-  gchar cReadBuffer[iBufReadSize];
-  bzero(cReadBuffer, iBufReadSize);
-
-  xmlNanoHTTPInit();
-
-  char * pContentType = NULL;
-  void * pHTTPContext = NULL;
-
-  pHTTPContext = xmlNanoHTTPOpen(pczURL, &pContentType);
-
-  if (!pHTTPContext)
+    if (pccHeaders)
     {
-      // failure
-      cleanup(pHTTPContext, pContentType);
-
-      *piRetCode = -1;
-
-      return pInBuffer; // it's NULL
+        while (*pccHeaders)
+            headers = curl_slist_append(headers, *pccHeaders++);
     }
+    curl_global_init(CURL_GLOBAL_SSL);
+    curl = curl_easy_init();
+    curl_easy_setopt(curl, CURLOPT_URL, pczURL);
+    curl_easy_setopt(curl, CURLOPT_HTTPHEADER, headers);
+    curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, write_data);
+    curl_easy_setopt(curl, CURLOPT_WRITEDATA, &data);
+    res = curl_easy_perform(curl);
+    if (data.buff)
+        data.buff[data.alloc] = '\0';
 
-  *piRetCode = xmlNanoHTTPReturnCode(pHTTPContext);
+    if (pcData)
+        *pcData = data.buff;
+    else
+        g_free(data.buff);
+    if (piDataSize)
+        *piDataSize = data.alloc;
 
-  if (*piRetCode != HTTP_STATUS_OK)
-    {
-      // failure
-      cleanup(pHTTPContext, pContentType);
+    //if (res != CURLE_OK)
+      //fprintf(stderr, "curl_easy_perform() failed: %s\n",
+              //curl_easy_strerror(res));
 
-      return pInBuffer; // it's NULL
-    }
-
-  while ((iReadSize = xmlNanoHTTPRead(pHTTPContext, cReadBuffer, iBufReadSize)) > 0)
-    {
-      // set return code
-      *piRetCode = xmlNanoHTTPReturnCode(pHTTPContext);
-
-      /* Maintain pointer to old location, free on failure */
-      pInBufferRef = pInBuffer;
-
-      pInBuffer = g_try_realloc(pInBuffer, iCurrSize + iReadSize);
-
-      if (!pInBuffer || *piRetCode != HTTP_STATUS_OK)
-        {
-          // failure
-          cleanup(pHTTPContext, pContentType);
-
-          g_free(pInBufferRef);
-
-          return pInBuffer; // it's NULL
-        }
-
-      memcpy(pInBuffer + iCurrSize, cReadBuffer, iReadSize);
-      
-      iCurrSize += iReadSize;
-
-      // clear read buffer
-      bzero(cReadBuffer, iBufReadSize);
-
-      *piDataSize = iCurrSize;
-    }
-
-  if (iReadSize < 0)
-    {
-      // error
-      g_free(pInBuffer);
-
-      pInBuffer = NULL;
-    }
-  else
-    {
-      /* Maintain pointer to old location, free on failure */
-      pInBufferRef = pInBuffer;
-
-      // need to add '\0' at the end
-      pInBuffer = g_try_realloc(pInBuffer, iCurrSize + 1);
-
-      if (!pInBuffer)
-        {
-          // failure
-          g_free(pInBufferRef);
-
-          pInBuffer = NULL;
-        }
-      else
-        {
-          memcpy(pInBuffer + iCurrSize, "\0", 1);
-        }
-    }
-  
-  // finish up
-  cleanup(pHTTPContext, pContentType);
-
-  return pInBuffer;
+    curl_slist_free_all(headers);
+    curl_easy_cleanup(curl);
+    return res;
 }

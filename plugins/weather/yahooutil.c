@@ -24,6 +24,7 @@
 #include "location.h"
 #include "forecast.h"
 #include "logutil.h"
+#include "yahooutil.h"
 
 #include <libxml/parser.h>
 #include <libxml/tree.h>
@@ -34,6 +35,7 @@
 
 #include <gtk/gtk.h>
 #include <gio/gio.h>
+#include <glib/gi18n.h>
 
 #include <string.h>
 #include <stdio.h>
@@ -45,12 +47,33 @@
 #define CONSTCHAR_P(x) (const char *)(x)
 #define CHAR_P(x) (char *)(x)
 
-static gint g_iInitialized = 0;
+#define WIND_DIRECTION(x) ( \
+  ((x>=350 && x<=360) || (x>=0 && x<=11 ))?_("N"): \
+  (x>11   && x<=33 )?_("NNE"): \
+  (x>33   && x<=57 )?_("NE"):  \
+  (x>57   && x<=79 )?_("ENE"): \
+  (x>79   && x<=101)?_("E"):   \
+  (x>101  && x<=123)?_("ESE"): \
+  (x>123  && x<=147)?_("SE"):  \
+  (x>147  && x<=169)?_("SSE"): \
+  (x>169  && x<=192)?_("S"):   \
+  (x>192  && x<=214)?_("SSW"): \
+  (x>214  && x<=236)?_("SW"):  \
+  (x>236  && x<=258)?_("WSW"): \
+  (x>258  && x<=282)?_("W"):   \
+  (x>282  && x<=304)?_("WNW"): \
+  (x>304  && x<=326)?_("NW"):  \
+  (x>326  && x<=349)?_("NNW"):"")
+
+static gint g_iInitialized;
 
 static const gchar * WOEID_QUERY = "SELECT%20*%20FROM%20geo.places%20WHERE%20text=";
 static const gchar * FORECAST_QUERY_P1 = "SELECT%20*%20FROM%20weather.forecast%20WHERE%20woeid=";
 static const gchar * FORECAST_QUERY_P2 = "%20and%20u=";
 static const gchar * FORECAST_URL = "http://query.yahooapis.com/v1/public/yql?format=xml&q=";
+
+struct ProviderInfo {
+};
 
 /**
  * Returns the length for the appropriate WOEID query
@@ -254,15 +277,16 @@ setImageIfDifferent(gchar ** pcStorage,
         }
       
       // retrieve the URL and create the new image
-      gint iRetCode = 0;
+      CURLcode iRetCode;
       gint iDataSize = 0;
+      gpointer pResponse = NULL;
+      iRetCode = getURL(pczNewURL, &pResponse, &iDataSize, NULL);
 
-      gpointer pResponse = getURL(pczNewURL, &iRetCode, &iDataSize);
-
-      if (!pResponse || iRetCode != HTTP_STATUS_OK)
+      if (!pResponse || iRetCode != CURLE_OK)
         {
           LXW_LOG(LXW_ERROR, "yahooutil::setImageIfDifferent(): Failed to get URL (%d, %d)", 
                   iRetCode, iDataSize);
+          g_free(pResponse);
 
           return -1;
         }
@@ -748,7 +772,7 @@ evaluateXPathExpression(xmlXPathContextPtr pContext, const char * pczExpression)
  *       'channel' for Forecast (pForecast)
  */
 static gint
-parseResponse(gpointer pResponse, GList ** pList, gpointer * pForecast)
+parseResponse(gpointer pResponse, GList ** pList, ForecastInfo ** pForecast)
 {
   int iLocation = (pList)?1:0;
 
@@ -898,27 +922,32 @@ parseResponse(gpointer pResponse, GList ** pList, gpointer * pForecast)
  * Initializes the internals: XML 
  *
  */
-void
+static ProviderInfo *
 initializeYahooUtil(void)
 {
+#if 0 /* does not work anymore */
   if (!g_iInitialized)
     {
       xmlInitParser();
 
       g_iInitialized = 1;
     }
+  return (ProviderInfo *)1;
+#else
+  return NULL;
+#endif
 }
 
 /**
  * Cleans up the internals: XML 
  *
  */
-void
-cleanupYahooUtil(void)
+static void
+cleanupYahooUtil(ProviderInfo *instance G_GNUC_UNUSED)
 {
   if (g_iInitialized)
     {
-      xmlCleanupParser();
+      // xmlCleanupParser(); // will crash if there is more than one libxml user
 
       g_iInitialized = 0;
     }
@@ -932,10 +961,10 @@ cleanupYahooUtil(void)
  * @return A pointer to a list of LocationInfo entries, possibly empty, 
  *         if no details were found. Caller is responsible for freeing the list.
  */
-GList *
-getLocationInfo(const gchar * pczLocation)
+static GList *
+getLocationInfo(ProviderInfo * instance G_GNUC_UNUSED, const gchar * pczLocation)
 {
-  gint iRetCode = 0;
+  CURLcode iRetCode;
   gint iDataSize = 0;
 
   GList * pList = NULL;
@@ -953,9 +982,11 @@ getLocationInfo(const gchar * pczLocation)
   LXW_LOG(LXW_DEBUG, "yahooutil::getLocationInfo(%s): query[%d]: %s",
           pczLocation, iRet, cQueryBuffer);
 
-  gpointer pResponse = getURL(cQueryBuffer, &iRetCode, &iDataSize);
+  gpointer pResponse = NULL;
 
-  if (!pResponse || iRetCode != HTTP_STATUS_OK)
+  iRetCode = getURL(cQueryBuffer, &pResponse, &iDataSize, NULL);
+
+  if (!pResponse || iRetCode != CURLE_OK)
     {
       LXW_LOG(LXW_ERROR, "yahooutil::getLocationInfo(%s): Failed with error code %d",
               pczLocation, iRetCode);
@@ -976,7 +1007,7 @@ getLocationInfo(const gchar * pczLocation)
       if (iRet)
         {
           // failure
-          g_list_free_full(pList, freeLocation);
+          g_list_free_full(pList, (GDestroyNotify)freeLocation);
         }
 
     }
@@ -996,50 +1027,66 @@ getLocationInfo(const gchar * pczLocation)
  *                  a new one will be allocated.
  *
  */
-void
-getForecastInfo(const gchar * pczWOEID, const gchar czUnits, gpointer * pForecast)
+static ForecastInfo *getForecastInfo(ProviderInfo *instance G_GNUC_UNUSED,
+                                     LocationInfo *location,
+                                     ForecastInfo *lastForecast)
 {
-  gint iRetCode = 0;
+  CURLcode iRetCode;
   gint iDataSize = 0;
+  ForecastInfo * pForecast = lastForecast;
 
-  gsize len = getForecastQueryLength(pczWOEID);
+  gsize len = getForecastQueryLength(location->pcWOEID_);
 
   gchar * cQueryBuffer = g_malloc(len + 1);
 
-  gint iRet = getForecastQuery(cQueryBuffer, pczWOEID, czUnits);
+  gint iRet = getForecastQuery(cQueryBuffer, location->pcWOEID_, location->cUnits_);
 
   LXW_LOG(LXW_DEBUG, "yahooutil::getForecastInfo(%s): query[%d]: %s",
-          pczWOEID, iRet, cQueryBuffer);
+          location->pcWOEID_, iRet, cQueryBuffer);
 
-  gpointer pResponse = getURL(cQueryBuffer, &iRetCode, &iDataSize);
+  gpointer pResponse = NULL;
 
-  if (!pResponse || iRetCode != HTTP_STATUS_OK)
+  iRetCode = getURL(cQueryBuffer, &pResponse, &iDataSize, NULL);
+
+  if (!pResponse || iRetCode != CURLE_OK)
     {
       LXW_LOG(LXW_ERROR, "yahooutil::getForecastInfo(%s): Failed with error code %d",
-              pczWOEID, iRetCode);
+              location->pcWOEID_, iRetCode);
     }
   else
     {
       LXW_LOG(LXW_DEBUG, "yahooutil::getForecastInfo(%s): Response code: %d, size: %d",
-              pczWOEID, iRetCode, iDataSize);
+              location->pcWOEID_, iRetCode, iDataSize);
 
       LXW_LOG(LXW_VERBOSE, "yahooutil::getForecastInfo(%s): Contents: %s",
-              pczWOEID, (const char *)pResponse);
+              location->pcWOEID_, (const char *)pResponse);
 
-      iRet = parseResponse(pResponse, NULL, pForecast);
+      iRet = parseResponse(pResponse, NULL, &pForecast);
     
       LXW_LOG(LXW_DEBUG, "yahooutil::getForecastInfo(%s): Response parsing returned %d",
-              pczWOEID, iRet);
+              location->pcWOEID_, iRet);
 
       if (iRet)
         {
-          freeForecast(*pForecast);
+          freeForecast(pForecast);
 
-          *pForecast = NULL;
+          pForecast = NULL;
         }
 
     }
 
   g_free(cQueryBuffer);
   g_free(pResponse);
+
+  return pForecast;
 }
+
+provider_callback_info YahooCallbacks = {
+  .name = "yahoo",
+  .description = N_("Yahoo! Weather"),
+  .initProvider = initializeYahooUtil,
+  .freeProvider = cleanupYahooUtil,
+  .getLocationInfo = getLocationInfo,
+  .getForecastInfo = getForecastInfo,
+  .supports_woeid = TRUE
+};

@@ -24,6 +24,8 @@
 #include "weatherwidget.h"
 #include "yahooutil.h"
 #include "logutil.h"
+#include "providers.h"
+#include "openweathermap.h"
 
 #include "plugin.h"
 
@@ -32,13 +34,19 @@
 #include <gtk/gtk.h>
 #include <stdlib.h>
 
+static provider_callback_info *providersList[] = {
+/*  &YahooCallbacks, -- does not work anymore */
+  &OpenWeatherMapCallbacks,
+  NULL
+};
+
 /* Need to maintain count for bookkeeping */
 static gint g_iCount = 0;
 
 typedef struct
 {
   gint iMyId_;
-  GtkWidget *pWeather_;
+  GtkWeather *pWeather_;
   config_setting_t *pConfig_;
   LXPanel *pPanel_;
 } WeatherPluginPrivate;
@@ -62,8 +70,6 @@ weather_destructor(gpointer pData)
 
   if (g_iCount == 0)
     {
-      cleanupYahooUtil();
-
       cleanupLogUtil();
     }
 }
@@ -79,7 +85,13 @@ weather_destructor(gpointer pData)
 static GtkWidget *
 weather_constructor(LXPanel *pPanel, config_setting_t *pConfig)
 {
-  WeatherPluginPrivate * pPriv = g_new0(WeatherPluginPrivate, 1);
+  WeatherPluginPrivate *pPriv;
+  const char *pczDummy;
+  int iDummyVal;
+  int locSet = 0;
+  provider_callback_info **pProvider;
+
+  pPriv = g_new0(WeatherPluginPrivate, 1);
 
   pPriv->pConfig_ = pConfig;
   pPriv->pPanel_ = pPanel;
@@ -94,20 +106,53 @@ weather_constructor(LXPanel *pPanel, config_setting_t *pConfig)
       initializeLogUtil("syslog");
       
       setMaxLogLevel(LXW_ERROR);
-
-      initializeYahooUtil();
     }
 
   LXW_LOG(LXW_DEBUG, "weather_constructor()");
   
-  GtkWidget * pWidg = gtk_weather_new();
+  GtkWeather * pWidg = gtk_weather_new();
 
   pPriv->pWeather_ = pWidg;
+
+  /* Try to get a provider */
+  if (config_setting_lookup_string(pConfig, "provider", &pczDummy))
+    {
+      for (pProvider = providersList; *pProvider; pProvider++)
+        {
+          if (strcmp((*pProvider)->name, pczDummy) == 0)
+            {
+              locSet = gtk_weather_set_provider(pWidg, *pProvider);
+              break;
+            }
+        }
+    }
+
+  /* No working provider selected, let try some */
+  if (!locSet)
+    {
+      for (pProvider = providersList; *pProvider; pProvider++)
+        {
+          locSet = gtk_weather_set_provider(pWidg, *pProvider);
+          if (locSet)
+            break;
+        }
+    }
+
+  /* No working provider found, retreat */
+  if (!locSet)
+  {
+    gtk_widget_destroy(GTK_WIDGET(pWidg));
+    g_free(pPriv);
+    --g_iCount;
+    if (g_iCount == 0)
+      cleanupLogUtil();
+    return NULL;
+  }
 
   GtkWidget * pEventBox = gtk_event_box_new();
 
   lxpanel_plugin_set_data(pEventBox, pPriv, weather_destructor);
-  gtk_container_add(GTK_CONTAINER(pEventBox), pWidg);
+  gtk_container_add(GTK_CONTAINER(pEventBox), GTK_WIDGET(pWidg));
 
   gtk_widget_set_has_window(pEventBox, FALSE);
 
@@ -115,8 +160,6 @@ weather_constructor(LXPanel *pPanel, config_setting_t *pConfig)
 
   /* use config settings */
   LocationInfo * pLocation = g_new0(LocationInfo, 1);
-  const char *pczDummy = NULL;
-  int iDummyVal = 0;
 
   if (config_setting_lookup_string(pConfig, "alias", &pczDummy))
     {
@@ -158,13 +201,32 @@ weather_constructor(LXPanel *pPanel, config_setting_t *pConfig)
       LXW_LOG(LXW_ERROR, "Weather: could not lookup country in config.");
     }
 
-  if (config_setting_lookup_string(pConfig, "woeid", &pczDummy))
+  iDummyVal = 0;
+  locSet = 0;
+  pLocation->dLongitude_ = 360.0; /* invalid value */
+  pLocation->dLatitude_ = 360.0;
+  if (config_setting_lookup_string(pConfig, "longitude", &pczDummy))
+    {
+      pLocation->dLongitude_ = g_strtod(pczDummy, NULL);
+      iDummyVal++;
+    }
+  if (iDummyVal && config_setting_lookup_string(pConfig, "latitude", &pczDummy))
+    {
+      pLocation->dLatitude_ = g_strtod(pczDummy, NULL);
+      locSet = 1;
+    }
+  /* no coords found, let try woeid if provider works with it though */
+  else if ((*pProvider)->supports_woeid &&
+           config_setting_lookup_string(pConfig, "woeid", &pczDummy))
     {
       pLocation->pcWOEID_ = g_strndup(pczDummy, (pczDummy) ? strlen(pczDummy) : 0);
+      locSet = 1;
     }
-  else if (config_setting_lookup_int(pConfig, "woeid", &iDummyVal))
+  else if ((*pProvider)->supports_woeid &&
+           config_setting_lookup_int(pConfig, "woeid", &iDummyVal))
     {
       pLocation->pcWOEID_ = g_strdup_printf("%d", iDummyVal);
+      locSet = 1;
     }
   else
     {
@@ -182,6 +244,8 @@ weather_constructor(LXPanel *pPanel, config_setting_t *pConfig)
 
   if (config_setting_lookup_int(pConfig, "interval", &iDummyVal))
     {
+      if (iDummyVal < 20) /* Minimum 20 minutes */
+        iDummyVal = 60; /* Set to default 60 minutes */
       pLocation->uiInterval_ = (guint)iDummyVal;
     }
   else
@@ -189,7 +253,6 @@ weather_constructor(LXPanel *pPanel, config_setting_t *pConfig)
       LXW_LOG(LXW_ERROR, "Weather: could not lookup interval in config.");
     }
 
-  iDummyVal = 0;
   if (config_setting_lookup_int(pConfig, "enabled", &iDummyVal))
     {
       pLocation->bEnabled_ = (gint)iDummyVal;
@@ -199,7 +262,7 @@ weather_constructor(LXPanel *pPanel, config_setting_t *pConfig)
       LXW_LOG(LXW_ERROR, "Weather: could not lookup enabled flag in config.");
     }
 
-  if (pLocation->pcAlias_ && pLocation->pcWOEID_)
+  if (pLocation->pcAlias_ && locSet)
     {
       GValue locationValue = G_VALUE_INIT;
 
@@ -227,6 +290,7 @@ void weather_save_configuration(GtkWidget * pWeather, LocationInfo * pLocation)
 {
   GtkWidget * pWidget = gtk_widget_get_parent(pWeather);
   WeatherPluginPrivate * pPriv = NULL;
+  provider_callback_info * pProvider;
 
   if (pWidget)
     {
@@ -249,16 +313,32 @@ void weather_save_configuration(GtkWidget * pWeather, LocationInfo * pLocation)
       config_group_set_string(pPriv->pConfig_, "country", pLocation->pcCountry_);
       config_group_set_string(pPriv->pConfig_, "woeid", pLocation->pcWOEID_);
 
-      char units[2] = {0};
-      if (snprintf(units, 2, "%c", pLocation->cUnits_) > 0)
+      char buff[16];
+      if (snprintf(buff, 2, "%c", pLocation->cUnits_) > 0)
         {
-          config_group_set_string(pPriv->pConfig_, "units", units);
+          config_group_set_string(pPriv->pConfig_, "units", buff);
+        }
+
+      if (pLocation->dLatitude_ < 360.0)
+        {
+          snprintf(buff, sizeof(buff), "%.6f", pLocation->dLatitude_);
+          config_group_set_string(pPriv->pConfig_, "latitude", buff);
+        }
+      if (pLocation->dLongitude_ < 360.0)
+        {
+          snprintf(buff, sizeof(buff), "%.6f", pLocation->dLongitude_);
+          config_group_set_string(pPriv->pConfig_, "longitude", buff);
         }
 
       config_group_set_int(pPriv->pConfig_, "interval", (int) pLocation->uiInterval_);
       config_group_set_int(pPriv->pConfig_, "enabled", (int) pLocation->bEnabled_);
     }
 
+  pProvider = gtk_weather_get_provider(GTK_WEATHER(pWeather));
+  if (pProvider)
+    {
+      config_group_set_string(pPriv->pConfig_, "provider", pProvider->name);
+    }
 }
 
 void weather_set_label_text(GtkWidget * pWeather, GtkWidget * label, const gchar * text)
@@ -300,9 +380,7 @@ weather_configuration_changed(LXPanel *pPanel, GtkWidget *pWidget)
               panel_get_icon_size(pPanel));
 
       WeatherPluginPrivate * pPriv = (WeatherPluginPrivate *) lxpanel_plugin_get_data(pWidget);
-      GtkWeather * weather = GTK_WEATHER(pPriv->pWeather_);
-      gtk_weather_render(weather);
-
+      gtk_weather_render(pPriv->pWeather_);
     }
 }
 
@@ -322,7 +400,7 @@ weather_configure(LXPanel *pPanel G_GNUC_UNUSED, GtkWidget *pWidget)
 
   WeatherPluginPrivate * pPriv = (WeatherPluginPrivate *) lxpanel_plugin_get_data(pWidget);
 
-  GtkWidget * pDialog = gtk_weather_create_preferences_dialog(GTK_WIDGET(pPriv->pWeather_));
+  GtkWidget * pDialog = gtk_weather_create_preferences_dialog(pPriv->pWeather_, providersList);
 
   return pDialog;
 }

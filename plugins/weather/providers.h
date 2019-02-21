@@ -1,5 +1,5 @@
-/**
- * Copyright (c) 2012-2014 Piotr Sipika; see the AUTHORS file for more.
+/*
+ * Copyright (C) 2019 Andriy Grutsenko <andrej@rep.kiev.ua>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -14,30 +14,30 @@
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software Foundation,
  * Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
- * 
+ *
  * See the COPYRIGHT file for more information.
  */
 
-/* Provides http protocol utility functions */
+#ifndef _PROVIDERS_H_
+#define _PROVIDERS_H_ 1
 
-#ifndef LXWEATHER_HTTPUTIL_HEADER
-#define LXWEATHER_HTTPUTIL_HEADER
+#include "forecast.h"
+#include "location.h"
 
 #include <glib.h>
-#include <curl/curl.h>
 
-/**
- * Returns the contents of the requested URL
- *
- * @param pczURL The URL to retrieve [in].
- * @param pcData A pointer to a null-terminated buffer containing the textual
- *         representation of the response. Must be freed by the caller. [out].
- * @param piDataSize The resulting data length [out].
- * @param headers Extra headers for GET request [in].
- *
- * @return The return code supplied by CURL
- */
-CURLcode
-getURL(const gchar * pczURL, gchar ** pcData, gint * piDataSize, const gchar ** headers);
+typedef struct ProviderInfo ProviderInfo;
 
-#endif
+typedef struct {
+    const char *name;
+    const char *description;
+    ProviderInfo * (*initProvider)(void);
+    void (*freeProvider)(ProviderInfo *instance);
+    GList * (*getLocationInfo)(ProviderInfo *instance, const gchar *pattern);
+    ForecastInfo * (*getForecastInfo)(ProviderInfo *instance,
+                                      LocationInfo *location,
+                                      ForecastInfo *last);
+    gboolean supports_woeid;
+} provider_callback_info;
+
+#endif /* _PROVIDERS_H_ */

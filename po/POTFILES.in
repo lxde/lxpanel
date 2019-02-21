@@ -50,3 +50,5 @@ plugins/monitors/monitors.c
 
 plugins/weather/weatherwidget.c
 plugins/weather/weather.c
+plugins/weather/yahooutil.c
+plugins/weather/openweathermap.c

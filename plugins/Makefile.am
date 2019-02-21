@@ -141,15 +141,18 @@ endif
 weather_la_SOURCES = \
 	weather/logutil.c          \
 	weather/httputil.c         \
-	weather/yahooutil.c        \
+	weather/openweathermap.c   \
 	weather/location.c         \
 	weather/forecast.c         \
 	weather/weatherwidget.c    \
 	weather/weather.c
 weather_la_CFLAGS = \
 	-I$(srcdir)/weather \
-	$(LIBXML2_CFLAGS)
-weather_la_LIBADD = $(LIBXML2_LIBS)
+	$(LIBXML2_CFLAGS) \
+	$(CURL_CFLAGS)
+weather_la_LIBADD = \
+	$(LIBXML2_LIBS) \
+	$(CURL_LIBS)
 
 # xkb
 xkb_la_CFLAGS = \
@@ -315,7 +318,9 @@ EXTRA_DIST = \
 	netstatus/netstatus-util.h \
 	weather/logutil.h \
 	weather/httputil.h \
+	weather/yahooutil.c \
 	weather/yahooutil.h \
+	weather/openweathermap.h \
 	weather/location.h \
 	weather/forecast.h \
 	weather/weatherwidget.h \

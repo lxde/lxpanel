@@ -44,14 +44,12 @@ const gchar * LocationInfoFieldNames[] = { "alias",
  *
  */
 void
-freeLocation(gpointer pData)
+freeLocation(LocationInfo * pEntry)
 {
-  if (!pData)
+  if (!pEntry)
     {
       return;
     }
-
-  LocationInfo * pEntry = (LocationInfo *)pData;
 
   g_free(pEntry->pcAlias_);
   g_free(pEntry->pcCity_);
@@ -59,7 +57,7 @@ freeLocation(gpointer pData)
   g_free(pEntry->pcCountry_);
   g_free(pEntry->pcWOEID_);
 
-  g_free(pData);
+  g_free(pEntry);
 }
 
 /**
@@ -69,17 +67,15 @@ freeLocation(gpointer pData)
  *
  */
 void
-printLocation(gpointer pEntry G_GNUC_UNUSED)
+printLocation(LocationInfo * pInfo G_GNUC_UNUSED)
 {
 #ifdef DEBUG
-  if (!pEntry)
+  if (!pInfo)
     {
       LXW_LOG(LXW_ERROR, "location::printLocation(): Entry: NULL");
       
       return;
     }
-
-  LocationInfo * pInfo = (LocationInfo *)pEntry;
 
   LXW_LOG(LXW_VERBOSE, "Entry:");
   LXW_LOG(LXW_VERBOSE, "\tAlias: %s", (const char *)pInfo->pcAlias_);
@@ -102,18 +98,14 @@ printLocation(gpointer pEntry G_GNUC_UNUSED)
  *
  */
 void
-setLocationAlias(gpointer pEntry, gpointer pData)
+setLocationAlias(LocationInfo * pLocation, const gchar * pczAlias)
 {
-  if (!pEntry)
+  if (!pLocation)
     {
       LXW_LOG(LXW_ERROR, "Location: NULL");
 
       return;
     }
-
-  LocationInfo * pLocation = (LocationInfo *)pEntry;
-
-  const gchar * pczAlias = (const gchar *)pData;
 
   gsize aliasLength = (pczAlias)?strlen(pczAlias):0;
 
@@ -136,25 +128,23 @@ setLocationAlias(gpointer pEntry, gpointer pData)
  *       the caller.
  */
 void
-copyLocation(gpointer * pDestination, gpointer pSource)
+copyLocation(LocationInfo ** pDestination, LocationInfo * pSource)
 {
   if (!pSource || !pDestination)
     {
       return;
     }
 
-  if ((LocationInfo *)*pDestination)
+  if (*pDestination)
     {
       /* Check if the two are the same, first */
-      LocationInfo * pDstLocation = (LocationInfo *) *pDestination;
+      LocationInfo * pDstLocation = *pDestination;
 
-      LocationInfo * pSrcLocation = (LocationInfo *)pSource;
-
-      if (!strncmp(pDstLocation->pcWOEID_, pSrcLocation->pcWOEID_, strlen(pSrcLocation->pcWOEID_)))
+      if (pSource->pcWOEID_ && !g_strcmp0(pDstLocation->pcWOEID_, pSource->pcWOEID_))
         {
           /* they're the same, no need to copy, just assign alias */
-          setLocationAlias(*pDestination, pSrcLocation->pcAlias_);
-          
+          setLocationAlias(*pDestination, pSource->pcAlias_);
+
           return;
         }
 
@@ -187,6 +177,10 @@ copyLocation(gpointer * pDestination, gpointer pSource)
                                           (pSrc->pcWOEID_)?strlen(pSrc->pcWOEID_):0);
 
       pDest->cUnits_ = (pSrc->cUnits_) ? pSrc->cUnits_ : 'f';
+
+      pDest->dLongitude_ = pSrc->dLongitude_;
+
+      pDest->dLatitude_ = pSrc->dLatitude_;
 
       pDest->uiInterval_ = pSrc->uiInterval_;
 
