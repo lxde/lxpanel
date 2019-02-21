@@ -89,8 +89,8 @@ msgid "LXPanel"
 msgstr "LIks-Panel"
 
 #: ../src/panel.c:1369
-msgid "Copyright (C) 2008-2016"
-msgstr "Prava tvorca — 2008-2017."
+msgid "Copyright (C) 2008-2019"
+msgstr "Prava tvorca — 2008-2019"
 
 #: ../src/panel.c:1370
 msgid "Desktop panel for LXDE project"

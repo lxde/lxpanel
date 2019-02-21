@@ -87,7 +87,7 @@ msgstr "اِل اِکس پنل"
 
 #: ../src/panel.c:1369
 #, fuzzy
-msgid "Copyright (C) 2008-2016"
+msgid "Copyright (C) 2008-2019"
 msgstr "حق نشر)c( 2010-2011"
 
 #: ../src/panel.c:1370

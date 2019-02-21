@@ -89,7 +89,7 @@ msgstr "لوحة‌لكسدي"
 
 #: ../src/panel.c:1369
 #, fuzzy
-msgid "Copyright (C) 2008-2016"
+msgid "Copyright (C) 2008-2019"
 msgstr "حقوق النشر محفوظة (C) 2008-2013"
 
 #: ../src/panel.c:1370

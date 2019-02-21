@@ -85,7 +85,7 @@ msgstr "LXప్యానల్"
 
 #: ../src/panel.c:1369
 #, fuzzy
-msgid "Copyright (C) 2008-2016"
+msgid "Copyright (C) 2008-2019"
 msgstr "నకలుహక్కు (C) 2008-2011"
 
 #: ../src/panel.c:1370

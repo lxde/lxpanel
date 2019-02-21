@@ -94,7 +94,7 @@ msgstr "ایل ایکس پینل"
 
 #: ../src/panel.c:1369
 #, fuzzy
-msgid "Copyright (C) 2008-2016"
+msgid "Copyright (C) 2008-2019"
 msgstr "کاپی رائٹ (C) 2008-2011"
 
 #: ../src/panel.c:1370

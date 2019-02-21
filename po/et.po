@@ -90,8 +90,8 @@ msgid "LXPanel"
 msgstr "LXPaneel"
 
 #: ../src/panel.c:1369
-msgid "Copyright (C) 2008-2016"
-msgstr "Autoriõigus (C) 2008-2016"
+msgid "Copyright (C) 2008-2019"
+msgstr "Autoriõigus (C) 2008-2019"
 
 #: ../src/panel.c:1370
 msgid "Desktop panel for LXDE project"

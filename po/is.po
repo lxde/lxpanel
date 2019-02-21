@@ -89,7 +89,7 @@ msgstr "LXPanel"
 
 #: ../src/panel.c:1369
 #, fuzzy
-msgid "Copyright (C) 2008-2016"
+msgid "Copyright (C) 2008-2019"
 msgstr "Höfundarréttur (C) 2008-2014"
 
 #: ../src/panel.c:1370
