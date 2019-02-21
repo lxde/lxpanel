@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: LXPanel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-11-01 00:50+0200\n"
-"PO-Revision-Date: 2017-06-27 10:47+0000\n"
-"Last-Translator: Jay A. Fleming <tito.nehru.naser@gmail.com>\n"
+"PO-Revision-Date: 2018-12-23 18:15+0000\n"
+"Last-Translator: markos <jezzivi@yahoo.com>\n"
 "Language-Team: \n"
 "Language: sr\n"
 "MIME-Version: 1.0\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Pootle 2.8\n"
-"X-POOTLE-MTIME: 1498560469.781569\n"
+"X-POOTLE-MTIME: 1545588924.767839\n"
 "X-Pootle-Path: /sr/lxpanel/po/sr.po\n"
 "X-Pootle-Revision: 976\n"
 
@@ -82,7 +82,7 @@ msgstr "Потврда"
 #. TRANSLATORS: Replace this string with your names, one name per line.
 #: ../src/panel.c:1346
 msgid "translator-credits"
-msgstr "Српски — Jay A. Fleming <tito.nehru.naser@gmail.com>"
+msgstr "Српски — Jay A. Fleming  tito.nehru.naser@gmail.com"
 
 #: ../src/panel.c:1351
 msgid "LXPanel"
@@ -1043,7 +1043,6 @@ msgid "Surround"
 msgstr "Окружујући"
 
 #: ../plugins/volumealsa/volumealsa.c:1291
-#, fuzzy
 msgid "Speaker+LO"
 msgstr "Звучник+LO"
 

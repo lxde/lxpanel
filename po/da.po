@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-10-24 21:15+0300\n"
-"PO-Revision-Date: 2017-11-01 07:36+0000\n"
+"PO-Revision-Date: 2018-10-01 23:09+0000\n"
 "Last-Translator: scootergrisen <scootergrisen@gmail.com>\n"
 "Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
 "Language: da\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.8\n"
-"X-POOTLE-MTIME: 1509521769.534636\n"
+"X-POOTLE-MTIME: 1538435386.562472\n"
 "X-Pootle-Path: /da/lxpanel/po/da.po\n"
 "X-Pootle-Revision: 0\n"
 
@@ -620,7 +620,7 @@ msgstr "Vis CPU-belastning"
 
 #: ../plugins/deskno/deskno.c:208 ../plugins/deskno/deskno.c:228
 msgid "Desktop Number / Workspace Name"
-msgstr "Skrivebordsnummer/Arbejdsområdenavn"
+msgstr "Skrivebordsnummer/arbejdsområdenavn"
 
 #: ../plugins/deskno/deskno.c:210 ../plugins/dclock.c:437
 msgid "Bold font"
@@ -1552,7 +1552,7 @@ msgstr "Kunne ikke fortolke kommandolinje '%s': %s"
 
 #: ../plugins/netstatus/netstatus-sysdeps.c:637
 msgid "Could not parse 'netstat' output. Unknown format"
-msgstr "Kunne ikke fortolke uddata for 'netstat'. Ukendt format"
+msgstr "Kunne ikke fortolke 'netstat'-output. Ukendt format"
 
 #: ../plugins/netstatus/netstatus-util.c:152
 msgid "Disconnected"
@@ -1732,7 +1732,7 @@ msgstr "Vis batteristatus ved hjælp af ACPI"
 
 #: ../plugins/kbled/kbled.c:203 ../plugins/kbled/kbled.c:234
 msgid "Keyboard LED"
-msgstr "Tastaturindikatorer"
+msgstr "Tastatur-LED"
 
 #: ../plugins/kbled/kbled.c:205
 msgid "Show CapsLock"
@@ -1769,7 +1769,7 @@ msgstr "Urindikator"
 
 #: ../plugins/indicator/indicator.c:867
 msgid "Messaging Menu"
-msgstr "Beskedgivningsmenu"
+msgstr "Meddelelsesmenu"
 
 #: ../plugins/indicator/indicator.c:868
 msgid "Network Menu"
