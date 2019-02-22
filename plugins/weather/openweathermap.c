@@ -523,6 +523,11 @@ parseResponse(const char * pResponse, GList ** pList, ForecastInfo ** pForecast,
             }
           else if (xmlStrEqual(pNode->name, CONSTXMLCHAR_P("clouds"))) // value="40" name="scattered clouds"
             {
+              char * value = CHAR_P(xmlGetProp(pNode, XMLCHAR_P("name")));
+              gsize vlen = (value)?strlen(value):0;
+
+              setStringIfDifferent(&pEntry->pcClouds_, value, vlen);
+              xmlFree(value);
             }
           else if (xmlStrEqual(pNode->name, CONSTXMLCHAR_P("visibility"))) // value="7000"
             {
@@ -540,10 +545,10 @@ parseResponse(const char * pResponse, GList ** pList, ForecastInfo ** pForecast,
             {
               char * value = CHAR_P(xmlGetProp(pNode, XMLCHAR_P("value")));
               char * icon = CHAR_P(xmlGetProp(pNode, XMLCHAR_P("icon")));
+              char * number = CHAR_P(xmlGetProp(pNode, XMLCHAR_P("number")));
               char * pcImageURL = NULL;
               gsize vlen = (value)?strlen(value):0;
 
-              setStringIfDifferent(&pEntry->pcConditions_, value, vlen);
               if (icon)
                 pcImageURL = g_strdup_printf("http://openweathermap.org/img/w/%s.png", icon);
               setImageIfDifferent(&pEntry->pcImageURL_,
@@ -551,8 +556,19 @@ parseResponse(const char * pResponse, GList ** pList, ForecastInfo ** pForecast,
                                   pcImageURL,
                                   strlen(pcImageURL));
 
+              if (number && *number && atoi(number) < 800) /* not clear */
+                {
+                  setStringIfDifferent(&pEntry->pcConditions_, value, vlen);
+                }
+              else
+                {
+                  g_free(pEntry->pcConditions_);
+                  pEntry->pcConditions_ = NULL;
+                }
+
               xmlFree(value);
               xmlFree(icon);
+              xmlFree(number);
               g_free(pcImageURL);
             }
           else if (xmlStrEqual(pNode->name, CONSTXMLCHAR_P("lastupdate"))) // value="2019-02-16T18:00:00"
@@ -560,7 +576,6 @@ parseResponse(const char * pResponse, GList ** pList, ForecastInfo ** pForecast,
               char * value = CHAR_P(xmlGetProp(pNode, XMLCHAR_P("value")));
 
               setTimeIfDifferent(&pEntry->pcTime_, value);
-              //FIXME: count timezone
               xmlFree(value);
             }
         }// end if element

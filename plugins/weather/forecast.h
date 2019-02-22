@@ -39,6 +39,7 @@ typedef struct
   gint iHigh_;
   gint iLow_;
   gchar * pcConditions_;
+  gchar * pcClouds_;
 } Forecast;
 
 typedef struct
@@ -66,6 +67,7 @@ typedef struct
   gchar * pcTime_;
   gint iTemperature_;
   gchar * pcConditions_;
+  gchar * pcClouds_;
   gchar * pcImageURL_;
   GdkPixbuf * pImage_;
 } ForecastInfo;

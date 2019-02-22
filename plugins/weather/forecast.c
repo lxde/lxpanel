@@ -40,6 +40,7 @@ freeForecastForecast(Forecast * pEntry)
   //  g_free(pEntry->iHigh_);
   //  g_free(pEntry->iLow_);
   g_free(pEntry->pcConditions_);
+  g_free(pEntry->pcClouds_);
 }
 
 /**
@@ -89,6 +90,7 @@ freeForecast(ForecastInfo * pEntry)
   g_free(pEntry->pcTime_);
   //  g_free(pEntry->iTemperature_);
   g_free(pEntry->pcConditions_);
+  g_free(pEntry->pcClouds_);
   g_free(pEntry->pcImageURL_);
   
   if (pEntry->pImage_)
@@ -134,6 +136,7 @@ printForecast(ForecastInfo * pInfo G_GNUC_UNUSED)
            (pInfo->pressureState_ == RISING)?"rising":
            (pInfo->pressureState_ == FALLING)?"falling":"?"));
   LXW_LOG(LXW_VERBOSE, "\tConditions: %s", (const char *)pInfo->pcConditions_);
+  LXW_LOG(LXW_VERBOSE, "\tClouds: %s", (const char *)pInfo->pcClouds_);
   LXW_LOG(LXW_VERBOSE, "\tVisibility: %3.02f%s", 
           pInfo->dVisibility_,
           (const char *)pInfo->units_.pcDistance_);

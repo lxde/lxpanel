@@ -1873,10 +1873,12 @@ gtk_weather_run_conditions_dialog(GtkWeather * weather)
       GtkWidget * icon_image = gtk_image_new_from_stock(GTK_STOCK_MISSING_IMAGE,
                                                         GTK_ICON_SIZE_MENU);
 
-      gchar * conditions_label_text = g_strdup_printf("<b>%d \302\260%s %s</b>", 
+      gchar * conditions_label_text = g_strdup_printf("<b>%d \302\260%s %s%s%s</b>", 
                                                       forecast->iTemperature_,
                                                       forecast->units_.pcTemperature_,
-                                                      _(forecast->pcConditions_));
+                                                      forecast->pcClouds_ ? forecast->pcClouds_ : "",
+                                                      (forecast->pcConditions_ && forecast->pcClouds_) ? ", " : "",
+                                                      forecast->pcConditions_ ? forecast->pcConditions_ : "");
 
       GtkWidget * conditions_label = gtk_label_new(NULL);
       gtk_label_set_markup(GTK_LABEL(conditions_label), conditions_label_text);
@@ -2215,6 +2217,13 @@ gtk_weather_show_location_list(GtkWeather * weather, GList * list)
 
           LocationInfo * location = g_list_nth_data(list, index);
 
+          /* new location contains no info on autoupdate, copy from current */
+          if (location && priv->location)
+            {
+              location->bEnabled_ = priv->location->bEnabled_;
+              location->uiInterval_ = priv->location->uiInterval_;
+            }
+
           gtk_weather_set_location(weather, (gpointer)location);
           /* list of locations is released by the caller */
 
@@ -2264,18 +2273,21 @@ gtk_weather_get_tooltip_text(GtkWeather * weather)
 
 #if 0 // TODO!
       gchar * today = g_strdup_printf("%s %d\302\260 / %d\302\260",
-                                      _(forecast->today_.pcConditions_),
+                                      forecast->today_.pcConditions_,
                                       forecast->today_.iLow_,
                                       forecast->today_.iHigh_);
 
       gchar * tomorrow = g_strdup_printf("%s %d\302\260 / %d\302\260",
-                                         _(forecast->tomorrow_.pcConditions_),
+                                         forecast->tomorrow_.pcConditions_,
                                          forecast->tomorrow_.iLow_,
                                          forecast->tomorrow_.iHigh_);
 #endif
       /* make it nice and pretty */
       tooltip_text = g_strconcat(_("Currently in "),location->pcAlias_, ": ",
-                                 _(forecast->pcConditions_), " ", temperature, "",
+                                 forecast->pcClouds_ ? forecast->pcClouds_ : "",
+                                 (forecast->pcConditions_ && forecast->pcClouds_) ? ", " : "",
+                                 forecast->pcConditions_ ? forecast->pcConditions_ : "",
+                                 " ", temperature, "",
 #if 0 // TODO!
                                  _("Today: "), today, "\n",
                                  _("Tomorrow: "), tomorrow,
