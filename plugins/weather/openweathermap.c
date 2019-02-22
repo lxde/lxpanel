@@ -52,6 +52,24 @@
 #define CONSTCHAR_P(x) (const char *)(x)
 #define CHAR_P(x) (char *)(x)
 
+#define WIND_DIRECTION(x) ( \
+  ((x>=350 && x<=360) || (x>=0 && x<=11 ))?_("N"): \
+  (x>11   && x<=33 )?_("NNE"): \
+  (x>33   && x<=57 )?_("NE"):  \
+  (x>57   && x<=79 )?_("ENE"): \
+  (x>79   && x<=101)?_("E"):   \
+  (x>101  && x<=123)?_("ESE"): \
+  (x>123  && x<=147)?_("SE"):  \
+  (x>147  && x<=169)?_("SSE"): \
+  (x>169  && x<=192)?_("S"):   \
+  (x>192  && x<=214)?_("SSW"): \
+  (x>214  && x<=236)?_("SW"):  \
+  (x>236  && x<=258)?_("WSW"): \
+  (x>258  && x<=282)?_("W"):   \
+  (x>282  && x<=304)?_("WNW"): \
+  (x>304  && x<=326)?_("NW"):  \
+  (x>326  && x<=349)?_("NNW"):"")
+
 static gint g_iInitialized = 0;
 
 struct ProviderInfo {
@@ -353,9 +371,20 @@ processWindNode(ForecastInfo * pEntry, xmlNodePtr pNode, const gchar czUnits)
             else if (xmlStrEqual(pCurr->name, CONSTXMLCHAR_P("direction"))) // value="270" code="W" name="West"
             {
                 char * code = CHAR_P(xmlGetProp(pCurr, XMLCHAR_P("code")));
-                const char * name = code ? _(code) : NULL;
-                gsize nlen = (name)?strlen(name):0;
+                const char * name = (code && *code) ? _(code) : NULL;
+                gsize nlen;
 
+                if (!name)
+                {
+                    xmlFree(code);
+                    code = CHAR_P(xmlGetProp(pCurr, XMLCHAR_P("value")));
+                    if (code)
+                    {
+                        gint degree = atoi(code);
+                        name = WIND_DIRECTION(degree);
+                    }
+                }
+                nlen = (name)?strlen(name):0;
                 setStringIfDifferent(&pEntry->pcWindDirection_, name, nlen);
                 xmlFree(code);
             }
