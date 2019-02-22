@@ -1510,7 +1510,7 @@ gtk_weather_update_preferences_dialog(GtkWeather * weather)
 
       /* populate location_label */
       gchar * loc = g_strconcat((location->pcCity_)?location->pcCity_:"",
-                                (location->pcState_)?", ":"",
+                                (location->pcCity_ && location->pcState_)?", ":"",
                                 (location->pcState_)?location->pcState_:"",
                                 (location->pcCountry_)?", ":"",
                                 (location->pcCountry_)?location->pcCountry_:"",
@@ -1627,7 +1627,7 @@ gtk_weather_run_conditions_dialog(GtkWeather * weather)
       GtkWidget * forecast_table = gtk_table_new(9, 2, FALSE);
 
       gchar * location_label_text = g_strconcat((location->pcCity_)?location->pcCity_:"",
-                                                (location->pcState_)?", ":"",
+                                                (location->pcCity_ && location->pcState_)?", ":"",
                                                 (location->pcState_)?location->pcState_:"",
                                                 (location->pcCountry_)?", ":"",
                                                 (location->pcCountry_)?location->pcCountry_:"",

@@ -659,9 +659,9 @@ display_name="Berlin, Coös County, Нью-Гемпшир, 03570, Сполуче
 display_name="City of Berlin, Green Lake County, Вісконсин, Сполучені Штати Америки" 1 3 4
  */
     char *value = CHAR_P(xmlGetProp(pNode, XMLCHAR_P("class")));
-    char *name, *reg, *ptr;
+    char *type;
+    xmlNodePtr pCurr;
     int res;
-    gboolean is_city;
 
     if (!value) /* no class property */
         goto _fail;
@@ -670,10 +670,6 @@ display_name="City of Berlin, Green Lake County, Вісконсин, Сполу�
     xmlFree(value);
     if (res != 0) /* ignore other than class="place" */
         goto _fail;
-
-    value = CHAR_P(xmlGetProp(pNode, XMLCHAR_P("type")));
-    is_city = g_strcmp0(value, "city") == 0;
-    xmlFree(value);
 
     value = CHAR_P(xmlGetProp(pNode, XMLCHAR_P("lon")));
     if (!value) /* no longitude */
@@ -687,53 +683,28 @@ display_name="City of Berlin, Green Lake County, Вісконсин, Сполу�
     info->dLatitude_ = g_strtod(value, NULL);
     xmlFree(value);
 
-    value = CHAR_P(xmlGetProp(pNode, XMLCHAR_P("display_name")));
-    if (!value) /* no name - is that possible? */
-        goto _fail;
-    name = g_strdup(value);
-    xmlFree(value);
-    if (!name) /* memory error? */
-        goto _fail;
-    reg = strchr(name, ',');
-    if (reg) /* isolate first word as city */
+    type = CHAR_P(xmlGetProp(pNode, XMLCHAR_P("type")));
+
+    for (pCurr = pNode->children; pCurr; pCurr = pCurr->next)
     {
-        *reg++ = '\0';
-        while (*reg == ' ') reg++;
-        info->pcCity_ = g_strdup(name);
-        ptr = strrchr(reg, ',');
-        if (ptr)
+        if (pCurr && pCurr->type == XML_ELEMENT_NODE)
         {
-            *ptr++ = '\0';
-            while (*ptr == ' ') ptr++;
-            info->pcCountry_ = g_strdup(ptr);
-            ptr = strrchr(reg, ',');
-            if (ptr)
-            {
-                if (strtol(ptr + 1, NULL, 10) > 0) /* skip 2nd last if it's numeric */
-                    *ptr++ = '\0';
-                while (*ptr == ' ') ptr++;
-                if (is_city)
-                {
-                    /* skip 2nd from region if type="city" */
-                    ptr = strchr(reg, ',');
-                    if (ptr)
-                    {
-                        reg = ptr + 1;
-                        while (*reg == ' ') reg++;
-                    }
-                }
-                info->pcState_ = g_strdup(reg);
-            }
-            else if (strtoul(reg, &ptr, 10) == 0 && ptr == reg)
-                info->pcState_ = g_strdup(reg);
-            /* otherwise it's "City, ZIP, Country" */
+            value = CHAR_P(xmlNodeListGetString(pCurr->doc, pCurr->xmlChildrenNode, 1));
+            if (xmlStrEqual(pCurr->name, CONSTXMLCHAR_P(type ? type : "city")))
+                info->pcCity_ = g_strdup(value);
+            else if (xmlStrEqual(pCurr->name, CONSTXMLCHAR_P("state")))
+                info->pcState_ = g_strdup(value);
+/*
+            else if (xmlStrEqual(pCurr->name, CONSTXMLCHAR_P("county")))
+                info->pcCounty_ = g_strdup(value);
+*/
+            else if (xmlStrEqual(pCurr->name, CONSTXMLCHAR_P("country")))
+                info->pcCountry_ = g_strdup(value);
+            xmlFree(value);
         }
-        else /* if name consists of two tokens then it's "City, Country" */
-            info->pcCountry_ = g_strdup(reg);
     }
-    else /* if name consists of a single token then it's a small country */
-        info->pcCountry_ = g_strdup(name);
-    g_free(name);
+
+    xmlFree(type);
 
     return 1;
 
@@ -824,7 +795,8 @@ getOSMLocationInfo(ProviderInfo * instance, const gchar * pczLocation)
     GList * pList = NULL;
     gchar * pcEscapedLocation = convertToASCII(pczLocation);
     gchar * cQuery = g_strdup_printf("https://nominatim.openstreetmap.org/search?"
-                                     "q=%s&format=xml", pcEscapedLocation);
+                                     "q=%s&addressdetails=1&format=xml",
+                                     pcEscapedLocation);
     const gchar * locale;
     struct utsname uts;
     gchar * pResponse = NULL;
