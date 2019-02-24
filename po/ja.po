@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: lxpanel 0.5.6\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-02-22 00:29+0200\n"
-"PO-Revision-Date: 2018-05-03 03:36+0000\n"
+"PO-Revision-Date: 2019-02-23 07:06+0000\n"
 "Last-Translator: Mamoru TASAKA <mtasaka@fedoraproject.org>\n"
 "Language-Team: Japanese <translation-team-ja@lists.sourceforge.net>\n"
 "Language: ja\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pootle 2.8\n"
-"X-POOTLE-MTIME: 1525318593.192513\n"
+"X-POOTLE-MTIME: 1550905593.535770\n"
 "X-Pootle-Path: /ja/lxpanel/po/ja.po\n"
 "X-Pootle-Revision: 1332\n"
 
@@ -92,9 +92,8 @@ msgid "LXPanel"
 msgstr "LXPanel"
 
 #: ../src/panel.c:1378
-#, fuzzy
 msgid "Copyright (C) 2008-2019"
-msgstr "Copyright (C) 2008-2016"
+msgstr "Copyright (C) 2008-2019"
 
 #: ../src/panel.c:1379
 msgid "Desktop panel for LXDE project"
@@ -347,7 +346,7 @@ msgstr "小さいアイコンを拡大できないようにする"
 
 #: ../data/ui/launchtaskbar.glade.h:15
 msgid "Show task icons smaller than rest of panel icons"
-msgstr ""
+msgstr "他のパネル上のアイコンよりも小さいタスクアイコンを表示する"
 
 #: ../data/ui/launchtaskbar.glade.h:16
 msgid "Maximum width of task button"
@@ -863,7 +862,7 @@ msgstr "変種"
 
 #: ../plugins/xkb/xkb-plugin.c:1319
 msgid "Change Layout Option"
-msgstr "配列の改変オプション"
+msgstr "レイアウトオプションの変更"
 
 #: ../plugins/xkb/xkb-plugin.c:1339
 msgid "Advanced setxkbmap Options"
@@ -887,7 +886,7 @@ msgstr "それぞれのウィンドウについて配列を記憶する(_R)"
 
 #: ../plugins/xkb/xkb-plugin.c:1395
 msgid "Show Layout as"
-msgstr "配列を次のように表す"
+msgstr "配列を次の文字列として表示"
 
 #: ../plugins/xkb/xkb-plugin.c:1456
 msgid "Custom Image"
@@ -956,11 +955,11 @@ msgstr "標準の色"
 
 #: ../plugins/thermal/thermal.c:566
 msgid "Warning1 color"
-msgstr "警告1 色"
+msgstr "警告レベル1の色"
 
 #: ../plugins/thermal/thermal.c:567
 msgid "Warning2 color"
-msgstr "残量の色 2"
+msgstr "警告レベル2の色"
 
 #: ../plugins/thermal/thermal.c:568
 msgid "Automatic sensor location"
@@ -979,11 +978,11 @@ msgstr "自動温度警戒域"
 #. FIXME: if off, disable two below
 #: ../plugins/thermal/thermal.c:571
 msgid "Warning1 temperature"
-msgstr "警告1 温度"
+msgstr "警告レベル1の温度"
 
 #: ../plugins/thermal/thermal.c:572
 msgid "Warning2 temperature"
-msgstr "警告2 温度"
+msgstr "警告レベル2の温度"
 
 #: ../plugins/thermal/thermal.c:582
 msgid "Display system temperature"
@@ -1039,23 +1038,23 @@ msgstr "ミュート"
 #. Just to have these translated
 #: ../plugins/volumealsa/volumealsa.c:1313
 msgid "Line"
-msgstr ""
+msgstr "ライン"
 
 #: ../plugins/volumealsa/volumealsa.c:1313
 msgid "LineOut"
-msgstr ""
+msgstr "ラインアウト"
 
 #: ../plugins/volumealsa/volumealsa.c:1313
 msgid "Front"
-msgstr ""
+msgstr "フロント"
 
 #: ../plugins/volumealsa/volumealsa.c:1313
 msgid "Surround"
-msgstr ""
+msgstr "サラウンド"
 
 #: ../plugins/volumealsa/volumealsa.c:1313
 msgid "Speaker+LO"
-msgstr ""
+msgstr "スピーカー+LO"
 
 #: ../plugins/volumealsa/volumealsa.c:1352
 msgid "default"
@@ -1128,7 +1127,7 @@ msgstr "音量の表示と調整"
 
 #: ../plugins/netstat/netstat.c:183
 msgid "<Hidden Access Point>"
-msgstr "<Hidden Access Point>"
+msgstr "<隠れたアクセスポイント>"
 
 #: ../plugins/netstat/netstat.c:220
 msgid "Wireless Networks not found in range"
@@ -1921,7 +1920,7 @@ msgstr "更新:"
 
 #: ../plugins/weather/weatherwidget.c:1352
 msgid "Ma_nual"
-msgstr "マニュアル（_N）"
+msgstr "手動（_N）"
 
 #: ../plugins/weather/weatherwidget.c:1356
 msgid "_Automatic, every"
@@ -2001,7 +2000,7 @@ msgstr "'%s' を検索中..."
 #: ../plugins/weather/weatherwidget.c:2106
 #, c-format
 msgid "Location matches for '%s'"
-msgstr "'%s' が地点に合致します"
+msgstr "'%s' に合致する地点"
 
 #: ../plugins/weather/weatherwidget.c:2126
 msgid "City"
@@ -2034,87 +2033,87 @@ msgstr "気象状況を表示します。"
 
 #: ../plugins/weather/yahooutil.c:51
 msgid "N"
-msgstr ""
+msgstr "北"
 
 #: ../plugins/weather/yahooutil.c:52
 msgid "NNE"
-msgstr ""
+msgstr "北北東"
 
 #: ../plugins/weather/yahooutil.c:53
 msgid "NE"
-msgstr ""
+msgstr "北東"
 
 #: ../plugins/weather/yahooutil.c:54
 msgid "ENE"
-msgstr ""
+msgstr "東北東"
 
 #: ../plugins/weather/yahooutil.c:55
 msgid "E"
-msgstr ""
+msgstr "東"
 
 #: ../plugins/weather/yahooutil.c:56
 msgid "ESE"
-msgstr ""
+msgstr "東南東"
 
 #: ../plugins/weather/yahooutil.c:57
 msgid "SE"
-msgstr ""
+msgstr "南東"
 
 #: ../plugins/weather/yahooutil.c:58
 msgid "SSE"
-msgstr ""
+msgstr "南南東"
 
 #: ../plugins/weather/yahooutil.c:59
 msgid "S"
-msgstr ""
+msgstr "南"
 
 #: ../plugins/weather/yahooutil.c:60
 msgid "SSW"
-msgstr ""
+msgstr "南南西"
 
 #: ../plugins/weather/yahooutil.c:61
 msgid "SW"
-msgstr ""
+msgstr "南西"
 
 #: ../plugins/weather/yahooutil.c:62
 msgid "WSW"
-msgstr ""
+msgstr "西南西"
 
 #: ../plugins/weather/yahooutil.c:63
 msgid "W"
-msgstr ""
+msgstr "西"
 
 #: ../plugins/weather/yahooutil.c:64
 msgid "WNW"
-msgstr ""
+msgstr "西北西"
 
 #: ../plugins/weather/yahooutil.c:65
 msgid "NW"
-msgstr ""
+msgstr "北西"
 
 #: ../plugins/weather/yahooutil.c:66
 msgid "NNW"
-msgstr ""
+msgstr "北北西"
 
 #: ../plugins/weather/yahooutil.c:1086
 msgid "Yahoo! Weather"
-msgstr ""
+msgstr "Yahoo! 天気"
 
 #: ../plugins/weather/openweathermap.c:347
 msgid "Mph"
-msgstr ""
+msgstr "マイル毎時"
 
 #: ../plugins/weather/openweathermap.c:347
 msgid "m/s"
-msgstr ""
+msgstr "m/s"
 
 #: ../plugins/weather/openweathermap.c:501
 msgid "m"
-msgstr ""
+msgstr "m"
 
 #: ../plugins/weather/openweathermap.c:916
 msgid "OpenWeatherMap"
-msgstr ""
+msgstr "OpenWeatherMap"
 
 #~ msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
 #~ msgstr ""

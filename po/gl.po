@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-02-22 00:29+0200\n"
-"PO-Revision-Date: 2017-05-24 05:46+0000\n"
+"PO-Revision-Date: 2019-02-22 09:49+0000\n"
 "Last-Translator: Miguel Anxo Bouzada <mbouzada@gmail.com>\n"
 "Language-Team: Galician <proxecto@trasno.net>\n"
 "Language: gl\n"
@@ -18,7 +18,7 @@ msgstr ""
 "X-Generator: Pootle 2.8\n"
 "X-Pootle-Revision: 0\n"
 "X-Pootle-Path: /gl/lxpanel/po/gl.po\n"
-"X-POOTLE-MTIME: 1495604796.950242\n"
+"X-POOTLE-MTIME: 1550828951.650595\n"
 
 #: ../src/configurator.c:148
 msgid ""
@@ -83,7 +83,7 @@ msgid "translator-credits"
 msgstr ""
 "Indalecio Freiría Santos <ifreiria@gmail.com>, 2009.\n"
 "Miguel Anxo Bouzada <mbouzada@gmail.com>, 2010, 2011, 2012, 2013, 2014, "
-"2015, 2016, 2017.\n"
+"2015, 2016, 2017,2018,2019.\n"
 "Proxecto Trasno <proxecto@trasno.net>."
 
 #: ../src/panel.c:1360
@@ -110,7 +110,7 @@ msgstr "Engadir / Eliminar elementos do panel"
 #: ../src/panel.c:1450
 #, c-format
 msgid "Remove \"%s\" From Panel"
-msgstr "Eliminar «%s» do panel"
+msgstr "Retirar «%s» do panel"
 
 #: ../src/panel.c:1462
 msgid "Panel Settings"
@@ -292,7 +292,7 @@ msgstr "Asignar espazo"
 
 #: ../data/ui/launchtaskbar.glade.h:1 ../plugins/launchtaskbar.c:2482
 msgid "Application Launch and Task Bar"
-msgstr "Barra de tarefas e iniciador de aplicacións"
+msgstr "Barra de tarefas e iniciador de aplicativos"
 
 #. Launchtaskbar mode: launchbar, taskbar, or combined
 #: ../data/ui/launchtaskbar.glade.h:3
@@ -337,7 +337,7 @@ msgstr "Avisar cando unha xanela require atención"
 
 #: ../data/ui/launchtaskbar.glade.h:13
 msgid "Combine multiple application windows into a single button"
-msgstr "Combinar múltiples xanelas de aplicacións nun só botón"
+msgstr "Combinar múltiples xanelas de aplicativos nun só botón"
 
 #: ../data/ui/launchtaskbar.glade.h:14
 msgid "Disable enlargement for small task icons"
@@ -362,7 +362,7 @@ msgstr "<b>Barra de tarefas</b>"
 
 #: ../data/ui/launchtaskbar.glade.h:19
 msgid "Only Application Launch Bar"
-msgstr "Só a barra de iniciadores de aplicacións"
+msgstr "Só a barra de iniciadores de aplicativos"
 
 #: ../data/ui/launchtaskbar.glade.h:20
 msgid "Only Task Bar (Window List)"
@@ -370,7 +370,7 @@ msgstr "Só a barra de tarefas (lista de xanelas)"
 
 #: ../data/ui/launchtaskbar.glade.h:21
 msgid "Integrated Application Launch Bar and Task Bar"
-msgstr "Barras de iniciadores de aplicacións e tarefas integradas"
+msgstr "Barras de iniciadores de aplicativos e tarefas integradas"
 
 #: ../data/ui/netstatus.glade.h:1
 msgid "<b>Connection</b>"
@@ -411,7 +411,7 @@ msgstr "Xeral"
 
 #: ../data/ui/netstatus.glade.h:11
 msgid "<b>Internet Protocol (IPv4)</b>"
-msgstr "<b>Protocolo de Internet (IPv4)</b>"
+msgstr "<b>Protocolo da Internet (IPv4)</b>"
 
 #: ../data/ui/netstatus.glade.h:12
 msgid "Address:"
@@ -465,7 +465,7 @@ msgstr "Píxeles"
 #: ../data/ui/panel-pref.glade.h:4
 #, no-c-format
 msgid "% Percent"
-msgstr "% Porcento"
+msgstr "% por cento"
 
 #: ../data/ui/panel-pref.glade.h:6
 msgid "Err"
@@ -557,7 +557,7 @@ msgstr "Aparencia"
 
 #: ../data/ui/panel-pref.glade.h:35
 msgid "Panel Applets"
-msgstr "Applets do panel"
+msgstr "Miniaplicativos do panel"
 
 #: ../data/ui/panel-pref.glade.h:36
 msgid "Logout Command:"
@@ -573,7 +573,7 @@ msgstr "Xestor de ficheiros:"
 
 #: ../data/ui/panel-pref.glade.h:39
 msgid "<b>Set Preferred Applications</b>"
-msgstr "<b>Configurar as aplicacións preferidas</b>"
+msgstr "<b>Configurar os aplicativos preferidos</b>"
 
 #: ../data/ui/panel-pref.glade.h:40
 msgid "Make window managers treat the panel as dock"
@@ -601,7 +601,7 @@ msgstr "píxeles"
 
 #: ../data/ui/panel-pref.glade.h:46
 msgid "<b>Automatic hiding</b>"
-msgstr "<b>Agochar automaticamente</b>"
+msgstr "<b>Agachar automaticamente</b>"
 
 #: ../data/ui/panel-pref.glade.h:47
 msgid "Log level"
@@ -629,7 +629,7 @@ msgstr "Número de escritorio / área de traballo"
 
 #: ../plugins/deskno/deskno.c:212 ../plugins/dclock.c:439
 msgid "Bold font"
-msgstr "Negriña"
+msgstr "Grosa"
 
 #: ../plugins/deskno/deskno.c:213
 msgid "Display desktop names"
@@ -641,7 +641,7 @@ msgstr "Amosa o número da área de traballo, por cmeury@users.sf.net"
 
 #: ../plugins/launchtaskbar.c:1831 ../plugins/launchtaskbar.c:2452
 msgid "Application Launch Bar"
-msgstr "Barra de aplicacións"
+msgstr "Barra de aplicativos"
 
 #: ../plugins/launchtaskbar.c:1834 ../plugins/launchtaskbar.c:2462
 msgid "Task Bar (Window List)"
@@ -661,7 +661,7 @@ msgstr "Instancia _nova"
 
 #: ../plugins/launchtaskbar.c:2453
 msgid "Bar with buttons to launch application"
-msgstr "Barra de aceso a aplicacións"
+msgstr "Barra de aceso a aplicativos"
 
 #: ../plugins/launchtaskbar.c:2463
 msgid ""
@@ -674,7 +674,7 @@ msgstr ""
 #: ../plugins/launchtaskbar.c:2483
 msgid "Bar with buttons to launch application and/or show all opened windows"
 msgstr ""
-"Barra con botóns para iniciar aplicacións e/ou amosar todas as xanelas "
+"Barra con botóns para iniciar aplicativos e/ou amosar todas as xanelas "
 "abertas"
 
 #. Add Raise menu item.
@@ -777,7 +777,7 @@ msgstr "Icona"
 
 #: ../plugins/menu.c:998
 msgid "Application Menu"
-msgstr "Menú de aplicacións"
+msgstr "Menú de aplicativos"
 
 #: ../plugins/separator.c:73
 msgid "Separator"
@@ -833,7 +833,7 @@ msgstr "Escolla unha disposición para cambiar"
 #. dialog
 #: ../plugins/xkb/xkb-plugin.c:887
 msgid "Add Keyboard Layout"
-msgstr "Engadir unha disposición de do teclado"
+msgstr "Engadir unha disposición de teclado"
 
 #: ../plugins/xkb/xkb-plugin.c:911 ../plugins/xkb/xkb-plugin.c:1302
 msgid "Flag"
@@ -901,7 +901,7 @@ msgstr "Tamaño das iconas do panel"
 
 #: ../plugins/xkb/xkb-plugin.c:1545
 msgid "Handle keyboard layouts"
-msgstr "Xestionar as disposicións de teclado"
+msgstr "Manexar as disposicións de teclado"
 
 #: ../plugins/wincmd.c:207
 msgid "Left click to iconify all windows.  Middle click to shade them."
@@ -1021,8 +1021,8 @@ msgid ""
 "Error, you need to install an application to configure the sound "
 "(pavucontrol, alsamixer ...)"
 msgstr ""
-"Erro, é necesario instalar unha aplicación para configurar o son "
-"(pavucontol, alsamixer ...)"
+"Erro, é necesario instalar un aplicativo para configurar o son (pavucontol, "
+"alsamixer ...)"
 
 #. Create a frame as the child of the viewport.
 #: ../plugins/volumealsa/volumealsa.c:895
@@ -1126,7 +1126,7 @@ msgstr "Vista e control do volume"
 
 #: ../plugins/netstat/netstat.c:183
 msgid "<Hidden Access Point>"
-msgstr "<Punto de acceso agochado>"
+msgstr "<Punto de acceso agachado>"
 
 #: ../plugins/netstat/netstat.c:220
 msgid "Wireless Networks not found in range"
@@ -1599,7 +1599,7 @@ msgid ""
 "%sEnergy full design:\t\t%5d mWh"
 msgstr ""
 "\n"
-"%sDeseño da enerxía total:\t\t%5d mWh"
+"%sDeseño de enerxía total:\t\t%5d mWh"
 
 #: ../plugins/batt/batt.c:188
 #, c-format
@@ -1687,7 +1687,7 @@ msgstr "Monitor da batería"
 
 #: ../plugins/batt/batt.c:700
 msgid "Hide if there is no battery"
-msgstr "Agochar se non hai baterías"
+msgstr "Agachar se non hai baterías"
 
 #: ../plugins/batt/batt.c:701
 msgid "Alarm command"
@@ -1760,11 +1760,11 @@ msgstr "Sen indicadores"
 
 #: ../plugins/indicator/indicator.c:863 ../plugins/indicator/indicator.c:881
 msgid "Indicator applets"
-msgstr "Indicador de miniaplicacións"
+msgstr "Indicador de miniaplicativos"
 
 #: ../plugins/indicator/indicator.c:865
 msgid "Indicator Applications"
-msgstr "Indicador de aplicacións"
+msgstr "Indicador de aplicativos"
 
 #: ../plugins/indicator/indicator.c:866
 msgid "Clock Indicator"
@@ -1788,7 +1788,7 @@ msgstr "Menú de son"
 
 #: ../plugins/indicator/indicator.c:882
 msgid "Add indicator applets to the panel"
-msgstr "Engadir un indicador de miniaplicacións ao panel"
+msgstr "Engadir un indicador de miniaplicativos ao panel"
 
 #: ../plugins/monitors/monitors.c:285
 #, c-format
@@ -2033,87 +2033,87 @@ msgstr "Amosa as condicións meteorolóxicas para unha localización."
 
 #: ../plugins/weather/yahooutil.c:51
 msgid "N"
-msgstr ""
+msgstr "N"
 
 #: ../plugins/weather/yahooutil.c:52
 msgid "NNE"
-msgstr ""
+msgstr "NNL"
 
 #: ../plugins/weather/yahooutil.c:53
 msgid "NE"
-msgstr ""
+msgstr "NL"
 
 #: ../plugins/weather/yahooutil.c:54
 msgid "ENE"
-msgstr ""
+msgstr "LSL"
 
 #: ../plugins/weather/yahooutil.c:55
 msgid "E"
-msgstr ""
+msgstr "L"
 
 #: ../plugins/weather/yahooutil.c:56
 msgid "ESE"
-msgstr ""
+msgstr "LSL"
 
 #: ../plugins/weather/yahooutil.c:57
 msgid "SE"
-msgstr ""
+msgstr "SL"
 
 #: ../plugins/weather/yahooutil.c:58
 msgid "SSE"
-msgstr ""
+msgstr "SSL"
 
 #: ../plugins/weather/yahooutil.c:59
 msgid "S"
-msgstr ""
+msgstr "S"
 
 #: ../plugins/weather/yahooutil.c:60
 msgid "SSW"
-msgstr ""
+msgstr "SSO"
 
 #: ../plugins/weather/yahooutil.c:61
 msgid "SW"
-msgstr ""
+msgstr "SO"
 
 #: ../plugins/weather/yahooutil.c:62
 msgid "WSW"
-msgstr ""
+msgstr "OSO"
 
 #: ../plugins/weather/yahooutil.c:63
 msgid "W"
-msgstr ""
+msgstr "O"
 
 #: ../plugins/weather/yahooutil.c:64
 msgid "WNW"
-msgstr ""
+msgstr "ONO"
 
 #: ../plugins/weather/yahooutil.c:65
 msgid "NW"
-msgstr ""
+msgstr "NO"
 
 #: ../plugins/weather/yahooutil.c:66
 msgid "NNW"
-msgstr ""
+msgstr "NNO"
 
 #: ../plugins/weather/yahooutil.c:1086
 msgid "Yahoo! Weather"
-msgstr ""
+msgstr "Yahoo! Weather"
 
 #: ../plugins/weather/openweathermap.c:347
 msgid "Mph"
-msgstr ""
+msgstr "Mph"
 
 #: ../plugins/weather/openweathermap.c:347
 msgid "m/s"
-msgstr ""
+msgstr "m/s"
 
 #: ../plugins/weather/openweathermap.c:501
 msgid "m"
-msgstr ""
+msgstr "m"
 
 #: ../plugins/weather/openweathermap.c:916
 msgid "OpenWeatherMap"
-msgstr ""
+msgstr "OpenWeatherMap"
 
 #~ msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
 #~ msgstr ""

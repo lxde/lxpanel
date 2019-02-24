@@ -6,17 +6,17 @@ msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-02-22 00:29+0200\n"
-"PO-Revision-Date: 2016-11-01 01:03+0300\n"
-"Last-Translator: Andriy Grytsenko <andrej@rep.kiev.ua>\n"
+"PO-Revision-Date: 2019-02-22 03:48+0000\n"
+"Last-Translator: Alexey Loginov <loginov.alex.valer@gmail.com>\n"
 "Language-Team: Russian <hsh@runtu.org>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Pootle 2.7.0-alpha1\n"
-"X-POOTLE-MTIME: 1430423184.000000\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Pootle 2.8\n"
+"X-POOTLE-MTIME: 1550807294.690745\n"
 "X-Pootle-Path: /ru/lxpanel/po/ru.po\n"
 "X-Pootle-Revision: 679\n"
 
@@ -2029,84 +2029,84 @@ msgstr "Показывает состояние погоды."
 
 #: ../plugins/weather/yahooutil.c:51
 msgid "N"
-msgstr ""
+msgstr "С"
 
 #: ../plugins/weather/yahooutil.c:52
 msgid "NNE"
-msgstr ""
+msgstr "ССВ"
 
 #: ../plugins/weather/yahooutil.c:53
 msgid "NE"
-msgstr ""
+msgstr "СВ"
 
 #: ../plugins/weather/yahooutil.c:54
 msgid "ENE"
-msgstr ""
+msgstr "ВСВ"
 
 #: ../plugins/weather/yahooutil.c:55
 msgid "E"
-msgstr ""
+msgstr "В"
 
 #: ../plugins/weather/yahooutil.c:56
 msgid "ESE"
-msgstr ""
+msgstr "ВЮВ"
 
 #: ../plugins/weather/yahooutil.c:57
 msgid "SE"
-msgstr ""
+msgstr "ЮВ"
 
 #: ../plugins/weather/yahooutil.c:58
 msgid "SSE"
-msgstr ""
+msgstr "ЮЮВ"
 
 #: ../plugins/weather/yahooutil.c:59
 msgid "S"
-msgstr ""
+msgstr "Ю"
 
 #: ../plugins/weather/yahooutil.c:60
 msgid "SSW"
-msgstr ""
+msgstr "ЮЮЗ"
 
 #: ../plugins/weather/yahooutil.c:61
 msgid "SW"
-msgstr ""
+msgstr "ЮЗ"
 
 #: ../plugins/weather/yahooutil.c:62
 msgid "WSW"
-msgstr ""
+msgstr "ЗЮЗ"
 
 #: ../plugins/weather/yahooutil.c:63
 msgid "W"
-msgstr ""
+msgstr "З"
 
 #: ../plugins/weather/yahooutil.c:64
 msgid "WNW"
-msgstr ""
+msgstr "ЗСЗ"
 
 #: ../plugins/weather/yahooutil.c:65
 msgid "NW"
-msgstr ""
+msgstr "СЗ"
 
 #: ../plugins/weather/yahooutil.c:66
 msgid "NNW"
-msgstr ""
+msgstr "ССЗ"
 
 #: ../plugins/weather/yahooutil.c:1086
 msgid "Yahoo! Weather"
-msgstr ""
+msgstr "Yahoo! Погода"
 
 #: ../plugins/weather/openweathermap.c:347
 msgid "Mph"
-msgstr ""
+msgstr "миль/ч"
 
 #: ../plugins/weather/openweathermap.c:347
 msgid "m/s"
-msgstr ""
+msgstr "м/с"
 
 #: ../plugins/weather/openweathermap.c:501
 msgid "m"
-msgstr ""
+msgstr "м"
 
 #: ../plugins/weather/openweathermap.c:916
 msgid "OpenWeatherMap"
-msgstr ""
+msgstr "OpenWeatherMap"

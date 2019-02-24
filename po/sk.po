@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-02-22 00:29+0200\n"
-"PO-Revision-Date: 2019-01-18 00:31+0000\n"
+"PO-Revision-Date: 2019-02-23 20:59+0000\n"
 "Last-Translator: mirek <mirek@cnl.sk>\n"
 "Language-Team: Slovak <sk-i18n@lists.linux.sk>\n"
 "Language: sk\n"
@@ -19,7 +19,7 @@ msgstr ""
 "X-Generator: Pootle 2.8\n"
 "X-Pootle-Path: /sk/lxpanel/po/sk.po\n"
 "X-Pootle-Revision: 0\n"
-"X-POOTLE-MTIME: 1547771475.276384\n"
+"X-POOTLE-MTIME: 1550955553.433579\n"
 
 #: ../src/configurator.c:148
 msgid ""
@@ -654,7 +654,7 @@ msgstr "Panel úloh (Zoznam okien)"
 
 #: ../plugins/launchtaskbar.c:1985
 msgid "A_dd to Launcher"
-msgstr ""
+msgstr "Pri_dať do spúšťača"
 
 #: ../plugins/launchtaskbar.c:1987
 msgid "Rem_ove from Launcher"
