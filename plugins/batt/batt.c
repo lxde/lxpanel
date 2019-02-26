@@ -4,7 +4,7 @@
  * Copyright (C) 2007 by Greg McNew <gmcnew@gmail.com>
  * Copyright (C) 2008 by Hong Jen Yee <pcman.tw@gmail.com>
  * Copyright (C) 2009 by Juergen Hoetzel <juergen@archlinux.org>
- * Copyright (C) 2014 by Andriy Grytsenko <andrej@rep.kiev.ua>
+ * Copyright (C) 2014-2019 Andriy Grytsenko <andrej@rep.kiev.ua>
  *               2015 Balló György <ballogyor@gmail.com>
  *               2015 Stanislav Kozina, Ersin <xersin@users.sf.net>
  *
@@ -251,7 +251,10 @@ void update_display(lx_battery *lx_b, gboolean repaint) {
     /* fixme: only one battery supported */
 
     rate = lx_b->b->current_now;
-    isCharging = battery_is_charging ( b );
+    if (lx_b->b->percentage == 100)
+        isCharging = TRUE; /* if battery is fully charged then draw it green */
+    else
+        isCharging = battery_is_charging ( b );
 
     /* Consider running the alarm command */
     if ( !isCharging && rate > 0 &&

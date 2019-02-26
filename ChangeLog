@@ -11,6 +11,7 @@
 * Disabled Yahoo! Weather because they removed free API support.
 * Added OpenWeatherMap weather provider.
 * Fixed wrong application position on taskbar in multihead configuration.
+* Fixed battery color (must be green) when battery is fully charged.
 
 0.9.3
 -------------------------------------------------------------------------
