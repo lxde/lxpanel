@@ -320,10 +320,11 @@ EXTRA_DIST = \
 	weather/httputil.h \
 	weather/yahooutil.c \
 	weather/yahooutil.h \
-	weather/openweathermap.h \
 	weather/location.h \
 	weather/forecast.h \
 	weather/weatherwidget.h \
+	weather/providers.h \
+	weather/openweathermap.h \
 	xkb/xkb.h \
 	$(flags_DATA) \
 	$(xkeyboardconfig_DATA) \

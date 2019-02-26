@@ -817,7 +817,7 @@ getOSMLocationInfo(ProviderInfo * instance, const gchar * pczLocation)
     gchar * pResponse = NULL;
     CURLcode iRetCode;
     gint iDataSize = 0;
-    char userAgentHeader[128];
+    char userAgentHeader[256];
     char languageHeader[32];
     const char *headers[] = { userAgentHeader, languageHeader, NULL };
 

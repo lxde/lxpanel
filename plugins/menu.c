@@ -479,25 +479,25 @@ static int load_menu(menup* m, MenuCacheDir* dir, GtkWidget* menu, int pos )
 	    count++;
             if (mi != NULL)
                 gtk_menu_shell_insert( (GtkMenuShell*)menu, mi, pos );
-                if( pos >= 0 )
-                    ++pos;
-		/* process subentries */
-		if (menu_cache_item_get_type(item) == MENU_CACHE_TYPE_DIR)
+            if( pos >= 0 )
+                ++pos;
+	    /* process subentries */
+	    if (menu_cache_item_get_type(item) == MENU_CACHE_TYPE_DIR)
+	    {
+                GtkWidget* sub = gtk_menu_new();
+		/*  always pass -1 for position */
+		gint s_count = load_menu( m, MENU_CACHE_DIR(item), sub, -1 );
+                if (s_count)
+		    gtk_menu_item_set_submenu( GTK_MENU_ITEM(mi), sub );
+		else
 		{
-                    GtkWidget* sub = gtk_menu_new();
-		    /*  always pass -1 for position */
-		    gint s_count = load_menu( m, MENU_CACHE_DIR(item), sub, -1 );
-                    if (s_count)
-			gtk_menu_item_set_submenu( GTK_MENU_ITEM(mi), sub );
-		    else
-		    {
-			/* don't keep empty submenus */
-			gtk_widget_destroy( sub );
-			gtk_widget_destroy( mi );
-			if (pos > 0)
-			    pos--;
-		    }
+		    /* don't keep empty submenus */
+		    gtk_widget_destroy( sub );
+		    gtk_widget_destroy( mi );
+		    if (pos > 0)
+			pos--;
 		}
+	    }
 	}
     }
 #if MENU_CACHE_CHECK_VERSION(0, 4, 0)

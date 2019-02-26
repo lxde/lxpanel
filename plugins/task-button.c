@@ -917,8 +917,8 @@ static GdkPixbuf * get_wm_icon(Window task_win, guint required_width,
                     NULL);
                 possible_source = a_NET_WM_ICON;
             }
-        else
-            result = -1;
+            else
+                result = -1;
 
             /* Free the X property data. */
             XFree(data);
@@ -1214,8 +1214,8 @@ static gboolean task_update_visibility(TaskButton *task)
         /* task button became visible */
         gtk_widget_show(GTK_WIDGET(task));
     return (task->n_visible != old_n_visible || /* n_visible changed */
-            !task->visible == old_visible || /* visible changed */
-            !task->same_name == old_same_name || /* visible name changed */
+            (!task->visible) == old_visible || /* visible changed */
+            (!task->same_name) == old_same_name || /* visible name changed */
             (task->same_name && !old_last_focused)); /* visible name unavailable */
 }
 

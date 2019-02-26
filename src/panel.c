@@ -1688,11 +1688,13 @@ panel_start_gui(LXPanel *panel, config_setting_t *list)
     p->initialized = TRUE;
 
     if (list) for (i = 1; (s = config_setting_get_elem(list, i)) != NULL; )
+    {
         if (strcmp(config_setting_get_name(s), "Plugin") == 0 &&
             panel_parse_plugin(panel, s)) /* success on plugin start */
             i++;
         else /* remove invalid data from config */
             config_setting_remove_elem(list, i);
+    }
 
     RET();
 }
