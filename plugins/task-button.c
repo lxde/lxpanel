@@ -10,7 +10,7 @@
  *               2012 Piotr Sipika <Piotr.Sipika@gmail.com>
  *               2013 Vincenzo di Cicco <enzodicicco@gmail.com>
  *               2013 Rouslan <rouslan-k@users.sourceforge.net>
- *               2014-2016 Andriy Grytsenko <andrej@rep.kiev.ua>
+ *               2014-2019 Andriy Grytsenko <andrej@rep.kiev.ua>
  *               2014 Andy Balaam <axis3x3@users.sf.net>
  *               2015 Balló György <ballogyor@gmail.com>
  *               2015 Rafał Mużyło <galtgendo@gmail.com>
@@ -1676,7 +1676,7 @@ gboolean task_button_window_focus_changed(TaskButton *button, Window *win)
     for (l = button->details; l; l = l->next)
     {
         details = l->data;
-        if (details->win == *win)
+        if (win && details->win == *win)
         {
             res = TRUE;
             details->focused = TRUE;
