@@ -78,6 +78,8 @@ msgstr "Apstiprināt"
 #: ../src/panel.c:1355
 msgid "translator-credits"
 msgstr ""
+"Andrejs Pavars <hackey@apollo.lv>, 2011\n"
+"Andris Krišlauks <krislauks@gmail.com>"
 
 #: ../src/panel.c:1360
 msgid "LXPanel"

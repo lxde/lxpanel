@@ -78,7 +78,15 @@ msgstr "ยืนยัน"
 #. TRANSLATORS: Replace this string with your names, one name per line.
 #: ../src/panel.c:1355
 msgid "translator-credits"
-msgstr "ผู้แปล-เครดิต"
+msgstr ""
+"aliza <aimon_bokbok@hotmail.com>, 2015\n"
+"Amedeo Pignatelli <amedeopignatelli@yahoo.it>, 2014-2015\n"
+"jekie <jekie@hotmail.com>, 2014\n"
+"Lakkana <baby_ying85@hotmail.com>, 2014-2015\n"
+"Mr. Krirkkit Kanchanakorn <initiate_translation@live.com>, 2014\n"
+"Nudjaree <poonim_p@hotmail.com>, 2015\n"
+"Supasuta P. <yy.ying80@gmail.com>, 2014\n"
+"weerapan <dang_kondee@hotmail.com>, 2014"
 
 #: ../src/panel.c:1360
 msgid "LXPanel"
