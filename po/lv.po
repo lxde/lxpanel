@@ -8,17 +8,17 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-02-22 00:29+0200\n"
-"PO-Revision-Date: 2014-12-02 11:45+0000\n"
-"Last-Translator: system user <>\n"
+"PO-Revision-Date: 2019-02-26 19:16+0000\n"
+"Last-Translator: External Translation Source <translation@rep.kiev.ua>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: lv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : "
-"2);\n"
-"X-Generator: Pootle 2.7.0-alpha1\n"
-"X-POOTLE-MTIME: 1417520745.000000\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : 2);"
+"\n"
+"X-Generator: Pootle 2.8\n"
+"X-POOTLE-MTIME: 1551208615.008565\n"
 "X-Pootle-Path: /lv/lxpanel/po/lv.po\n"
 "X-Pootle-Revision: 0\n"
 
@@ -38,11 +38,11 @@ msgstr ""
 
 #: ../src/configurator.c:779
 msgid "Add plugin to panel"
-msgstr ""
+msgstr "Pievienot spraudni panelim"
 
 #: ../src/configurator.c:807
 msgid "Available plugins"
-msgstr ""
+msgstr "Pieejamie spraudņi"
 
 #: ../src/configurator.c:1427
 msgid "Logout command is not set"
@@ -50,15 +50,15 @@ msgstr ""
 
 #: ../src/configurator.c:1495
 msgid "Select a directory"
-msgstr ""
+msgstr "Izvēlieties direktoriju"
 
 #: ../src/configurator.c:1495 ../src/configurator.c:1607
 msgid "Select a file"
-msgstr ""
+msgstr "Izvēlieties failu"
 
 #: ../src/configurator.c:1640
 msgid "_Browse"
-msgstr ""
+msgstr "_Pārlūkot"
 
 #: ../src/panel.c:1292
 msgid "There is no room for another panel. All the edges are taken."
@@ -72,7 +72,7 @@ msgstr ""
 
 #: ../src/panel.c:1320
 msgid "Confirm"
-msgstr ""
+msgstr "Apstiprināt"
 
 #. TRANSLATORS: Replace this string with your names, one name per line.
 #: ../src/panel.c:1355
@@ -94,60 +94,60 @@ msgstr ""
 #: ../src/panel.c:1421
 #, c-format
 msgid "\"%s\" Settings"
-msgstr ""
+msgstr "\"%s\" Uzstādījumi"
 
 #: ../src/panel.c:1442
 msgid "Add / Remove Panel Items"
-msgstr ""
+msgstr "Pievienot/Noņemt paneļus"
 
 #: ../src/panel.c:1450
 #, c-format
 msgid "Remove \"%s\" From Panel"
-msgstr ""
+msgstr "Noņemt \"%s\" No paneļa"
 
 #: ../src/panel.c:1462
 msgid "Panel Settings"
-msgstr ""
+msgstr "Paneļa iestatījumi"
 
 #: ../src/panel.c:1468
 msgid "Create New Panel"
-msgstr ""
+msgstr "Izveidot jaunu paneli"
 
 #: ../src/panel.c:1474
 msgid "Delete This Panel"
-msgstr ""
+msgstr "Dzēst paneli"
 
 #: ../src/panel.c:1485
 msgid "About"
-msgstr ""
+msgstr "Par programmu"
 
 #: ../src/panel.c:1492
 msgid "Panel"
-msgstr ""
+msgstr "Panelis"
 
 #: ../src/panel.c:1708 ../src/panel.c:1716 ../data/ui/panel-pref.glade.h:22
 msgid "Height:"
-msgstr ""
+msgstr "Augstums:"
 
 #: ../src/panel.c:1709 ../src/panel.c:1715 ../data/ui/panel-pref.glade.h:21
 msgid "Width:"
-msgstr ""
+msgstr "Platums:"
 
 #: ../src/panel.c:1710 ../data/ui/panel-pref.glade.h:13
 msgid "Left"
-msgstr ""
+msgstr "Pa kreisi"
 
 #: ../src/panel.c:1711 ../data/ui/panel-pref.glade.h:14
 msgid "Right"
-msgstr ""
+msgstr "Pa labi"
 
 #: ../src/panel.c:1717 ../data/ui/panel-pref.glade.h:12
 msgid "Top"
-msgstr ""
+msgstr "Augša"
 
 #: ../src/panel.c:1718 ../data/ui/panel-pref.glade.h:11
 msgid "Bottom"
-msgstr ""
+msgstr "Apakša"
 
 #: ../src/plugin.c:348
 msgid "No file manager is configured."
@@ -164,11 +164,11 @@ msgstr ""
 
 #: ../src/main.c:70 ../plugins/menu.c:719
 msgid "Restart"
-msgstr ""
+msgstr "Restartēt"
 
 #: ../src/main.c:71 ../plugins/menu.c:720
 msgid "Logout"
-msgstr ""
+msgstr "Darba beigšana"
 
 #: ../src/main.c:323
 #, c-format
@@ -178,17 +178,17 @@ msgstr ""
 #: ../src/main.c:324
 #, c-format
 msgid "Command line options:\n"
-msgstr ""
+msgstr "Komandrindas opcijas:\n"
 
 #: ../src/main.c:325
 #, c-format
 msgid " --help      -- print this help and exit\n"
-msgstr ""
+msgstr " --help      -- Drukāt šo palīdzību un iziet\n"
 
 #: ../src/main.c:326
 #, c-format
 msgid " --version   -- print version and exit\n"
-msgstr ""
+msgstr " --version   -- Drukāt versiju un iziet\n"
 
 #. g_print(_(" --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"));
 #. g_print(_(" --configure -- launch configuration utility\n"));
@@ -247,7 +247,7 @@ msgstr ""
 #: ../plugins/netstatus/netstatus-iface.c:191
 #: ../plugins/netstatus/netstatus-util.c:167
 msgid "Error"
-msgstr ""
+msgstr "Kļūda"
 
 #. GtkRadioButton "None"
 #: ../src/input-button.c:329 ../data/ui/panel-pref.glade.h:5
@@ -265,12 +265,12 @@ msgstr ""
 
 #: ../src/space.c:394 ../src/space.c:403
 msgid "Spacer"
-msgstr ""
+msgstr "Atdalītājs"
 
 #: ../src/space.c:396 ../data/ui/panel-pref.glade.h:32
 #: ../plugins/batt/batt.c:710
 msgid "Size"
-msgstr ""
+msgstr "Izmērs"
 
 #: ../src/space.c:404
 msgid "Allocate space"
@@ -295,11 +295,11 @@ msgstr ""
 
 #: ../data/ui/launchtaskbar.glade.h:6
 msgid "Show tooltips"
-msgstr ""
+msgstr "Rādīt padomus"
 
 #: ../data/ui/launchtaskbar.glade.h:7
 msgid "Icons only"
-msgstr ""
+msgstr "Tikai ikonas"
 
 #: ../data/ui/launchtaskbar.glade.h:8
 msgid "Flat buttons"
@@ -307,7 +307,7 @@ msgstr ""
 
 #: ../data/ui/launchtaskbar.glade.h:9
 msgid "Show windows from all desktops"
-msgstr ""
+msgstr "Rādīt logus no visām darbvirsmām"
 
 #: ../data/ui/launchtaskbar.glade.h:10
 msgid "Only show windows on the same monitor as the task bar"
@@ -315,7 +315,7 @@ msgstr ""
 
 #: ../data/ui/launchtaskbar.glade.h:11
 msgid "Use mouse wheel"
-msgstr ""
+msgstr "Izmantot peles riteni"
 
 #: ../data/ui/launchtaskbar.glade.h:12
 msgid "Flash when there is any window requiring attention"
@@ -339,7 +339,7 @@ msgstr ""
 
 #: ../data/ui/launchtaskbar.glade.h:17
 msgid "Spacing"
-msgstr ""
+msgstr "Atstatums"
 
 #: ../data/ui/launchtaskbar.glade.h:18
 msgid "<b>Taskbar</b>"
@@ -363,11 +363,11 @@ msgstr ""
 
 #: ../data/ui/netstatus.glade.h:2
 msgid "Status:"
-msgstr ""
+msgstr "Status:"
 
 #: ../data/ui/netstatus.glade.h:3
 msgid "_Name:"
-msgstr ""
+msgstr "_Vārds:"
 
 #: ../data/ui/netstatus.glade.h:4
 msgid "<b>Activity</b>"
@@ -392,7 +392,7 @@ msgstr ""
 
 #: ../data/ui/netstatus.glade.h:10
 msgid "General"
-msgstr ""
+msgstr "Vispārīgi"
 
 #: ../data/ui/netstatus.glade.h:11
 msgid "<b>Internet Protocol (IPv4)</b>"
@@ -409,11 +409,11 @@ msgstr ""
 #: ../data/ui/netstatus.glade.h:14 ../plugins/netstat/netstat.c:372
 #: ../plugins/netstat/netstat.c:383
 msgid "Broadcast:"
-msgstr ""
+msgstr "Pārraidīšaana:"
 
 #: ../data/ui/netstatus.glade.h:15
 msgid "Subnet Mask:"
-msgstr ""
+msgstr "Apakštīkla maska:"
 
 #: ../data/ui/netstatus.glade.h:16
 msgid "<b>Internet Protocol (IPv6)</b>"
@@ -429,7 +429,7 @@ msgstr ""
 
 #: ../data/ui/netstatus.glade.h:19
 msgid "Type:"
-msgstr ""
+msgstr "Tips:"
 
 #: ../data/ui/netstatus.glade.h:20
 msgid "Support"
@@ -478,7 +478,7 @@ msgstr ""
 
 #: ../data/ui/panel-pref.glade.h:16 ../plugins/volumealsa/volumealsa.c:1313
 msgid "Center"
-msgstr ""
+msgstr "Centrs"
 
 #: ../data/ui/panel-pref.glade.h:17
 msgid "Alignment:"
@@ -506,7 +506,7 @@ msgstr ""
 
 #: ../data/ui/panel-pref.glade.h:25
 msgid "Geometry"
-msgstr ""
+msgstr "Ģeometrija"
 
 #: ../data/ui/panel-pref.glade.h:26
 msgid "System theme"
@@ -518,7 +518,7 @@ msgstr ""
 
 #: ../data/ui/panel-pref.glade.h:28 ../plugins/xkb/xkb-plugin.c:1455
 msgid "Image"
-msgstr ""
+msgstr "Attēls"
 
 #: ../data/ui/panel-pref.glade.h:29
 msgid "Select an image file"
@@ -538,7 +538,7 @@ msgstr ""
 
 #: ../data/ui/panel-pref.glade.h:34
 msgid "Appearance"
-msgstr ""
+msgstr "Izskats"
 
 #: ../data/ui/panel-pref.glade.h:35
 msgid "Panel Applets"
@@ -582,7 +582,7 @@ msgstr ""
 
 #: ../data/ui/panel-pref.glade.h:45
 msgid "pixels"
-msgstr ""
+msgstr "pikseļu"
 
 #: ../data/ui/panel-pref.glade.h:46
 msgid "<b>Automatic hiding</b>"
@@ -598,15 +598,15 @@ msgstr ""
 
 #: ../data/ui/panel-pref.glade.h:49
 msgid "Advanced"
-msgstr ""
+msgstr "Palašināti"
 
 #: ../plugins/cpu/cpu.c:310
 msgid "CPU Usage Monitor"
-msgstr ""
+msgstr "Procesora noslodzes pārraugs"
 
 #: ../plugins/cpu/cpu.c:311 ../plugins/monitors/monitors.c:734
 msgid "Display CPU usage"
-msgstr ""
+msgstr "Rādīt procesora noslodzi"
 
 #: ../plugins/deskno/deskno.c:210 ../plugins/deskno/deskno.c:230
 msgid "Desktop Number / Workspace Name"
@@ -614,7 +614,7 @@ msgstr ""
 
 #: ../plugins/deskno/deskno.c:212 ../plugins/dclock.c:439
 msgid "Bold font"
-msgstr ""
+msgstr "Treknrakstā"
 
 #: ../plugins/deskno/deskno.c:213
 msgid "Display desktop names"
@@ -626,7 +626,7 @@ msgstr ""
 
 #: ../plugins/launchtaskbar.c:1831 ../plugins/launchtaskbar.c:2452
 msgid "Application Launch Bar"
-msgstr ""
+msgstr "Pieprasījumu palaišanas panelis"
 
 #: ../plugins/launchtaskbar.c:1834 ../plugins/launchtaskbar.c:2462
 msgid "Task Bar (Window List)"
@@ -646,7 +646,7 @@ msgstr ""
 
 #: ../plugins/launchtaskbar.c:2453
 msgid "Bar with buttons to launch application"
-msgstr ""
+msgstr "Josla ar pogām, lai uzsāktu pieprasījumu"
 
 #: ../plugins/launchtaskbar.c:2463
 msgid ""
@@ -686,7 +686,7 @@ msgstr ""
 #: ../plugins/task-button.c:393
 #, c-format
 msgid "Workspace %d"
-msgstr ""
+msgstr "Darba laukums%d"
 
 #. Add "move to all workspaces" item.  This causes the window to be visible no matter what desktop is active.
 #: ../plugins/task-button.c:410
@@ -701,7 +701,7 @@ msgstr ""
 
 #: ../plugins/task-button.c:433
 msgid "_Close Window"
-msgstr ""
+msgstr "Ai_zvērt logu"
 
 #: ../plugins/task-button.c:1256
 msgid "_Close all windows"
@@ -709,11 +709,11 @@ msgstr ""
 
 #: ../plugins/dclock.c:433 ../plugins/dclock.c:453
 msgid "Digital Clock"
-msgstr ""
+msgstr "Digitālais pulkstenis"
 
 #: ../plugins/dclock.c:435
 msgid "Clock Format"
-msgstr ""
+msgstr "Pulksteņa formāts"
 
 #: ../plugins/dclock.c:436
 msgid "Tooltip Format"
@@ -746,15 +746,15 @@ msgstr ""
 
 #: ../plugins/menu.c:367
 msgid "Properties"
-msgstr ""
+msgstr "Īpašības"
 
 #: ../plugins/menu.c:989 ../plugins/menu.c:997
 msgid "Menu"
-msgstr ""
+msgstr "Izvēlne"
 
 #: ../plugins/menu.c:990 ../plugins/dirmenu.c:359
 msgid "Icon"
-msgstr ""
+msgstr "Ikona"
 
 #: ../plugins/menu.c:998
 msgid "Application Menu"
@@ -762,7 +762,7 @@ msgstr ""
 
 #: ../plugins/separator.c:73
 msgid "Separator"
-msgstr ""
+msgstr "Atdalītājs"
 
 #: ../plugins/separator.c:74
 msgid "Add a separator to the panel"
@@ -782,7 +782,7 @@ msgstr ""
 
 #: ../plugins/tray.c:691
 msgid "System Tray"
-msgstr ""
+msgstr "Sistēmas Ikonjosla"
 
 #: ../plugins/tray.c:692
 msgid "System tray"
@@ -890,7 +890,7 @@ msgstr ""
 
 #: ../plugins/wincmd.c:245 ../plugins/wincmd.c:255
 msgid "Minimize All Windows"
-msgstr ""
+msgstr "Minimizēt visus logus"
 
 #: ../plugins/wincmd.c:247
 msgid "Alternately iconify/shade and raise"
@@ -904,11 +904,11 @@ msgstr ""
 
 #: ../plugins/dirmenu.c:213
 msgid "Open in _Terminal"
-msgstr ""
+msgstr "Atvērt  _Terminālī"
 
 #: ../plugins/dirmenu.c:355 ../plugins/dirmenu.c:365
 msgid "Directory Menu"
-msgstr ""
+msgstr "Kataloga izvēlne"
 
 #: ../plugins/dirmenu.c:357
 msgid "Directory"
@@ -916,7 +916,7 @@ msgstr ""
 
 #: ../plugins/dirmenu.c:358
 msgid "Label"
-msgstr ""
+msgstr "Etiķete"
 
 #: ../plugins/dirmenu.c:366
 msgid "Browse directory tree via menu (Author = PCMan)"
@@ -999,12 +999,12 @@ msgstr ""
 #. Create a frame as the child of the viewport.
 #: ../plugins/volumealsa/volumealsa.c:895
 msgid "Volume"
-msgstr ""
+msgstr "Vienums"
 
 #. Create a check button as the child of the vertical box.
 #: ../plugins/volumealsa/volumealsa.c:914
 msgid "Mute"
-msgstr ""
+msgstr "Mēms"
 
 #. Just to have these translated
 #: ../plugins/volumealsa/volumealsa.c:1313
@@ -1073,7 +1073,7 @@ msgstr ""
 #: ../plugins/volumealsa/volumealsa.c:1553
 #: ../plugins/volumealsa/volumealsa.c:1574
 msgid "Volume Control"
-msgstr ""
+msgstr "Skaļuma Kontrole"
 
 #: ../plugins/volumealsa/volumealsa.c:1516
 msgid "Audio Card"
@@ -1167,7 +1167,7 @@ msgstr ""
 
 #: ../plugins/netstat/netstat.c:368 ../plugins/netstatus/netstatus-iface.c:173
 msgid "Wireless"
-msgstr ""
+msgstr "Bezvadu"
 
 #: ../plugins/netstat/netstat.c:370
 msgid "Protocol:"
@@ -1219,7 +1219,7 @@ msgstr ""
 #: ../plugins/netstatus/netstatus-dialog.c:52
 #: ../plugins/netstatus/netstatus-dialog.c:316
 msgid "Unknown"
-msgstr ""
+msgstr "Nezināms"
 
 #: ../plugins/netstatus/netstatus-dialog.c:117
 msgid "Connection Properties"
@@ -1256,7 +1256,7 @@ msgstr ""
 
 #: ../plugins/netstatus/netstatus-icon.c:847
 msgid "Interface"
-msgstr ""
+msgstr "Interfeiss"
 
 #: ../plugins/netstatus/netstatus-icon.c:848
 msgid "The current interface the icon is monitoring."
@@ -1264,11 +1264,11 @@ msgstr ""
 
 #: ../plugins/netstatus/netstatus-icon.c:855
 msgid "Orientation"
-msgstr ""
+msgstr "Orientācija"
 
 #: ../plugins/netstatus/netstatus-icon.c:856
 msgid "The orientation of the tray."
-msgstr ""
+msgstr "Paplātes orientācija."
 
 #: ../plugins/netstatus/netstatus-icon.c:864
 msgid "Tooltips Enabled"
@@ -1296,28 +1296,28 @@ msgstr ""
 
 #: ../plugins/netstatus/netstatus-iface.c:148
 msgid "Name"
-msgstr ""
+msgstr "Nosaukums"
 
 #: ../plugins/netstatus/netstatus-iface.c:149
 msgid "The interface name"
-msgstr ""
+msgstr "Interfeisa nosaukums"
 
 #: ../plugins/netstatus/netstatus-iface.c:156
 #: ../plugins/weather/weatherwidget.c:2136
 msgid "State"
-msgstr ""
+msgstr "Stāvoklis"
 
 #: ../plugins/netstatus/netstatus-iface.c:157
 msgid "The interface state"
-msgstr ""
+msgstr "Interfeisa stāvoklis"
 
 #: ../plugins/netstatus/netstatus-iface.c:165
 msgid "Stats"
-msgstr ""
+msgstr "Statistika"
 
 #: ../plugins/netstatus/netstatus-iface.c:166
 msgid "The interface packets/bytes statistics"
-msgstr ""
+msgstr "Interfeisa pakešu/baitu statistika"
 
 #: ../plugins/netstatus/netstatus-iface.c:174
 msgid "Whether the interface is a wireless interface"
@@ -1325,11 +1325,11 @@ msgstr ""
 
 #: ../plugins/netstatus/netstatus-iface.c:181
 msgid "Signal"
-msgstr ""
+msgstr "Signāls"
 
 #: ../plugins/netstatus/netstatus-iface.c:182
 msgid "Wireless signal strength percentage"
-msgstr ""
+msgstr "Bezvadu signāla stiprums procentos"
 
 #: ../plugins/netstatus/netstatus-iface.c:192
 msgid "The current error condition"
@@ -1460,7 +1460,7 @@ msgstr ""
 #: ../plugins/netstatus/netstatus-iface.c:1256
 #, c-format
 msgid "No network devices found"
-msgstr ""
+msgstr "Tīkla ierīces nav atrastas"
 
 #: ../plugins/netstatus/netstatus-sysdeps.c:180
 #, c-format
@@ -1523,23 +1523,23 @@ msgstr ""
 
 #: ../plugins/netstatus/netstatus-util.c:152
 msgid "Disconnected"
-msgstr ""
+msgstr "Atvienots"
 
 #: ../plugins/netstatus/netstatus-util.c:155
 msgid "Idle"
-msgstr ""
+msgstr "Dīkstāve"
 
 #: ../plugins/netstatus/netstatus-util.c:158
 msgid "Sending"
-msgstr ""
+msgstr "Sūta"
 
 #: ../plugins/netstatus/netstatus-util.c:161
 msgid "Receiving"
-msgstr ""
+msgstr "Saņem"
 
 #: ../plugins/netstatus/netstatus-util.c:164
 msgid "Sending/Receiving"
-msgstr ""
+msgstr "Sūta/Saņem"
 
 #: ../plugins/batt/batt.c:155
 #, c-format
@@ -1621,7 +1621,7 @@ msgstr ""
 
 #: ../plugins/batt/batt.c:242
 msgid "No batteries found"
-msgstr ""
+msgstr "Baterija nav atrasta "
 
 #: ../plugins/batt/batt.c:542 ../plugins/batt/batt.c:675
 msgid "Battery low"
@@ -1629,11 +1629,11 @@ msgstr ""
 
 #: ../plugins/batt/batt.c:698 ../plugins/batt/batt.c:722
 msgid "Battery Monitor"
-msgstr ""
+msgstr "Akumulatora monitors"
 
 #: ../plugins/batt/batt.c:700
 msgid "Hide if there is no battery"
-msgstr ""
+msgstr "Paslēpt ja nav baterijas"
 
 #: ../plugins/batt/batt.c:701
 msgid "Alarm command"
@@ -1645,27 +1645,27 @@ msgstr ""
 
 #: ../plugins/batt/batt.c:703
 msgid "Background color"
-msgstr ""
+msgstr "Fona krāsa"
 
 #: ../plugins/batt/batt.c:704
 msgid "Charging color 1"
-msgstr ""
+msgstr "Uzlādes krāsa 1"
 
 #: ../plugins/batt/batt.c:705
 msgid "Charging color 2"
-msgstr ""
+msgstr "Uzlādes krāsa 2"
 
 #: ../plugins/batt/batt.c:706
 msgid "Discharging color 1"
-msgstr ""
+msgstr "Izlādes krāsa 1"
 
 #: ../plugins/batt/batt.c:707
 msgid "Discharging color 2"
-msgstr ""
+msgstr "Izlādes krāsa 2"
 
 #: ../plugins/batt/batt.c:708
 msgid "Border width"
-msgstr ""
+msgstr "Apmales platums"
 
 #: ../plugins/batt/batt.c:712
 msgid "Show Extended Information"
@@ -1677,7 +1677,7 @@ msgstr ""
 
 #: ../plugins/batt/batt.c:723
 msgid "Display battery status using ACPI"
-msgstr ""
+msgstr "Parādīt akumulatora stāvokli, izmantojot ACPI"
 
 #: ../plugins/kbled/kbled.c:203 ../plugins/kbled/kbled.c:234
 msgid "Keyboard LED"
@@ -1685,19 +1685,19 @@ msgstr ""
 
 #: ../plugins/kbled/kbled.c:205
 msgid "Show CapsLock"
-msgstr ""
+msgstr "Rādīt CapsLock"
 
 #: ../plugins/kbled/kbled.c:206
 msgid "Show NumLock"
-msgstr ""
+msgstr "Rādīt NumLock"
 
 #: ../plugins/kbled/kbled.c:207
 msgid "Show ScrollLock"
-msgstr ""
+msgstr "Rādīt ScrollLock"
 
 #: ../plugins/kbled/kbled.c:235
 msgid "Indicators for CapsLock, NumLock, and ScrollLock keys"
-msgstr ""
+msgstr "Indikatori CapsLock, NumLock un ScrollLock taustiņiem"
 
 #. A label to allow for click through
 #: ../plugins/indicator/indicator.c:694
