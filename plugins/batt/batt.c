@@ -111,6 +111,7 @@ static void * alarmProcess(void *arg) {
     sem_wait(a->lock);
     if (system(a->command) != 0)
         g_warning("plugin batt: failed to execute alarm command \"%s\"", a->command);
+    sleep(51); /* do not spam messages more often than once a minute */
     sem_post(a->lock);
 
     g_free(a);
@@ -257,7 +258,7 @@ void update_display(lx_battery *lx_b, gboolean repaint) {
         isCharging = battery_is_charging ( b );
 
     /* Consider running the alarm command */
-    if ( !isCharging && rate > 0 &&
+    if ( !isCharging &&
         ( ( battery_get_remaining( b ) / 60 ) < (int)lx_b->alarmTime ) )
     {
         /* FIXME: this should be done using glibs process functions */
