@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: LXPanel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-02-22 00:29+0200\n"
-"PO-Revision-Date: 2018-09-28 11:28+0000\n"
+"PO-Revision-Date: 2019-02-27 15:14+0000\n"
 "Last-Translator: Davidmp <rbndavid@gmail.com>\n"
 "Language-Team: David Medina <rbndavid@gmail.com>\n"
 "Language: ca\n"
@@ -19,7 +19,7 @@ msgstr ""
 "X-Generator: Pootle 2.8\n"
 "X-Pootle-Path: /ca/lxpanel/po/ca.po\n"
 "X-Pootle-Revision: 0\n"
-"X-POOTLE-MTIME: 1538134107.669464\n"
+"X-POOTLE-MTIME: 1551280468.294464\n"
 
 #: ../src/configurator.c:148
 msgid ""
@@ -344,6 +344,7 @@ msgstr "Inhabilita l'engrandiment per a icones de tasques petites"
 #: ../data/ui/launchtaskbar.glade.h:15
 msgid "Show task icons smaller than rest of panel icons"
 msgstr ""
+"Mostra les icones de tasques més petites que la resta d'icones del plafó"
 
 #: ../data/ui/launchtaskbar.glade.h:16
 msgid "Maximum width of task button"
@@ -2038,87 +2039,87 @@ msgstr "Mostra les condicions meteorològiques per a una ubicació."
 
 #: ../plugins/weather/yahooutil.c:51
 msgid "N"
-msgstr ""
+msgstr "N"
 
 #: ../plugins/weather/yahooutil.c:52
 msgid "NNE"
-msgstr ""
+msgstr "NNE"
 
 #: ../plugins/weather/yahooutil.c:53
 msgid "NE"
-msgstr ""
+msgstr "NE"
 
 #: ../plugins/weather/yahooutil.c:54
 msgid "ENE"
-msgstr ""
+msgstr "ENE"
 
 #: ../plugins/weather/yahooutil.c:55
 msgid "E"
-msgstr ""
+msgstr "E"
 
 #: ../plugins/weather/yahooutil.c:56
 msgid "ESE"
-msgstr ""
+msgstr "ESE"
 
 #: ../plugins/weather/yahooutil.c:57
 msgid "SE"
-msgstr ""
+msgstr "SE"
 
 #: ../plugins/weather/yahooutil.c:58
 msgid "SSE"
-msgstr ""
+msgstr "SSE"
 
 #: ../plugins/weather/yahooutil.c:59
 msgid "S"
-msgstr ""
+msgstr "S"
 
 #: ../plugins/weather/yahooutil.c:60
 msgid "SSW"
-msgstr ""
+msgstr "SSO"
 
 #: ../plugins/weather/yahooutil.c:61
 msgid "SW"
-msgstr ""
+msgstr "SO"
 
 #: ../plugins/weather/yahooutil.c:62
 msgid "WSW"
-msgstr ""
+msgstr "OSO"
 
 #: ../plugins/weather/yahooutil.c:63
 msgid "W"
-msgstr ""
+msgstr "O"
 
 #: ../plugins/weather/yahooutil.c:64
 msgid "WNW"
-msgstr ""
+msgstr "ONO"
 
 #: ../plugins/weather/yahooutil.c:65
 msgid "NW"
-msgstr ""
+msgstr "NO"
 
 #: ../plugins/weather/yahooutil.c:66
 msgid "NNW"
-msgstr ""
+msgstr "NNO"
 
 #: ../plugins/weather/yahooutil.c:1086
 msgid "Yahoo! Weather"
-msgstr ""
+msgstr "Yahoo! Meteorologia"
 
 #: ../plugins/weather/openweathermap.c:347
 msgid "Mph"
-msgstr ""
+msgstr "Mph"
 
 #: ../plugins/weather/openweathermap.c:347
 msgid "m/s"
-msgstr ""
+msgstr "m/s"
 
 #: ../plugins/weather/openweathermap.c:501
 msgid "m"
-msgstr ""
+msgstr "m"
 
 #: ../plugins/weather/openweathermap.c:916
 msgid "OpenWeatherMap"
-msgstr ""
+msgstr "OpenWeatherMap"
 
 #~ msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
 #~ msgstr ""
