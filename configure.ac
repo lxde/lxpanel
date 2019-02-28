@@ -276,11 +276,13 @@ else
 fi
 
 if test -n "$plugin_weather"; then
+    AC_MSG_CHECKING([for CURL development files])
     curl-config --help &>/dev/null || {
         AC_MSG_ERROR([weather plugin requires libcurl development files])
     }
     CURL_CFLAGS=$(curl-config --cflags)
     CURL_LIBS=$(curl-config --libs)
+    AC_MSG_RESULT([found])
     AC_SUBST(CURL_CFLAGS)
     AC_SUBST(CURL_LIBS)
 fi
