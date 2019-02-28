@@ -320,7 +320,7 @@ static void init_static_plugins(void)
 static void
 usage()
 {
-    g_print(_("lxpanel %s - lightweight GTK2+ panel for UNIX desktops\n"), version);
+    g_print(_("lxpanel %s - lightweight GTK+ panel for UNIX desktops\n"), version);
     g_print(_("Command line options:\n"));
     g_print(_(" --help      -- print this help and exit\n"));
     g_print(_(" --version   -- print version and exit\n"));

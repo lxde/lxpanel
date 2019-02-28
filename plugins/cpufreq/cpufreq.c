@@ -399,7 +399,7 @@ FM_DEFINE_MODULE(lxpanel_gtk, cpufreq)
 /* Plugin descriptor. */
 LXPanelPluginInit fm_module_init_lxpanel_gtk = {
     .name = N_("CPUFreq frontend"),
-    .description = N_("Display CPU frequency and allow to change governors and frequency"),
+    .description = N_("Display CPU frequency and allow one to change governors and frequency"),
 
     .new_instance = cpufreq_constructor,
     //.config      = config,
