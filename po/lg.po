@@ -6,19 +6,19 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel 0.5.6\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-22 00:29+0200\n"
+"POT-Creation-Date: 2019-03-01 01:38+0200\n"
 "PO-Revision-Date: 2014-11-24 16:59+0000\n"
 "Last-Translator: <kbirabwa@yahoo.co.uk>\n"
 "Language-Team: Luganda <kbirabwa@yahoo.co.uk>\n"
-"Language: lg\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.6.0-rc2\n"
-"X-POOTLE-MTIME: 1416848373.000000\n"
-"X-Pootle-Path: /lg/lxpanel/po/lg.po\n"
 "X-Pootle-Revision: 0\n"
+"X-Pootle-Path: /lg/lxpanel/po/lg.po\n"
+"X-POOTLE-MTIME: 1416848373.000000\n"
 
 #: ../src/configurator.c:148
 msgid ""
@@ -128,27 +128,27 @@ msgstr "Ebirufaako"
 msgid "Panel"
 msgstr "Lubaawo"
 
-#: ../src/panel.c:1708 ../src/panel.c:1716 ../data/ui/panel-pref.glade.h:22
+#: ../src/panel.c:1710 ../src/panel.c:1718 ../data/ui/panel-pref.glade.h:22
 msgid "Height:"
 msgstr "Obugulumivu:"
 
-#: ../src/panel.c:1709 ../src/panel.c:1715 ../data/ui/panel-pref.glade.h:21
+#: ../src/panel.c:1711 ../src/panel.c:1717 ../data/ui/panel-pref.glade.h:21
 msgid "Width:"
 msgstr "Obuwanvu:"
 
-#: ../src/panel.c:1710 ../data/ui/panel-pref.glade.h:13
+#: ../src/panel.c:1712 ../data/ui/panel-pref.glade.h:13
 msgid "Left"
 msgstr "Ku kkono"
 
-#: ../src/panel.c:1711 ../data/ui/panel-pref.glade.h:14
+#: ../src/panel.c:1713 ../data/ui/panel-pref.glade.h:14
 msgid "Right"
 msgstr "Ku ddyo"
 
-#: ../src/panel.c:1717 ../data/ui/panel-pref.glade.h:12
+#: ../src/panel.c:1719 ../data/ui/panel-pref.glade.h:12
 msgid "Top"
 msgstr "Waggulu"
 
-#: ../src/panel.c:1718 ../data/ui/panel-pref.glade.h:11
+#: ../src/panel.c:1720 ../data/ui/panel-pref.glade.h:11
 msgid "Bottom"
 msgstr "Wansi"
 
@@ -174,8 +174,8 @@ msgid "Logout"
 msgstr "Komya olutuula"
 
 #: ../src/main.c:323
-#, c-format
-msgid "lxpanel %s - lightweight GTK2+ panel for UNIX desktops\n"
+#, c-format, fuzzy
+msgid "lxpanel %s - lightweight GTK+ panel for UNIX desktops\n"
 msgstr ""
 "lxpanel %s - Lubaawo lwa ku kompyuta ez'oluse lwa UNIX olutanyunyunta "
 "kompyuta olweyambisa GTK2+\n"
@@ -191,8 +191,8 @@ msgstr ""
 #, c-format
 msgid " --help      -- print this help and exit\n"
 msgstr ""
-" --help      -- kano kakireetera okukoma ku kuwandika obuyambi buno "
-"bw'osoma\n"
+" --help      -- kano kakireetera okukoma ku kuwandika obuyambi buno bw'"
+"osoma\n"
 
 #: ../src/main.c:326
 #, c-format
@@ -284,7 +284,7 @@ msgid "Spacer"
 msgstr "Kabanga"
 
 #: ../src/space.c:396 ../data/ui/panel-pref.glade.h:32
-#: ../plugins/batt/batt.c:710
+#: ../plugins/batt/batt.c:714
 msgid "Size"
 msgstr "Bunene"
 
@@ -668,8 +668,9 @@ msgid "Bar with buttons to launch application"
 msgstr "Kabaawo akagendako mapeesa agatandika puloguramu"
 
 #: ../plugins/launchtaskbar.c:2463
+#, fuzzy
 msgid ""
-"Taskbar shows all opened windows and allow to iconify them, shade or get "
+"Taskbar shows all opened windows and allows to iconify them, shade or get "
 "focus"
 msgstr ""
 "Akabaawo k'emirimu kakulaga amadirisa agaliwo. Osobola okukakozesa "
@@ -1010,7 +1011,8 @@ msgid "CPUFreq frontend"
 msgstr "Puloguramu efuga CPUFreq"
 
 #: ../plugins/cpufreq/cpufreq.c:402
-msgid "Display CPU frequency and allow to change governors and frequency"
+#, fuzzy
+msgid "Display CPU frequency and allow one to change governors and frequency"
 msgstr ""
 "Kino kikulaga obwangu ekitundu kibazi kwekikolera era ne kikusobozesa "
 "okubukyusa n'okukyusa puloguramu ebufuga"
@@ -1351,7 +1353,7 @@ msgid "The interface name"
 msgstr "Erinnya ly'ensisinkano"
 
 #: ../plugins/netstatus/netstatus-iface.c:156
-#: ../plugins/weather/weatherwidget.c:2136
+#: ../plugins/weather/weatherwidget.c:2137
 msgid "State"
 msgstr "Embeera"
 
@@ -1597,22 +1599,25 @@ msgstr "Waliwo ebifunibwa"
 msgid "Sending/Receiving"
 msgstr "Kusindika/Kufuna"
 
-#: ../plugins/batt/batt.c:155
+#: ../plugins/batt/batt.c:156
+#, c-format
 #, fuzzy, c-format
 msgid "Battery %d: %d%% charged, %d:%02d until full"
 msgstr "Amanda: gatuuse ku %d%%, ebulayo %d:%02d gajjule"
 
-#: ../plugins/batt/batt.c:169
+#: ../plugins/batt/batt.c:170
+#, c-format
 #, fuzzy, c-format
 msgid "Battery %d: %d%% charged, %d:%02d left"
 msgstr "Amanda: gatuuse ku %d%%; ebulayo %d:%02d gaggwemu"
 
-#: ../plugins/batt/batt.c:176
+#: ../plugins/batt/batt.c:177
+#, c-format
 #, fuzzy, c-format
 msgid "Battery %d: %d%% charged"
 msgstr "Amanda: Gatuuse ku %d%%"
 
-#: ../plugins/batt/batt.c:186
+#: ../plugins/batt/batt.c:187
 #, c-format
 msgid ""
 "\n"
@@ -1621,7 +1626,7 @@ msgstr ""
 "\n"
 "%sObungi b'wamasanyalaze eryanda ge lyakolebwa okutereka:\t\t%5d mWh"
 
-#: ../plugins/batt/batt.c:188
+#: ../plugins/batt/batt.c:189
 #, c-format
 msgid ""
 "\n"
@@ -1630,7 +1635,7 @@ msgstr ""
 "\n"
 "%sBungi bw'amasanyalaze agaterekedwa:\t\t\t%5d mWh"
 
-#: ../plugins/batt/batt.c:190
+#: ../plugins/batt/batt.c:191
 #, c-format
 msgid ""
 "\n"
@@ -1639,7 +1644,7 @@ msgstr ""
 "\n"
 "%sBungi bw'amasanyalaze agasigaddemu:\t\t\t%5d mWh"
 
-#: ../plugins/batt/batt.c:192
+#: ../plugins/batt/batt.c:193
 #, c-format
 msgid ""
 "\n"
@@ -1648,7 +1653,7 @@ msgstr ""
 "\n"
 "%sMaanyi kwegakolera kaakano:\t\t\t%5d mW"
 
-#: ../plugins/batt/batt.c:195
+#: ../plugins/batt/batt.c:196
 #, c-format
 msgid ""
 "\n"
@@ -1657,7 +1662,7 @@ msgstr ""
 "\n"
 "%sObungi b'wamasanyalaze eryanda ge lyakolebwa okutereka:\t%5d mAh"
 
-#: ../plugins/batt/batt.c:197
+#: ../plugins/batt/batt.c:198
 #, c-format
 msgid ""
 "\n"
@@ -1666,7 +1671,7 @@ msgstr ""
 "\n"
 "%sBungi bw'amasanyalaze agaterekedwa:\t\t\t%5d mAh"
 
-#: ../plugins/batt/batt.c:199
+#: ../plugins/batt/batt.c:200
 #, c-format
 msgid ""
 "\n"
@@ -1675,7 +1680,7 @@ msgstr ""
 "\n"
 "%sBungi bw'amasanyalaze agasigaddemu:\t\t\t%5d mAh"
 
-#: ../plugins/batt/batt.c:201
+#: ../plugins/batt/batt.c:202
 #, c-format
 msgid ""
 "\n"
@@ -1684,7 +1689,7 @@ msgstr ""
 "\n"
 "%sObwangu kwegakozesebwa kaakano:\t\t\t%5d mA"
 
-#: ../plugins/batt/batt.c:204
+#: ../plugins/batt/batt.c:205
 #, c-format
 msgid ""
 "\n"
@@ -1693,64 +1698,64 @@ msgstr ""
 "\n"
 "%sEryanyi ly'amasanyalaze kaakano:\t\t%.3lf V"
 
-#: ../plugins/batt/batt.c:242
+#: ../plugins/batt/batt.c:243
 msgid "No batteries found"
 msgstr "Tewali manda"
 
-#: ../plugins/batt/batt.c:542 ../plugins/batt/batt.c:675
+#: ../plugins/batt/batt.c:546 ../plugins/batt/batt.c:679
 msgid "Battery low"
 msgstr "Manda gakenedde"
 
-#: ../plugins/batt/batt.c:698 ../plugins/batt/batt.c:722
+#: ../plugins/batt/batt.c:702 ../plugins/batt/batt.c:726
 msgid "Battery Monitor"
 msgstr "Ekirabiriza manda"
 
-#: ../plugins/batt/batt.c:700
+#: ../plugins/batt/batt.c:704
 msgid "Hide if there is no battery"
 msgstr "Ekirabiriza kikise bwe watabawo manda"
 
-#: ../plugins/batt/batt.c:701
+#: ../plugins/batt/batt.c:705
 msgid "Alarm command"
 msgstr "Ekiragiro ekifuga akajjukiza"
 
-#: ../plugins/batt/batt.c:702
+#: ../plugins/batt/batt.c:706
 msgid "Alarm time (minutes left)"
 msgstr "Obudde obusigadde okufuna akajjukiza (ddakiika)"
 
-#: ../plugins/batt/batt.c:703
+#: ../plugins/batt/batt.c:707
 msgid "Background color"
 msgstr "Langi ey'oku bwaliriro"
 
-#: ../plugins/batt/batt.c:704
+#: ../plugins/batt/batt.c:708
 msgid "Charging color 1"
 msgstr "Langi ya kuzamu manda 1"
 
-#: ../plugins/batt/batt.c:705
+#: ../plugins/batt/batt.c:709
 msgid "Charging color 2"
 msgstr "Langi ya kuzamu manda 2"
 
-#: ../plugins/batt/batt.c:706
+#: ../plugins/batt/batt.c:710
 msgid "Discharging color 1"
 msgstr "Langi ya kunywa manda 1"
 
-#: ../plugins/batt/batt.c:707
+#: ../plugins/batt/batt.c:711
 msgid "Discharging color 2"
 msgstr "Langi ya kunywa manda 2"
 
-#: ../plugins/batt/batt.c:708
+#: ../plugins/batt/batt.c:712
 msgid "Border width"
 msgstr "Buggumivu bw'olukoboze olwetoolola njegoyego"
 
-#: ../plugins/batt/batt.c:712
+#: ../plugins/batt/batt.c:716
 msgid "Show Extended Information"
 msgstr "Birage mu bujjuvu"
 
-#: ../plugins/batt/batt.c:713
+#: ../plugins/batt/batt.c:717
 #, fuzzy
 msgid "Number of battery to monitor"
 msgstr "Ensisinkano erabirizibwa"
 
-#: ../plugins/batt/batt.c:723
+#: ../plugins/batt/batt.c:727
 msgid "Display battery status using ACPI"
 msgstr "Kozesa ACPI okulaga mbeera y'amanda"
 
@@ -1849,15 +1854,15 @@ msgstr "Laga ebirabiriza (ekitundu ekibazi ne RAM)"
 msgid "[N/A]"
 msgstr "[T/W]"
 
-#: ../plugins/weather/weatherwidget.c:807
+#: ../plugins/weather/weatherwidget.c:806
 msgid "Enter New Location"
 msgstr "Tegeka kifo kipya"
 
-#: ../plugins/weather/weatherwidget.c:821
+#: ../plugins/weather/weatherwidget.c:820
 msgid "_New Location:"
 msgstr "_Kifo Kipya:"
 
-#: ../plugins/weather/weatherwidget.c:832
+#: ../plugins/weather/weatherwidget.c:831
 msgid ""
 "Enter the:\n"
 "- city, or\n"
@@ -1871,248 +1876,248 @@ msgstr ""
 "- namba za posita\n"
 "gy'oyagala okumanya ebifa ku mbeera y'obudde."
 
-#: ../plugins/weather/weatherwidget.c:869
-#: ../plugins/weather/weatherwidget.c:1002
+#: ../plugins/weather/weatherwidget.c:868
+#: ../plugins/weather/weatherwidget.c:1001
 msgid "You must specify a location."
 msgstr "kyetaagisa olage ekifo."
 
-#: ../plugins/weather/weatherwidget.c:916
+#: ../plugins/weather/weatherwidget.c:915
 #, c-format
 msgid "Location '%s' not found!"
 msgstr "Ekifo '%s' kimbuze!"
 
-#: ../plugins/weather/weatherwidget.c:1075
+#: ../plugins/weather/weatherwidget.c:1074
 msgid "Preferences"
 msgstr "Enteekateeka"
 
-#: ../plugins/weather/weatherwidget.c:1081
+#: ../plugins/weather/weatherwidget.c:1080
 msgid "Refresh"
 msgstr "Damu okukebera"
 
-#: ../plugins/weather/weatherwidget.c:1087
+#: ../plugins/weather/weatherwidget.c:1086
 msgid "Quit"
 msgstr "Mala"
 
-#: ../plugins/weather/weatherwidget.c:1254
+#: ../plugins/weather/weatherwidget.c:1253
 msgid "Weather Preferences"
 msgstr "Nteekateeka y'eby'okukebera eby'embeera y'obudde"
 
-#: ../plugins/weather/weatherwidget.c:1268
+#: ../plugins/weather/weatherwidget.c:1267
 msgid "Current Location"
 msgstr "Ekifo ekitegekedwa kakati"
 
-#: ../plugins/weather/weatherwidget.c:1272
-#: ../plugins/weather/weatherwidget.c:1574
+#: ../plugins/weather/weatherwidget.c:1271
+#: ../plugins/weather/weatherwidget.c:1573
 msgid "None configured"
 msgstr "Tewali kitegekedwa"
 
-#: ../plugins/weather/weatherwidget.c:1274
-#: ../plugins/weather/weatherwidget.c:1571
+#: ../plugins/weather/weatherwidget.c:1273
+#: ../plugins/weather/weatherwidget.c:1570
 msgid "_Set"
 msgstr "_Tegeka"
 
-#: ../plugins/weather/weatherwidget.c:1295
+#: ../plugins/weather/weatherwidget.c:1294
 msgid "Display"
 msgstr "Birage"
 
-#: ../plugins/weather/weatherwidget.c:1299
+#: ../plugins/weather/weatherwidget.c:1298
 msgid "Name:"
 msgstr "Linnya:"
 
-#: ../plugins/weather/weatherwidget.c:1303
+#: ../plugins/weather/weatherwidget.c:1302
 msgid "Units:"
 msgstr "Bipimo:"
 
-#: ../plugins/weather/weatherwidget.c:1307
+#: ../plugins/weather/weatherwidget.c:1306
 msgid "_Metric (°C)"
 msgstr "_Meturici (°C)"
 
-#: ../plugins/weather/weatherwidget.c:1309
+#: ../plugins/weather/weatherwidget.c:1308
 msgid "_English (°F)"
 msgstr "_Kingereza (°F)"
 
-#: ../plugins/weather/weatherwidget.c:1344
+#: ../plugins/weather/weatherwidget.c:1343
 msgid "Forecast"
 msgstr "Ebisuubirwa"
 
-#: ../plugins/weather/weatherwidget.c:1348
+#: ../plugins/weather/weatherwidget.c:1347
 msgid "Updates:"
 msgstr "Ngeri ya kukebera ebijja:"
 
-#: ../plugins/weather/weatherwidget.c:1352
+#: ../plugins/weather/weatherwidget.c:1351
 msgid "Ma_nual"
 msgstr "Gira_girenga okukebera"
 
-#: ../plugins/weather/weatherwidget.c:1356
+#: ../plugins/weather/weatherwidget.c:1355
 msgid "_Automatic, every"
 msgstr "_Yelagirenga okubera ebijja, oluvanyuma lwa buli"
 
-#: ../plugins/weather/weatherwidget.c:1377
+#: ../plugins/weather/weatherwidget.c:1376
 msgid "minutes"
 msgstr "ddakiika"
 
-#: ../plugins/weather/weatherwidget.c:1386
+#: ../plugins/weather/weatherwidget.c:1385
 msgid "Source:"
 msgstr "Ennono:"
 
-#: ../plugins/weather/weatherwidget.c:1522
+#: ../plugins/weather/weatherwidget.c:1521
 msgid "C_hange"
 msgstr "K_yusa"
 
 #. Both are available
-#: ../plugins/weather/weatherwidget.c:1613
+#: ../plugins/weather/weatherwidget.c:1612
 #, c-format
 msgid "Current Conditions for %s"
 msgstr "Embeera y'obudde e %s"
 
-#: ../plugins/weather/weatherwidget.c:1637
+#: ../plugins/weather/weatherwidget.c:1636
 msgid "Location:"
 msgstr "Kifo:"
 
-#: ../plugins/weather/weatherwidget.c:1660
+#: ../plugins/weather/weatherwidget.c:1659
 msgid "Last updated:"
 msgstr "Ebijja byasemba kukeberwa nga:"
 
-#: ../plugins/weather/weatherwidget.c:1694
+#: ../plugins/weather/weatherwidget.c:1693
 msgid "Feels like:"
 msgstr "Buwulirika nga:"
 
-#: ../plugins/weather/weatherwidget.c:1720
+#: ../plugins/weather/weatherwidget.c:1719
 msgid "Humidity:"
 msgstr "Lubugumu:"
 
-#: ../plugins/weather/weatherwidget.c:1747
+#: ../plugins/weather/weatherwidget.c:1746
 msgid "Pressure:"
 msgstr "Erikkatizi:"
 
-#: ../plugins/weather/weatherwidget.c:1774
+#: ../plugins/weather/weatherwidget.c:1773
 msgid "Visibility:"
 msgstr "Okulaba:"
 
-#: ../plugins/weather/weatherwidget.c:1802
+#: ../plugins/weather/weatherwidget.c:1801
 msgid "Wind:"
 msgstr "Mbuyaga:"
 
-#: ../plugins/weather/weatherwidget.c:1825
+#: ../plugins/weather/weatherwidget.c:1824
 msgid "Sunrise:"
 msgstr "Njuba kuva yo:"
 
-#: ../plugins/weather/weatherwidget.c:1848
+#: ../plugins/weather/weatherwidget.c:1847
 msgid "Sunset:"
 msgstr "Njuba kubulirayo:"
 
-#: ../plugins/weather/weatherwidget.c:1954
-#: ../plugins/weather/weatherwidget.c:2295
+#: ../plugins/weather/weatherwidget.c:1955
+#: ../plugins/weather/weatherwidget.c:2306
 #, c-format
 msgid "Forecast for %s unavailable."
 msgstr "Eby'e %s tebifunise."
 
-#: ../plugins/weather/weatherwidget.c:1963
-#: ../plugins/weather/weatherwidget.c:2300
+#: ../plugins/weather/weatherwidget.c:1964
+#: ../plugins/weather/weatherwidget.c:2311
 #, c-format
 msgid "Location not set."
 msgstr "Totegese kifo."
 
-#: ../plugins/weather/weatherwidget.c:1980
+#: ../plugins/weather/weatherwidget.c:1981
 #, c-format
 msgid "Searching for '%s'..."
 msgstr "Nnoonya eby'e '%s'..."
 
-#: ../plugins/weather/weatherwidget.c:2106
+#: ../plugins/weather/weatherwidget.c:2107
 #, c-format
 msgid "Location matches for '%s'"
 msgstr "Ebifo ebiyinza okuba '%s'"
 
-#: ../plugins/weather/weatherwidget.c:2126
+#: ../plugins/weather/weatherwidget.c:2127
 msgid "City"
 msgstr "Kibuga"
 
-#: ../plugins/weather/weatherwidget.c:2146
+#: ../plugins/weather/weatherwidget.c:2147
 msgid "Country"
 msgstr "Nsi"
 
 #. make it nice and pretty
-#: ../plugins/weather/weatherwidget.c:2278
+#: ../plugins/weather/weatherwidget.c:2286
 msgid "Currently in "
 msgstr "Kaakano e "
 
-#: ../plugins/weather/weatherwidget.c:2281
+#: ../plugins/weather/weatherwidget.c:2292
 msgid "Today: "
 msgstr "Olwaleero: "
 
-#: ../plugins/weather/weatherwidget.c:2282
+#: ../plugins/weather/weatherwidget.c:2293
 msgid "Tomorrow: "
 msgstr "Nkya: "
 
-#: ../plugins/weather/weather.c:419
+#: ../plugins/weather/weather.c:415
 msgid "Weather Plugin"
 msgstr "Ekyongerwako eky'eby'embeera y'obudde"
 
-#: ../plugins/weather/weather.c:420
+#: ../plugins/weather/weather.c:416
 msgid "Show weather conditions for a location."
 msgstr "Kikulaga ebifa ku mbeera y'obudde mu kifo ky'oba olonze."
 
-#: ../plugins/weather/yahooutil.c:51
+#: ../plugins/weather/yahooutil.c:51 ../plugins/weather/openweathermap.c:56
 msgid "N"
 msgstr ""
 
-#: ../plugins/weather/yahooutil.c:52
+#: ../plugins/weather/yahooutil.c:52 ../plugins/weather/openweathermap.c:57
 msgid "NNE"
 msgstr ""
 
-#: ../plugins/weather/yahooutil.c:53
+#: ../plugins/weather/yahooutil.c:53 ../plugins/weather/openweathermap.c:58
 msgid "NE"
 msgstr ""
 
-#: ../plugins/weather/yahooutil.c:54
+#: ../plugins/weather/yahooutil.c:54 ../plugins/weather/openweathermap.c:59
 msgid "ENE"
 msgstr ""
 
-#: ../plugins/weather/yahooutil.c:55
+#: ../plugins/weather/yahooutil.c:55 ../plugins/weather/openweathermap.c:60
 msgid "E"
 msgstr ""
 
-#: ../plugins/weather/yahooutil.c:56
+#: ../plugins/weather/yahooutil.c:56 ../plugins/weather/openweathermap.c:61
 msgid "ESE"
 msgstr ""
 
-#: ../plugins/weather/yahooutil.c:57
+#: ../plugins/weather/yahooutil.c:57 ../plugins/weather/openweathermap.c:62
 msgid "SE"
 msgstr ""
 
-#: ../plugins/weather/yahooutil.c:58
+#: ../plugins/weather/yahooutil.c:58 ../plugins/weather/openweathermap.c:63
 msgid "SSE"
 msgstr ""
 
-#: ../plugins/weather/yahooutil.c:59
+#: ../plugins/weather/yahooutil.c:59 ../plugins/weather/openweathermap.c:64
 msgid "S"
 msgstr ""
 
-#: ../plugins/weather/yahooutil.c:60
+#: ../plugins/weather/yahooutil.c:60 ../plugins/weather/openweathermap.c:65
 msgid "SSW"
 msgstr ""
 
-#: ../plugins/weather/yahooutil.c:61
+#: ../plugins/weather/yahooutil.c:61 ../plugins/weather/openweathermap.c:66
 msgid "SW"
 msgstr ""
 
-#: ../plugins/weather/yahooutil.c:62
+#: ../plugins/weather/yahooutil.c:62 ../plugins/weather/openweathermap.c:67
 msgid "WSW"
 msgstr ""
 
-#: ../plugins/weather/yahooutil.c:63
+#: ../plugins/weather/yahooutil.c:63 ../plugins/weather/openweathermap.c:68
 msgid "W"
 msgstr ""
 
-#: ../plugins/weather/yahooutil.c:64
+#: ../plugins/weather/yahooutil.c:64 ../plugins/weather/openweathermap.c:69
 msgid "WNW"
 msgstr ""
 
-#: ../plugins/weather/yahooutil.c:65
+#: ../plugins/weather/yahooutil.c:65 ../plugins/weather/openweathermap.c:70
 msgid "NW"
 msgstr ""
 
-#: ../plugins/weather/yahooutil.c:66
+#: ../plugins/weather/yahooutil.c:66 ../plugins/weather/openweathermap.c:71
 msgid "NNW"
 msgstr ""
 
@@ -2120,19 +2125,19 @@ msgstr ""
 msgid "Yahoo! Weather"
 msgstr ""
 
-#: ../plugins/weather/openweathermap.c:347
+#: ../plugins/weather/openweathermap.c:365
 msgid "Mph"
 msgstr ""
 
-#: ../plugins/weather/openweathermap.c:347
+#: ../plugins/weather/openweathermap.c:365
 msgid "m/s"
 msgstr ""
 
-#: ../plugins/weather/openweathermap.c:501
+#: ../plugins/weather/openweathermap.c:535
 msgid "m"
 msgstr ""
 
-#: ../plugins/weather/openweathermap.c:916
+#: ../plugins/weather/openweathermap.c:932
 msgid "OpenWeatherMap"
 msgstr ""
 
