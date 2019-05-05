@@ -674,9 +674,14 @@ void _panel_set_wm_strut(LXPanel *panel)
     if (p->setstrut &&
         _panel_edge_can_strut(panel, p->edge, p->monitor, &strut_size))
     {
-        desired_strut[index] = strut_size;
-        desired_strut[4 + index * 2] = strut_lower;
-        desired_strut[5 + index * 2] = strut_upper - 1;
+#if GTK_CHECK_VERSION(3, 10, 0)
+        gint scale_factor = gtk_widget_get_scale_factor(GTK_WIDGET(panel));
+#else
+        gint scale_factor = 1;
+#endif
+        desired_strut[index] = strut_size * scale_factor;
+        desired_strut[4 + index * 2] = strut_lower * scale_factor;
+        desired_strut[5 + index * 2] = (strut_upper - 1) * scale_factor;
     }
     else
     {
