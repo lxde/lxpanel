@@ -259,8 +259,22 @@ battery* battery_update(battery *b)
     else if (b->energy_full != -1 && b->energy_now != -1)
         /* no charge data, let try energy instead */
         promille = (b->energy_now * 1000) / b->energy_full;
-    else
-        promille = 0;
+    else {
+        /* Pinebook has percentage in capacity, and no total energy. */
+        gchar *file_content = parse_info_file(b, "capacity");
+        gint value = -1;
+
+        if (file_content != NULL)
+            value = atoi(file_content);
+        g_free(file_content);
+        if (value != -1 && value <= 100 && value >= 0) {
+            promille = value * 10;
+            b->charge_full = 10000;  /* mAh from pinebook spec */
+            b->charge_now = (value * b->charge_full + 50) / 100;
+        }
+        else
+            promille = 0;
+    }
 
     b->percentage = (promille + 5) / 10; /* round properly */
     if (b->percentage > 100)
