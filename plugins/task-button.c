@@ -1144,16 +1144,28 @@ static void task_draw_label(TaskButton *tb, gboolean bold_style, gboolean force)
 
     tb->set_bold = bold_style;
     str = g_string_sized_new(32);
-    if (!tb->visible)
-        g_string_append_c(str, '[');
-    if (tb->n_visible > 1)
-        g_string_append_printf(str, "(%d) ", tb->n_visible);
-    if (!tb->same_name || !tb->last_focused || !tb->last_focused->name)
-        g_string_append(str, tb->res_class);
+    if (tb->flags.show_square_brackets)
+    {
+        if (!tb->visible)
+            g_string_append_c(str, '[');
+        if (tb->n_visible > 1)
+            g_string_append_printf(str, "(%d) ", tb->n_visible);
+        if (!tb->same_name || !tb->last_focused || !tb->last_focused->name)
+            g_string_append(str, tb->res_class);
+        else
+            g_string_append(str, tb->last_focused->name);
+        if (!tb->visible)
+            g_string_append_c(str, ']');
+    }
     else
-        g_string_append(str, tb->last_focused->name);
-    if (!tb->visible)
-        g_string_append_c(str, ']');
+    {
+        if (tb->n_visible > 1)
+            g_string_append_printf(str, "(%d) ", tb->n_visible);
+        if (!tb->same_name || !tb->last_focused || !tb->last_focused->name)
+            g_string_append(str, tb->res_class);
+        else
+            g_string_append(str, tb->last_focused->name);
+    }
 
     if (force && tb->flags.tooltips)
         gtk_widget_set_tooltip_text(GTK_WIDGET(tb), str->str);

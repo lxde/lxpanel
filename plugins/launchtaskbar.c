@@ -1009,6 +1009,8 @@ static void launchtaskbar_constructor_task(LaunchTaskBarPlugin *ltbp)
             ltbp->flags.icons_only = (tmp_int != 0);
         if (config_setting_lookup_int(s, "ShowAllDesks", &tmp_int))
             ltbp->flags.show_all_desks = (tmp_int != 0);
+        if (config_setting_lookup_int(s, "ShowSquareBrackets", &tmp_int))
+            ltbp->flags.show_square_brackets = (tmp_int != 0);
         if (config_setting_lookup_int(s, "SameMonitorOnly", &tmp_int))
             ltbp->flags.same_monitor_only = (tmp_int != 0);
         if (config_setting_lookup_int(s, "DisableUpscale", &tmp_int))
@@ -1105,6 +1107,7 @@ static GtkWidget *_launchtaskbar_constructor(LXPanel *panel, config_setting_t *s
     ltbp->flags.tooltips    = TRUE;
     ltbp->flags.icons_only  = FALSE;
     ltbp->flags.show_all_desks = TRUE;
+    ltbp->flags.show_square_brackets = TRUE;
     ltbp->task_width_max    = TASK_WIDTH_MAX;
     ltbp->spacing           = 1;
     ltbp->flags.use_mouse_wheel = TRUE;
@@ -1525,6 +1528,15 @@ static void on_checkbutton_show_all_desks_toggled(GtkToggleButton *p_togglebutto
     taskbar_apply_configuration(ltbp);
 }
 
+static void on_checkbutton_show_square_brackets_toggled(GtkToggleButton *p_togglebutton, gpointer p_data)
+{
+    LaunchTaskBarPlugin *ltbp = (LaunchTaskBarPlugin *)p_data;
+    ltbp->flags.show_square_brackets = gtk_toggle_button_get_active(p_togglebutton);
+    //g_print("\ntb->flags.show_square_brackets upd\n");
+    config_group_set_int(ltbp->settings, "ShowSquareBrackets", ltbp->flags.show_square_brackets);
+    taskbar_apply_configuration(ltbp);
+}
+
 static void on_checkbutton_same_monitor_only_toggled(GtkToggleButton *p_togglebutton, gpointer p_data)
 {
     LaunchTaskBarPlugin *ltbp = (LaunchTaskBarPlugin *)p_data;
@@ -1786,6 +1798,7 @@ static GtkWidget *launchtaskbar_configure(LXPanel *panel, GtkWidget *p)
         SETUP_TOGGLE_BUTTON(checkbutton_icons_only, icons_only);
         SETUP_TOGGLE_BUTTON(checkbutton_flat_buttons, flat_button);
         SETUP_TOGGLE_BUTTON(checkbutton_show_all_desks, show_all_desks);
+        SETUP_TOGGLE_BUTTON(checkbutton_show_square_brackets, show_square_brackets);
         SETUP_TOGGLE_BUTTON(checkbutton_same_monitor_only, same_monitor_only);
         SETUP_TOGGLE_BUTTON(checkbutton_mouse_wheel, use_mouse_wheel);
         SETUP_TOGGLE_BUTTON(checkbutton_urgency_hint, use_urgency_hint);
