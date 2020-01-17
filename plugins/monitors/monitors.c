@@ -43,25 +43,30 @@
  *    is optional, but recommended.
  * 3) Add a #define FOO_POSITION, and increment N_MONITORS.
  * 4) Add :
- *     - the default color of your plugin ("default_colors" table)
+ *     - the colors of your plugin
+ *       ("default_colors", "default_text_colors" and "default_background_colors" tables)
  *     - the update function ("update_functions" table)
  *     - the tooltip update function ("tooltip_update" table)
  * 5) Configuration :
  *     - edit the monitors_config() function so that a "Display FOO usage"
- *     checkbox appears in the prefs dialog.
+ *       checkbox appears in the prefs dialog.
  *     - edit the monitors_save() function so that a "DisplayFOO" string appears
- *     in the config file ("~/.config/lxpanel/<profile>/config")
- *     - edit the monitors_config() function so that a "FOO color" entry appears
+ *       in the config file ("~/.config/lxpanel/<profile>/config")
+ *     - edit the monitors_config() function so that
+ *       a "FOO color", "FOO text color" and "FOO background color" entries appears
  *       in the prefs dialog.
- *     - edit the monitors_save() function so that a "FOOColor" string appears
+ *     - edit the monitors_save() function so that
+ *       a "FOOColor", "FOOTxtColor" and "FOOBgColor",  string appears
  *       in the config file.
  *     - edit the monitors_constructor() function so that options are correctly
- *     aplied. Adding something like :
+ *       aplied. Adding something like :
  *
- *     else if (g_ascii_strcasecmp(s.t[0], "DisplayFOO") == 0)
- *         mp->displayed_monitors[FOO_POSITION] = atoi(s.t[1])
- *     else if (g_ascii_strcasecmp(s.t[0], "FOOColor") == 0)
- *         colors[FOO_POSITION] = g_strndup(s.t[1], COLOR_SIZE-1);
+ *	    if (config_setting_lookup_string(settings, "FOOColor", &tmp))
+ *		colors[FOO_POSITION] = g_strndup(tmp, COLOR_SIZE-1);
+ *	    if (config_setting_lookup_string(settings, "FOOTxtColor", &tmp))
+ *		text_colors[FOO_POSITION] = g_strndup(tmp, COLOR_SIZE-1);
+ *	    if (config_setting_lookup_string(settings, "FOOBgColor", &tmp))
+ *		background_colors[FOO_POSITION] = g_strndup(tmp, COLOR_SIZE-1);
  *
  *     should be enough.
  * 6) Enjoy.
@@ -85,7 +90,7 @@
 
 #define PLUGIN_NAME      "MonitorsPlugin"
 #define BORDER_SIZE      2                  /* Pixels               */
-#define DEFAULT_WIDTH    40                 /* Pixels               */
+#define DEFAULT_WIDTH    50                 /* Pixels               */
 #define UPDATE_PERIOD    1                  /* Seconds              */
 #define COLOR_SIZE       8                  /* In chars : #xxxxxx\0 */
 
@@ -102,6 +107,9 @@ typedef float stats_set;
 
 struct Monitor {
     GdkColor     foreground_color;  /* Foreground color for drawing area      */
+    GdkColor     text_color;        /* Color of percentage                    */
+    GdkColor     text_size;         /* Size of percentage text                */
+    GdkColor     background_color;  /* Background color                       */
     GtkWidget    *da;               /* Drawing area                           */
     cairo_surface_t    *pixmap;     /* Pixmap to be drawn on drawing area     */
     gint         pixmap_width;      /* Width and size of the buffer           */
@@ -140,7 +148,7 @@ typedef struct {
 /*
  * Prototypes
  */
-static void monitor_set_foreground_color(MonitorsPlugin *, Monitor *, const gchar *);
+static void monitor_set_colors(MonitorsPlugin *, Monitor *, const gchar *, const gchar *, const gchar *);
 
 /* CPU Monitor */
 static gboolean cpu_update(Monitor *);
@@ -168,7 +176,7 @@ static gboolean monitors_apply_config(gpointer);
  *                              Monitor functions                             *
  ******************************************************************************/
 static Monitor*
-monitor_init(MonitorsPlugin *mp, Monitor *m, gchar *color)
+monitor_init(MonitorsPlugin *mp, Monitor *m, gchar *color, gchar *text_color, gchar *background_color)
 {
     ENTER;
 
@@ -177,7 +185,7 @@ monitor_init(MonitorsPlugin *mp, Monitor *m, gchar *color)
                                  GDK_BUTTON_MOTION_MASK);
     gtk_widget_set_size_request(m->da, DEFAULT_WIDTH, panel_get_height(mp->panel));
 
-    monitor_set_foreground_color(mp, m, color);
+    monitor_set_colors(mp, m, color, text_color, background_color);
 
     /* Signals */
     g_signal_connect(G_OBJECT(m->da), "configure-event",
@@ -210,11 +218,13 @@ monitor_free(Monitor *m)
 }
 
 static void
-monitor_set_foreground_color(MonitorsPlugin *mp, Monitor *m, const gchar *color)
+monitor_set_colors(MonitorsPlugin *mp, Monitor *m, const gchar *color, const gchar *text_color, const gchar *background_color)
 {
     g_free(m->color);
     m->color = g_strndup(color, COLOR_SIZE - 1);
     gdk_color_parse(color, &m->foreground_color);
+    gdk_color_parse(text_color, &m->text_color);
+    gdk_color_parse(background_color, &m->background_color);
 }
 /******************************************************************************
  *                          End of monitor functions                          *
@@ -544,11 +554,12 @@ redraw_pixmap (Monitor *m)
     int i;
     cairo_t *cr = cairo_create(m->pixmap);
     GtkStyle *style = gtk_widget_get_style(m->da);
+    char buf[8];
 
     cairo_set_line_width (cr, 1.0);
 
     /* Erase pixmap */
-    gdk_cairo_set_source_color(cr, &style->black);
+    gdk_cairo_set_source_color(cr, &m->background_color);
     cairo_paint(cr);
 
     gdk_cairo_set_source_color(cr, &m->foreground_color);
@@ -561,6 +572,14 @@ redraw_pixmap (Monitor *m)
         cairo_line_to(cr, i + 0.5, (1.0 - m->stats[drawing_cursor]) * m->pixmap_height);
         cairo_stroke(cr);
     }
+    sprintf(buf,"%.0f%%",m->stats[
+	(m->ring_cursor == 0) ? m->pixmap_width - 1 : m->ring_cursor - 1
+    ]*100);
+    gdk_cairo_set_source_color(cr, &m->text_color);
+    //~ cairo_select_font_face(cr, "sans-serif", CAIRO_FONT_SLANT_NORMAL, CAIRO_FONT_WEIGHT_BOLD);
+    cairo_set_font_size(cr,11);
+    cairo_move_to(cr, m->pixmap_width/2-6, m->pixmap_height/2+5);
+    cairo_show_text(cr,buf);
 
     check_cairo_status(cr);
     cairo_destroy(cr);
@@ -575,8 +594,20 @@ static update_func update_functions [N_MONITORS] = {
 };
 
 static char *default_colors[N_MONITORS] = {
-    [CPU_POSITION] = "#0000FF",
-    [MEM_POSITION] = "#FF0000"
+    [CPU_POSITION] = "#FF9999",
+    [MEM_POSITION] = "#9999FF"
+};
+static char *default_text_colors[N_MONITORS] = {
+    [CPU_POSITION] = "#000000",
+    [MEM_POSITION] = "#000000"
+};
+//~ static char *default_text_sizes[N_MONITORS] = {
+    //~ [CPU_POSITION] = "11",
+    //~ [MEM_POSITION] = "11"
+//~ };
+static char *default_background_colors[N_MONITORS] = {
+    [CPU_POSITION] = "#FFCCCC",
+    [MEM_POSITION] = "#CCCCFF"
 };
 
 
@@ -589,6 +620,18 @@ static tooltip_update_func tooltip_update[N_MONITORS] = {
  * they belong, because we free these when the user removes them. And since we
  * want the colors to stay the same even after removing/adding a widget... */
 static char *colors[N_MONITORS] = {
+    NULL,
+    NULL
+};
+static char *text_colors[N_MONITORS] = {
+    NULL,
+    NULL
+};
+//~ static char *text_sizes[N_MONITORS] = {
+    //~ NULL,
+    //~ NULL
+//~ };
+static char *background_colors[N_MONITORS] = {
     NULL,
     NULL
 };
@@ -624,14 +667,14 @@ monitors_update(gpointer data)
 
 static Monitor*
 monitors_add_monitor (GtkWidget *p, MonitorsPlugin *mp, update_func update,
-             tooltip_update_func update_tooltip, gchar *color)
+             tooltip_update_func update_tooltip, gchar *color, gchar *text_color, gchar *background_color)
 {
     ENTER;
 
     Monitor *m;
 
     m = g_new0(Monitor, 1);
-    m = monitor_init(mp, m, color);
+    m = monitor_init(mp, m, color, text_color, background_color);
     m->update = update;
     m->update_tooltip = update_tooltip;
     gtk_box_pack_start(GTK_BOX(p), m->da, FALSE, FALSE, 0);
@@ -666,23 +709,40 @@ monitors_constructor(LXPanel *panel, config_setting_t *settings)
                               &mp->displayed_monitors[MEM_POSITION]);
     if (config_setting_lookup_string(settings, "Action", &tmp))
         mp->action = g_strdup(tmp);
+    
     if (config_setting_lookup_string(settings, "CPUColor", &tmp))
         colors[CPU_POSITION] = g_strndup(tmp, COLOR_SIZE-1);
+    if (config_setting_lookup_string(settings, "CPUTxtColor", &tmp))
+        text_colors[CPU_POSITION] = g_strndup(tmp, COLOR_SIZE-1);
+    if (config_setting_lookup_string(settings, "CPUBgColor", &tmp))
+        background_colors[CPU_POSITION] = g_strndup(tmp, COLOR_SIZE-1);
+    
     if (config_setting_lookup_string(settings, "RAMColor", &tmp))
         colors[MEM_POSITION] = g_strndup(tmp, COLOR_SIZE-1);
+    if (config_setting_lookup_string(settings, "RAMTxtColor", &tmp))
+        text_colors[MEM_POSITION] = g_strndup(tmp, COLOR_SIZE-1);
+    if (config_setting_lookup_string(settings, "RAMBgColor", &tmp))
+        background_colors[MEM_POSITION] = g_strndup(tmp, COLOR_SIZE-1);
 
     /* Initializing monitors */
     for (i = 0; i < N_MONITORS; i++)
     {
         if (!colors[i])
             colors[i] = g_strndup(default_colors[i], COLOR_SIZE-1);
+        if (!text_colors[i])
+            text_colors[i] = g_strndup(default_text_colors[i], COLOR_SIZE-1);
+        if (!background_colors[i])
+            background_colors[i] = g_strndup(default_background_colors[i], COLOR_SIZE-1);
 
         if (mp->displayed_monitors[i])
         {
             mp->monitors[i] = monitors_add_monitor(p, mp,
                                                    update_functions[i],
                                                    tooltip_update[i],
-                                                   colors[i]);
+                                                   colors[i],
+                                                   text_colors[i],
+                                                   background_colors[i]
+		);
         }
     }
 
@@ -729,14 +789,24 @@ monitors_config (LXPanel *panel, GtkWidget *p)
 
     mp = lxpanel_plugin_get_data(p);
 
-    dialog = lxpanel_generic_config_dlg(_("Resource monitors"),
+    dialog = lxpanel_generic_config_dlg(
+	_("Resource monitors"),
         panel, monitors_apply_config, p,
+	
         _("Display CPU usage"), &mp->displayed_monitors[0], CONF_TYPE_BOOL,
         _("CPU color"), &colors[CPU_POSITION], CONF_TYPE_STR,
+        _("Text color"), &text_colors[CPU_POSITION], CONF_TYPE_STR,
+        _("Background color"), &background_colors[CPU_POSITION], CONF_TYPE_STR,
+	
         _("Display RAM usage"), &mp->displayed_monitors[1], CONF_TYPE_BOOL,
         _("RAM color"), &colors[MEM_POSITION], CONF_TYPE_STR,
+        _("Text color"), &text_colors[MEM_POSITION], CONF_TYPE_STR,
+        _("Background color"), &background_colors[MEM_POSITION], CONF_TYPE_STR,
+	
         _("Action when clicked (default: lxtask)"), &mp->action, CONF_TYPE_STR,
-        NULL);
+	
+        NULL
+    );
 
     RET(dialog);
 }
@@ -758,6 +828,10 @@ start:
         /* User may remove color value. In such case, reset to the default */
         if (!colors[i])
             colors[i] = g_strndup(default_colors[i], COLOR_SIZE-1);
+        if (!text_colors[i])
+            text_colors[i] = g_strndup(default_text_colors[i], COLOR_SIZE-1);
+        if (!background_colors[i])
+            background_colors[i] = g_strndup(default_background_colors[i], COLOR_SIZE-1);
 
         if (mp->displayed_monitors[i])
             current_n_monitors++;
@@ -768,7 +842,10 @@ start:
             mp->monitors[i] = monitors_add_monitor(p, mp,
                                                    update_functions[i],
                                                    tooltip_update[i],
-                                                   colors[i]);
+                                                   colors[i],
+                                                   text_colors[i],
+                                                   background_colors[i]
+		);
             /*
              * It is probably best for users if their monitors are always
              * displayed in the same order : the CPU monitor always on the left,
@@ -791,7 +868,7 @@ start:
             strncmp(mp->monitors[i]->color, colors[i], COLOR_SIZE) != 0)
         {
             /* We've changed the color */
-            monitor_set_foreground_color(mp, mp->monitors[i], colors[i]);
+            monitor_set_colors(mp, mp->monitors[i], colors[i], text_colors[i], background_colors[i]);
         }
     }
 
@@ -806,10 +883,20 @@ start:
     config_group_set_int(mp->settings, "DisplayCPU", mp->displayed_monitors[CPU_POSITION]);
     config_group_set_int(mp->settings, "DisplayRAM", mp->displayed_monitors[MEM_POSITION]);
     config_group_set_string(mp->settings, "Action", mp->action);
+    
     config_group_set_string(mp->settings, "CPUColor",
                             mp->monitors[CPU_POSITION] ? colors[CPU_POSITION] : NULL);
+    config_group_set_string(mp->settings, "CPUTxtColor",
+                            mp->monitors[CPU_POSITION] ? text_colors[CPU_POSITION] : NULL);
+    config_group_set_string(mp->settings, "CPUBgColor",
+                            mp->monitors[CPU_POSITION] ? background_colors[CPU_POSITION] : NULL);
+    
     config_group_set_string(mp->settings, "RAMColor",
                             mp->monitors[MEM_POSITION] ? colors[MEM_POSITION] : NULL);
+    config_group_set_string(mp->settings, "RAMTxtColor",
+                            mp->monitors[MEM_POSITION] ? text_colors[MEM_POSITION] : NULL);
+    config_group_set_string(mp->settings, "RAMBgColor",
+                            mp->monitors[MEM_POSITION] ? background_colors[MEM_POSITION] : NULL);
 
     RET(FALSE);
 }
