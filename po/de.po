@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-03-01 01:38+0200\n"
-"PO-Revision-Date: 2020-10-16 14:47+0200\n"
+"PO-Revision-Date: 2020-10-16 19:47+0200\n"
 "Last-Translator: Ingo Brückl <ib@wupperonline.de>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -178,7 +178,7 @@ msgstr "Abmelden"
 
 #: ../src/main.c:323
 msgid "lxpanel %s - lightweight GTK+ panel for UNIX desktops\n"
-msgstr "lxpanel %s - schlanke GTK+-Leiste für UNIX-Arbeitsumgebungen\n"
+msgstr "lxpanel %s - schlanke GTK+ basierte Bedienleiste für UNIX-Arbeitsflächen\n"
 
 #: ../src/main.c:324
 #, c-format
