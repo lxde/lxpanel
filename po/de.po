@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-03-01 01:38+0200\n"
-"PO-Revision-Date: 2020-10-16 19:47+0200\n"
+"PO-Revision-Date: 2020-10-18 19:16+0200\n"
 "Last-Translator: Ingo Brückl <ib@wupperonline.de>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -71,7 +71,7 @@ msgid ""
 "<b>Warning: This can not be recovered.</b>"
 msgstr ""
 "Diese Leiste wirklich entfernen?\n"
-"<b>Warnung: Es kann nicht wiederhergestellt werden.</b>"
+"<b>Warnung: Wiederherstellung nicht möglich.</b>"
 
 #: ../src/panel.c:1320
 msgid "Confirm"
@@ -250,7 +250,7 @@ msgstr "%s-Taste"
 #, c-format
 msgid "Key combination '%s' cannot be used as a global hotkey, sorry."
 msgstr ""
-"Entschuldigung, die Tastenkombination »%s« kann nicht als globales "
+"Das Tastenkürzel »%s« kann leider nicht als globales "
 "Tastenkürzel benutzt werden."
 
 #: ../src/input-button.c:231 ../src/input-button.c:415
@@ -262,7 +262,7 @@ msgstr "Fehler"
 #. GtkRadioButton "None"
 #: ../src/input-button.c:329 ../data/ui/panel-pref.glade.h:5
 msgid "None"
-msgstr "Keine"
+msgstr "Kein"
 
 #: ../src/input-button.c:336
 msgid "Custom:"
@@ -272,7 +272,7 @@ msgstr "Benutzerdefiniert:"
 #, c-format
 msgid "Cannot assign '%s' as a global hotkey: it is already bound."
 msgstr ""
-"»%s« kann nicht als globales Tastenkürzel zugewiesen werden: es wird bereits "
+"»%s« kann nicht als globales Tastenkürzel zugewiesen werden: Es wird bereits "
 "verwendet."
 
 #: ../src/space.c:394 ../src/space.c:403
@@ -299,7 +299,7 @@ msgstr "<b>Modus:</b>"
 
 #: ../data/ui/launchtaskbar.glade.h:4
 msgid "Launchers"
-msgstr "Starter"
+msgstr "Im Anwendungsstart"
 
 #: ../data/ui/launchtaskbar.glade.h:5
 msgid "<b>Launchbar</b>"
@@ -315,7 +315,7 @@ msgstr "Nur Symbole"
 
 #: ../data/ui/launchtaskbar.glade.h:8
 msgid "Flat buttons"
-msgstr "Flache Knöpfe"
+msgstr "Flache Schaltflächen"
 
 #: ../data/ui/launchtaskbar.glade.h:9
 msgid "Show windows from all desktops"
@@ -324,8 +324,8 @@ msgstr "Fenster aller Arbeitsflächen anzeigen"
 #: ../data/ui/launchtaskbar.glade.h:10
 msgid "Only show windows on the same monitor as the task bar"
 msgstr ""
-"Zeige nur Fenster, die auf dem gleichen Bildschirm sind, wie die "
-"Aufgabenleiste"
+"Nur Fenster anzeigen, die auf dem gleichen Bildschirm wie die "
+"Aufgabenleiste sind"
 
 #: ../data/ui/launchtaskbar.glade.h:11
 msgid "Use mouse wheel"
@@ -337,19 +337,19 @@ msgstr "Blinken, wenn ein Fenster um Aufmerksamkeit bittet"
 
 #: ../data/ui/launchtaskbar.glade.h:13
 msgid "Combine multiple application windows into a single button"
-msgstr "Mehrere Fenster einer Anwendung in einem Knopf zusammenfassen"
+msgstr "Mehrere Anwendungsfenster zu einer einzigen Schaltfläche zusammenfassen"
 
 #: ../data/ui/launchtaskbar.glade.h:14
 msgid "Disable enlargement for small task icons"
-msgstr "Vergrößerung für kleine Symbole deaktivieren"
+msgstr "Vergrößerung für kleine Aufgabenleisten-Symbole deaktivieren"
 
 #: ../data/ui/launchtaskbar.glade.h:15
 msgid "Show task icons smaller than rest of panel icons"
-msgstr ""
+msgstr "Aufgabenleisten-Symbole kleiner als die übrigen Leisten-Symbole anzeigen"
 
 #: ../data/ui/launchtaskbar.glade.h:16
 msgid "Maximum width of task button"
-msgstr "Maximale Breite des Knopfes"
+msgstr "Maximale Schaltflächenbreite"
 
 #: ../data/ui/launchtaskbar.glade.h:17
 msgid "Spacing"
@@ -369,7 +369,7 @@ msgstr "Nur Aufgabenleiste (Fensterliste)"
 
 #: ../data/ui/launchtaskbar.glade.h:21
 msgid "Integrated Application Launch Bar and Task Bar"
-msgstr "Integrierte Anwendungsstart- und Aufgabenleiste"
+msgstr "Kombinierte Anwendungsstart- und Aufgabenleiste"
 
 #: ../data/ui/netstatus.glade.h:1
 msgid "<b>Connection</b>"
@@ -580,7 +580,7 @@ msgstr "Fenstermanager soll die Leiste als Dock identifizieren"
 
 #: ../data/ui/panel-pref.glade.h:41
 msgid "Reserve space, and not covered by maximized windows"
-msgstr "Platz, der nicht von maximierten Fenstern überdeckt wird"
+msgstr "Reservierter, nicht von maximierten Fenstern überdeckter Bereich"
 
 #: ../data/ui/panel-pref.glade.h:42
 msgid "<b>Properties</b>"
@@ -644,15 +644,15 @@ msgstr "Anwendungsstartleiste"
 
 #: ../plugins/launchtaskbar.c:1834 ../plugins/launchtaskbar.c:2462
 msgid "Task Bar (Window List)"
-msgstr "Taskbar (Fensterliste)"
+msgstr "Aufgabenleiste (Fensterliste)"
 
 #: ../plugins/launchtaskbar.c:1985
 msgid "A_dd to Launcher"
-msgstr "Zum Starter hinzufügen"
+msgstr "Zur Startleiste hinzufügen"
 
 #: ../plugins/launchtaskbar.c:1987
 msgid "Rem_ove from Launcher"
-msgstr "Aus dem Starter _entfernen"
+msgstr "Aus der Startleiste _entfernen"
 
 #: ../plugins/launchtaskbar.c:1989
 msgid "_New Instance"
@@ -660,20 +660,20 @@ msgstr "_Neue Instanz"
 
 #: ../plugins/launchtaskbar.c:2453
 msgid "Bar with buttons to launch application"
-msgstr "Leiste mit Knöpfen zum Starten von Anwendungen"
+msgstr "Leiste mit Symbolen zum Starten von Anwendungen"
 
 #: ../plugins/launchtaskbar.c:2463
 msgid ""
 "Taskbar shows all opened windows and allows to iconify them, shade or get "
 "focus"
 msgstr ""
-"Die Taskbar zeigt alle geöffneten Fenster und ermöglicht die Verkleinerung "
+"Die Aufgabenleiste zeigt alle geöffneten Fenster und ermöglicht die Verkleinerung "
 "auf Symbolgröße, das Einrollen oder Hervorheben."
 
 #: ../plugins/launchtaskbar.c:2483
 msgid "Bar with buttons to launch application and/or show all opened windows"
 msgstr ""
-"Leiste mit Knöpfen zum Starten von Anwendungen und/oder zum Anzeigen aller "
+"Leiste mit Symbolen zum Starten von Anwendungen und/oder zum Anzeigen aller "
 "geöffneten Fenster"
 
 #. Add Raise menu item.
@@ -727,7 +727,7 @@ msgstr "Alle Fenster s_chließen"
 
 #: ../plugins/dclock.c:433 ../plugins/dclock.c:453
 msgid "Digital Clock"
-msgstr "Digitale Uhr"
+msgstr "Digitaluhr"
 
 #: ../plugins/dclock.c:435
 msgid "Clock Format"
@@ -789,7 +789,7 @@ msgstr "Trenner zur Leiste hinzufügen"
 #: ../plugins/pager.c:141
 msgid "Sorry, there was no window manager configuration program found."
 msgstr ""
-"Entschuldigung, es wurde kein Programm gefunden, um den Fenstermanger zu "
+"Es wurde leider kein Programm gefunden, um den Fenstermanger zu "
 "konfigurieren."
 
 #: ../plugins/pager.c:193 ../plugins/pager.c:209
@@ -829,7 +829,7 @@ msgstr "ID"
 #. dialog
 #: ../plugins/xkb/xkb-plugin.c:714
 msgid "Select Layout Change Type"
-msgstr "Layout-Änderungstyp auswählen"
+msgstr "Belegungs-Änderungstyp auswählen"
 
 #. dialog
 #: ../plugins/xkb/xkb-plugin.c:887
@@ -846,7 +846,7 @@ msgstr "Belegung"
 
 #: ../plugins/xkb/xkb-plugin.c:1212 ../plugins/xkb/xkb-plugin.c:1544
 msgid "Keyboard Layout Handler"
-msgstr "Tastaturbelegungshandhaber"
+msgstr "Tastaturbelegung"
 
 #: ../plugins/xkb/xkb-plugin.c:1235
 msgid "Keyboard Model"
@@ -862,11 +862,11 @@ msgstr "Variante"
 
 #: ../plugins/xkb/xkb-plugin.c:1319
 msgid "Change Layout Option"
-msgstr "Belegung ändern Option"
+msgstr "Belegungsoptionen ändern"
 
 #: ../plugins/xkb/xkb-plugin.c:1339
 msgid "Advanced setxkbmap Options"
-msgstr "Erweiterte setxkbmap Optionen"
+msgstr "Erweiterte setxkbmap-Optionen"
 
 #: ../plugins/xkb/xkb-plugin.c:1360
 msgid "Do _not reset existing options"
@@ -942,7 +942,7 @@ msgstr "Bezeichnung"
 
 #: ../plugins/dirmenu.c:366
 msgid "Browse directory tree via menu (Author = PCMan)"
-msgstr "Ordnerstruktur über das Menü durchsuchen (Autor = PCMan)"
+msgstr "Ordnerstruktur über ein Menü durchsuchen (Autor = PCMan)"
 
 #: ../plugins/thermal/thermal.c:563 ../plugins/thermal/thermal.c:581
 msgid "Temperature Monitor"
@@ -954,11 +954,11 @@ msgstr "Normale Farbe"
 
 #: ../plugins/thermal/thermal.c:566
 msgid "Warning1 color"
-msgstr "Warnung1 Farbe"
+msgstr "Farbe - Warnung 1"
 
 #: ../plugins/thermal/thermal.c:567
 msgid "Warning2 color"
-msgstr "Warnung2 Farbe"
+msgstr "Farbe - Warnung 2"
 
 #: ../plugins/thermal/thermal.c:568
 msgid "Automatic sensor location"
@@ -977,11 +977,11 @@ msgstr "Automatische Temperatur-Stufen"
 #. FIXME: if off, disable two below
 #: ../plugins/thermal/thermal.c:571
 msgid "Warning1 temperature"
-msgstr "Warnung1: Temperatur"
+msgstr "Temperatur - Warnung 1"
 
 #: ../plugins/thermal/thermal.c:572
 msgid "Warning2 temperature"
-msgstr "Warnung2: Temperatur"
+msgstr "Temperatur - Warnung 2"
 
 #: ../plugins/thermal/thermal.c:582
 msgid "Display system temperature"
@@ -998,7 +998,7 @@ msgstr ""
 
 #: ../plugins/cpufreq/cpufreq.c:401
 msgid "CPUFreq frontend"
-msgstr "CPUFreq Frontend"
+msgstr "CPUFreq-Frontend"
 
 #: ../plugins/cpufreq/cpufreq.c:402
 msgid "Display CPU frequency and allow one to change governors and frequency"
@@ -1039,7 +1039,7 @@ msgstr ""
 
 #: ../plugins/volumealsa/volumealsa.c:1313
 msgid "LineOut"
-msgstr ""
+msgstr "Line-Ausgang"
 
 #: ../plugins/volumealsa/volumealsa.c:1313
 msgid "Front"
@@ -1051,7 +1051,7 @@ msgstr ""
 
 #: ../plugins/volumealsa/volumealsa.c:1313
 msgid "Speaker+LO"
-msgstr ""
+msgstr "Lautsprecher und Line-Ausgang"
 
 #: ../plugins/volumealsa/volumealsa.c:1352
 msgid "default"
@@ -1068,32 +1068,32 @@ msgstr ""
 
 #: ../plugins/volumealsa/volumealsa.c:1420
 msgid "Headphone"
-msgstr ""
+msgstr "Kopfhörer"
 
 #: ../plugins/volumealsa/volumealsa.c:1442
 msgid "Click for Volume Slider"
-msgstr ""
+msgstr "Klick für den Lautstärkeregler"
 
 #: ../plugins/volumealsa/volumealsa.c:1446
 msgid "Click for Toggle Mute"
-msgstr ""
+msgstr "Klick zum Wechsel der Stummschaltung"
 
 #: ../plugins/volumealsa/volumealsa.c:1450
 msgid "Click for Open Mixer"
-msgstr ""
+msgstr "Klick zum Öffnen des Mischpults"
 
 #. setup hotkeys
 #: ../plugins/volumealsa/volumealsa.c:1454
 msgid "Hotkey for Volume Up"
-msgstr ""
+msgstr "Tastenkürzel zur Erhöhung der Lautstärke"
 
 #: ../plugins/volumealsa/volumealsa.c:1456
 msgid "Hotkey for Volume Down"
-msgstr ""
+msgstr "Tastenkürzel zur Verringerung der Lautstärke"
 
 #: ../plugins/volumealsa/volumealsa.c:1458
 msgid "Hotkey for Volume Mute"
-msgstr ""
+msgstr "Tastenkürzel zur Stummschaltung"
 
 #: ../plugins/volumealsa/volumealsa.c:1514
 #: ../plugins/volumealsa/volumealsa.c:1553
@@ -1103,15 +1103,15 @@ msgstr "Lautstärkeregler"
 
 #: ../plugins/volumealsa/volumealsa.c:1516
 msgid "Audio Card"
-msgstr ""
+msgstr "Audio-Karte"
 
 #: ../plugins/volumealsa/volumealsa.c:1519
 msgid "Channel to Operate"
-msgstr ""
+msgstr "Audio-Quelle"
 
 #: ../plugins/volumealsa/volumealsa.c:1527
 msgid "Command to Open Mixer"
-msgstr ""
+msgstr "Mischpult-Befehl"
 
 #: ../plugins/volumealsa/volumealsa.c:1542
 msgid "Launch Mixer"
@@ -1289,7 +1289,7 @@ msgstr "Schnittstelle"
 
 #: ../plugins/netstatus/netstatus-icon.c:848
 msgid "The current interface the icon is monitoring."
-msgstr "Die Schnittstelle, die vom Symbol zur Zeit überwacht wird."
+msgstr "Die gegenwärtige Schnittstelle, die vom Symbol überwacht wird."
 
 #: ../plugins/netstatus/netstatus-icon.c:855
 msgid "Orientation"
@@ -1740,15 +1740,15 @@ msgstr "Tastatur-LEDs"
 
 #: ../plugins/kbled/kbled.c:205
 msgid "Show CapsLock"
-msgstr "CapsLock zeigen"
+msgstr "CapsLock anzeigen"
 
 #: ../plugins/kbled/kbled.c:206
 msgid "Show NumLock"
-msgstr "NumLock zeigen"
+msgstr "NumLock anzeigen"
 
 #: ../plugins/kbled/kbled.c:207
 msgid "Show ScrollLock"
-msgstr "ScrollLock zeigen"
+msgstr "ScrollLock anzeigen"
 
 #: ../plugins/kbled/kbled.c:235
 msgid "Indicators for CapsLock, NumLock, and ScrollLock keys"
@@ -1823,11 +1823,11 @@ msgstr "Aktion bei Klick (Vorgabe: lxtask)"
 
 #: ../plugins/monitors/monitors.c:822
 msgid "Display monitors (CPU, RAM)"
-msgstr "Ressourcenüberwachung anzeigen (CPU, RAM)"
+msgstr "Überwachungen anzeigen (CPU, RAM)"
 
 #: ../plugins/weather/weatherwidget.c:52
 msgid "[N/A]"
-msgstr "[N/A]"
+msgstr "?"
 
 #: ../plugins/weather/weatherwidget.c:806
 msgid "Enter New Location"
@@ -1849,7 +1849,7 @@ msgstr ""
 "- Stadt, oder\n"
 "- Stadt und Staat/Land, oder\n"
 "- Postleitzahl\n"
-"an, für die die Wettervorhersage abgeholt werden soll."
+"an, für die die Wettervorhersage abgerufen werden soll."
 
 #: ../plugins/weather/weatherwidget.c:868
 #: ../plugins/weather/weatherwidget.c:1001
@@ -1901,7 +1901,7 @@ msgstr "Name:"
 
 #: ../plugins/weather/weatherwidget.c:1302
 msgid "Units:"
-msgstr "Einheiten:"
+msgstr "Einheit:"
 
 #: ../plugins/weather/weatherwidget.c:1306
 msgid "_Metric (°C)"
@@ -1991,7 +1991,7 @@ msgstr "Vorhersage für %s ist nicht verfügbar."
 #: ../plugins/weather/weatherwidget.c:2311
 #, c-format
 msgid "Location not set."
-msgstr "Standort wurde nicht angegeben."
+msgstr "Standort wurde nicht angegeben"
 
 #: ../plugins/weather/weatherwidget.c:1981
 #, c-format
@@ -2115,177 +2115,3 @@ msgstr ""
 #: ../plugins/weather/openweathermap.c:932
 msgid "OpenWeatherMap"
 msgstr ""
-
-#~ msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
-#~ msgstr ""
-#~ " --log <Zahl> -- setzt den Loglevel auf 0-5. 0 - keine Logs, 5 - "
-#~ "vollständig\n"
-
-#~ msgid "Format codes: man 3 strftime; \\%n for line break"
-#~ msgstr "Formate: man 3 strftime; \\%n für Zeilenumbruch"
-
-#~ msgid "Normal"
-#~ msgstr "Normal"
-
-#~ msgid "Warning1"
-#~ msgstr "Warnung1"
-
-#~ msgid "Warning2"
-#~ msgstr "Warnung2"
-
-#~ msgid "Warning1 Temperature"
-#~ msgstr "Warnung1 Temperatur"
-
-#~ msgid "Warning2 Temperature"
-#~ msgstr "Warnung2 Temperatur"
-
-#~ msgid "Copyright (C) 2008-2013"
-#~ msgstr "Copyright (C) 2008-2013"
-
-#~ msgid "Display Image and Tooltip"
-#~ msgstr "Bild und Minihilfe anzeigen"
-
-#~ msgid ""
-#~ "Error, you need to install an application to configure the sound "
-#~ "(pavucontol, alsamixer ...)"
-#~ msgstr ""
-#~ "Fehler, Sie müssen eine Anwendung zum Einstellen der Lautstärke "
-#~ "installieren (z. B. pavucontrol, alsamixer ...)"
-
-#~ msgid "Failed to launch time configuration tool: %s"
-#~ msgstr "Werkzeug zur Zeiteinstellung konnte nicht gestartet werden: %s"
-
-#~ msgid "Model"
-#~ msgstr "Modell"
-
-#~ msgid "WNCKPager"
-#~ msgstr "WNCKPager"
-
-#~ msgid "<b>Icon</b>"
-#~ msgstr "<b>Symbol</b>"
-
-#~ msgid "Configure Keyboard Layout Switcher"
-#~ msgstr "Konfiguration des Tastaturbelegungsschalters"
-
-#~ msgid "image"
-#~ msgstr "Bild"
-
-#~ msgid "text"
-#~ msgstr "Text"
-
-#~ msgid "Per application settings"
-#~ msgstr "Einstellungen für jede Anwendung"
-
-#~ msgid "Default layout:"
-#~ msgstr "Standardbelegung:"
-
-#~ msgid "Available Applications"
-#~ msgstr "Verfügbare Anwendungen"
-
-#~ msgid "Display system temperature, by kesler.daniel@gmail.com"
-#~ msgstr "Anzeige der Systemtemperatur, von kesler.daniel@gmail.com"
-
-#~ msgid "Left\t"
-#~ msgstr "Links\t"
-
-#~ msgid "Top\t"
-#~ msgstr "Oben\t"
-
-#~ msgid "Couldn't find pixmap file: %s"
-#~ msgstr "Bilddatei konnte nicht gefunden werden: %s"
-
-#~ msgid "Desktop No / Workspace Name"
-#~ msgstr "Arbeitsflächennummer und -name"
-
-#~ msgid ""
-#~ "Allows you to switch the keyboard layout and\n"
-#~ "displays the currently selected layout."
-#~ msgstr ""
-#~ "Erlaubt die Tastaturbelegung zu wechseln und zeigt die aktuell gewählte "
-#~ "Belegung an."
-
-#~ msgid "Other plugins available here"
-#~ msgstr "Andere Plugins sind hier verfügbar"
-
-#~ msgid "Old KDE/GNOME Tray"
-#~ msgstr "Alter KDE/GNOME-Systembereich"
-
-#~ msgid "Enable Image:"
-#~ msgstr "Bild:"
-
-#~ msgid "Enable Transparency"
-#~ msgstr "Transparenz aktivieren"
-
-#~ msgid " --configure -- launch configuration utility\n"
-#~ msgstr " --configure -- startet das Konfigurationsprogramm\n"
-
-#~ msgid " -C  -- same as --configure\n"
-#~ msgstr " -C  -- wie --configure\n"
-
-#~ msgid "Add Button"
-#~ msgstr "Knopf hinzufügen"
-
-#~ msgid "Button Properties"
-#~ msgstr "Knopfeigenschaften"
-
-#~ msgid "Remove Button"
-#~ msgstr "Knopf entfernen"
-
-#~ msgid "Buttons"
-#~ msgstr "Knöpfe"
-
-#~ msgid "Accept SkipPager"
-#~ msgstr "SkipPager akzeptieren"
-
-#~ msgid "Show Iconified windows"
-#~ msgstr "Minimierte Fenster anzeigen"
-
-#~ msgid "Show mapped windows"
-#~ msgstr "Eingerollte Fenster anzeigen"
-
-#~ msgid "Kayboard Layout switcher"
-#~ msgstr "Tastatur-Layout-Schalter"
-
-#~ msgid ""
-#~ "Dynamic\n"
-#~ "Pixels\n"
-#~ "% Percent"
-#~ msgstr ""
-#~ "Dynamische\n"
-#~ "Pixel\n"
-#~ "% Prozent"
-
-#~ msgid ""
-#~ "Left\n"
-#~ "Center\n"
-#~ "Right"
-#~ msgstr ""
-#~ "Links\n"
-#~ "Mitte\n"
-#~ "Rechts"
-
-#~ msgid ""
-#~ "Left\n"
-#~ "Right\n"
-#~ "Top\n"
-#~ "Bottom"
-#~ msgstr ""
-#~ "Links\n"
-#~ "Rechts\n"
-#~ "Oben\n"
-#~ "Unten"
-
-#~ msgid "Where to put the panel?"
-#~ msgstr "Wo soll das Panel platziert werden?"
-
-#~ msgid "Battery: %d%% charged, %s"
-#~ msgstr "Akku: %d%% geladen, %s"
-
-#~ msgid "charging finished"
-#~ msgstr "Laden beendet"
-
-#~ msgid "charging"
-#~ msgstr "laden"
-
-#~ msgid "Add to desktop panel"
-#~ msgstr "Erweiterung zum Panel hinzufügen"
