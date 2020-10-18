@@ -9,6 +9,7 @@
 * Added option to battery monitor to hide number of battery in tooltip.
 * Added option to resource monitors to show cached and buffered memory as
     used.
+* Improved translations and design fix of ALSA volume control popup.
 
 0.10.0
 -------------------------------------------------------------------------
