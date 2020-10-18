@@ -11,6 +11,7 @@
  *               2014 Peter <ombalaxitabou@users.sf.net>
  *               2014-2016 Andriy Grytsenko <andrej@rep.kiev.ua>
  *               2020 TheZxcv <the.uint64.t@gmail.com>
+ *               2020 Ingo Brückl
  *
  * This file is a part of LXPanel project.
  *
@@ -611,7 +612,7 @@ static void volumealsa_update_current_icon(VolumeALSAPlugin * vol, gboolean mute
     lxpanel_image_change_icon(vol->tray_icon, vol->icon_panel, vol->icon_fallback);
 
     /* Display current level in tooltip. */
-    char * tooltip = g_strdup_printf("%s %d", _("Volume control"), level);
+    char * tooltip = g_strdup_printf(_("Volume: %d%%"), level);
     gtk_widget_set_tooltip_text(vol->plugin, tooltip);
     g_free(tooltip);
 }
@@ -897,7 +898,6 @@ static void volumealsa_build_popup_window(GtkWidget *p)
 
     /* Create a frame as the child of the viewport. */
     GtkWidget * frame = gtk_frame_new(_("Volume"));
-    gtk_frame_set_shadow_type(GTK_FRAME(frame), GTK_SHADOW_IN);
     gtk_container_add(GTK_CONTAINER(viewport), frame);
 
     /* Create a vertical box as the child of the frame. */
@@ -1314,7 +1314,8 @@ static gboolean mute_key_changed(GtkWidget *btn, char *click, VolumeALSAPlugin *
 
 #if THING_THAT_NEVER_HAPPEN
 /* Just to have these translated */
-N_("Line"), N_("LineOut"), N_("Front"), N_("Surround"), N_("Center"), N_("Speaker+LO");
+N_("Line"), N_("LineOut"), N_("Front"), N_("Surround"), N_("Center"), N_("Speaker+LO"),
+N_("Speaker"), N_("Beep");
 #endif
 
 /* Callback when the configuration dialog is to be shown. */
