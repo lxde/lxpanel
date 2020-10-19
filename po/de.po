@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-03-01 01:38+0200\n"
-"PO-Revision-Date: 2020-10-18 19:16+0200\n"
+"PO-Revision-Date: 2020-10-20 01:08+0200\n"
 "Last-Translator: Ingo Brückl <ib@wupperonline.de>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -47,7 +47,7 @@ msgstr "Verfügbare Erweiterungen"
 
 #: ../src/configurator.c:1427
 msgid "Logout command is not set"
-msgstr "Abmeldebefehl ist nicht definiert"
+msgstr "Befehl zum Abmelden ist nicht definiert."
 
 #: ../src/configurator.c:1495
 msgid "Select a directory"
@@ -435,7 +435,7 @@ msgstr "<b>Internetprotokoll (IPv6)</b>"
 
 #: ../data/ui/netstatus.glade.h:17
 msgid "Scope:"
-msgstr "Bandbreite:"
+msgstr "Gültigkeitsbereich:"
 
 #: ../data/ui/netstatus.glade.h:18
 msgid "<b>Network Device</b>"
@@ -447,7 +447,7 @@ msgstr "Typ:"
 
 #: ../data/ui/netstatus.glade.h:20
 msgid "Support"
-msgstr "Unterstützung"
+msgstr "Details"
 
 #: ../data/ui/netstatus.glade.h:21
 msgid "Con_figure"
@@ -576,11 +576,11 @@ msgstr "<b>Bevorzugte Anwendungen wählen</b>"
 
 #: ../data/ui/panel-pref.glade.h:40
 msgid "Make window managers treat the panel as dock"
-msgstr "Fenstermanager soll die Leiste als Dock identifizieren"
+msgstr "Fenstermanager soll die Leiste als Dock behandeln"
 
 #: ../data/ui/panel-pref.glade.h:41
 msgid "Reserve space, and not covered by maximized windows"
-msgstr "Reservierter, nicht von maximierten Fenstern überdeckter Bereich"
+msgstr "Maximierte Fenster sollen die Leiste nicht überdecken"
 
 #: ../data/ui/panel-pref.glade.h:42
 msgid "<b>Properties</b>"
@@ -748,7 +748,7 @@ msgstr "Aktion bei Klick (Vorgabe: Kalender anzeigen)"
 
 #: ../plugins/dclock.c:440
 msgid "Tooltip only"
-msgstr "Nur Minihilfen"
+msgstr "Nur Minihilfe"
 
 #: ../plugins/dclock.c:441
 msgid "Center text"
@@ -756,11 +756,11 @@ msgstr "Text zentrieren"
 
 #: ../plugins/dclock.c:454
 msgid "Display digital clock and tooltip"
-msgstr "Digitale Uhr und Minihilfe anzeigen"
+msgstr "Anzeige von Digitaluhr und Minihilfe"
 
 #: ../plugins/menu.c:360
 msgid "Add to desktop"
-msgstr "Der Arbeitsfläche hinzufügen"
+msgstr "Zur Arbeitsfläche hinzufügen"
 
 #: ../plugins/menu.c:367
 msgid "Properties"
@@ -906,7 +906,7 @@ msgstr "Tastaturbelegungen handhaben"
 
 #: ../plugins/wincmd.c:207
 msgid "Left click to iconify all windows.  Middle click to shade them."
-msgstr "Linksklick zum Minimieren aller Fenster. Mittelklick zum Einrollen."
+msgstr "Linksklick zum Minimieren aller Fenster, Mittelklick zum Einrollen."
 
 #: ../plugins/wincmd.c:245 ../plugins/wincmd.c:255
 msgid "Minimize All Windows"
@@ -921,8 +921,8 @@ msgid ""
 "Sends commands to all desktop windows.\n"
 "Supported commands are 1) iconify and 2) shade"
 msgstr ""
-"Sendet Befehle an alle Fenster.\n"
-"Unterstützte Befehle sind 1) Minimieren und 2) Einrollen"
+"Befehle an alle Fenster senden.\n"
+"Unterstützte Befehle sind: 1) Minimieren, 2) Einrollen"
 
 #: ../plugins/dirmenu.c:213
 msgid "Open in _Terminal"
@@ -946,7 +946,7 @@ msgstr "Ordnerstruktur über ein Menü durchsuchen (Autor = PCMan)"
 
 #: ../plugins/thermal/thermal.c:563 ../plugins/thermal/thermal.c:581
 msgid "Temperature Monitor"
-msgstr "Temperaturmonitor"
+msgstr "Temperatur-Monitor"
 
 #: ../plugins/thermal/thermal.c:565
 msgid "Normal color"
@@ -1120,7 +1120,7 @@ msgstr "Mischpult starten"
 #: ../plugins/volumealsa/volumealsa.c:1554
 #: ../plugins/volumealsa/volumealsa.c:1575
 msgid "Display and control volume"
-msgstr "Lautstärke anzeigen und einstellen"
+msgstr "Anzeige und Einstellung der Lautstärke"
 
 #: ../plugins/netstat/netstat.c:183
 msgid "<Hidden Access Point>"
@@ -1205,11 +1205,11 @@ msgstr "HW-Adresse:"
 
 #: ../plugins/netstat/netstat.c:505
 msgid "Manage Networks"
-msgstr "Netzwerke verwalten"
+msgstr "Netzwerkverwaltung"
 
 #: ../plugins/netstat/netstat.c:506
 msgid "Monitor and Manage networks"
-msgstr "Netzwerke anzeigen und verwalten"
+msgstr "Überwachung und Verwaltung von Netzwerken"
 
 #. create dialog
 #: ../plugins/netstat/passwd_gui.c:90
@@ -1230,19 +1230,19 @@ msgstr "Schlüssel:"
 
 #: ../plugins/netstatus/netstatus.c:154 ../plugins/netstatus/netstatus.c:166
 msgid "Network Status Monitor"
-msgstr "Netzwerkmonitor"
+msgstr "Netzwerkstatus-Monitor"
 
 #: ../plugins/netstatus/netstatus.c:156
 msgid "Interface to monitor"
-msgstr "Schnittstelle zum Überwachen"
+msgstr "Zu überwachende Schnittstelle"
 
 #: ../plugins/netstatus/netstatus.c:157
 msgid "Config tool"
-msgstr "Konfigurationswerkzeug"
+msgstr "Programm zur Konfiguration"
 
 #: ../plugins/netstatus/netstatus.c:167
 msgid "Monitor network status"
-msgstr "Zeigt den Netzwerkstatus an"
+msgstr "Überwachung des Netzwerkstatus"
 
 #: ../plugins/netstatus/netstatus-dialog.c:52
 #: ../plugins/netstatus/netstatus-dialog.c:316
@@ -1251,12 +1251,12 @@ msgstr "Unbekannt"
 
 #: ../plugins/netstatus/netstatus-dialog.c:117
 msgid "Connection Properties"
-msgstr "Verbindungseigenschaften"
+msgstr "Verbindungs-Eigenschaften"
 
 #: ../plugins/netstatus/netstatus-dialog.c:123
 #, c-format
 msgid "Connection Properties: %s"
-msgstr "Verbindungseigenschaften: %s"
+msgstr "Verbindungs-Eigenschaften: %s"
 
 #: ../plugins/netstatus/netstatus-dialog.c:136
 #, c-format
@@ -1372,7 +1372,7 @@ msgstr "Die gegenwärtige Fehler-Situation"
 #: ../plugins/netstatus/netstatus-iface.c:1205
 #, c-format
 msgid "Unable to open socket: %s"
-msgstr "Konnte Socket nicht öffen: %s"
+msgstr "Socket konnte nicht geöffnet werden: %s"
 
 #: ../plugins/netstatus/netstatus-iface.c:502
 #: ../plugins/netstatus/netstatus-iface.c:1231
@@ -1560,11 +1560,11 @@ msgstr "Ausgabe von »netstat« konnte nicht gelesen werden. Unbekanntes Format"
 
 #: ../plugins/netstatus/netstatus-util.c:152
 msgid "Disconnected"
-msgstr "Verbindung"
+msgstr "Getrennt"
 
 #: ../plugins/netstatus/netstatus-util.c:155
 msgid "Idle"
-msgstr "Nicht in Betrieb"
+msgstr "Bereit"
 
 #: ../plugins/netstatus/netstatus-util.c:158
 msgid "Sending"
@@ -1572,11 +1572,11 @@ msgstr "Senden"
 
 #: ../plugins/netstatus/netstatus-util.c:161
 msgid "Receiving"
-msgstr "Empfangen"
+msgstr "Empfang"
 
 #: ../plugins/netstatus/netstatus-util.c:164
 msgid "Sending/Receiving"
-msgstr "Senden/Empfangen"
+msgstr "Senden/Empfang"
 
 #: ../plugins/batt/batt.c:156
 #, c-format
@@ -1600,7 +1600,7 @@ msgid ""
 "%sEnergy full design:\t\t%5d mWh"
 msgstr ""
 "\n"
-"%sEnergie voll Design:\t\t%5d mWh"
+"%sNominal-Energie:\t\t\t%5d mWh  "
 
 #: ../plugins/batt/batt.c:189
 #, c-format
@@ -1609,7 +1609,7 @@ msgid ""
 "%sEnergy full:\t\t\t%5d mWh"
 msgstr ""
 "\n"
-"%sEnergie voll:\t\t\t%5d mWh"
+"%sEnergie (voll geladen):\t\t%5d mWh  "
 
 #: ../plugins/batt/batt.c:191
 #, c-format
@@ -1618,7 +1618,7 @@ msgid ""
 "%sEnergy now:\t\t\t%5d mWh"
 msgstr ""
 "\n"
-"%sAktuelle Energie:\t\t\t%5d mWh"
+"%sAktuelle Energie:\t\t\t%5d mWh  "
 
 #: ../plugins/batt/batt.c:193
 #, c-format
@@ -1627,7 +1627,7 @@ msgid ""
 "%sPower now:\t\t\t%5d mW"
 msgstr ""
 "\n"
-"%sAktuelle Leistung:\t\t\t%5d mW"
+"%sAktuelle Leistung:\t\t%5d mW  "
 
 #: ../plugins/batt/batt.c:196
 #, c-format
@@ -1636,7 +1636,7 @@ msgid ""
 "%sCharge full design:\t%5d mAh"
 msgstr ""
 "\n"
-"%sVollständig aufgeladen Design:\t%5d mAh"
+"%sNennkapazität:\t\t\t%5d mAh  "
 
 #: ../plugins/batt/batt.c:198
 #, c-format
@@ -1645,7 +1645,7 @@ msgid ""
 "%sCharge full:\t\t\t%5d mAh"
 msgstr ""
 "\n"
-"%sVollständig aufgeladen:\t\t\t%5d mAh"
+"%sKapazität (voll geladen):\t%5d mAh  "
 
 #: ../plugins/batt/batt.c:200
 #, c-format
@@ -1654,7 +1654,7 @@ msgid ""
 "%sCharge now:\t\t\t%5d mAh"
 msgstr ""
 "\n"
-"%sAktuelle Ladung:\t\t\t%5d mAh"
+"%sAktuelle Kapazität:\t\t%5d mAh  "
 
 #: ../plugins/batt/batt.c:202
 #, c-format
@@ -1663,7 +1663,7 @@ msgid ""
 "%sCurrent now:\t\t\t%5d mA"
 msgstr ""
 "\n"
-"%sAktuelle Stromstärke:\t\t\t%5d mA"
+"%sAktuelle Stromstärke:\t\t%5d mA  "
 
 #: ../plugins/batt/batt.c:205
 #, c-format
@@ -1672,7 +1672,7 @@ msgid ""
 "%sCurrent Voltage:\t\t%.3lf V"
 msgstr ""
 "\n"
-"%sAktuelle Spannung:\t\t%.3lf V"
+"%sAktuelle Spannung:\t\t%.3lf V  "
 
 #: ../plugins/batt/batt.c:243
 msgid "No batteries found"
@@ -1680,15 +1680,15 @@ msgstr "Kein Akku gefunden"
 
 #: ../plugins/batt/batt.c:546 ../plugins/batt/batt.c:679
 msgid "Battery low"
-msgstr "Akku leer"
+msgstr "Niedriger Akkustand!"
 
 #: ../plugins/batt/batt.c:702 ../plugins/batt/batt.c:726
 msgid "Battery Monitor"
-msgstr "Akkumonitor"
+msgstr "Akku-Monitor"
 
 #: ../plugins/batt/batt.c:704
 msgid "Hide if there is no battery"
-msgstr "Verstecken, falls kein Akku existiert"
+msgstr "Ausblenden, wenn kein Akku vorhanden ist"
 
 #: ../plugins/batt/batt.c:705
 msgid "Alarm command"
@@ -1696,7 +1696,7 @@ msgstr "Alarmbefehl"
 
 #: ../plugins/batt/batt.c:706
 msgid "Alarm time (minutes left)"
-msgstr "Alarmzeit (...Minuten verbleiben)"
+msgstr "Alarmzeit (verbleibende Minuten)"
 
 #: ../plugins/batt/batt.c:707
 msgid "Background color"
@@ -1728,11 +1728,11 @@ msgstr "Erweiterte Informationen anzeigen"
 
 #: ../plugins/batt/batt.c:717
 msgid "Number of battery to monitor"
-msgstr "Nummer des Akkus zum Überwachen"
+msgstr "Nummer des zu überwachenden Akkus"
 
 #: ../plugins/batt/batt.c:727
 msgid "Display battery status using ACPI"
-msgstr "Zeigt den Akkuzustand mittels ACPI an"
+msgstr "Anzeige des Akkuzustands mittels ACPI"
 
 #: ../plugins/kbled/kbled.c:203 ../plugins/kbled/kbled.c:234
 msgid "Keyboard LED"
@@ -1794,7 +1794,7 @@ msgstr "Indikator Anwendungen zur Leiste hinzufügen"
 #: ../plugins/monitors/monitors.c:285
 #, c-format
 msgid "CPU usage: %.2f%%"
-msgstr "CPU Auslastung: %.2f%%"
+msgstr "CPU-Auslastung: %.2f%%"
 
 #: ../plugins/monitors/monitors.c:386
 #, c-format
@@ -1803,7 +1803,7 @@ msgstr "Speichernutzung: %.1fMB (%.2f%%)"
 
 #: ../plugins/monitors/monitors.c:732 ../plugins/monitors/monitors.c:821
 msgid "Resource monitors"
-msgstr "Ressourcen-Überwachungen"
+msgstr "Ressourcen-Monitore"
 
 #: ../plugins/monitors/monitors.c:735
 msgid "CPU color"
@@ -1823,7 +1823,7 @@ msgstr "Aktion bei Klick (Vorgabe: lxtask)"
 
 #: ../plugins/monitors/monitors.c:822
 msgid "Display monitors (CPU, RAM)"
-msgstr "Überwachungen anzeigen (CPU, RAM)"
+msgstr "Anzeige von Monitoren (CPU, RAM)"
 
 #: ../plugins/weather/weatherwidget.c:52
 msgid "[N/A]"
