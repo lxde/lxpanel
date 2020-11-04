@@ -1122,12 +1122,6 @@ netstatus_iface_get_device_details (NetstatusIface  *iface,
   return TRUE;
 }
 
-#if !defined(HAVE_SOCKADDR_SA_LEN)
-#define NETSTATUS_SA_LEN(saddr) (sizeof (struct sockaddr))
-#else
-#define NETSTATUS_SA_LEN(saddr) (MAX ((saddr)->sa_len, sizeof (struct sockaddr)))
-#endif /* HAVE_SOCKADDR_SA_LEN */
-
 /* Taken From R. Stevens Unix Network Programming Vol. 1.
  *
  * SIOCGIFCONF does not return an error on all systems if
@@ -1221,7 +1215,7 @@ netstatus_list_interface_names (GError **error)
       struct ifreq *if_req = (struct ifreq *) p;
       gboolean      loopback = FALSE;
 
-      p += sizeof (if_req->ifr_name) + NETSTATUS_SA_LEN (&if_req->ifr_addr);
+      p = (char *) (if_req + 1);
 
       if (ioctl (fd, SIOCGIFFLAGS, if_req) < 0)
 	{
