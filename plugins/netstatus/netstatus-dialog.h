@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2003 Sun Microsystems, Inc.
+ * Copyright (C) 2020 Ingo Brückl
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License as
@@ -37,6 +38,8 @@ const char* netstatus_dialog_get_configuration_tool( GtkWidget* dialog );
 
 /* 2009.05.10 Add by Hong Jen Yee (PCMan) to be used in lxpanel plugin */
 const char* netstatus_dialog_get_iface_name( GtkWidget* dialog );
+
+void netstatus_dialog_present(GtkWidget *dialog);
 
 G_END_DECLS
 

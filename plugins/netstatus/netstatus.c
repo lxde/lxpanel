@@ -3,6 +3,7 @@
  *               2008 Fred Chien <fred@lxde.org>
  *               2009 martyj19 <martyj19@comcast.net>
  *               2014 Andriy Grytsenko <andrej@rep.kiev.ua>
+ *               2020 Ingo Brückl
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -99,7 +100,7 @@ static gboolean on_button_press( GtkWidget* widget, GdkEventButton* evt, LXPanel
             netstatus_dialog_set_configuration_tool( ns->dlg, ns->config_tool );
             g_signal_connect( ns->dlg, "response", G_CALLBACK(on_response), ns );
         }
-        gtk_window_present( GTK_WINDOW(ns->dlg) );
+        netstatus_dialog_present(ns->dlg);
     }
     return TRUE;
 }
