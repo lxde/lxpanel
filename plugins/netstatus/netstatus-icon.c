@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2003 Sun Microsystems, Inc.
+ *               2020 Ingo Brückl
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License as
@@ -386,7 +387,8 @@ netstatus_icon_name_changed (NetstatusIface *iface __attribute__((unused)),
       tip = _("Network Connection");
     }
 
-  gtk_widget_set_tooltip_text(GTK_WIDGET (icon), tip);
+  if (icon->priv->tooltips_enabled)
+    gtk_widget_set_tooltip_text(GTK_WIDGET(icon), tip);
 
   g_free (freeme);
 }
@@ -898,6 +900,7 @@ netstatus_icon_instance_init (NetstatusIcon      *icon,
   icon->priv->orientation      = GTK_ORIENTATION_HORIZONTAL;
   icon->priv->size             = 0;
   icon->priv->state_changed_id = 0;
+  icon->priv->tooltips_enabled = TRUE;
 
   gtk_box_set_spacing (GTK_BOX (icon), 3);
 
@@ -1096,7 +1099,10 @@ netstatus_icon_set_tooltips_enabled (NetstatusIcon *icon,
     {
       icon->priv->tooltips_enabled = enabled;
 
-      g_object_notify (G_OBJECT (icon), "tooltips-enabled");
+      if (!icon->priv->tooltips_enabled)
+        gtk_widget_set_has_tooltip(GTK_WIDGET(icon), FALSE);
+
+      /* g_object_notify (G_OBJECT (icon), "tooltips-enabled"); */
     }
 }
 
