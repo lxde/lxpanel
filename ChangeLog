@@ -11,6 +11,7 @@
     used.
 * Improved translations and design fix of ALSA volume control popup.
 * Made netstatus_icon_set_tooltips_enabled() work.
+* Fixed a sometimes incorrectly placed icon in the netstatus plugin.
 
 0.10.0
 -------------------------------------------------------------------------
