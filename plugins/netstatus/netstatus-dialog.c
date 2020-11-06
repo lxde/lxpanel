@@ -629,7 +629,6 @@ netstatus_dialog_setup_connection (NetstatusDialogData *data)
   netstatus_icon_set_tooltips_enabled (NETSTATUS_ICON (icon), FALSE);
   netstatus_icon_set_show_signal (NETSTATUS_ICON (icon), FALSE);
   gtk_box_pack_end (GTK_BOX (hbox), icon, FALSE, TRUE, 4);
-  gtk_widget_show (icon);
 
   data->icon = NETSTATUS_ICON (icon);
 
@@ -872,4 +871,13 @@ const char* netstatus_dialog_get_iface_name( GtkWidget* dialog )
     NetstatusDialogData *data;
     data = g_object_get_data (G_OBJECT (dialog), "netstatus-dialog-data");
     return netstatus_iface_get_name (data->iface);
+}
+
+void netstatus_dialog_present (GtkWidget *dialog)
+{
+    NetstatusDialogData *data;
+
+    data = g_object_get_data(G_OBJECT(dialog), "netstatus-dialog-data");
+    gtk_window_present(GTK_WINDOW(dialog));
+    gtk_widget_show(data->icon);
 }

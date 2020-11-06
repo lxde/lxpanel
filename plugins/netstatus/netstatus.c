@@ -99,7 +99,7 @@ static gboolean on_button_press( GtkWidget* widget, GdkEventButton* evt, LXPanel
             netstatus_dialog_set_configuration_tool( ns->dlg, ns->config_tool );
             g_signal_connect( ns->dlg, "response", G_CALLBACK(on_response), ns );
         }
-        gtk_window_present( GTK_WINDOW(ns->dlg) );
+        netstatus_dialog_present(ns->dlg);
     }
     return TRUE;
 }
