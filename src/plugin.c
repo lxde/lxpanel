@@ -29,7 +29,6 @@
 #include "private.h"
 
 #include <gdk-pixbuf/gdk-pixbuf.h>
-#include <gdk-pixbuf-xlib/gdk-pixbuf-xlib.h>
 #include <gdk/gdk.h>
 #include <string.h>
 #include <stdlib.h>

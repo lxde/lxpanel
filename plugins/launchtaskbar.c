@@ -68,7 +68,6 @@
 #include <X11/Xutil.h>
 
 #include <gdk-pixbuf/gdk-pixbuf.h>
-#include <gdk-pixbuf-xlib/gdk-pixbuf-xlib.h>
 #include <gdk/gdk.h>
 #include <glib/gi18n.h>
 
