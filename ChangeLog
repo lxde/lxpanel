@@ -3,6 +3,7 @@
 * Fixed battery alarm when measurement of current is missing.
 * Fixed spelling errors on "allow to" in plugins descriptions, and "GTK2+" to
     more correct "GTK+".
+* Made netstatus_icon_set_tooltips_enabled() work.
 
 0.10.0
 -------------------------------------------------------------------------
