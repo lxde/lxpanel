@@ -3,6 +3,7 @@
 * Fixed battery alarm when measurement of current is missing.
 * Fixed spelling errors on "allow to" in plugins descriptions, and "GTK2+" to
     more correct "GTK+".
+* Improved translations and design fix of ALSA volume control popup.
 
 0.10.0
 -------------------------------------------------------------------------
