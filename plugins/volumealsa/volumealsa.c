@@ -10,6 +10,7 @@
  *               2012 Henry Gebhardt <hsggebhardt@gmail.com>
  *               2014 Peter <ombalaxitabou@users.sf.net>
  *               2014-2016 Andriy Grytsenko <andrej@rep.kiev.ua>
+ *               2020 TheZxcv <the.uint64.t@gmail.com>
  *
  * This file is a part of LXPanel project.
  *

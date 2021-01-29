@@ -5,6 +5,7 @@
  *                2015 Henry Gebhardt <hsggebhardt@googlemail.com>
  *                2015 Stanislav Kozina, Ersin <xersin@users.sf.net>
  *                2016-2017 Andriy Grytsenko <andrej@rep.kiev.ua>
+ *                2019 Stuart D. Gathman <stuart@gathman.org>
  *
  * 	Parts shameless stolen and glibified from acpi package
  * 	Copyright (C) 2001  Grahame Bowland <grahame@angrygoats.net>

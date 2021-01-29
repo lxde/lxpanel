@@ -3,6 +3,8 @@
 * Fixed battery alarm when measurement of current is missing.
 * Fixed spelling errors on "allow to" in plugins descriptions, and "GTK2+" to
     more correct "GTK+".
+* Fixed battery indication when charge_full and energy_full are not available.
+* Corrected scaling of volume plugin for HiDPI monitors.
 * Fixed connection name dropdown list in netstatus plugin.
 
 0.10.0
