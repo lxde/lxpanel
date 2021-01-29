@@ -86,6 +86,7 @@ typedef struct {
         width,
         hide_if_no_battery;
     int battery_number;
+    gboolean battery_number_hide;
     sem_t alarmProcessLock;
     battery* b;
     gboolean has_ac_adapter;
@@ -152,11 +153,16 @@ static gchar* make_tooltip(lx_battery* lx_b, gboolean isCharging)
             int hours = lx_b->b->seconds / 3600;
             int left_seconds = lx_b->b->seconds - 3600 * hours;
             int minutes = left_seconds / 60;
-            tooltip = g_strdup_printf(
-                    _("Battery %d: %d%% charged, %d:%02d until full"),
-                    lx_b->battery_number, lx_b->b->percentage,
-                    hours,
-                    minutes );
+            if (lx_b->battery_number_hide)
+                tooltip = g_strdup_printf(
+                        _("Battery: %d%% charged, %d:%02d until full"),
+                        lx_b->b->percentage, hours, minutes);
+            else
+                tooltip = g_strdup_printf(
+                        _("Battery %d: %d%% charged, %d:%02d until full"),
+                        lx_b->battery_number, lx_b->b->percentage,
+                        hours,
+                        minutes );
         }
         else
             goto _charged;
@@ -166,16 +172,26 @@ static gchar* make_tooltip(lx_battery* lx_b, gboolean isCharging)
             int hours = lx_b->b->seconds / 3600;
             int left_seconds = lx_b->b->seconds - 3600 * hours;
             int minutes = left_seconds / 60;
-            tooltip = g_strdup_printf(
-                    _("Battery %d: %d%% charged, %d:%02d left"),
-                    lx_b->battery_number, lx_b->b->percentage,
-                    hours,
-                    minutes );
+            if (lx_b->battery_number_hide)
+                tooltip = g_strdup_printf(
+                        _("Battery: %d%% charged, %d:%02d left"),
+                        lx_b->b->percentage, hours, minutes);
+            else
+                tooltip = g_strdup_printf(
+                        _("Battery %d: %d%% charged, %d:%02d left"),
+                        lx_b->battery_number, lx_b->b->percentage,
+                        hours,
+                        minutes );
         } else {
 _charged:
-            tooltip = g_strdup_printf(
-                    _("Battery %d: %d%% charged"),
-                    lx_b->battery_number, lx_b->b->percentage);
+            if (lx_b->battery_number_hide)
+                tooltip = g_strdup_printf(
+                        _("Battery: %d%% charged"),
+                        lx_b->b->percentage);
+            else
+                tooltip = g_strdup_printf(
+                        _("Battery %d: %d%% charged"),
+                        lx_b->battery_number, lx_b->b->percentage);
         }
     }
 
@@ -494,6 +510,7 @@ static GtkWidget * constructor(LXPanel *panel, config_setting_t *settings)
     lx_b->settings = settings;
 
     lx_b->show_extended_information = FALSE;
+    lx_b->battery_number_hide = FALSE;
 
     if (config_setting_lookup_int(settings, "HideIfNoBattery", &tmp_int))
         lx_b->hide_if_no_battery = (tmp_int != 0);
@@ -517,6 +534,8 @@ static GtkWidget * constructor(LXPanel *panel, config_setting_t *settings)
         lx_b->thickness = MAX(1, tmp_int);
     if (config_setting_lookup_int(settings, "ShowExtendedInformation", &tmp_int))
         lx_b->show_extended_information = (tmp_int != 0);
+    if (config_setting_lookup_int(settings, "BatteryNumberHide", &tmp_int))
+        lx_b->battery_number_hide = (tmp_int != 0);
 
     /* Make sure the border value is acceptable */
     updateSizes(lx_b);
@@ -690,6 +709,7 @@ static gboolean applyConfig(gpointer user_data)
     config_group_set_int(b->settings, "ShowExtendedInformation",
                          b->show_extended_information);
     config_group_set_int(b->settings, "BatteryNumber", b->battery_number);
+    config_group_set_int(b->settings, "BatteryNumberHide", b->battery_number_hide);
 
     update_display(b, TRUE);
 
@@ -715,6 +735,7 @@ static GtkWidget *config(LXPanel *panel, GtkWidget *p) {
                                             1, 50), CONF_TYPE_EXTERNAL,
             _("Show Extended Information"), &b->show_extended_information, CONF_TYPE_BOOL,
             _("Number of battery to monitor"), &b->battery_number, CONF_TYPE_INT,
+            _("Don't show number of battery"), &b->battery_number_hide, CONF_TYPE_BOOL,
             NULL);
 }
 

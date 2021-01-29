@@ -3,6 +3,7 @@
 * Fixed battery alarm when measurement of current is missing.
 * Fixed spelling errors on "allow to" in plugins descriptions, and "GTK2+" to
     more correct "GTK+".
+* Added option to battery monitor to hide number of battery in tooltip.
 
 0.10.0
 -------------------------------------------------------------------------
