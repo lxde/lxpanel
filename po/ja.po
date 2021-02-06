@@ -90,7 +90,8 @@ msgid "LXPanel"
 msgstr "LXPanel"
 
 #: ../src/panel.c:1378
-msgid "Copyright (C) 2008-2019"
+#, fuzzy
+msgid "Copyright (C) 2008-2021"
 msgstr "Copyright (C) 2008-2019"
 
 #: ../src/panel.c:1379

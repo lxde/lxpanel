@@ -84,8 +84,8 @@ msgid "LXPanel"
 msgstr "LXPancarta"
 
 #: ../src/panel.c:1378
-msgid "Copyright (C) 2008-2019"
-msgstr "Drèts de Copia Copyright (C) 2008-2019"
+msgid "Copyright (C) 2008-2021"
+msgstr "Drèts de Copia Copyright (C) 2008-2021"
 
 #: ../src/panel.c:1379
 msgid "Desktop panel for LXDE project"

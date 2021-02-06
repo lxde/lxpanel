@@ -87,7 +87,7 @@ msgstr "LXPanel"
 
 #: ../src/panel.c:1378
 #, fuzzy
-msgid "Copyright (C) 2008-2019"
+msgid "Copyright (C) 2008-2021"
 msgstr "Buyinza bw'ebikugizo eby'obwa nannyini (C) 2008-2014"
 
 #: ../src/panel.c:1379
