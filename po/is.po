@@ -1,21 +1,21 @@
 # Icelandic translation for LXPanel package.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# Sveinn í Felli <sv1@fellsnet.is>, 2014.
+# Copyright (C) 2021 Free Software Foundation, Inc.
+# This file is distributed under the same license as the LXPanel package.
+# Sveinn í Felli <sv1@fellsnet.is>, 2014, 2021.
 msgid ""
 msgstr ""
 "Project-Id-Version: LXPanel 0.8\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-03-01 01:38+0200\n"
-"PO-Revision-Date: 2014-12-08 09:30+0000\n"
-"Last-Translator: Sveinn í Felli <sveinki@nett.is>\n"
+"PO-Revision-Date: 2021-03-04 09:22+0000\n"
+"Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic <translation-team-is@lists.sourceforge.net>\n"
-"Language: \n"
+"Language: is\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Pootle 2.7.0-alpha1\n"
+"X-Generator: Lokalize 2.0\n"
 "X-Pootle-Revision: 0\n"
 "X-Pootle-Path: /is/lxpanel/po/is.po\n"
 "X-POOTLE-MTIME: 1418031016.000000\n"
@@ -31,7 +31,7 @@ msgstr ""
 
 #: ../src/configurator.c:632
 msgid "Currently loaded plugins"
-msgstr "Hlaðin íforrit"
+msgstr "Hlaðnar forritsviðbætur"
 
 #: ../src/configurator.c:641
 msgid "Stretch"
@@ -39,11 +39,11 @@ msgstr "Teygja"
 
 #: ../src/configurator.c:779
 msgid "Add plugin to panel"
-msgstr "Bæta íforriti við skjástiku"
+msgstr "Bæta forritsviðbót við skjástiku"
 
 #: ../src/configurator.c:807
 msgid "Available plugins"
-msgstr "Tiltækar viðbætur"
+msgstr "Tiltækar forritsviðbætur"
 
 #: ../src/configurator.c:1427
 msgid "Logout command is not set"
@@ -87,9 +87,8 @@ msgid "LXPanel"
 msgstr "LXPanel"
 
 #: ../src/panel.c:1378
-#, fuzzy
 msgid "Copyright (C) 2008-2021"
-msgstr "Höfundarréttur (C) 2008-2014"
+msgstr "Höfundarréttur (C) 2008-2021"
 
 #: ../src/panel.c:1379
 msgid "Desktop panel for LXDE project"
@@ -175,9 +174,9 @@ msgid "Logout"
 msgstr "Skrá út"
 
 #: ../src/main.c:323
-#, c-format, fuzzy
+#, c-format
 msgid "lxpanel %s - lightweight GTK+ panel for UNIX desktops\n"
-msgstr "lxpanel %s - létt GTK2+ skjástika fyrir UNIX skjáborð\n"
+msgstr "lxpanel %s - létt GTK+ skjástika fyrir UNIX skjáborð\n"
 
 #: ../src/main.c:324
 #, c-format
@@ -287,7 +286,7 @@ msgstr "Úthluta plássi"
 
 #: ../data/ui/launchtaskbar.glade.h:1 ../plugins/launchtaskbar.c:2482
 msgid "Application Launch and Task Bar"
-msgstr "Forritaræsi- og verkefnaslá"
+msgstr "Forritaræsi- og verkefnastika"
 
 #. Launchtaskbar mode: launchbar, taskbar, or combined
 #: ../data/ui/launchtaskbar.glade.h:3
@@ -300,7 +299,7 @@ msgstr "Forritaræsar"
 
 #: ../data/ui/launchtaskbar.glade.h:5
 msgid "<b>Launchbar</b>"
-msgstr "<b>Ræsislá</b>"
+msgstr "<b>Ræsistika</b>"
 
 #: ../data/ui/launchtaskbar.glade.h:6
 msgid "Show tooltips"
@@ -320,7 +319,7 @@ msgstr "Sýna glugga frá öllum skjáborðum"
 
 #: ../data/ui/launchtaskbar.glade.h:10
 msgid "Only show windows on the same monitor as the task bar"
-msgstr "Einungis birta glugga af sama skjá og verkefnasláin er á"
+msgstr "Einungis birta glugga af sama skjá og verkefnastikan er á"
 
 #: ../data/ui/launchtaskbar.glade.h:11
 msgid "Use mouse wheel"
@@ -340,7 +339,7 @@ msgstr "Gera óvirkt að stækka litlar verkefnatáknmyndir"
 
 #: ../data/ui/launchtaskbar.glade.h:15
 msgid "Show task icons smaller than rest of panel icons"
-msgstr ""
+msgstr "Sýna verkefnatáknmyndir minni en aðrar táknmyndir stikunnar"
 
 #: ../data/ui/launchtaskbar.glade.h:16
 msgid "Maximum width of task button"
@@ -352,19 +351,19 @@ msgstr "Millibil"
 
 #: ../data/ui/launchtaskbar.glade.h:18
 msgid "<b>Taskbar</b>"
-msgstr "<b>Verkefnaslá</b>"
+msgstr "<b>Verkefnastika</b>"
 
 #: ../data/ui/launchtaskbar.glade.h:19
 msgid "Only Application Launch Bar"
-msgstr "Einungis forritaræsislá"
+msgstr "Einungis forritaræsistika"
 
 #: ../data/ui/launchtaskbar.glade.h:20
 msgid "Only Task Bar (Window List)"
-msgstr "Einungis verkefnaslá (gluggalisti)"
+msgstr "Einungis verkefnastika (gluggalisti)"
 
 #: ../data/ui/launchtaskbar.glade.h:21
 msgid "Integrated Application Launch Bar and Task Bar"
-msgstr "Samtvinnuð forritaræsi- og verkefnaslá"
+msgstr "Samtvinnuð forritaræsi- og verkefnastika"
 
 #: ../data/ui/netstatus.glade.h:1
 msgid "<b>Connection</b>"
@@ -599,11 +598,11 @@ msgstr "<b>Sjálfvirk felun</b>"
 
 #: ../data/ui/panel-pref.glade.h:47
 msgid "Log level"
-msgstr "Annálsstig"
+msgstr "Stig atvikaskráningar"
 
 #: ../data/ui/panel-pref.glade.h:48
 msgid "<b>Log level</b>"
-msgstr "<b>Annálsstig</b>"
+msgstr "<b>Stig atvikaskráningar</b>"
 
 #: ../data/ui/panel-pref.glade.h:49
 msgid "Advanced"
@@ -635,11 +634,11 @@ msgstr "Birta númer skjáborða, eftir cmeury@users.sf.net"
 
 #: ../plugins/launchtaskbar.c:1831 ../plugins/launchtaskbar.c:2452
 msgid "Application Launch Bar"
-msgstr "Forritaræsislá"
+msgstr "Forritaræsistika"
 
 #: ../plugins/launchtaskbar.c:1834 ../plugins/launchtaskbar.c:2462
 msgid "Task Bar (Window List)"
-msgstr "Verkefnaslá (gluggalisti)"
+msgstr "Verkefnastika (gluggalisti)"
 
 #: ../plugins/launchtaskbar.c:1985
 msgid "A_dd to Launcher"
@@ -655,20 +654,19 @@ msgstr "_Nýtt tilvik"
 
 #: ../plugins/launchtaskbar.c:2453
 msgid "Bar with buttons to launch application"
-msgstr "Slá með hnöppum til að ræsa forrit"
+msgstr "Stika með hnöppum til að ræsa forrit"
 
 #: ../plugins/launchtaskbar.c:2463
-#, fuzzy
 msgid ""
 "Taskbar shows all opened windows and allows to iconify them, shade or get "
 "focus"
 msgstr ""
-"Verkefnaslá birtir alla opna glugga og leyfir að tákngera þá, skyggja, eða "
+"Verkefnastika birtir alla opna glugga og leyfir að tákngera þá, skyggja, eða "
 "gera þá virka"
 
 #: ../plugins/launchtaskbar.c:2483
 msgid "Bar with buttons to launch application and/or show all opened windows"
-msgstr "Slá með hnöppum til að ræsa forrit og/eða sýna alla opna glugga"
+msgstr "Stika með hnöppum til að ræsa forrit og/eða sýna alla opna glugga"
 
 #. Add Raise menu item.
 #: ../plugins/task-button.c:352
@@ -995,13 +993,12 @@ msgid "CPUFreq frontend"
 msgstr "Viðmót á CPUFreq"
 
 #: ../plugins/cpufreq/cpufreq.c:402
-#, fuzzy
 msgid "Display CPU frequency and allow one to change governors and frequency"
-msgstr "Sýna tíðni örgjörva og leyfa að breytt sé um stýringar og tíðnir"
+msgstr "Birta tíðni örgjörva og leyfa að breytt sé um stýringar og tíðnir"
 
 #: ../plugins/volumealsa/volumealsa.c:245
 msgid "ALSA (or pulseaudio) had a problem. Please check the lxpanel logs."
-msgstr ""
+msgstr "ALSA (eða pulseaudio) á í vandræðum. Athugaðu lxpanel-atvikaskrárnar."
 
 #. Display current level in tooltip.
 #: ../plugins/volumealsa/volumealsa.c:613
@@ -1030,65 +1027,65 @@ msgstr "Þagga niður"
 #. Just to have these translated
 #: ../plugins/volumealsa/volumealsa.c:1313
 msgid "Line"
-msgstr ""
+msgstr "Lína"
 
 #: ../plugins/volumealsa/volumealsa.c:1313
 msgid "LineOut"
-msgstr ""
+msgstr "LínaÚt"
 
 #: ../plugins/volumealsa/volumealsa.c:1313
 msgid "Front"
-msgstr ""
+msgstr "Fram"
 
 #: ../plugins/volumealsa/volumealsa.c:1313
 msgid "Surround"
-msgstr ""
+msgstr "Surround hljóðumhverfi"
 
 #: ../plugins/volumealsa/volumealsa.c:1313
 msgid "Speaker+LO"
-msgstr ""
+msgstr "Hátalari+LÚ"
 
 #: ../plugins/volumealsa/volumealsa.c:1352
 msgid "default"
-msgstr ""
+msgstr "sjálfgefið"
 
 #. desc, index
 #: ../plugins/volumealsa/volumealsa.c:1412
 msgid "Master"
-msgstr ""
+msgstr "Aðal"
 
 #: ../plugins/volumealsa/volumealsa.c:1416
 msgid "PCM"
-msgstr ""
+msgstr "PCM"
 
 #: ../plugins/volumealsa/volumealsa.c:1420
 msgid "Headphone"
-msgstr ""
+msgstr "Heyrnartól"
 
 #: ../plugins/volumealsa/volumealsa.c:1442
 msgid "Click for Volume Slider"
-msgstr ""
+msgstr "Smelltu fyrir hljóðstyrkssleða"
 
 #: ../plugins/volumealsa/volumealsa.c:1446
 msgid "Click for Toggle Mute"
-msgstr ""
+msgstr "Smelltu til að víxla hljóði af/á"
 
 #: ../plugins/volumealsa/volumealsa.c:1450
 msgid "Click for Open Mixer"
-msgstr ""
+msgstr "Smelltu til að opna hljóðblandara"
 
 #. setup hotkeys
 #: ../plugins/volumealsa/volumealsa.c:1454
 msgid "Hotkey for Volume Up"
-msgstr ""
+msgstr "Flýtilykill til að hækka hljóðstyrk"
 
 #: ../plugins/volumealsa/volumealsa.c:1456
 msgid "Hotkey for Volume Down"
-msgstr ""
+msgstr "Flýtilykill til að lækka hljóðstyrk"
 
 #: ../plugins/volumealsa/volumealsa.c:1458
 msgid "Hotkey for Volume Mute"
-msgstr ""
+msgstr "Flýtilykill til að þagga hljóð"
 
 #: ../plugins/volumealsa/volumealsa.c:1514
 #: ../plugins/volumealsa/volumealsa.c:1553
@@ -1098,26 +1095,24 @@ msgstr "Hljóðstillir"
 
 #: ../plugins/volumealsa/volumealsa.c:1516
 msgid "Audio Card"
-msgstr ""
+msgstr "Hljóðkort"
 
 #: ../plugins/volumealsa/volumealsa.c:1519
 msgid "Channel to Operate"
-msgstr ""
+msgstr "Hljóðrás sem á að keyra"
 
 #: ../plugins/volumealsa/volumealsa.c:1527
 msgid "Command to Open Mixer"
-msgstr ""
+msgstr "Skipun til að opna hljóðblandara"
 
 #: ../plugins/volumealsa/volumealsa.c:1542
-#, fuzzy
 msgid "Launch Mixer"
-msgstr "Forritaræsar"
+msgstr "Ræsa hljóðblandara"
 
 #: ../plugins/volumealsa/volumealsa.c:1554
 #: ../plugins/volumealsa/volumealsa.c:1575
-#, fuzzy
 msgid "Display and control volume"
-msgstr "Birta og sýsla með hljóðstyrk ALSA"
+msgstr "Birta og sýsla með hljóðstyrk"
 
 #: ../plugins/netstat/netstat.c:183
 msgid "<Hidden Access Point>"
@@ -1575,21 +1570,21 @@ msgstr "Sendi/Móttek"
 
 #: ../plugins/batt/batt.c:156
 #, c-format
-#, fuzzy, c-format
+#, c-format
 msgid "Battery %d: %d%% charged, %d:%02d until full"
-msgstr "Rafhlaða: %d%% hlaðin, %d:%02d þar til fullhlaðin"
+msgstr "Rafhlaða %d: %d%% hlaðin, %d:%02d þar til fullhlaðin"
 
 #: ../plugins/batt/batt.c:170
 #, c-format
-#, fuzzy, c-format
+#, c-format
 msgid "Battery %d: %d%% charged, %d:%02d left"
-msgstr "Rafhlaða: %d%% hlaðin, %d:%02d eftir"
+msgstr "Rafhlaða %d: %d%% hlaðin, %d:%02d eftir"
 
 #: ../plugins/batt/batt.c:177
 #, c-format
-#, fuzzy, c-format
+#, c-format
 msgid "Battery %d: %d%% charged"
-msgstr "Rafhlaða: %d%% hlaðin"
+msgstr "Rafhlaða %d: %d%% hlaðin"
 
 #: ../plugins/batt/batt.c:187
 #, c-format
@@ -1725,9 +1720,8 @@ msgid "Show Extended Information"
 msgstr "Birta ítarlegar upplýsingar"
 
 #: ../plugins/batt/batt.c:717
-#, fuzzy
 msgid "Number of battery to monitor"
-msgstr "Tengi sem á að fylgjast með"
+msgstr "Fjöldi rafhlaðna sem á að vakta"
 
 #: ../plugins/batt/batt.c:727
 msgid "Display battery status using ACPI"
@@ -2025,7 +2019,7 @@ msgstr "Á morgun: "
 
 #: ../plugins/weather/weather.c:415
 msgid "Weather Plugin"
-msgstr "Viðbótaríforrit fyrir veðurlýsingar/spár"
+msgstr "Forritsviðbót fyrir veðurlýsingar/spár"
 
 #: ../plugins/weather/weather.c:416
 msgid "Show weather conditions for a location."
@@ -2033,84 +2027,85 @@ msgstr "Birta veðurslýsingu fyrir ákveðinn stað."
 
 #: ../plugins/weather/yahooutil.c:51 ../plugins/weather/openweathermap.c:56
 msgid "N"
-msgstr ""
+msgstr "N"
 
 #: ../plugins/weather/yahooutil.c:52 ../plugins/weather/openweathermap.c:57
 msgid "NNE"
-msgstr ""
+msgstr "NNA"
 
 #: ../plugins/weather/yahooutil.c:53 ../plugins/weather/openweathermap.c:58
 msgid "NE"
-msgstr ""
+msgstr "NA"
 
 #: ../plugins/weather/yahooutil.c:54 ../plugins/weather/openweathermap.c:59
 msgid "ENE"
-msgstr ""
+msgstr "ANA"
 
 #: ../plugins/weather/yahooutil.c:55 ../plugins/weather/openweathermap.c:60
 msgid "E"
-msgstr ""
+msgstr "E"
 
 #: ../plugins/weather/yahooutil.c:56 ../plugins/weather/openweathermap.c:61
 msgid "ESE"
-msgstr ""
+msgstr "ASA"
 
 #: ../plugins/weather/yahooutil.c:57 ../plugins/weather/openweathermap.c:62
 msgid "SE"
-msgstr ""
+msgstr "SA"
 
 #: ../plugins/weather/yahooutil.c:58 ../plugins/weather/openweathermap.c:63
 msgid "SSE"
-msgstr ""
+msgstr "SSA"
 
 #: ../plugins/weather/yahooutil.c:59 ../plugins/weather/openweathermap.c:64
 msgid "S"
-msgstr ""
+msgstr "S"
 
 #: ../plugins/weather/yahooutil.c:60 ../plugins/weather/openweathermap.c:65
 msgid "SSW"
-msgstr ""
+msgstr "SSV"
 
 #: ../plugins/weather/yahooutil.c:61 ../plugins/weather/openweathermap.c:66
 msgid "SW"
-msgstr ""
+msgstr "SV"
 
 #: ../plugins/weather/yahooutil.c:62 ../plugins/weather/openweathermap.c:67
 msgid "WSW"
-msgstr ""
+msgstr "VSV"
 
 #: ../plugins/weather/yahooutil.c:63 ../plugins/weather/openweathermap.c:68
 msgid "W"
-msgstr ""
+msgstr "V"
 
 #: ../plugins/weather/yahooutil.c:64 ../plugins/weather/openweathermap.c:69
 msgid "WNW"
-msgstr ""
+msgstr "VNV"
 
 #: ../plugins/weather/yahooutil.c:65 ../plugins/weather/openweathermap.c:70
 msgid "NW"
-msgstr ""
+msgstr "NV"
 
 #: ../plugins/weather/yahooutil.c:66 ../plugins/weather/openweathermap.c:71
 msgid "NNW"
-msgstr ""
+msgstr "NNV"
 
 #: ../plugins/weather/yahooutil.c:1086
 msgid "Yahoo! Weather"
-msgstr ""
+msgstr "Yahoo! veður"
 
 #: ../plugins/weather/openweathermap.c:365
 msgid "Mph"
-msgstr ""
+msgstr "mílur/klst"
 
 #: ../plugins/weather/openweathermap.c:365
 msgid "m/s"
-msgstr ""
+msgstr "m/sek"
 
 #: ../plugins/weather/openweathermap.c:535
 msgid "m"
-msgstr ""
+msgstr "m"
 
 #: ../plugins/weather/openweathermap.c:932
 msgid "OpenWeatherMap"
-msgstr ""
+msgstr "OpenWeatherMap"
+
