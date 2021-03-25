@@ -1680,6 +1680,7 @@ static void on_defined_view_cursor_changed(GtkTreeView *p_treeview, gpointer p_d
             GString *p_gstring = g_string_new("");
             g_string_printf(p_gstring, "<i>%s</i>", fm_file_info_get_disp_name(fi));
             gtk_label_set_markup(GTK_LABEL(lb->p_label_def_app_exec), p_gstring->str);
+            gtk_widget_set_tooltip_text(GTK_WIDGET(lb->p_label_def_app_exec), fm_file_info_get_disp_name(fi));
             g_string_free(p_gstring, TRUE/*free also gstring->str*/);
             label_set = TRUE;
         }
@@ -1698,9 +1699,15 @@ static void on_menu_view_cursor_changed(GtkTreeView *p_treeview, gpointer p_data
     {
         GString *p_gstring = g_string_new("");
         if (g_app_info_get_description(app))
+	{
             g_string_printf(p_gstring, "<i>%s</i>", g_app_info_get_description(app));
+            gtk_widget_set_tooltip_text(GTK_WIDGET(lb->p_label_menu_app_exec), g_app_info_get_description(app));
+	}
         else
+	{
             g_string_printf(p_gstring, "<i>%s</i>", g_app_info_get_name(app));
+            gtk_widget_set_tooltip_text(GTK_WIDGET(lb->p_label_menu_app_exec), g_app_info_get_name(app));
+	}
         gtk_label_set_markup(GTK_LABEL(lb->p_label_menu_app_exec), p_gstring->str);
         g_string_free(p_gstring, TRUE/*free also gstring->str*/);
         label_set = TRUE;
