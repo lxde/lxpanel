@@ -53,6 +53,7 @@ Plugin {
         ShowIconified=1
         ShowMapped=1
         ShowAllDesks=0
+        ShowSquareBrackets=1
         UseMouseWheel=1
         UseUrgencyHint=1
         FlatButton=0
