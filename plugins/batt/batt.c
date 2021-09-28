@@ -202,7 +202,7 @@ _charged:
         append(&tooltip, _("\n%sCurrent now:\t\t\t%5d mA"), indent, b->current_now);
 
     if (b->voltage_now != -1)
-        append(&tooltip, _("\n%sCurrent Voltage:\t\t%.3lf V"), indent, b->voltage_now / 1000.0);
+        append(&tooltip, _("\n%sVoltage now:\t\t%.3lf V"), indent, b->voltage_now / 1000.0);
 
     return tooltip;
 }
