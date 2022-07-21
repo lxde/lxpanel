@@ -991,6 +991,9 @@ static GtkWidget *volumealsa_constructor(LXPanel *panel, config_setting_t *setti
     vol->tray_icon = lxpanel_image_new_for_icon(panel, "audio-volume-muted-panel",
                                                 -1, ICONS_MUTE);
     gtk_container_add(GTK_CONTAINER(p), vol->tray_icon);
+#if GTK_CHECK_VERSION(3, 4, 0)
+    gtk_widget_add_events(p, GDK_SCROLL_MASK);
+#endif
 
     /* Initialize window to appear when icon clicked. */
     volumealsa_build_popup_window(p);
