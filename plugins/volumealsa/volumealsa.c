@@ -796,6 +796,17 @@ static void volumealsa_popup_scale_scrolled(GtkScale * scale, GdkEventScroll * e
     /* Dispatch on scroll direction to update the value. */
     if ((evt->direction == GDK_SCROLL_UP) || (evt->direction == GDK_SCROLL_LEFT))
         val += 2;
+#if GTK_CHECK_VERSION(3, 4, 0)
+    else if (evt->direction == GDK_SCROLL_SMOOTH)
+    {
+        gdouble delta_x, delta_y;
+        gdk_event_get_scroll_deltas((GdkEvent *) evt, &delta_x, &delta_y);
+        if ((delta_y < 0) || (delta_x < 0))
+            val += 2;
+        else
+            val -= 2;
+    }
+#endif
     else
         val -= 2;
 
