@@ -323,6 +323,12 @@ AC_SUBST(LIBXML2_CFLAGS)
 AC_SUBST(LIBXML2_LIBS)
 fi
 
+# xkb
+if test x"$plugin_xkb" != "x"; then
+PKG_CHECK_MODULES([XKB], [xkbfile])
+AC_SUBST(XKB_LIBS)
+fi
+
 # Checks for header files.
 AC_PATH_X
 AC_HEADER_STDC
