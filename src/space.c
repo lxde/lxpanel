@@ -393,7 +393,7 @@ static GtkWidget *space_configure(LXPanel *panel, GtkWidget *instance)
 
     dlg = lxpanel_generic_config_dlg(_("Spacer"), panel,
                                      space_apply_configuration, instance,
-                                     _("Size"), &p->size, CONF_TYPE_INT, NULL);
+                                     C_("Width", "Size"), &p->size, CONF_TYPE_INT, NULL);
     gtk_widget_set_size_request(dlg, 200, -1);	/* Improve geometry */
     return dlg;
 }

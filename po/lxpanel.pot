@@ -263,8 +263,8 @@ msgstr ""
 msgid "Spacer"
 msgstr ""
 
-#: ../src/space.c:396 ../data/ui/panel-pref.glade.h:32
-#: ../plugins/batt/batt.c:714
+#: ../src/space.c:396 ../plugins/batt/batt.c:714
+msgctxt "Width"
 msgid "Size"
 msgstr ""
 
@@ -526,6 +526,10 @@ msgstr ""
 
 #: ../data/ui/panel-pref.glade.h:31
 msgid "Custom color"
+msgstr ""
+
+#: ../data/ui/panel-pref.glade.h:32
+msgid "Size"
 msgstr ""
 
 #: ../data/ui/panel-pref.glade.h:33
@@ -1298,7 +1302,7 @@ msgid "The interface name"
 msgstr ""
 
 #: ../plugins/netstatus/netstatus-iface.c:156
-#: ../plugins/weather/weatherwidget.c:2137
+msgctxt "Network"
 msgid "State"
 msgstr ""
 
@@ -1940,6 +1944,11 @@ msgstr ""
 
 #: ../plugins/weather/weatherwidget.c:2127
 msgid "City"
+msgstr ""
+
+#: ../plugins/weather/weatherwidget.c:2137
+msgctxt "Politics"
+msgid "State"
 msgstr ""
 
 #: ../plugins/weather/weatherwidget.c:2147
