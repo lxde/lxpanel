@@ -7,10 +7,10 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-03-01 01:38+0200\n"
-"PO-Revision-Date: 2023-06-01 22:52+0200\n"
+"PO-Revision-Date: 2023-06-09 15:16+0200\n"
 "Last-Translator: Ingo Brückl <ib@wupperonline.de>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -280,10 +280,10 @@ msgstr ""
 msgid "Spacer"
 msgstr "Abstand"
 
-#: ../src/space.c:396 ../data/ui/panel-pref.glade.h:32
-#: ../plugins/batt/batt.c:714
+#: ../src/space.c:396 ../plugins/batt/batt.c:714
+msgctxt "Width"
 msgid "Size"
-msgstr "Größe:"
+msgstr "Breite:"
 
 #: ../src/space.c:404
 msgid "Allocate space"
@@ -546,6 +546,10 @@ msgstr "<b>Hintergrund</b>"
 #: ../data/ui/panel-pref.glade.h:31
 msgid "Custom color"
 msgstr "Benutzerdefinierte Farbe"
+
+#: ../data/ui/panel-pref.glade.h:32
+msgid "Size"
+msgstr "Größe:"
 
 #: ../data/ui/panel-pref.glade.h:33
 msgid "<b>Font</b>"
@@ -1339,7 +1343,7 @@ msgid "The interface name"
 msgstr "Name der Schnittstelle"
 
 #: ../plugins/netstatus/netstatus-iface.c:156
-#: ../plugins/weather/weatherwidget.c:2137
+msgctxt "Network"
 msgid "State"
 msgstr "Status"
 
@@ -2009,6 +2013,11 @@ msgstr "Standortübereinstimmungen für »%s«"
 #: ../plugins/weather/weatherwidget.c:2127
 msgid "City"
 msgstr "Stadt"
+
+#: ../plugins/weather/weatherwidget.c:2137
+msgctxt "Politics"
+msgid "State"
+msgstr "Staat"
 
 #: ../plugins/weather/weatherwidget.c:2147
 msgid "Country"
