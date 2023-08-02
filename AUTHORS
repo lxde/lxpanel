@@ -25,6 +25,7 @@ LXPanel - Lightweight X11 desktop panel
     Max Kirillov <max@max630.net>
     Stuart D. Gathman <stuart@gathman.org>
     TheZxcv <the.uint64.t@gmail.com>
+    Ingo Brückl
 
 [History]
 LXPanel is a derivative work from fbpanel [1] written by Anatoly Asviyan,
