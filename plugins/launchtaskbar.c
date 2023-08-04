@@ -18,6 +18,7 @@
  *               2014 Andy Balaam <axis3x3@users.sf.net>
  *               2015 Balló György <ballogyor@gmail.com>
  *               2015 Rafał Mużyło <galtgendo@gmail.com>
+ *               2023 Ingo Brückl
  *
  * This file is a part of LXPanel project.
  *
@@ -1697,18 +1698,13 @@ static void on_menu_view_cursor_changed(GtkTreeView *p_treeview, gpointer p_data
 
     if (app)
     {
+        const char *app_info = g_app_info_get_description(app);
         GString *p_gstring = g_string_new("");
-        if (g_app_info_get_description(app))
-        {
-            g_string_printf(p_gstring, "<i>%s</i>", g_app_info_get_description(app));
-            gtk_widget_set_tooltip_text(lb->p_label_menu_app_exec, g_app_info_get_description(app));
-        }
-        else
-        {
-            g_string_printf(p_gstring, "<i>%s</i>", g_app_info_get_name(app));
-            gtk_widget_set_tooltip_text(lb->p_label_menu_app_exec, g_app_info_get_name(app));
-        }
+        if (!app_info)
+            app_info = g_app_info_get_name(app);
+        g_string_printf(p_gstring, "<i>%s</i>", app_info);
         gtk_label_set_markup(GTK_LABEL(lb->p_label_menu_app_exec), p_gstring->str);
+        gtk_widget_set_tooltip_text(lb->p_label_menu_app_exec, app_info);
         g_string_free(p_gstring, TRUE/*free also gstring->str*/);
         label_set = TRUE;
     }
