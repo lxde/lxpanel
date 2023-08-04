@@ -13,6 +13,7 @@
  *               2013 Rouslan <rouslan-k@users.sourceforge.net>
  *               2014-2016 Andriy Grytsenko <andrej@rep.kiev.ua>
  *               2015 Hanno Zulla <hhz@users.sf.net>
+ *               2023 Ingo Brückl
  *
  * This file is a part of LXPanel project.
  *
@@ -559,10 +560,12 @@ on_sel_plugin_changed( GtkTreeSelection* tree_sel, GtkWidget* label )
         GtkTreeView* view = gtk_tree_selection_get_tree_view( tree_sel );
         GtkWidget *edit_btn = GTK_WIDGET(g_object_get_data( G_OBJECT(view), "edit_btn" ));
         const LXPanelPluginInit *init;
+        const gchar *description;
         gtk_tree_model_get( model, &it, COL_DATA, &pl, -1 );
         init = PLUGIN_CLASS(pl);
-        gtk_label_set_text(GTK_LABEL(label),
-                           g_dgettext(init->gettext_package, init->description));
+        description = g_dgettext(init->gettext_package, init->description);
+        gtk_label_set_text(GTK_LABEL(label), description);
+        gtk_widget_set_tooltip_text(label, description);
         gtk_widget_set_sensitive( edit_btn, init->config != NULL );
     }
 }
