@@ -6,11 +6,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-01 01:38+0200\n"
+"POT-Creation-Date: 2023-08-06 15:50+0200\n"
 "PO-Revision-Date: 2017-05-22 14:39+0000\n"
 "Last-Translator: nyucel <necdetyucel@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -20,7 +20,7 @@ msgstr ""
 "X-Pootle-Path: /tr/lxpanel/po/tr.po\n"
 "X-POOTLE-MTIME: 1495463960.442967\n"
 
-#: ../src/configurator.c:148
+#: ../src/configurator.c:149
 msgid ""
 "Space reservation is not available for this panel because there is another "
 "monitor beyond this edge and reservation would cover it if enabled."
@@ -31,35 +31,35 @@ msgstr ""
 # Önceki çevirmene: takıntı borç, sorun, obsesyon (en çok bu kullanılır) ya da
 # manita anlamına gelir. Yöresel ağızda ise mücevher.  Ancak "plugin" anlamına
 # gelmez.
-#: ../src/configurator.c:632
+#: ../src/configurator.c:635
 msgid "Currently loaded plugins"
 msgstr "Şimdi yüklü olan yan uygulamalar"
 
-#: ../src/configurator.c:641
+#: ../src/configurator.c:644
 msgid "Stretch"
 msgstr "Uzat"
 
-#: ../src/configurator.c:779
+#: ../src/configurator.c:782
 msgid "Add plugin to panel"
 msgstr "Tablaya bir yan uygulama ekle"
 
-#: ../src/configurator.c:807
+#: ../src/configurator.c:810
 msgid "Available plugins"
 msgstr "Mevcut yan uygulamalar"
 
-#: ../src/configurator.c:1427
+#: ../src/configurator.c:1430
 msgid "Logout command is not set"
 msgstr "Oturumu kapama komutu atanmadı"
 
-#: ../src/configurator.c:1495
+#: ../src/configurator.c:1498
 msgid "Select a directory"
 msgstr "Bir dizin seç"
 
-#: ../src/configurator.c:1495 ../src/configurator.c:1607
+#: ../src/configurator.c:1498 ../src/configurator.c:1610
 msgid "Select a file"
 msgstr "Bir dosya seç"
 
-#: ../src/configurator.c:1640
+#: ../src/configurator.c:1643
 msgid "_Browse"
 msgstr "_Gözat"
 
@@ -158,7 +158,7 @@ msgstr "Üst"
 msgid "Bottom"
 msgstr "Alt"
 
-#: ../src/plugin.c:348
+#: ../src/plugin.c:347
 msgid "No file manager is configured."
 msgstr "Yapılandırılmış dosya yöneticisi yok."
 
@@ -180,7 +180,7 @@ msgid "Logout"
 msgstr "Çık"
 
 #: ../src/main.c:323
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "lxpanel %s - lightweight GTK+ panel for UNIX desktops\n"
 msgstr "lxpanel %s - UNIX masaüstleri için hafif GTK2+ tablası\n"
 
@@ -256,7 +256,7 @@ msgid "Key combination '%s' cannot be used as a global hotkey, sorry."
 msgstr "'%s' tuş bileşeni genel bir kısayol olarak kullanılamaz, üzgünüz."
 
 #: ../src/input-button.c:231 ../src/input-button.c:415
-#: ../plugins/netstatus/netstatus-iface.c:191
+#: ../plugins/netstatus/netstatus-iface.c:192
 #: ../plugins/netstatus/netstatus-util.c:167
 msgid "Error"
 msgstr "Hata"
@@ -279,8 +279,10 @@ msgstr "'%s' genel bir kısayol olarak atanamıyor: zaten atanmış."
 msgid "Spacer"
 msgstr "Boşluk"
 
-#: ../src/space.c:396 ../data/ui/panel-pref.glade.h:32
-#: ../plugins/batt/batt.c:714
+#: ../src/space.c:396 ../plugins/batt/batt.c:735
+#, fuzzy
+#| msgid "Size"
+msgctxt "Width"
 msgid "Size"
 msgstr "Boyut"
 
@@ -288,7 +290,7 @@ msgstr "Boyut"
 msgid "Allocate space"
 msgstr "Alan ayır"
 
-#: ../data/ui/launchtaskbar.glade.h:1 ../plugins/launchtaskbar.c:2482
+#: ../data/ui/launchtaskbar.glade.h:1 ../plugins/launchtaskbar.c:2484
 msgid "Application Launch and Task Bar"
 msgstr "Uygulama Başlatma ve Görev Çubuğu"
 
@@ -490,7 +492,7 @@ msgstr "Tabla Tercihleri"
 msgid "Edge:"
 msgstr "Kenar:"
 
-#: ../data/ui/panel-pref.glade.h:16 ../plugins/volumealsa/volumealsa.c:1313
+#: ../data/ui/panel-pref.glade.h:16 ../plugins/volumealsa/volumealsa.c:1317
 msgid "Center"
 msgstr "Orta"
 
@@ -547,6 +549,13 @@ msgstr "<b>Arkaplan</b>"
 #: ../data/ui/panel-pref.glade.h:31
 msgid "Custom color"
 msgstr "İsteğe bağlı renk"
+
+#: ../data/ui/panel-pref.glade.h:32
+#, fuzzy
+#| msgid "Size"
+msgctxt "Font"
+msgid "Size"
+msgstr "Boyut"
 
 #: ../data/ui/panel-pref.glade.h:33
 msgid "<b>Font</b>"
@@ -621,7 +630,7 @@ msgstr "Gelişmiş"
 msgid "CPU Usage Monitor"
 msgstr "CPU Kullanım İzleyici"
 
-#: ../plugins/cpu/cpu.c:311 ../plugins/monitors/monitors.c:734
+#: ../plugins/cpu/cpu.c:311 ../plugins/monitors/monitors.c:746
 msgid "Display CPU usage"
 msgstr "CPU kullanımını göster"
 
@@ -641,31 +650,31 @@ msgstr "Masaüstü adlarını göster"
 msgid "Display workspace number, by cmeury@users.sf.net"
 msgstr "Çalışma alanı numarasını göster, cmeury@users.sf.net tarafından"
 
-#: ../plugins/launchtaskbar.c:1831 ../plugins/launchtaskbar.c:2452
+#: ../plugins/launchtaskbar.c:1833 ../plugins/launchtaskbar.c:2454
 msgid "Application Launch Bar"
 msgstr "Uygulama Açma Çubuğu"
 
-#: ../plugins/launchtaskbar.c:1834 ../plugins/launchtaskbar.c:2462
+#: ../plugins/launchtaskbar.c:1836 ../plugins/launchtaskbar.c:2464
 msgid "Task Bar (Window List)"
 msgstr "Görev Çubuğu (Pencere Listesi)"
 
-#: ../plugins/launchtaskbar.c:1985
+#: ../plugins/launchtaskbar.c:1987
 msgid "A_dd to Launcher"
 msgstr "Başlatıcıya _Ekle"
 
-#: ../plugins/launchtaskbar.c:1987
+#: ../plugins/launchtaskbar.c:1989
 msgid "Rem_ove from Launcher"
 msgstr "Başlatıcıdan kaldır"
 
-#: ../plugins/launchtaskbar.c:1989
+#: ../plugins/launchtaskbar.c:1991
 msgid "_New Instance"
 msgstr "_Yeni Örnek"
 
-#: ../plugins/launchtaskbar.c:2453
+#: ../plugins/launchtaskbar.c:2455
 msgid "Bar with buttons to launch application"
 msgstr "Uygulama başlatmaya yarayan düğmeli çubuk"
 
-#: ../plugins/launchtaskbar.c:2463
+#: ../plugins/launchtaskbar.c:2465
 #, fuzzy
 msgid ""
 "Taskbar shows all opened windows and allows to iconify them, shade or get "
@@ -674,56 +683,56 @@ msgstr ""
 "Görev çubuğu bütün açık pencereleri gösterir ve onları simgeleştirmenize, "
 "loşlaştırmanıza ya da odaklamanıza olanak verir"
 
-#: ../plugins/launchtaskbar.c:2483
+#: ../plugins/launchtaskbar.c:2485
 msgid "Bar with buttons to launch application and/or show all opened windows"
 msgstr "Tüm açık pencereleri ve/veya uygulama başlatmak için düğmeli çubuk"
 
 #. Add Raise menu item.
-#: ../plugins/task-button.c:352
+#: ../plugins/task-button.c:351
 msgid "_Raise"
 msgstr "_Yükselt"
 
 #. Add Restore menu item.
-#: ../plugins/task-button.c:357
+#: ../plugins/task-button.c:356
 msgid "R_estore"
 msgstr "G_eri yükle"
 
 #. Add Maximize menu item.
-#: ../plugins/task-button.c:362
+#: ../plugins/task-button.c:361
 msgid "Ma_ximize"
 msgstr "Ek_ranı kapla"
 
 #. Add Iconify menu item.
-#: ../plugins/task-button.c:367
+#: ../plugins/task-button.c:366
 msgid "Ico_nify"
 msgstr "Sim_geleştir"
 
-#: ../plugins/task-button.c:388
+#: ../plugins/task-button.c:387
 #, c-format
 msgid "Workspace _%d"
 msgstr "Çalışma alanı_%d"
 
-#: ../plugins/task-button.c:393
+#: ../plugins/task-button.c:392
 #, c-format
 msgid "Workspace %d"
 msgstr "Çalışma alanı %d"
 
 #. Add "move to all workspaces" item.  This causes the window to be visible no matter what desktop is active.
-#: ../plugins/task-button.c:410
+#: ../plugins/task-button.c:409
 msgid "_All workspaces"
 msgstr "_Tüm çalışma alanları"
 
 #. FIXME: add "Current workspace" item, active if not on a current
 #. Add Move to Workspace menu item as a submenu.
-#: ../plugins/task-button.c:418
+#: ../plugins/task-button.c:417
 msgid "_Move to Workspace"
 msgstr "Çalışma _Alanına Taşı"
 
-#: ../plugins/task-button.c:433
+#: ../plugins/task-button.c:432
 msgid "_Close Window"
 msgstr "_Pencereyi Kapat"
 
-#: ../plugins/task-button.c:1256
+#: ../plugins/task-button.c:1255
 msgid "_Close all windows"
 msgstr "Tüm Pencereleri _Kapat"
 
@@ -1012,19 +1021,20 @@ msgstr ""
 "İşlemci frekansını görüntüle ve frekans ile yönetim şeklini değiştirmeye "
 "izin ver"
 
-#: ../plugins/volumealsa/volumealsa.c:245
+#: ../plugins/volumealsa/volumealsa.c:247
 msgid "ALSA (or pulseaudio) had a problem. Please check the lxpanel logs."
 msgstr ""
 "ALSA (vaye pulseaudio) bir problemle karşılaştı. Lütfen lxpanel günlük "
 "dosyalarına bakın."
 
 #. Display current level in tooltip.
-#: ../plugins/volumealsa/volumealsa.c:613
-#: ../plugins/volumealsa/volumealsa.c:973
-msgid "Volume control"
-msgstr "Ses düzeyi denetimi"
+#: ../plugins/volumealsa/volumealsa.c:615
+#, fuzzy, c-format
+#| msgid "Volume"
+msgid "Volume: %d%%"
+msgstr "Ses seviyesi"
 
-#: ../plugins/volumealsa/volumealsa.c:701
+#: ../plugins/volumealsa/volumealsa.c:703
 msgid ""
 "Error, you need to install an application to configure the sound "
 "(pavucontrol, alsamixer ...)"
@@ -1033,102 +1043,116 @@ msgstr ""
 "kurmalısınız"
 
 #. Create a frame as the child of the viewport.
-#: ../plugins/volumealsa/volumealsa.c:895
+#: ../plugins/volumealsa/volumealsa.c:900
 msgid "Volume"
 msgstr "Ses seviyesi"
 
 #. Create a check button as the child of the vertical box.
-#: ../plugins/volumealsa/volumealsa.c:914
+#: ../plugins/volumealsa/volumealsa.c:918
 msgid "Mute"
 msgstr "Sessiz"
 
+#: ../plugins/volumealsa/volumealsa.c:977
+msgid "Volume control"
+msgstr "Ses düzeyi denetimi"
+
 #. Just to have these translated
-#: ../plugins/volumealsa/volumealsa.c:1313
+#: ../plugins/volumealsa/volumealsa.c:1317
 msgid "Line"
 msgstr "Giriş"
 
-#: ../plugins/volumealsa/volumealsa.c:1313
+#: ../plugins/volumealsa/volumealsa.c:1317
 msgid "LineOut"
 msgstr "Çıkış"
 
-#: ../plugins/volumealsa/volumealsa.c:1313
+#: ../plugins/volumealsa/volumealsa.c:1317
 msgid "Front"
 msgstr "Ön"
 
-#: ../plugins/volumealsa/volumealsa.c:1313
+#: ../plugins/volumealsa/volumealsa.c:1317
 msgid "Surround"
 msgstr "Çevresel Ses"
 
-#: ../plugins/volumealsa/volumealsa.c:1313
+#: ../plugins/volumealsa/volumealsa.c:1317
 msgid "Speaker+LO"
 msgstr "Hoparlör+LO"
 
-#: ../plugins/volumealsa/volumealsa.c:1352
+#: ../plugins/volumealsa/volumealsa.c:1318
+#, fuzzy
+#| msgid "Speaker+LO"
+msgid "Speaker"
+msgstr "Hoparlör+LO"
+
+#: ../plugins/volumealsa/volumealsa.c:1318
+msgid "Beep"
+msgstr ""
+
+#: ../plugins/volumealsa/volumealsa.c:1357
 msgid "default"
 msgstr "varsayılan"
 
 #. desc, index
-#: ../plugins/volumealsa/volumealsa.c:1412
+#: ../plugins/volumealsa/volumealsa.c:1417
 msgid "Master"
 msgstr "Ana"
 
-#: ../plugins/volumealsa/volumealsa.c:1416
+#: ../plugins/volumealsa/volumealsa.c:1421
 msgid "PCM"
 msgstr "PCM"
 
-#: ../plugins/volumealsa/volumealsa.c:1420
+#: ../plugins/volumealsa/volumealsa.c:1425
 msgid "Headphone"
 msgstr "Kulaklık"
 
-#: ../plugins/volumealsa/volumealsa.c:1442
+#: ../plugins/volumealsa/volumealsa.c:1447
 msgid "Click for Volume Slider"
 msgstr "Ses Kaydırıcı için tıklayın"
 
-#: ../plugins/volumealsa/volumealsa.c:1446
+#: ../plugins/volumealsa/volumealsa.c:1451
 msgid "Click for Toggle Mute"
 msgstr "Sessize almayı değiştirmek için tıklayın"
 
-#: ../plugins/volumealsa/volumealsa.c:1450
+#: ../plugins/volumealsa/volumealsa.c:1455
 msgid "Click for Open Mixer"
 msgstr "Karıştırıcıyı açmak için tıklayın"
 
 #. setup hotkeys
-#: ../plugins/volumealsa/volumealsa.c:1454
+#: ../plugins/volumealsa/volumealsa.c:1459
 msgid "Hotkey for Volume Up"
 msgstr "Sesi Açmak için Kısayol"
 
-#: ../plugins/volumealsa/volumealsa.c:1456
+#: ../plugins/volumealsa/volumealsa.c:1461
 msgid "Hotkey for Volume Down"
 msgstr "Sesi Azaltmak için Kısayol"
 
-#: ../plugins/volumealsa/volumealsa.c:1458
+#: ../plugins/volumealsa/volumealsa.c:1463
 msgid "Hotkey for Volume Mute"
 msgstr "Sessize almak için kısayol"
 
-#: ../plugins/volumealsa/volumealsa.c:1514
-#: ../plugins/volumealsa/volumealsa.c:1553
-#: ../plugins/volumealsa/volumealsa.c:1574
+#: ../plugins/volumealsa/volumealsa.c:1519
+#: ../plugins/volumealsa/volumealsa.c:1558
+#: ../plugins/volumealsa/volumealsa.c:1579
 msgid "Volume Control"
 msgstr "Ses Düzeyi Denetimi"
 
-#: ../plugins/volumealsa/volumealsa.c:1516
+#: ../plugins/volumealsa/volumealsa.c:1521
 msgid "Audio Card"
 msgstr "Ses Kartı"
 
-#: ../plugins/volumealsa/volumealsa.c:1519
+#: ../plugins/volumealsa/volumealsa.c:1524
 msgid "Channel to Operate"
 msgstr "Çalışılacak Kanal"
 
-#: ../plugins/volumealsa/volumealsa.c:1527
+#: ../plugins/volumealsa/volumealsa.c:1532
 msgid "Command to Open Mixer"
 msgstr "Karıştırıcıyı Açma Komutu"
 
-#: ../plugins/volumealsa/volumealsa.c:1542
+#: ../plugins/volumealsa/volumealsa.c:1547
 msgid "Launch Mixer"
 msgstr "Karıştırıcıyı Başlat"
 
-#: ../plugins/volumealsa/volumealsa.c:1554
-#: ../plugins/volumealsa/volumealsa.c:1575
+#: ../plugins/volumealsa/volumealsa.c:1559
+#: ../plugins/volumealsa/volumealsa.c:1580
 msgid "Display and control volume"
 msgstr "Sesi görüntüle ve kontrol et"
 
@@ -1201,7 +1225,7 @@ msgstr "bayt"
 msgid "packets"
 msgstr "paket"
 
-#: ../plugins/netstat/netstat.c:368 ../plugins/netstatus/netstatus-iface.c:173
+#: ../plugins/netstat/netstat.c:368 ../plugins/netstatus/netstatus-iface.c:174
 msgid "Wireless"
 msgstr "Kablosuz"
 
@@ -1238,43 +1262,43 @@ msgstr ""
 msgid "Encryption Key:"
 msgstr "Şifreleme Anahtarı:"
 
-#: ../plugins/netstatus/netstatus.c:154 ../plugins/netstatus/netstatus.c:166
+#: ../plugins/netstatus/netstatus.c:155 ../plugins/netstatus/netstatus.c:167
 msgid "Network Status Monitor"
 msgstr "Ağ Durumu İzleyici"
 
-#: ../plugins/netstatus/netstatus.c:156
+#: ../plugins/netstatus/netstatus.c:157
 msgid "Interface to monitor"
 msgstr "İzleyici arayüzü"
 
-#: ../plugins/netstatus/netstatus.c:157
+#: ../plugins/netstatus/netstatus.c:158
 msgid "Config tool"
 msgstr "Yapılandırma aracı"
 
-#: ../plugins/netstatus/netstatus.c:167
+#: ../plugins/netstatus/netstatus.c:168
 msgid "Monitor network status"
 msgstr "Ağ durumunu izle"
 
-#: ../plugins/netstatus/netstatus-dialog.c:52
-#: ../plugins/netstatus/netstatus-dialog.c:316
+#: ../plugins/netstatus/netstatus-dialog.c:53
+#: ../plugins/netstatus/netstatus-dialog.c:317
 msgid "Unknown"
 msgstr "Bilinmiyor"
 
-#: ../plugins/netstatus/netstatus-dialog.c:117
+#: ../plugins/netstatus/netstatus-dialog.c:118
 msgid "Connection Properties"
 msgstr "Bağlantı Özellikleri"
 
-#: ../plugins/netstatus/netstatus-dialog.c:123
+#: ../plugins/netstatus/netstatus-dialog.c:124
 #, c-format
 msgid "Connection Properties: %s"
 msgstr "Bağlantı Özellikleri: %s"
 
-#: ../plugins/netstatus/netstatus-dialog.c:136
+#: ../plugins/netstatus/netstatus-dialog.c:137
 #, c-format
 msgid "%lu packet"
 msgid_plural "%lu packets"
 msgstr[0] "%lu paket"
 
-#: ../plugins/netstatus/netstatus-dialog.c:400
+#: ../plugins/netstatus/netstatus-dialog.c:401
 #, c-format
 msgid ""
 "There was an error displaying help:\n"
@@ -1283,48 +1307,48 @@ msgstr ""
 "Yardımı göstermede bir hata oluştu:\n"
 "%s"
 
-#: ../plugins/netstatus/netstatus-icon.c:381
+#: ../plugins/netstatus/netstatus-icon.c:382
 #, c-format
 msgid "Network Connection: %s"
 msgstr "Ağ Bağlantısı: %s"
 
-#: ../plugins/netstatus/netstatus-icon.c:386
+#: ../plugins/netstatus/netstatus-icon.c:387
 msgid "Network Connection"
 msgstr "Ağ Bağlantısı"
 
-#: ../plugins/netstatus/netstatus-icon.c:847
+#: ../plugins/netstatus/netstatus-icon.c:849
 msgid "Interface"
 msgstr "Arayüz"
 
-#: ../plugins/netstatus/netstatus-icon.c:848
+#: ../plugins/netstatus/netstatus-icon.c:850
 msgid "The current interface the icon is monitoring."
 msgstr "Simgenin izlediği mevcut arayüz."
 
-#: ../plugins/netstatus/netstatus-icon.c:855
+#: ../plugins/netstatus/netstatus-icon.c:857
 msgid "Orientation"
 msgstr "Yön ayarı"
 
-#: ../plugins/netstatus/netstatus-icon.c:856
+#: ../plugins/netstatus/netstatus-icon.c:858
 msgid "The orientation of the tray."
 msgstr "Tepsi yönünü ayarlama."
 
-#: ../plugins/netstatus/netstatus-icon.c:864
+#: ../plugins/netstatus/netstatus-icon.c:866
 msgid "Tooltips Enabled"
 msgstr "Görsel İpuçları Etkinleştirildi"
 
-#: ../plugins/netstatus/netstatus-icon.c:865
+#: ../plugins/netstatus/netstatus-icon.c:867
 msgid "Whether or not the icon's tooltips are enabled."
 msgstr "Simge ipuçlarının etkinleştirilip etkinleştirilmediği."
 
-#: ../plugins/netstatus/netstatus-icon.c:872
+#: ../plugins/netstatus/netstatus-icon.c:874
 msgid "Show Signal"
 msgstr "Sinyali Göster"
 
-#: ../plugins/netstatus/netstatus-icon.c:873
+#: ../plugins/netstatus/netstatus-icon.c:875
 msgid "Whether or not the signal strength should be displayed."
 msgstr "Sinyal gücünün gösterilsin mi."
 
-#: ../plugins/netstatus/netstatus-icon.c:982
+#: ../plugins/netstatus/netstatus-icon.c:985
 #, c-format
 msgid ""
 "Please contact your system administrator to resolve the following problem:\n"
@@ -1335,171 +1359,173 @@ msgstr ""
 "\n"
 "%s"
 
-#: ../plugins/netstatus/netstatus-iface.c:148
+#: ../plugins/netstatus/netstatus-iface.c:149
 msgid "Name"
 msgstr "Ad"
 
-#: ../plugins/netstatus/netstatus-iface.c:149
+#: ../plugins/netstatus/netstatus-iface.c:150
 msgid "The interface name"
 msgstr "Arayüz adı"
 
-#: ../plugins/netstatus/netstatus-iface.c:156
-#: ../plugins/weather/weatherwidget.c:2137
+#: ../plugins/netstatus/netstatus-iface.c:157
+#, fuzzy
+#| msgid "State"
+msgctxt "Network"
 msgid "State"
 msgstr "Durum"
 
-#: ../plugins/netstatus/netstatus-iface.c:157
+#: ../plugins/netstatus/netstatus-iface.c:158
 msgid "The interface state"
 msgstr "Arayüz durumu"
 
-#: ../plugins/netstatus/netstatus-iface.c:165
+#: ../plugins/netstatus/netstatus-iface.c:166
 msgid "Stats"
 msgstr "İstatistikler"
 
-#: ../plugins/netstatus/netstatus-iface.c:166
+#: ../plugins/netstatus/netstatus-iface.c:167
 msgid "The interface packets/bytes statistics"
 msgstr "Arayüz paket/bayt istatistikleri"
 
-#: ../plugins/netstatus/netstatus-iface.c:174
+#: ../plugins/netstatus/netstatus-iface.c:175
 msgid "Whether the interface is a wireless interface"
 msgstr "Arayüzün kablosuz arayüz olup olmadığı"
 
-#: ../plugins/netstatus/netstatus-iface.c:181
+#: ../plugins/netstatus/netstatus-iface.c:182
 msgid "Signal"
 msgstr "Sinyal"
 
-#: ../plugins/netstatus/netstatus-iface.c:182
+#: ../plugins/netstatus/netstatus-iface.c:183
 msgid "Wireless signal strength percentage"
 msgstr "Kablosuz sinyal gücü yüzdesi"
 
-#: ../plugins/netstatus/netstatus-iface.c:192
+#: ../plugins/netstatus/netstatus-iface.c:193
 msgid "The current error condition"
 msgstr "Mevcut hata durumu"
 
-#: ../plugins/netstatus/netstatus-iface.c:440
-#: ../plugins/netstatus/netstatus-iface.c:1205
+#: ../plugins/netstatus/netstatus-iface.c:441
+#: ../plugins/netstatus/netstatus-iface.c:1200
 #, c-format
 msgid "Unable to open socket: %s"
 msgstr "Yuva açılamıyor: %s"
 
-#: ../plugins/netstatus/netstatus-iface.c:502
-#: ../plugins/netstatus/netstatus-iface.c:1231
+#: ../plugins/netstatus/netstatus-iface.c:503
+#: ../plugins/netstatus/netstatus-iface.c:1226
 #, c-format
 msgid "SIOCGIFFLAGS error: %s"
 msgstr "SIOCGIFFLAGS hatası: %s"
 
-#: ../plugins/netstatus/netstatus-iface.c:879
+#: ../plugins/netstatus/netstatus-iface.c:880
 msgid "AMPR NET/ROM"
 msgstr "AMPR NET/ROM"
 
-#: ../plugins/netstatus/netstatus-iface.c:882
+#: ../plugins/netstatus/netstatus-iface.c:883
 msgid "Ethernet"
 msgstr "Eternet"
 
-#: ../plugins/netstatus/netstatus-iface.c:888
+#: ../plugins/netstatus/netstatus-iface.c:889
 msgid "AMPR AX.25"
 msgstr "AMPR AX.25"
 
-#: ../plugins/netstatus/netstatus-iface.c:897
-#: ../plugins/netstatus/netstatus-iface.c:1017
+#: ../plugins/netstatus/netstatus-iface.c:898
+#: ../plugins/netstatus/netstatus-iface.c:1018
 msgid "16/4 Mbps Token Ring"
 msgstr "16/4 Mb/s Token Ring"
 
-#: ../plugins/netstatus/netstatus-iface.c:900
+#: ../plugins/netstatus/netstatus-iface.c:901
 msgid "ARCnet"
 msgstr "ARCnet"
 
-#: ../plugins/netstatus/netstatus-iface.c:906
+#: ../plugins/netstatus/netstatus-iface.c:907
 msgid "Frame Relay DLCI"
 msgstr "Frame Relay DLCI"
 
-#: ../plugins/netstatus/netstatus-iface.c:912
+#: ../plugins/netstatus/netstatus-iface.c:913
 msgid "Metricom Starmode IP"
 msgstr "Metricom Starmode IP"
 
-#: ../plugins/netstatus/netstatus-iface.c:915
+#: ../plugins/netstatus/netstatus-iface.c:916
 msgid "Serial Line IP"
 msgstr "Seri Bağlantı Noktası IP"
 
-#: ../plugins/netstatus/netstatus-iface.c:918
+#: ../plugins/netstatus/netstatus-iface.c:919
 msgid "VJ Serial Line IP"
 msgstr "VJ Seri Bağlantı Noktası IP"
 
-#: ../plugins/netstatus/netstatus-iface.c:921
+#: ../plugins/netstatus/netstatus-iface.c:922
 msgid "6-bit Serial Line IP"
 msgstr "6-bit Seri Bağlantı Noktası IP"
 
-#: ../plugins/netstatus/netstatus-iface.c:924
+#: ../plugins/netstatus/netstatus-iface.c:925
 msgid "VJ 6-bit Serial Line IP"
 msgstr "VJ 6-bit Seri Bağlantı Noktası IP"
 
-#: ../plugins/netstatus/netstatus-iface.c:930
+#: ../plugins/netstatus/netstatus-iface.c:931
 msgid "Adaptive Serial Line IP"
 msgstr "Uyarlanabilir Seri Bağlantı Noktası IP"
 
-#: ../plugins/netstatus/netstatus-iface.c:933
+#: ../plugins/netstatus/netstatus-iface.c:934
 msgid "AMPR ROSE"
 msgstr "AMPR ROSE"
 
-#: ../plugins/netstatus/netstatus-iface.c:936
+#: ../plugins/netstatus/netstatus-iface.c:937
 msgid "Generic X.25"
 msgstr "Genel X.25"
 
-#: ../plugins/netstatus/netstatus-iface.c:939
+#: ../plugins/netstatus/netstatus-iface.c:940
 msgid "Point-to-Point Protocol"
 msgstr "Noktadan Noktaya Bağlantı Protokolü"
 
-#: ../plugins/netstatus/netstatus-iface.c:945
+#: ../plugins/netstatus/netstatus-iface.c:946
 msgid "(Cisco)-HDLC"
 msgstr "(Cisco)-HDLC"
 
-#: ../plugins/netstatus/netstatus-iface.c:948
+#: ../plugins/netstatus/netstatus-iface.c:949
 msgid "LAPB"
 msgstr "LAPB"
 
-#: ../plugins/netstatus/netstatus-iface.c:957
+#: ../plugins/netstatus/netstatus-iface.c:958
 msgid "IPIP Tunnel"
 msgstr "IPIP Tünelleme"
 
-#: ../plugins/netstatus/netstatus-iface.c:963
+#: ../plugins/netstatus/netstatus-iface.c:964
 msgid "Frame Relay Access Device"
 msgstr "Frame Relay Erişim Aygıtı"
 
-#: ../plugins/netstatus/netstatus-iface.c:969
+#: ../plugins/netstatus/netstatus-iface.c:970
 msgid "Local Loopback"
 msgstr "Yerel Geri Döngü"
 
-#: ../plugins/netstatus/netstatus-iface.c:975
+#: ../plugins/netstatus/netstatus-iface.c:976
 msgid "Fiber Distributed Data Interface"
 msgstr "Fiber Dağıtımlı Veri Arayüzü"
 
-#: ../plugins/netstatus/netstatus-iface.c:981
+#: ../plugins/netstatus/netstatus-iface.c:982
 msgid "IPv6-in-IPv4"
 msgstr "IPv4 içinde IPv6"
 
-#: ../plugins/netstatus/netstatus-iface.c:993
+#: ../plugins/netstatus/netstatus-iface.c:994
 msgid "HIPPI"
 msgstr "HIPPI"
 
-#: ../plugins/netstatus/netstatus-iface.c:996
+#: ../plugins/netstatus/netstatus-iface.c:997
 msgid "Ash"
 msgstr "Ash"
 
-#: ../plugins/netstatus/netstatus-iface.c:999
+#: ../plugins/netstatus/netstatus-iface.c:1000
 msgid "Econet"
 msgstr "Econet"
 
 # KöBEK diye kısaltmaya gerek var mı? Kısaltma paranteze alınmış zaten
-#: ../plugins/netstatus/netstatus-iface.c:1002
+#: ../plugins/netstatus/netstatus-iface.c:1003
 msgid "IrLAP"
 msgstr "IrLAP"
 
-#: ../plugins/netstatus/netstatus-iface.c:1163
+#: ../plugins/netstatus/netstatus-iface.c:1158
 #, c-format
 msgid "SIOCGIFCONF error: %s"
 msgstr "SIOCGIFCONF hatası: %s"
 
-#: ../plugins/netstatus/netstatus-iface.c:1256
+#: ../plugins/netstatus/netstatus-iface.c:1251
 #, c-format
 msgid "No network devices found"
 msgstr "Ağ aygıtı bulunamadı"
@@ -1585,22 +1611,40 @@ msgstr "Alınan"
 msgid "Sending/Receiving"
 msgstr "Gönderilen/Alınan"
 
-#: ../plugins/batt/batt.c:156
+#: ../plugins/batt/batt.c:159
+#, fuzzy, c-format
+#| msgid "Battery %d: %d%% charged, %d:%02d until full"
+msgid "Battery: %d%% charged, %d:%02d until full"
+msgstr "Pil %d: %d%% dolu, dolmasına %d:%02d kaldı"
+
+#: ../plugins/batt/batt.c:163
 #, c-format
 msgid "Battery %d: %d%% charged, %d:%02d until full"
 msgstr "Pil %d: %d%% dolu, dolmasına %d:%02d kaldı"
 
-#: ../plugins/batt/batt.c:170
+#: ../plugins/batt/batt.c:178
+#, fuzzy, c-format
+#| msgid "Battery %d: %d%% charged, %d:%02d left"
+msgid "Battery: %d%% charged, %d:%02d left"
+msgstr "Pi %d: %d%% dolu, boşalmasına %d:%02d kaldı"
+
+#: ../plugins/batt/batt.c:182
 #, c-format
 msgid "Battery %d: %d%% charged, %d:%02d left"
 msgstr "Pi %d: %d%% dolu, boşalmasına %d:%02d kaldı"
 
-#: ../plugins/batt/batt.c:177
+#: ../plugins/batt/batt.c:190
+#, fuzzy, c-format
+#| msgid "Battery %d: %d%% charged"
+msgid "Battery: %d%% charged"
+msgstr "Pil %d: %d%% dolu"
+
+#: ../plugins/batt/batt.c:194
 #, c-format
 msgid "Battery %d: %d%% charged"
 msgstr "Pil %d: %d%% dolu"
 
-#: ../plugins/batt/batt.c:187
+#: ../plugins/batt/batt.c:204
 #, c-format
 msgid ""
 "\n"
@@ -1609,7 +1653,7 @@ msgstr ""
 "\n"
 "%sTasarım sırasındaki tüm enerji:\t\t%5d mWh"
 
-#: ../plugins/batt/batt.c:189
+#: ../plugins/batt/batt.c:206
 #, c-format
 msgid ""
 "\n"
@@ -1618,7 +1662,7 @@ msgstr ""
 "\n"
 "%sTüm enerji:\t\t\t%5d mWh"
 
-#: ../plugins/batt/batt.c:191
+#: ../plugins/batt/batt.c:208
 #, c-format
 msgid ""
 "\n"
@@ -1627,7 +1671,7 @@ msgstr ""
 "\n"
 "%sŞimdiki enerji:\t\t\t%5d mWh"
 
-#: ../plugins/batt/batt.c:193
+#: ../plugins/batt/batt.c:210
 #, c-format
 msgid ""
 "\n"
@@ -1636,7 +1680,7 @@ msgstr ""
 "\n"
 "%sŞimdiki güç:\t\t\t%5d mW"
 
-#: ../plugins/batt/batt.c:196
+#: ../plugins/batt/batt.c:213
 #, c-format
 msgid ""
 "\n"
@@ -1645,7 +1689,7 @@ msgstr ""
 "\n"
 "%sTasarımdaki tüm şarj:\t%5d mAh"
 
-#: ../plugins/batt/batt.c:198
+#: ../plugins/batt/batt.c:215
 #, c-format
 msgid ""
 "\n"
@@ -1654,7 +1698,7 @@ msgstr ""
 "\n"
 "%sTüm şarj:\t\t\t%5d mAh"
 
-#: ../plugins/batt/batt.c:200
+#: ../plugins/batt/batt.c:217
 #, c-format
 msgid ""
 "\n"
@@ -1663,7 +1707,7 @@ msgstr ""
 "\n"
 "%sŞimdiki şarj:\t\t\t%5d mAh"
 
-#: ../plugins/batt/batt.c:202
+#: ../plugins/batt/batt.c:219
 #, c-format
 msgid ""
 "\n"
@@ -1672,74 +1716,81 @@ msgstr ""
 "\n"
 "%sŞimdiki akım:\t\t\t%5d mA"
 
-#: ../plugins/batt/batt.c:205
-#, c-format
+#: ../plugins/batt/batt.c:222
+#, fuzzy, c-format
+#| msgid ""
+#| "\n"
+#| "%sCurrent Voltage:\t\t%.3lf V"
 msgid ""
 "\n"
-"%sCurrent Voltage:\t\t%.3lf V"
+"%sVoltage now:\t\t%.3lf V"
 msgstr ""
 "\n"
 "%sŞimdiki Gerilim:\t\t%.3lf V"
 
-#: ../plugins/batt/batt.c:243
+#: ../plugins/batt/batt.c:260
 msgid "No batteries found"
 msgstr "Pil bulunamadı"
 
-#: ../plugins/batt/batt.c:546 ../plugins/batt/batt.c:679
+#: ../plugins/batt/batt.c:566 ../plugins/batt/batt.c:699
 msgid "Battery low"
 msgstr "Pil düşük"
 
-#: ../plugins/batt/batt.c:702 ../plugins/batt/batt.c:726
+#: ../plugins/batt/batt.c:723 ../plugins/batt/batt.c:748
 msgid "Battery Monitor"
 msgstr "Pil İzleyici"
 
-#: ../plugins/batt/batt.c:704
+#: ../plugins/batt/batt.c:725
 msgid "Hide if there is no battery"
 msgstr "Eğer pil yoksa gizle"
 
-#: ../plugins/batt/batt.c:705
+#: ../plugins/batt/batt.c:726
 msgid "Alarm command"
 msgstr "Alarm komutu"
 
-#: ../plugins/batt/batt.c:706
+#: ../plugins/batt/batt.c:727
 msgid "Alarm time (minutes left)"
 msgstr "Alarm süresi (kalan dakika)"
 
-#: ../plugins/batt/batt.c:707
+#: ../plugins/batt/batt.c:728
 msgid "Background color"
 msgstr "Arkaplan rengi"
 
 # Türkçe'de "Doluyor rengi" denmez. Ben var pes etmek artık.
-#: ../plugins/batt/batt.c:708
+#: ../plugins/batt/batt.c:729
 msgid "Charging color 1"
 msgstr "Dolum rengi 1"
 
-#: ../plugins/batt/batt.c:709
+#: ../plugins/batt/batt.c:730
 msgid "Charging color 2"
 msgstr "Dolum rengi 2"
 
-#: ../plugins/batt/batt.c:710
+#: ../plugins/batt/batt.c:731
 msgid "Discharging color 1"
 msgstr "Boşaltım rengi 1"
 
-#: ../plugins/batt/batt.c:711
+#: ../plugins/batt/batt.c:732
 msgid "Discharging color 2"
 msgstr "Boşaltım rengi 2"
 
-#: ../plugins/batt/batt.c:712
+#: ../plugins/batt/batt.c:733
 msgid "Border width"
 msgstr "Sınır genişliği"
 
-#: ../plugins/batt/batt.c:716
+#: ../plugins/batt/batt.c:737
 msgid "Show Extended Information"
 msgstr "Genişletilmiş Bilgi Göster"
 
-#: ../plugins/batt/batt.c:717
+#: ../plugins/batt/batt.c:738
 msgid "Number of battery to monitor"
 msgstr "İzlenecek pil sayısı"
 
+#: ../plugins/batt/batt.c:739
+msgid "Don't show number of battery"
+msgstr ""
+
 # GYGA: Gelişmiş Yapılandırma ve Güç Arayüzü
-#: ../plugins/batt/batt.c:727
+#: ../plugins/batt/batt.c:749
 msgid "Display battery status using ACPI"
 msgstr "ACPI kullanarak pil durumunu göster"
 
@@ -1804,37 +1855,41 @@ msgstr "Ses Menüsü"
 msgid "Add indicator applets to the panel"
 msgstr "Panele gösterge uygulamacıkları ekle"
 
-#: ../plugins/monitors/monitors.c:285
+#: ../plugins/monitors/monitors.c:290
 #, c-format
 msgid "CPU usage: %.2f%%"
 msgstr "CPU kullanımı: %.2f%%"
 
-#: ../plugins/monitors/monitors.c:386
+#: ../plugins/monitors/monitors.c:393
 #, c-format
 msgid "RAM usage: %.1fMB (%.2f%%)"
 msgstr "RAM kullanımı: %.1fMB (%.2f%%)"
 
-#: ../plugins/monitors/monitors.c:732 ../plugins/monitors/monitors.c:821
+#: ../plugins/monitors/monitors.c:744 ../plugins/monitors/monitors.c:835
 msgid "Resource monitors"
 msgstr "Kaynak monitörleri"
 
-#: ../plugins/monitors/monitors.c:735
+#: ../plugins/monitors/monitors.c:747
 msgid "CPU color"
 msgstr "CPU rengi"
 
-#: ../plugins/monitors/monitors.c:736
+#: ../plugins/monitors/monitors.c:748
 msgid "Display RAM usage"
 msgstr "RAM kullanımını göster"
 
-#: ../plugins/monitors/monitors.c:737
+#: ../plugins/monitors/monitors.c:749
 msgid "RAM color"
 msgstr "RAM rengi"
 
-#: ../plugins/monitors/monitors.c:738
+#: ../plugins/monitors/monitors.c:750
+msgid "Show memory used by cache as free"
+msgstr ""
+
+#: ../plugins/monitors/monitors.c:751
 msgid "Action when clicked (default: lxtask)"
 msgstr "Tıklanıldığında gerçekleştirilecek eylem (öntanımlı: lxtask)"
 
-#: ../plugins/monitors/monitors.c:822
+#: ../plugins/monitors/monitors.c:836
 msgid "Display monitors (CPU, RAM)"
 msgstr "Monitörleri göster (CPU, RAM)"
 
@@ -2019,6 +2074,13 @@ msgstr "'%s' için konum eşleşmeleri"
 #: ../plugins/weather/weatherwidget.c:2127
 msgid "City"
 msgstr "Şehir"
+
+#: ../plugins/weather/weatherwidget.c:2137
+#, fuzzy
+#| msgid "State"
+msgctxt "Politics"
+msgid "State"
+msgstr "Durum"
 
 #: ../plugins/weather/weatherwidget.c:2147
 msgid "Country"

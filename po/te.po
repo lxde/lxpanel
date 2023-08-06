@@ -6,11 +6,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-01 01:38+0200\n"
+"POT-Creation-Date: 2023-08-06 15:50+0200\n"
 "PO-Revision-Date: 2012-07-09 18:48+0200\n"
 "Last-Translator: PraveenIlla <mail2ipn@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"Language: te\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -19,41 +19,41 @@ msgstr ""
 "X-Pootle-Revision: 0\n"
 "X-Pootle-Path: /te/lxpanel/po/te.po\n"
 
-#: ../src/configurator.c:148
+#: ../src/configurator.c:149
 msgid ""
 "Space reservation is not available for this panel because there is another "
 "monitor beyond this edge and reservation would cover it if enabled."
 msgstr ""
 
-#: ../src/configurator.c:632
+#: ../src/configurator.c:635
 msgid "Currently loaded plugins"
 msgstr "ప్రస్తుతం లోడయిన ప్లగిన్‌లు"
 
-#: ../src/configurator.c:641
+#: ../src/configurator.c:644
 msgid "Stretch"
 msgstr "లాగు"
 
-#: ../src/configurator.c:779
+#: ../src/configurator.c:782
 msgid "Add plugin to panel"
 msgstr "ప్లగిన్‌ను ప్యానల్‌కు జతచేయి"
 
-#: ../src/configurator.c:807
+#: ../src/configurator.c:810
 msgid "Available plugins"
 msgstr "అందుబాటలో ఉన్న ప్లగిన్‌లు"
 
-#: ../src/configurator.c:1427
+#: ../src/configurator.c:1430
 msgid "Logout command is not set"
 msgstr "లాగౌట్ ఆదేశం అమర్చలేదు"
 
-#: ../src/configurator.c:1495
+#: ../src/configurator.c:1498
 msgid "Select a directory"
 msgstr "ఒక చిరునామాని ఎంచుకొను"
 
-#: ../src/configurator.c:1495 ../src/configurator.c:1607
+#: ../src/configurator.c:1498 ../src/configurator.c:1610
 msgid "Select a file"
 msgstr "ఒక ఫైలును ఎంచుకొను"
 
-#: ../src/configurator.c:1640
+#: ../src/configurator.c:1643
 msgid "_Browse"
 msgstr "అన్వేషించు (_B)"
 
@@ -149,7 +149,7 @@ msgstr "ఉత్తమ"
 msgid "Bottom"
 msgstr "అడుగు"
 
-#: ../src/plugin.c:348
+#: ../src/plugin.c:347
 msgid "No file manager is configured."
 msgstr ""
 
@@ -171,7 +171,7 @@ msgid "Logout"
 msgstr "లాగౌట్"
 
 #: ../src/main.c:323
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "lxpanel %s - lightweight GTK+ panel for UNIX desktops\n"
 msgstr "lxప్యానల్ %s - యునిక్స్ డెస్క్‍టాప్‌ల కోసం తేలికపాటి GTK2+ ప్యానల్\n"
 
@@ -249,7 +249,7 @@ msgid "Key combination '%s' cannot be used as a global hotkey, sorry."
 msgstr ""
 
 #: ../src/input-button.c:231 ../src/input-button.c:415
-#: ../plugins/netstatus/netstatus-iface.c:191
+#: ../plugins/netstatus/netstatus-iface.c:192
 #: ../plugins/netstatus/netstatus-util.c:167
 msgid "Error"
 msgstr "దోషం"
@@ -273,8 +273,10 @@ msgstr ""
 msgid "Spacer"
 msgstr "స్పేసర్"
 
-#: ../src/space.c:396 ../data/ui/panel-pref.glade.h:32
-#: ../plugins/batt/batt.c:714
+#: ../src/space.c:396 ../plugins/batt/batt.c:735
+#, fuzzy
+#| msgid "Size"
+msgctxt "Width"
 msgid "Size"
 msgstr "పరిమాణం"
 
@@ -282,7 +284,7 @@ msgstr "పరిమాణం"
 msgid "Allocate space"
 msgstr "ఖాళీ కేటాయించు"
 
-#: ../data/ui/launchtaskbar.glade.h:1 ../plugins/launchtaskbar.c:2482
+#: ../data/ui/launchtaskbar.glade.h:1 ../plugins/launchtaskbar.c:2484
 #, fuzzy
 msgid "Application Launch and Task Bar"
 msgstr "అనువర్తన ప్రారంభ పట్టీ"
@@ -491,7 +493,7 @@ msgstr "ప్యానల్ ప్రాధాన్యతలు"
 msgid "Edge:"
 msgstr "కొన:"
 
-#: ../data/ui/panel-pref.glade.h:16 ../plugins/volumealsa/volumealsa.c:1313
+#: ../data/ui/panel-pref.glade.h:16 ../plugins/volumealsa/volumealsa.c:1317
 msgid "Center"
 msgstr "మధ్య"
 
@@ -547,6 +549,13 @@ msgstr "<b>నేపథ్యం</b>"
 #: ../data/ui/panel-pref.glade.h:31
 msgid "Custom color"
 msgstr "అనురూపిత రంగు"
+
+#: ../data/ui/panel-pref.glade.h:32
+#, fuzzy
+#| msgid "Size"
+msgctxt "Font"
+msgid "Size"
+msgstr "పరిమాణం"
 
 #: ../data/ui/panel-pref.glade.h:33
 msgid "<b>Font</b>"
@@ -621,7 +630,7 @@ msgstr "ఉన్నత"
 msgid "CPU Usage Monitor"
 msgstr "CPU వినిమయ పర్యవేక్షకం"
 
-#: ../plugins/cpu/cpu.c:311 ../plugins/monitors/monitors.c:734
+#: ../plugins/cpu/cpu.c:311 ../plugins/monitors/monitors.c:746
 msgid "Display CPU usage"
 msgstr "CPU వాడుకను చూపించు"
 
@@ -641,91 +650,91 @@ msgstr "డెస్క్‍టాప్ పేరులను చూపిం�
 msgid "Display workspace number, by cmeury@users.sf.net"
 msgstr "కార్యక్షేత్రం సంఖ్యను చూపించు, by cmeury@users.sf.net"
 
-#: ../plugins/launchtaskbar.c:1831 ../plugins/launchtaskbar.c:2452
+#: ../plugins/launchtaskbar.c:1833 ../plugins/launchtaskbar.c:2454
 msgid "Application Launch Bar"
 msgstr "అనువర్తన ప్రారంభ పట్టీ"
 
-#: ../plugins/launchtaskbar.c:1834 ../plugins/launchtaskbar.c:2462
+#: ../plugins/launchtaskbar.c:1836 ../plugins/launchtaskbar.c:2464
 msgid "Task Bar (Window List)"
 msgstr "కార్య పట్టీ (విండో జాబితా)"
 
-#: ../plugins/launchtaskbar.c:1985
+#: ../plugins/launchtaskbar.c:1987
 msgid "A_dd to Launcher"
 msgstr ""
 
-#: ../plugins/launchtaskbar.c:1987
+#: ../plugins/launchtaskbar.c:1989
 #, fuzzy
 msgid "Rem_ove from Launcher"
 msgstr "ప్యానల్ నుండి  \"%s\" అంశమును తొలగించు"
 
-#: ../plugins/launchtaskbar.c:1989
+#: ../plugins/launchtaskbar.c:1991
 msgid "_New Instance"
 msgstr ""
 
-#: ../plugins/launchtaskbar.c:2453
+#: ../plugins/launchtaskbar.c:2455
 msgid "Bar with buttons to launch application"
 msgstr "అనువర్తనాలను ప్రారంభించుటకు బటన్లతో ఉన్న పట్టీ"
 
-#: ../plugins/launchtaskbar.c:2463
+#: ../plugins/launchtaskbar.c:2465
 #, fuzzy
 msgid ""
 "Taskbar shows all opened windows and allows to iconify them, shade or get "
 "focus"
 msgstr ""
-"తెరవబడిన అన్ని విండోలను చూపించుటకు మరియు వాటిని కనిష్ఠీకరించుటకు కార్యపట్టీ "
-"అనుమతిస్తుంది, వాటి ఛాయని లేదా వాటిపై కేంద్రీకరిస్తుంది"
+"తెరవబడిన అన్ని విండోలను చూపించుటకు మరియు వాటిని కనిష్ఠీకరించుటకు కార్యపట్టీ అనుమతిస్తుంది, వాటి ఛాయని "
+"లేదా వాటిపై కేంద్రీకరిస్తుంది"
 
-#: ../plugins/launchtaskbar.c:2483
+#: ../plugins/launchtaskbar.c:2485
 #, fuzzy
 msgid "Bar with buttons to launch application and/or show all opened windows"
 msgstr "అనువర్తనాలను ప్రారంభించుటకు బటన్లతో ఉన్న పట్టీ"
 
 #. Add Raise menu item.
-#: ../plugins/task-button.c:352
+#: ../plugins/task-button.c:351
 msgid "_Raise"
 msgstr "పెంచు (_R)"
 
 #. Add Restore menu item.
-#: ../plugins/task-button.c:357
+#: ../plugins/task-button.c:356
 msgid "R_estore"
 msgstr "తిరిగివుంచు (_e)"
 
 #. Add Maximize menu item.
-#: ../plugins/task-button.c:362
+#: ../plugins/task-button.c:361
 msgid "Ma_ximize"
 msgstr "పెద్దదిగాచేయి (_x)"
 
 #. Add Iconify menu item.
-#: ../plugins/task-button.c:367
+#: ../plugins/task-button.c:366
 msgid "Ico_nify"
 msgstr "చిన్నదిగాచేయి (_n)"
 
-#: ../plugins/task-button.c:388
+#: ../plugins/task-button.c:387
 #, c-format
 msgid "Workspace _%d"
 msgstr "కార్యక్షేత్రం _%d"
 
-#: ../plugins/task-button.c:393
+#: ../plugins/task-button.c:392
 #, c-format
 msgid "Workspace %d"
 msgstr "కార్యక్షేత్రం %d"
 
 #. Add "move to all workspaces" item.  This causes the window to be visible no matter what desktop is active.
-#: ../plugins/task-button.c:410
+#: ../plugins/task-button.c:409
 msgid "_All workspaces"
 msgstr "అన్ని కార్యక్షేత్రాలు (_A)"
 
 #. FIXME: add "Current workspace" item, active if not on a current
 #. Add Move to Workspace menu item as a submenu.
-#: ../plugins/task-button.c:418
+#: ../plugins/task-button.c:417
 msgid "_Move to Workspace"
 msgstr "కార్యక్షేత్రమునకు తరలించు (_M)"
 
-#: ../plugins/task-button.c:433
+#: ../plugins/task-button.c:432
 msgid "_Close Window"
 msgstr "విండోను మూసివేయి (_C)"
 
-#: ../plugins/task-button.c:1256
+#: ../plugins/task-button.c:1255
 #, fuzzy
 msgid "_Close all windows"
 msgstr "విండోను మూసివేయి (_C)"
@@ -743,12 +752,9 @@ msgid "Tooltip Format"
 msgstr "సాధనచిట్కా తీరు"
 
 #: ../plugins/dclock.c:437
-#, c-format
 #, fuzzy, c-format
 msgid "Format codes: man 3 strftime; %n for line break"
-msgstr ""
-"ఫార్మేటు కోడులు: man 3 strftime; \\n"
-" for line break"
+msgstr "ఫార్మేటు కోడులు: man 3 strftime; \\n for line break"
 
 #: ../plugins/dclock.c:438
 msgid "Action when clicked (default: display calendar)"
@@ -924,9 +930,7 @@ msgstr "అందుబాటులోవున్న కీబోర్డు �
 
 #: ../plugins/wincmd.c:207
 msgid "Left click to iconify all windows.  Middle click to shade them."
-msgstr ""
-"అన్ని విండోలను చిన్నగాచేయుటకు లెఫ్ట్ క్లిక్ చేయండి.  వాటిని షేడ్ చేయాలంటే మధ్"
-"య క్లిక్ చేయండి."
+msgstr "అన్ని విండోలను చిన్నగాచేయుటకు లెఫ్ట్ క్లిక్ చేయండి.  వాటిని షేడ్ చేయాలంటే మధ్య క్లిక్ చేయండి."
 
 #: ../plugins/wincmd.c:245 ../plugins/wincmd.c:255
 msgid "Minimize All Windows"
@@ -1028,122 +1032,134 @@ msgstr ""
 msgid "Display CPU frequency and allow one to change governors and frequency"
 msgstr ""
 
-#: ../plugins/volumealsa/volumealsa.c:245
+#: ../plugins/volumealsa/volumealsa.c:247
 msgid "ALSA (or pulseaudio) had a problem. Please check the lxpanel logs."
 msgstr ""
 
 #. Display current level in tooltip.
-#: ../plugins/volumealsa/volumealsa.c:613
-#: ../plugins/volumealsa/volumealsa.c:973
-msgid "Volume control"
-msgstr "ధ్వని నియంత్రణ"
+#: ../plugins/volumealsa/volumealsa.c:615
+#, fuzzy, c-format
+#| msgid "Volume"
+msgid "Volume: %d%%"
+msgstr "ధ్వనిస్థాయి"
 
-#: ../plugins/volumealsa/volumealsa.c:701
+#: ../plugins/volumealsa/volumealsa.c:703
 #, fuzzy
 msgid ""
 "Error, you need to install an application to configure the sound "
 "(pavucontrol, alsamixer ...)"
 msgstr ""
-"దోషం, శబ్దాన్ని స్వరూపించుటకు మీరు ఒక అనువర్తనాన్ని స్థాపించాలి (pavucontol, "
-"alsamixer ...)"
+"దోషం, శబ్దాన్ని స్వరూపించుటకు మీరు ఒక అనువర్తనాన్ని స్థాపించాలి (pavucontol, alsamixer ...)"
 
 #. Create a frame as the child of the viewport.
-#: ../plugins/volumealsa/volumealsa.c:895
+#: ../plugins/volumealsa/volumealsa.c:900
 msgid "Volume"
 msgstr "ధ్వనిస్థాయి"
 
 #. Create a check button as the child of the vertical box.
-#: ../plugins/volumealsa/volumealsa.c:914
+#: ../plugins/volumealsa/volumealsa.c:918
 msgid "Mute"
 msgstr "నిశబ్ధం"
 
+#: ../plugins/volumealsa/volumealsa.c:977
+msgid "Volume control"
+msgstr "ధ్వని నియంత్రణ"
+
 #. Just to have these translated
-#: ../plugins/volumealsa/volumealsa.c:1313
+#: ../plugins/volumealsa/volumealsa.c:1317
 msgid "Line"
 msgstr ""
 
-#: ../plugins/volumealsa/volumealsa.c:1313
+#: ../plugins/volumealsa/volumealsa.c:1317
 msgid "LineOut"
 msgstr ""
 
-#: ../plugins/volumealsa/volumealsa.c:1313
+#: ../plugins/volumealsa/volumealsa.c:1317
 msgid "Front"
 msgstr ""
 
-#: ../plugins/volumealsa/volumealsa.c:1313
+#: ../plugins/volumealsa/volumealsa.c:1317
 msgid "Surround"
 msgstr ""
 
-#: ../plugins/volumealsa/volumealsa.c:1313
+#: ../plugins/volumealsa/volumealsa.c:1317
 msgid "Speaker+LO"
 msgstr ""
 
-#: ../plugins/volumealsa/volumealsa.c:1352
+#: ../plugins/volumealsa/volumealsa.c:1318
+msgid "Speaker"
+msgstr ""
+
+#: ../plugins/volumealsa/volumealsa.c:1318
+msgid "Beep"
+msgstr ""
+
+#: ../plugins/volumealsa/volumealsa.c:1357
 msgid "default"
 msgstr ""
 
 #. desc, index
-#: ../plugins/volumealsa/volumealsa.c:1412
+#: ../plugins/volumealsa/volumealsa.c:1417
 msgid "Master"
 msgstr ""
 
-#: ../plugins/volumealsa/volumealsa.c:1416
+#: ../plugins/volumealsa/volumealsa.c:1421
 msgid "PCM"
 msgstr ""
 
-#: ../plugins/volumealsa/volumealsa.c:1420
+#: ../plugins/volumealsa/volumealsa.c:1425
 msgid "Headphone"
 msgstr ""
 
-#: ../plugins/volumealsa/volumealsa.c:1442
+#: ../plugins/volumealsa/volumealsa.c:1447
 msgid "Click for Volume Slider"
 msgstr ""
 
-#: ../plugins/volumealsa/volumealsa.c:1446
+#: ../plugins/volumealsa/volumealsa.c:1451
 msgid "Click for Toggle Mute"
 msgstr ""
 
-#: ../plugins/volumealsa/volumealsa.c:1450
+#: ../plugins/volumealsa/volumealsa.c:1455
 msgid "Click for Open Mixer"
 msgstr ""
 
 #. setup hotkeys
-#: ../plugins/volumealsa/volumealsa.c:1454
+#: ../plugins/volumealsa/volumealsa.c:1459
 msgid "Hotkey for Volume Up"
 msgstr ""
 
-#: ../plugins/volumealsa/volumealsa.c:1456
+#: ../plugins/volumealsa/volumealsa.c:1461
 msgid "Hotkey for Volume Down"
 msgstr ""
 
-#: ../plugins/volumealsa/volumealsa.c:1458
+#: ../plugins/volumealsa/volumealsa.c:1463
 msgid "Hotkey for Volume Mute"
 msgstr ""
 
-#: ../plugins/volumealsa/volumealsa.c:1514
-#: ../plugins/volumealsa/volumealsa.c:1553
-#: ../plugins/volumealsa/volumealsa.c:1574
+#: ../plugins/volumealsa/volumealsa.c:1519
+#: ../plugins/volumealsa/volumealsa.c:1558
+#: ../plugins/volumealsa/volumealsa.c:1579
 msgid "Volume Control"
 msgstr "ధ్వని నియంత్రణ"
 
-#: ../plugins/volumealsa/volumealsa.c:1516
+#: ../plugins/volumealsa/volumealsa.c:1521
 msgid "Audio Card"
 msgstr ""
 
-#: ../plugins/volumealsa/volumealsa.c:1519
+#: ../plugins/volumealsa/volumealsa.c:1524
 msgid "Channel to Operate"
 msgstr ""
 
-#: ../plugins/volumealsa/volumealsa.c:1527
+#: ../plugins/volumealsa/volumealsa.c:1532
 msgid "Command to Open Mixer"
 msgstr ""
 
-#: ../plugins/volumealsa/volumealsa.c:1542
+#: ../plugins/volumealsa/volumealsa.c:1547
 msgid "Launch Mixer"
 msgstr ""
 
-#: ../plugins/volumealsa/volumealsa.c:1554
-#: ../plugins/volumealsa/volumealsa.c:1575
+#: ../plugins/volumealsa/volumealsa.c:1559
+#: ../plugins/volumealsa/volumealsa.c:1580
 msgid "Display and control volume"
 msgstr ""
 
@@ -1216,7 +1232,7 @@ msgstr "బైట్లు"
 msgid "packets"
 msgstr "ప్యాకెట్స్"
 
-#: ../plugins/netstat/netstat.c:368 ../plugins/netstatus/netstatus-iface.c:173
+#: ../plugins/netstat/netstat.c:368 ../plugins/netstatus/netstatus-iface.c:174
 msgid "Wireless"
 msgstr "వైరులేని"
 
@@ -1253,44 +1269,44 @@ msgstr ""
 msgid "Encryption Key:"
 msgstr "ఎన్‌క్రిప్షన్ కీ:"
 
-#: ../plugins/netstatus/netstatus.c:154 ../plugins/netstatus/netstatus.c:166
+#: ../plugins/netstatus/netstatus.c:155 ../plugins/netstatus/netstatus.c:167
 msgid "Network Status Monitor"
 msgstr "నెట్‌వర్క్ స్థితి పర్యవేక్షకం"
 
-#: ../plugins/netstatus/netstatus.c:156
+#: ../plugins/netstatus/netstatus.c:157
 msgid "Interface to monitor"
 msgstr "అంతరవర్తి నుంచి పర్యవేక్షకం వరకు"
 
-#: ../plugins/netstatus/netstatus.c:157
+#: ../plugins/netstatus/netstatus.c:158
 msgid "Config tool"
 msgstr "స్వరూపణ సాధనం"
 
-#: ../plugins/netstatus/netstatus.c:167
+#: ../plugins/netstatus/netstatus.c:168
 msgid "Monitor network status"
 msgstr "నెట్‌వర్క్ స్థితిని పర్యవేక్షించు"
 
-#: ../plugins/netstatus/netstatus-dialog.c:52
-#: ../plugins/netstatus/netstatus-dialog.c:316
+#: ../plugins/netstatus/netstatus-dialog.c:53
+#: ../plugins/netstatus/netstatus-dialog.c:317
 msgid "Unknown"
 msgstr "తెలియదు"
 
-#: ../plugins/netstatus/netstatus-dialog.c:117
+#: ../plugins/netstatus/netstatus-dialog.c:118
 msgid "Connection Properties"
 msgstr "అనుసంధాన లక్షణాలు"
 
-#: ../plugins/netstatus/netstatus-dialog.c:123
+#: ../plugins/netstatus/netstatus-dialog.c:124
 #, c-format
 msgid "Connection Properties: %s"
 msgstr "అనుసంధాన లక్షణాలు: %s"
 
-#: ../plugins/netstatus/netstatus-dialog.c:136
+#: ../plugins/netstatus/netstatus-dialog.c:137
 #, c-format
 msgid "%lu packet"
 msgid_plural "%lu packets"
 msgstr[0] "%lu ప్యాకెట్"
 msgstr[1] "%lu ప్యాకెట్లు"
 
-#: ../plugins/netstatus/netstatus-dialog.c:400
+#: ../plugins/netstatus/netstatus-dialog.c:401
 #, c-format
 msgid ""
 "There was an error displaying help:\n"
@@ -1299,223 +1315,224 @@ msgstr ""
 "సహాయాన్ని చూపించుటలో దోషము ఏర్పడినది:\n"
 "%s"
 
-#: ../plugins/netstatus/netstatus-icon.c:381
+#: ../plugins/netstatus/netstatus-icon.c:382
 #, c-format
 msgid "Network Connection: %s"
 msgstr "నెట్‌వర్క్ అనుసంధానం: %s"
 
-#: ../plugins/netstatus/netstatus-icon.c:386
+#: ../plugins/netstatus/netstatus-icon.c:387
 msgid "Network Connection"
 msgstr "నెట్‌వర్క్ అనుసంధానం"
 
-#: ../plugins/netstatus/netstatus-icon.c:847
+#: ../plugins/netstatus/netstatus-icon.c:849
 msgid "Interface"
 msgstr "అంతరవర్తి"
 
-#: ../plugins/netstatus/netstatus-icon.c:848
+#: ../plugins/netstatus/netstatus-icon.c:850
 msgid "The current interface the icon is monitoring."
 msgstr "ప్రస్తుత అంతరవర్తి ప్రతీక పర్యవేక్షిస్తున్నది."
 
-#: ../plugins/netstatus/netstatus-icon.c:855
+#: ../plugins/netstatus/netstatus-icon.c:857
 msgid "Orientation"
 msgstr "ధోరణి"
 
-#: ../plugins/netstatus/netstatus-icon.c:856
+#: ../plugins/netstatus/netstatus-icon.c:858
 msgid "The orientation of the tray."
 msgstr "పళ్ళెం యొక్క ధోరణి"
 
-#: ../plugins/netstatus/netstatus-icon.c:864
+#: ../plugins/netstatus/netstatus-icon.c:866
 msgid "Tooltips Enabled"
 msgstr "సాధనచిట్కాలు చేతనమైనవి"
 
-#: ../plugins/netstatus/netstatus-icon.c:865
+#: ../plugins/netstatus/netstatus-icon.c:867
 msgid "Whether or not the icon's tooltips are enabled."
 msgstr "అయినా లేక కాకున్నా ప్రతీక యొక్క సాధనచిట్కాలను చేతనపరుచు."
 
-#: ../plugins/netstatus/netstatus-icon.c:872
+#: ../plugins/netstatus/netstatus-icon.c:874
 msgid "Show Signal"
 msgstr "సిగ్నల్ చూపించు"
 
-#: ../plugins/netstatus/netstatus-icon.c:873
+#: ../plugins/netstatus/netstatus-icon.c:875
 msgid "Whether or not the signal strength should be displayed."
 msgstr "అయినా లేక కాకున్నా సిగ్నల్ బలం చూపించు."
 
-#: ../plugins/netstatus/netstatus-icon.c:982
+#: ../plugins/netstatus/netstatus-icon.c:985
 #, c-format
 msgid ""
 "Please contact your system administrator to resolve the following problem:\n"
 "\n"
 "%s"
 msgstr ""
-"కిందపేర్కొన్న సమస్యలను పరిష్కరించుటకు దయచేసి మీ వ్యవస్థ నిర్వాహకుడిని "
-"సంప్రదించండి:\n"
+"కిందపేర్కొన్న సమస్యలను పరిష్కరించుటకు దయచేసి మీ వ్యవస్థ నిర్వాహకుడిని సంప్రదించండి:\n"
 "\n"
 "%s"
 
-#: ../plugins/netstatus/netstatus-iface.c:148
+#: ../plugins/netstatus/netstatus-iface.c:149
 msgid "Name"
 msgstr "పేరు"
 
-#: ../plugins/netstatus/netstatus-iface.c:149
+#: ../plugins/netstatus/netstatus-iface.c:150
 msgid "The interface name"
 msgstr "అంతరవర్తి పేరు"
 
-#: ../plugins/netstatus/netstatus-iface.c:156
-#: ../plugins/weather/weatherwidget.c:2137
+#: ../plugins/netstatus/netstatus-iface.c:157
+#, fuzzy
+#| msgid "State"
+msgctxt "Network"
 msgid "State"
 msgstr "స్థితి"
 
-#: ../plugins/netstatus/netstatus-iface.c:157
+#: ../plugins/netstatus/netstatus-iface.c:158
 msgid "The interface state"
 msgstr "అంతరవర్తి స్థితి"
 
-#: ../plugins/netstatus/netstatus-iface.c:165
+#: ../plugins/netstatus/netstatus-iface.c:166
 msgid "Stats"
 msgstr "గణాంకాలు"
 
-#: ../plugins/netstatus/netstatus-iface.c:166
+#: ../plugins/netstatus/netstatus-iface.c:167
 msgid "The interface packets/bytes statistics"
 msgstr "అంతరవర్తి ప్యాకెట్ల/బైట్ల గణాంకాలు"
 
-#: ../plugins/netstatus/netstatus-iface.c:174
+#: ../plugins/netstatus/netstatus-iface.c:175
 msgid "Whether the interface is a wireless interface"
 msgstr "అంతరవర్తి ఒక వైరులేని అంతరవర్తి అయివుండవచ్చు"
 
-#: ../plugins/netstatus/netstatus-iface.c:181
+#: ../plugins/netstatus/netstatus-iface.c:182
 msgid "Signal"
 msgstr "సిగ్నల్"
 
-#: ../plugins/netstatus/netstatus-iface.c:182
+#: ../plugins/netstatus/netstatus-iface.c:183
 msgid "Wireless signal strength percentage"
 msgstr "వైరులేని సిగ్నల్ శక్తి శాతం"
 
-#: ../plugins/netstatus/netstatus-iface.c:192
+#: ../plugins/netstatus/netstatus-iface.c:193
 msgid "The current error condition"
 msgstr "ప్రస్తుత దోష పరిస్థితి"
 
-#: ../plugins/netstatus/netstatus-iface.c:440
-#: ../plugins/netstatus/netstatus-iface.c:1205
+#: ../plugins/netstatus/netstatus-iface.c:441
+#: ../plugins/netstatus/netstatus-iface.c:1200
 #, c-format
 msgid "Unable to open socket: %s"
 msgstr "సాకెట్ తెరుచుట వీలుకావడంలేదు: %s"
 
-#: ../plugins/netstatus/netstatus-iface.c:502
-#: ../plugins/netstatus/netstatus-iface.c:1231
+#: ../plugins/netstatus/netstatus-iface.c:503
+#: ../plugins/netstatus/netstatus-iface.c:1226
 #, c-format
 msgid "SIOCGIFFLAGS error: %s"
 msgstr "SIOCGIFFLAGS దోషం: %s"
 
-#: ../plugins/netstatus/netstatus-iface.c:879
+#: ../plugins/netstatus/netstatus-iface.c:880
 msgid "AMPR NET/ROM"
 msgstr "AMPR NET/ROM"
 
-#: ../plugins/netstatus/netstatus-iface.c:882
+#: ../plugins/netstatus/netstatus-iface.c:883
 msgid "Ethernet"
 msgstr "ఎథర్నెట్"
 
-#: ../plugins/netstatus/netstatus-iface.c:888
+#: ../plugins/netstatus/netstatus-iface.c:889
 msgid "AMPR AX.25"
 msgstr "AMPR AX.25"
 
-#: ../plugins/netstatus/netstatus-iface.c:897
-#: ../plugins/netstatus/netstatus-iface.c:1017
+#: ../plugins/netstatus/netstatus-iface.c:898
+#: ../plugins/netstatus/netstatus-iface.c:1018
 msgid "16/4 Mbps Token Ring"
 msgstr "16/4 Mbps టోకెన్ రింగ్"
 
-#: ../plugins/netstatus/netstatus-iface.c:900
+#: ../plugins/netstatus/netstatus-iface.c:901
 msgid "ARCnet"
 msgstr "ARCnet"
 
-#: ../plugins/netstatus/netstatus-iface.c:906
+#: ../plugins/netstatus/netstatus-iface.c:907
 msgid "Frame Relay DLCI"
 msgstr "Frame Relay DLCI"
 
-#: ../plugins/netstatus/netstatus-iface.c:912
+#: ../plugins/netstatus/netstatus-iface.c:913
 msgid "Metricom Starmode IP"
 msgstr "మెట్రికామ్ స్టార్‌మోడ్ IP"
 
-#: ../plugins/netstatus/netstatus-iface.c:915
+#: ../plugins/netstatus/netstatus-iface.c:916
 msgid "Serial Line IP"
 msgstr "సీరియల్ లైన్ IP"
 
-#: ../plugins/netstatus/netstatus-iface.c:918
+#: ../plugins/netstatus/netstatus-iface.c:919
 msgid "VJ Serial Line IP"
 msgstr "VJ సీరియల్ లైన్ IP"
 
-#: ../plugins/netstatus/netstatus-iface.c:921
+#: ../plugins/netstatus/netstatus-iface.c:922
 msgid "6-bit Serial Line IP"
 msgstr "6-బిట్ సీరియల్ లైన్ IP"
 
-#: ../plugins/netstatus/netstatus-iface.c:924
+#: ../plugins/netstatus/netstatus-iface.c:925
 msgid "VJ 6-bit Serial Line IP"
 msgstr "VJ 6-బిట్ సీరియల్ లైన్ IP"
 
-#: ../plugins/netstatus/netstatus-iface.c:930
+#: ../plugins/netstatus/netstatus-iface.c:931
 msgid "Adaptive Serial Line IP"
 msgstr "అడాప్టివ్ సీరియల్ లైన్ IP"
 
-#: ../plugins/netstatus/netstatus-iface.c:933
+#: ../plugins/netstatus/netstatus-iface.c:934
 msgid "AMPR ROSE"
 msgstr "AMPR ROSE"
 
-#: ../plugins/netstatus/netstatus-iface.c:936
+#: ../plugins/netstatus/netstatus-iface.c:937
 msgid "Generic X.25"
 msgstr "Generic X.25"
 
-#: ../plugins/netstatus/netstatus-iface.c:939
+#: ../plugins/netstatus/netstatus-iface.c:940
 msgid "Point-to-Point Protocol"
 msgstr "పాయింట్ టు పాయింట్ ప్రోటోకాల్"
 
-#: ../plugins/netstatus/netstatus-iface.c:945
+#: ../plugins/netstatus/netstatus-iface.c:946
 msgid "(Cisco)-HDLC"
 msgstr "(Cisco)-HDLC"
 
-#: ../plugins/netstatus/netstatus-iface.c:948
+#: ../plugins/netstatus/netstatus-iface.c:949
 msgid "LAPB"
 msgstr "LAPB"
 
-#: ../plugins/netstatus/netstatus-iface.c:957
+#: ../plugins/netstatus/netstatus-iface.c:958
 msgid "IPIP Tunnel"
 msgstr "IPIP సొరంగం"
 
-#: ../plugins/netstatus/netstatus-iface.c:963
+#: ../plugins/netstatus/netstatus-iface.c:964
 msgid "Frame Relay Access Device"
 msgstr "ఫ్రేమ్ ప్రసార సౌలభ్య పరికరం"
 
-#: ../plugins/netstatus/netstatus-iface.c:969
+#: ../plugins/netstatus/netstatus-iface.c:970
 msgid "Local Loopback"
 msgstr "స్థానిక లూప్‌బ్యాక్"
 
-#: ../plugins/netstatus/netstatus-iface.c:975
+#: ../plugins/netstatus/netstatus-iface.c:976
 msgid "Fiber Distributed Data Interface"
 msgstr "ఫైబర్ పంపిణీ డేటా అంతరవర్తి"
 
-#: ../plugins/netstatus/netstatus-iface.c:981
+#: ../plugins/netstatus/netstatus-iface.c:982
 msgid "IPv6-in-IPv4"
 msgstr "IPv6-in-IPv4"
 
-#: ../plugins/netstatus/netstatus-iface.c:993
+#: ../plugins/netstatus/netstatus-iface.c:994
 msgid "HIPPI"
 msgstr "HIPPI"
 
-#: ../plugins/netstatus/netstatus-iface.c:996
+#: ../plugins/netstatus/netstatus-iface.c:997
 msgid "Ash"
 msgstr "Ash"
 
-#: ../plugins/netstatus/netstatus-iface.c:999
+#: ../plugins/netstatus/netstatus-iface.c:1000
 msgid "Econet"
 msgstr "Econet"
 
-#: ../plugins/netstatus/netstatus-iface.c:1002
+#: ../plugins/netstatus/netstatus-iface.c:1003
 msgid "IrLAP"
 msgstr "IrLAP"
 
-#: ../plugins/netstatus/netstatus-iface.c:1163
+#: ../plugins/netstatus/netstatus-iface.c:1158
 #, c-format
 msgid "SIOCGIFCONF error: %s"
 msgstr "SIOCGIFCONF దోషం: %s"
 
-#: ../plugins/netstatus/netstatus-iface.c:1256
+#: ../plugins/netstatus/netstatus-iface.c:1251
 #, c-format
 msgid "No network devices found"
 msgstr "ఎటువంటి నెట్‌వర్క్ పరికరాలు కనుగొనబడలేదు"
@@ -1547,8 +1564,8 @@ msgid ""
 "Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; "
 "brx_idx = %d; btx_idx = %d;"
 msgstr ""
-"'%s నుండి అంతరవర్తి గణాంకాలను పార్స్ చేయుట వీలుకావడంలేదు'. prx_idx = %d; "
-"ptx_idx = %d; brx_idx = %d; btx_idx = %d;"
+"'%s నుండి అంతరవర్తి గణాంకాలను పార్స్ చేయుట వీలుకావడంలేదు'. prx_idx = %d; ptx_idx = %d; "
+"brx_idx = %d; btx_idx = %d;"
 
 #: ../plugins/netstatus/netstatus-sysdeps.c:312
 #, fuzzy
@@ -1603,146 +1620,162 @@ msgstr "పొందుతున్నది"
 msgid "Sending/Receiving"
 msgstr "పంపుతున్నది/పొందుతున్నది"
 
-#: ../plugins/batt/batt.c:156
-#, c-format
+#: ../plugins/batt/batt.c:159
+#, fuzzy, c-format
+msgid "Battery: %d%% charged, %d:%02d until full"
+msgstr "బ్యాటరీ: %d%% చార్జ్ అయినది, %d:%02d ఇంకా పూర్తగుటకు"
+
+#: ../plugins/batt/batt.c:163
 #, fuzzy, c-format
 msgid "Battery %d: %d%% charged, %d:%02d until full"
 msgstr "బ్యాటరీ: %d%% చార్జ్ అయినది, %d:%02d ఇంకా పూర్తగుటకు"
 
-#: ../plugins/batt/batt.c:170
-#, c-format
+#: ../plugins/batt/batt.c:178
+#, fuzzy, c-format
+msgid "Battery: %d%% charged, %d:%02d left"
+msgstr "బ్యాటరీ: %d%% చార్జ్ అయినది, %d:%02d మిగిలివున్నది"
+
+#: ../plugins/batt/batt.c:182
 #, fuzzy, c-format
 msgid "Battery %d: %d%% charged, %d:%02d left"
 msgstr "బ్యాటరీ: %d%% చార్జ్ అయినది, %d:%02d మిగిలివున్నది"
 
-#: ../plugins/batt/batt.c:177
-#, c-format
+#: ../plugins/batt/batt.c:190
+#, fuzzy, c-format
+msgid "Battery: %d%% charged"
+msgstr "బ్యాటరీ: %d%% చార్జ్ అయినది"
+
+#: ../plugins/batt/batt.c:194
 #, fuzzy, c-format
 msgid "Battery %d: %d%% charged"
 msgstr "బ్యాటరీ: %d%% చార్జ్ అయినది"
 
-#: ../plugins/batt/batt.c:187
+#: ../plugins/batt/batt.c:204
 #, c-format
 msgid ""
 "\n"
 "%sEnergy full design:\t\t%5d mWh"
 msgstr ""
 
-#: ../plugins/batt/batt.c:189
+#: ../plugins/batt/batt.c:206
 #, c-format
 msgid ""
 "\n"
 "%sEnergy full:\t\t\t%5d mWh"
 msgstr ""
 
-#: ../plugins/batt/batt.c:191
+#: ../plugins/batt/batt.c:208
 #, c-format
 msgid ""
 "\n"
 "%sEnergy now:\t\t\t%5d mWh"
 msgstr ""
 
-#: ../plugins/batt/batt.c:193
+#: ../plugins/batt/batt.c:210
 #, c-format
 msgid ""
 "\n"
 "%sPower now:\t\t\t%5d mW"
 msgstr ""
 
-#: ../plugins/batt/batt.c:196
+#: ../plugins/batt/batt.c:213
 #, c-format
 msgid ""
 "\n"
 "%sCharge full design:\t%5d mAh"
 msgstr ""
 
-#: ../plugins/batt/batt.c:198
+#: ../plugins/batt/batt.c:215
 #, c-format
 msgid ""
 "\n"
 "%sCharge full:\t\t\t%5d mAh"
 msgstr ""
 
-#: ../plugins/batt/batt.c:200
+#: ../plugins/batt/batt.c:217
 #, c-format
 msgid ""
 "\n"
 "%sCharge now:\t\t\t%5d mAh"
 msgstr ""
 
-#: ../plugins/batt/batt.c:202
+#: ../plugins/batt/batt.c:219
 #, c-format
 msgid ""
 "\n"
 "%sCurrent now:\t\t\t%5d mA"
 msgstr ""
 
-#: ../plugins/batt/batt.c:205
+#: ../plugins/batt/batt.c:222
 #, c-format
 msgid ""
 "\n"
-"%sCurrent Voltage:\t\t%.3lf V"
+"%sVoltage now:\t\t%.3lf V"
 msgstr ""
 
-#: ../plugins/batt/batt.c:243
+#: ../plugins/batt/batt.c:260
 msgid "No batteries found"
 msgstr "ఎటువంటి బ్యాటరీలు కనుగొనబడలేదు"
 
-#: ../plugins/batt/batt.c:546 ../plugins/batt/batt.c:679
+#: ../plugins/batt/batt.c:566 ../plugins/batt/batt.c:699
 #, fuzzy
 msgid "Battery low"
 msgstr "బ్యాటరీ పర్యవేక్షకం"
 
-#: ../plugins/batt/batt.c:702 ../plugins/batt/batt.c:726
+#: ../plugins/batt/batt.c:723 ../plugins/batt/batt.c:748
 msgid "Battery Monitor"
 msgstr "బ్యాటరీ పర్యవేక్షకం"
 
-#: ../plugins/batt/batt.c:704
+#: ../plugins/batt/batt.c:725
 msgid "Hide if there is no battery"
 msgstr "ఒకవేళ అక్కడ ఎటువంటి బ్యాటరీలు లేనట్టయితే కనపడకుండాదాయి"
 
-#: ../plugins/batt/batt.c:705
+#: ../plugins/batt/batt.c:726
 msgid "Alarm command"
 msgstr "అలారం ఆదేశం"
 
-#: ../plugins/batt/batt.c:706
+#: ../plugins/batt/batt.c:727
 msgid "Alarm time (minutes left)"
 msgstr "అలారం సమయం (మిగిలిన నిముషాలు)"
 
-#: ../plugins/batt/batt.c:707
+#: ../plugins/batt/batt.c:728
 msgid "Background color"
 msgstr "నేపథ్యం రంగు"
 
-#: ../plugins/batt/batt.c:708
+#: ../plugins/batt/batt.c:729
 msgid "Charging color 1"
 msgstr "చార్జింగ్ రంగు 1"
 
-#: ../plugins/batt/batt.c:709
+#: ../plugins/batt/batt.c:730
 msgid "Charging color 2"
 msgstr "చార్జింగ్ రంగు 2"
 
-#: ../plugins/batt/batt.c:710
+#: ../plugins/batt/batt.c:731
 msgid "Discharging color 1"
 msgstr "డిస్చార్జింగ్ రంగు 1"
 
-#: ../plugins/batt/batt.c:711
+#: ../plugins/batt/batt.c:732
 msgid "Discharging color 2"
 msgstr "డిస్చార్జింగ్ రంగు 2"
 
-#: ../plugins/batt/batt.c:712
+#: ../plugins/batt/batt.c:733
 msgid "Border width"
 msgstr "సరిహద్దు వెడల్పు"
 
-#: ../plugins/batt/batt.c:716
+#: ../plugins/batt/batt.c:737
 msgid "Show Extended Information"
 msgstr ""
 
-#: ../plugins/batt/batt.c:717
+#: ../plugins/batt/batt.c:738
 #, fuzzy
 msgid "Number of battery to monitor"
 msgstr "అంతరవర్తి నుంచి పర్యవేక్షకం వరకు"
 
-#: ../plugins/batt/batt.c:727
+#: ../plugins/batt/batt.c:739
+msgid "Don't show number of battery"
+msgstr ""
+
+#: ../plugins/batt/batt.c:749
 msgid "Display battery status using ACPI"
 msgstr "ACPI వాడి బ్యాటరీ స్థితిని చూపించు"
 
@@ -1803,37 +1836,41 @@ msgstr "శబ్ద మెనూ"
 msgid "Add indicator applets to the panel"
 msgstr "ప్యానల్‌కు సూచిక ఆప్లెట్లను జతచేయి"
 
-#: ../plugins/monitors/monitors.c:285
+#: ../plugins/monitors/monitors.c:290
 #, c-format
 msgid "CPU usage: %.2f%%"
 msgstr "సిపియు వినియోగం: %.2f%%"
 
-#: ../plugins/monitors/monitors.c:386
+#: ../plugins/monitors/monitors.c:393
 #, c-format
 msgid "RAM usage: %.1fMB (%.2f%%)"
 msgstr "ర్యామ్ వినియోగం: %.1fMB (%.2f%%)"
 
-#: ../plugins/monitors/monitors.c:732 ../plugins/monitors/monitors.c:821
+#: ../plugins/monitors/monitors.c:744 ../plugins/monitors/monitors.c:835
 msgid "Resource monitors"
 msgstr "వనరుల పర్యవేక్షకాలు"
 
-#: ../plugins/monitors/monitors.c:735
+#: ../plugins/monitors/monitors.c:747
 msgid "CPU color"
 msgstr "సిపియు రంగు"
 
-#: ../plugins/monitors/monitors.c:736
+#: ../plugins/monitors/monitors.c:748
 msgid "Display RAM usage"
 msgstr "RAM వాడుకను చూపించు"
 
-#: ../plugins/monitors/monitors.c:737
+#: ../plugins/monitors/monitors.c:749
 msgid "RAM color"
 msgstr "RAM రంగు"
 
-#: ../plugins/monitors/monitors.c:738
+#: ../plugins/monitors/monitors.c:750
+msgid "Show memory used by cache as free"
+msgstr ""
+
+#: ../plugins/monitors/monitors.c:751
 msgid "Action when clicked (default: lxtask)"
 msgstr "నొక్కినపుడు చర్య (అప్రమేయం: lxtask)"
 
-#: ../plugins/monitors/monitors.c:822
+#: ../plugins/monitors/monitors.c:836
 msgid "Display monitors (CPU, RAM)"
 msgstr "పర్యవేక్షకాలను ప్రదర్శించు (సిపియు, RAM)"
 
@@ -2003,7 +2040,6 @@ msgstr ""
 
 #: ../plugins/weather/weatherwidget.c:1964
 #: ../plugins/weather/weatherwidget.c:2311
-#, c-format
 #, fuzzy, c-format
 msgid "Location not set."
 msgstr "లాగౌట్ ఆదేశం అమర్చలేదు"
@@ -2021,6 +2057,13 @@ msgstr ""
 #: ../plugins/weather/weatherwidget.c:2127
 msgid "City"
 msgstr ""
+
+#: ../plugins/weather/weatherwidget.c:2137
+#, fuzzy
+#| msgid "State"
+msgctxt "Politics"
+msgid "State"
+msgstr "స్థితి"
 
 #: ../plugins/weather/weatherwidget.c:2147
 msgid "Country"

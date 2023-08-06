@@ -6,11 +6,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel-0.3.5.2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-01 01:38+0200\n"
+"POT-Creation-Date: 2023-08-06 15:50+0200\n"
 "PO-Revision-Date: 2017-05-27 07:00+0000\n"
 "Last-Translator: haciendasanpedro <haciendasanpedro@yahoo.com>\n"
 "Language-Team: Spanish <daniel@tunki.org>\n"
-"Language: \n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -21,7 +21,7 @@ msgstr ""
 "X-Poedit-Bookmarks: 19,-1,-1,-1,-1,-1,-1,-1,-1,-1\n"
 "X-POOTLE-MTIME: 1495868410.004539\n"
 
-#: ../src/configurator.c:148
+#: ../src/configurator.c:149
 msgid ""
 "Space reservation is not available for this panel because there is another "
 "monitor beyond this edge and reservation would cover it if enabled."
@@ -29,35 +29,35 @@ msgstr ""
 "La reserva de espacio no está disponible para este panel porque hay otro "
 "monitor tras este borde y la reserva podría cubrirlo si estuviera habilitada."
 
-#: ../src/configurator.c:632
+#: ../src/configurator.c:635
 msgid "Currently loaded plugins"
 msgstr "Complementos activos"
 
-#: ../src/configurator.c:641
+#: ../src/configurator.c:644
 msgid "Stretch"
 msgstr "Ajustar"
 
-#: ../src/configurator.c:779
+#: ../src/configurator.c:782
 msgid "Add plugin to panel"
 msgstr "Añadir un complemento al panel"
 
-#: ../src/configurator.c:807
+#: ../src/configurator.c:810
 msgid "Available plugins"
 msgstr "Complementos disponibles"
 
-#: ../src/configurator.c:1427
+#: ../src/configurator.c:1430
 msgid "Logout command is not set"
 msgstr "No se ha definido la orden de cierre de sesión"
 
-#: ../src/configurator.c:1495
+#: ../src/configurator.c:1498
 msgid "Select a directory"
 msgstr "Seleccione un directorio"
 
-#: ../src/configurator.c:1495 ../src/configurator.c:1607
+#: ../src/configurator.c:1498 ../src/configurator.c:1610
 msgid "Select a file"
 msgstr "Seleccione un archivo"
 
-#: ../src/configurator.c:1640
+#: ../src/configurator.c:1643
 msgid "_Browse"
 msgstr "_Examinar"
 
@@ -158,7 +158,7 @@ msgstr "Arriba"
 msgid "Bottom"
 msgstr "Abajo"
 
-#: ../src/plugin.c:348
+#: ../src/plugin.c:347
 msgid "No file manager is configured."
 msgstr "No se configuró ningún gestor de archivos."
 
@@ -180,7 +180,7 @@ msgid "Logout"
 msgstr "Salir"
 
 #: ../src/main.c:323
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "lxpanel %s - lightweight GTK+ panel for UNIX desktops\n"
 msgstr "lxpanel %s: panel ligero en GTK2+ para escritorios UNIX\n"
 
@@ -257,7 +257,7 @@ msgstr ""
 "No se puede usar la combinación de teclas «%s» como atajo de teclado global."
 
 #: ../src/input-button.c:231 ../src/input-button.c:415
-#: ../plugins/netstatus/netstatus-iface.c:191
+#: ../plugins/netstatus/netstatus-iface.c:192
 #: ../plugins/netstatus/netstatus-util.c:167
 msgid "Error"
 msgstr "Error"
@@ -280,8 +280,10 @@ msgstr "No se puede asignar «%s» como atajo de teclado global: ya está en uso
 msgid "Spacer"
 msgstr "Espaciador"
 
-#: ../src/space.c:396 ../data/ui/panel-pref.glade.h:32
-#: ../plugins/batt/batt.c:714
+#: ../src/space.c:396 ../plugins/batt/batt.c:735
+#, fuzzy
+#| msgid "Size"
+msgctxt "Width"
 msgid "Size"
 msgstr "Tamaño"
 
@@ -289,7 +291,7 @@ msgstr "Tamaño"
 msgid "Allocate space"
 msgstr "Asignar espacio"
 
-#: ../data/ui/launchtaskbar.glade.h:1 ../plugins/launchtaskbar.c:2482
+#: ../data/ui/launchtaskbar.glade.h:1 ../plugins/launchtaskbar.c:2484
 msgid "Application Launch and Task Bar"
 msgstr "Barra de tareas e iniciador de aplicaciones"
 
@@ -489,7 +491,7 @@ msgstr "Preferencias del panel"
 msgid "Edge:"
 msgstr "Borde:"
 
-#: ../data/ui/panel-pref.glade.h:16 ../plugins/volumealsa/volumealsa.c:1313
+#: ../data/ui/panel-pref.glade.h:16 ../plugins/volumealsa/volumealsa.c:1317
 msgid "Center"
 msgstr "Centro"
 
@@ -544,6 +546,13 @@ msgstr "<b>Fondo</b>"
 #: ../data/ui/panel-pref.glade.h:31
 msgid "Custom color"
 msgstr "Color personalizado"
+
+#: ../data/ui/panel-pref.glade.h:32
+#, fuzzy
+#| msgid "Size"
+msgctxt "Font"
+msgid "Size"
+msgstr "Tamaño"
 
 #: ../data/ui/panel-pref.glade.h:33
 msgid "<b>Font</b>"
@@ -617,7 +626,7 @@ msgstr "Avanzado"
 msgid "CPU Usage Monitor"
 msgstr "Monitor de uso de la CPU"
 
-#: ../plugins/cpu/cpu.c:311 ../plugins/monitors/monitors.c:734
+#: ../plugins/cpu/cpu.c:311 ../plugins/monitors/monitors.c:746
 msgid "Display CPU usage"
 msgstr "Mostrar el uso de la CPU"
 
@@ -637,31 +646,31 @@ msgstr "Mostrar nombres de escritorios"
 msgid "Display workspace number, by cmeury@users.sf.net"
 msgstr "Muestra el número del área de trabajo, por cmeury@users.sf.net"
 
-#: ../plugins/launchtaskbar.c:1831 ../plugins/launchtaskbar.c:2452
+#: ../plugins/launchtaskbar.c:1833 ../plugins/launchtaskbar.c:2454
 msgid "Application Launch Bar"
 msgstr "Barra de aplicaciones"
 
-#: ../plugins/launchtaskbar.c:1834 ../plugins/launchtaskbar.c:2462
+#: ../plugins/launchtaskbar.c:1836 ../plugins/launchtaskbar.c:2464
 msgid "Task Bar (Window List)"
 msgstr "Barra de tareas (lista de ventanas)"
 
-#: ../plugins/launchtaskbar.c:1985
+#: ../plugins/launchtaskbar.c:1987
 msgid "A_dd to Launcher"
 msgstr "A_ñadir al lanzador"
 
-#: ../plugins/launchtaskbar.c:1987
+#: ../plugins/launchtaskbar.c:1989
 msgid "Rem_ove from Launcher"
 msgstr "_Quitar del lanzador"
 
-#: ../plugins/launchtaskbar.c:1989
+#: ../plugins/launchtaskbar.c:1991
 msgid "_New Instance"
 msgstr "Instancia _nueva"
 
-#: ../plugins/launchtaskbar.c:2453
+#: ../plugins/launchtaskbar.c:2455
 msgid "Bar with buttons to launch application"
 msgstr "Barra con botones para abrir aplicaciones"
 
-#: ../plugins/launchtaskbar.c:2463
+#: ../plugins/launchtaskbar.c:2465
 #, fuzzy
 msgid ""
 "Taskbar shows all opened windows and allows to iconify them, shade or get "
@@ -670,60 +679,60 @@ msgstr ""
 "La barra de tareas muestra todas las ventanas abiertas y permite "
 "minimizarlas, replegarlas o enfocarlas"
 
-#: ../plugins/launchtaskbar.c:2483
+#: ../plugins/launchtaskbar.c:2485
 msgid "Bar with buttons to launch application and/or show all opened windows"
 msgstr ""
 "Barra con botones para abrir aplicaciones y/o mostrar todas las ventanas "
 "abiertas"
 
 #. Add Raise menu item.
-#: ../plugins/task-button.c:352
+#: ../plugins/task-button.c:351
 msgid "_Raise"
 msgstr "Eleva_r"
 
 #. Add Restore menu item.
-#: ../plugins/task-button.c:357
+#: ../plugins/task-button.c:356
 msgid "R_estore"
 msgstr "R_estaurar"
 
 #. Add Maximize menu item.
-#: ../plugins/task-button.c:362
+#: ../plugins/task-button.c:361
 msgid "Ma_ximize"
 msgstr "Ma_ximizar"
 
 # Podría usarse "Iconizar", pero Minimizar es mejor para los que migran desde
 # Windows
 #. Add Iconify menu item.
-#: ../plugins/task-button.c:367
+#: ../plugins/task-button.c:366
 msgid "Ico_nify"
 msgstr "Mi_nimizar"
 
-#: ../plugins/task-button.c:388
+#: ../plugins/task-button.c:387
 #, c-format
 msgid "Workspace _%d"
 msgstr "Área de trabajo _%d"
 
-#: ../plugins/task-button.c:393
+#: ../plugins/task-button.c:392
 #, c-format
 msgid "Workspace %d"
 msgstr "Área de trabajo %d"
 
 #. Add "move to all workspaces" item.  This causes the window to be visible no matter what desktop is active.
-#: ../plugins/task-button.c:410
+#: ../plugins/task-button.c:409
 msgid "_All workspaces"
 msgstr "_Todas la áreas de trabajo"
 
 #. FIXME: add "Current workspace" item, active if not on a current
 #. Add Move to Workspace menu item as a submenu.
-#: ../plugins/task-button.c:418
+#: ../plugins/task-button.c:417
 msgid "_Move to Workspace"
 msgstr "_Mover al área de trabajo"
 
-#: ../plugins/task-button.c:433
+#: ../plugins/task-button.c:432
 msgid "_Close Window"
 msgstr "_Cerrar ventana"
 
-#: ../plugins/task-button.c:1256
+#: ../plugins/task-button.c:1255
 msgid "_Close all windows"
 msgstr "Cerrar _todas las ventanas"
 
@@ -790,7 +799,8 @@ msgstr "Añadir un separador al panel"
 
 #: ../plugins/pager.c:141
 msgid "Sorry, there was no window manager configuration program found."
-msgstr "No se encontró ningún programa de configuración del gestor de ventanas."
+msgstr ""
+"No se encontró ningún programa de configuración del gestor de ventanas."
 
 #: ../plugins/pager.c:193 ../plugins/pager.c:209
 msgid "Desktop Pager"
@@ -1007,19 +1017,20 @@ msgstr "Interfaz de CPUFreq"
 msgid "Display CPU frequency and allow one to change governors and frequency"
 msgstr "Muestra la frecuencia de la CPU y permite modificar los reguladores"
 
-#: ../plugins/volumealsa/volumealsa.c:245
+#: ../plugins/volumealsa/volumealsa.c:247
 msgid "ALSA (or pulseaudio) had a problem. Please check the lxpanel logs."
 msgstr ""
 "Se produjo un problema con ALSA (o PulseAudio). Revise los registros de "
 "lxpanel."
 
 #. Display current level in tooltip.
-#: ../plugins/volumealsa/volumealsa.c:613
-#: ../plugins/volumealsa/volumealsa.c:973
-msgid "Volume control"
-msgstr "Control de volumen"
+#: ../plugins/volumealsa/volumealsa.c:615
+#, fuzzy, c-format
+#| msgid "Volume"
+msgid "Volume: %d%%"
+msgstr "Volumen"
 
-#: ../plugins/volumealsa/volumealsa.c:701
+#: ../plugins/volumealsa/volumealsa.c:703
 msgid ""
 "Error, you need to install an application to configure the sound "
 "(pavucontrol, alsamixer ...)"
@@ -1028,102 +1039,116 @@ msgstr ""
 "alsamixer…)"
 
 #. Create a frame as the child of the viewport.
-#: ../plugins/volumealsa/volumealsa.c:895
+#: ../plugins/volumealsa/volumealsa.c:900
 msgid "Volume"
 msgstr "Volumen"
 
 #. Create a check button as the child of the vertical box.
-#: ../plugins/volumealsa/volumealsa.c:914
+#: ../plugins/volumealsa/volumealsa.c:918
 msgid "Mute"
 msgstr "Silenciar"
 
+#: ../plugins/volumealsa/volumealsa.c:977
+msgid "Volume control"
+msgstr "Control de volumen"
+
 #. Just to have these translated
-#: ../plugins/volumealsa/volumealsa.c:1313
+#: ../plugins/volumealsa/volumealsa.c:1317
 msgid "Line"
 msgstr "Línea"
 
-#: ../plugins/volumealsa/volumealsa.c:1313
+#: ../plugins/volumealsa/volumealsa.c:1317
 msgid "LineOut"
 msgstr "Línea de salida"
 
-#: ../plugins/volumealsa/volumealsa.c:1313
+#: ../plugins/volumealsa/volumealsa.c:1317
 msgid "Front"
 msgstr "Frontal"
 
-#: ../plugins/volumealsa/volumealsa.c:1313
+#: ../plugins/volumealsa/volumealsa.c:1317
 msgid "Surround"
 msgstr "Envolvente"
 
-#: ../plugins/volumealsa/volumealsa.c:1313
+#: ../plugins/volumealsa/volumealsa.c:1317
 msgid "Speaker+LO"
 msgstr "Altavoz + LS"
 
-#: ../plugins/volumealsa/volumealsa.c:1352
+#: ../plugins/volumealsa/volumealsa.c:1318
+#, fuzzy
+#| msgid "Speaker+LO"
+msgid "Speaker"
+msgstr "Altavoz + LS"
+
+#: ../plugins/volumealsa/volumealsa.c:1318
+msgid "Beep"
+msgstr ""
+
+#: ../plugins/volumealsa/volumealsa.c:1357
 msgid "default"
 msgstr "predeterminado"
 
 #. desc, index
-#: ../plugins/volumealsa/volumealsa.c:1412
+#: ../plugins/volumealsa/volumealsa.c:1417
 msgid "Master"
 msgstr "Maestro"
 
-#: ../plugins/volumealsa/volumealsa.c:1416
+#: ../plugins/volumealsa/volumealsa.c:1421
 msgid "PCM"
 msgstr "PCM"
 
-#: ../plugins/volumealsa/volumealsa.c:1420
+#: ../plugins/volumealsa/volumealsa.c:1425
 msgid "Headphone"
 msgstr "Auriculares"
 
-#: ../plugins/volumealsa/volumealsa.c:1442
+#: ../plugins/volumealsa/volumealsa.c:1447
 msgid "Click for Volume Slider"
 msgstr "Pulse para mostrar el control de volumen"
 
-#: ../plugins/volumealsa/volumealsa.c:1446
+#: ../plugins/volumealsa/volumealsa.c:1451
 msgid "Click for Toggle Mute"
 msgstr "Pulse para silenciar o restaurar el sonido"
 
-#: ../plugins/volumealsa/volumealsa.c:1450
+#: ../plugins/volumealsa/volumealsa.c:1455
 msgid "Click for Open Mixer"
 msgstr "Pulse para abrir el mezclador"
 
 #. setup hotkeys
-#: ../plugins/volumealsa/volumealsa.c:1454
+#: ../plugins/volumealsa/volumealsa.c:1459
 msgid "Hotkey for Volume Up"
 msgstr "TeclaCaliente para aumentar el volumen "
 
-#: ../plugins/volumealsa/volumealsa.c:1456
+#: ../plugins/volumealsa/volumealsa.c:1461
 msgid "Hotkey for Volume Down"
 msgstr "TeclaCaliente para bajar el volumen"
 
-#: ../plugins/volumealsa/volumealsa.c:1458
+#: ../plugins/volumealsa/volumealsa.c:1463
 msgid "Hotkey for Volume Mute"
 msgstr "TeclaCaliente para silenciar"
 
-#: ../plugins/volumealsa/volumealsa.c:1514
-#: ../plugins/volumealsa/volumealsa.c:1553
-#: ../plugins/volumealsa/volumealsa.c:1574
+#: ../plugins/volumealsa/volumealsa.c:1519
+#: ../plugins/volumealsa/volumealsa.c:1558
+#: ../plugins/volumealsa/volumealsa.c:1579
 msgid "Volume Control"
 msgstr "Control de volumen"
 
-#: ../plugins/volumealsa/volumealsa.c:1516
+#: ../plugins/volumealsa/volumealsa.c:1521
 msgid "Audio Card"
 msgstr "Tarjeta de sonido"
 
-#: ../plugins/volumealsa/volumealsa.c:1519
+#: ../plugins/volumealsa/volumealsa.c:1524
 msgid "Channel to Operate"
 msgstr "Canal que operar"
 
-#: ../plugins/volumealsa/volumealsa.c:1527
+#: ../plugins/volumealsa/volumealsa.c:1532
 msgid "Command to Open Mixer"
 msgstr "Orden para abrir el mezclador"
 
-#: ../plugins/volumealsa/volumealsa.c:1542
+#: ../plugins/volumealsa/volumealsa.c:1547
 msgid "Launch Mixer"
 msgstr "Abrir el mezclador"
 
-#: ../plugins/volumealsa/volumealsa.c:1554
-#: ../plugins/volumealsa/volumealsa.c:1575
+#: ../plugins/volumealsa/volumealsa.c:1559
+#: ../plugins/volumealsa/volumealsa.c:1580
 msgid "Display and control volume"
 msgstr "Muestra y ajusta el volumen"
 
@@ -1197,7 +1222,7 @@ msgstr "bytes"
 msgid "packets"
 msgstr "paquetes"
 
-#: ../plugins/netstat/netstat.c:368 ../plugins/netstatus/netstatus-iface.c:173
+#: ../plugins/netstat/netstat.c:368 ../plugins/netstatus/netstatus-iface.c:174
 msgid "Wireless"
 msgstr "Inalámbrica"
 
@@ -1234,44 +1259,44 @@ msgstr ""
 msgid "Encryption Key:"
 msgstr "Clave de cifrado:"
 
-#: ../plugins/netstatus/netstatus.c:154 ../plugins/netstatus/netstatus.c:166
+#: ../plugins/netstatus/netstatus.c:155 ../plugins/netstatus/netstatus.c:167
 msgid "Network Status Monitor"
 msgstr "Monitor de estado de red"
 
-#: ../plugins/netstatus/netstatus.c:156
+#: ../plugins/netstatus/netstatus.c:157
 msgid "Interface to monitor"
 msgstr "Interfaz a supervisar"
 
-#: ../plugins/netstatus/netstatus.c:157
+#: ../plugins/netstatus/netstatus.c:158
 msgid "Config tool"
 msgstr "Herramienta de configuración"
 
-#: ../plugins/netstatus/netstatus.c:167
+#: ../plugins/netstatus/netstatus.c:168
 msgid "Monitor network status"
 msgstr "Monitorear estado de la red"
 
-#: ../plugins/netstatus/netstatus-dialog.c:52
-#: ../plugins/netstatus/netstatus-dialog.c:316
+#: ../plugins/netstatus/netstatus-dialog.c:53
+#: ../plugins/netstatus/netstatus-dialog.c:317
 msgid "Unknown"
 msgstr "Desconocido"
 
-#: ../plugins/netstatus/netstatus-dialog.c:117
+#: ../plugins/netstatus/netstatus-dialog.c:118
 msgid "Connection Properties"
 msgstr "Propiedades de la conexión"
 
-#: ../plugins/netstatus/netstatus-dialog.c:123
+#: ../plugins/netstatus/netstatus-dialog.c:124
 #, c-format
 msgid "Connection Properties: %s"
 msgstr "Propiedades de la conexión: %s"
 
-#: ../plugins/netstatus/netstatus-dialog.c:136
+#: ../plugins/netstatus/netstatus-dialog.c:137
 #, c-format
 msgid "%lu packet"
 msgid_plural "%lu packets"
 msgstr[0] "%lu paquete"
 msgstr[1] "%lu paquetes"
 
-#: ../plugins/netstatus/netstatus-dialog.c:400
+#: ../plugins/netstatus/netstatus-dialog.c:401
 #, c-format
 msgid ""
 "There was an error displaying help:\n"
@@ -1280,48 +1305,48 @@ msgstr ""
 "Error al mostrar la ayuda:\n"
 "%s"
 
-#: ../plugins/netstatus/netstatus-icon.c:381
+#: ../plugins/netstatus/netstatus-icon.c:382
 #, c-format
 msgid "Network Connection: %s"
 msgstr "Conexión de red: %s"
 
-#: ../plugins/netstatus/netstatus-icon.c:386
+#: ../plugins/netstatus/netstatus-icon.c:387
 msgid "Network Connection"
 msgstr "Conexión de red"
 
-#: ../plugins/netstatus/netstatus-icon.c:847
+#: ../plugins/netstatus/netstatus-icon.c:849
 msgid "Interface"
 msgstr "Interfaz"
 
-#: ../plugins/netstatus/netstatus-icon.c:848
+#: ../plugins/netstatus/netstatus-icon.c:850
 msgid "The current interface the icon is monitoring."
 msgstr "La interfaz actual que el icono está supervisando."
 
-#: ../plugins/netstatus/netstatus-icon.c:855
+#: ../plugins/netstatus/netstatus-icon.c:857
 msgid "Orientation"
 msgstr "Orientación"
 
-#: ../plugins/netstatus/netstatus-icon.c:856
+#: ../plugins/netstatus/netstatus-icon.c:858
 msgid "The orientation of the tray."
 msgstr "La orientación del área de notificación."
 
-#: ../plugins/netstatus/netstatus-icon.c:864
+#: ../plugins/netstatus/netstatus-icon.c:866
 msgid "Tooltips Enabled"
 msgstr "Consejos activados"
 
-#: ../plugins/netstatus/netstatus-icon.c:865
+#: ../plugins/netstatus/netstatus-icon.c:867
 msgid "Whether or not the icon's tooltips are enabled."
 msgstr "Indica si los consejos han sido activados o no."
 
-#: ../plugins/netstatus/netstatus-icon.c:872
+#: ../plugins/netstatus/netstatus-icon.c:874
 msgid "Show Signal"
 msgstr "Mostrar señal"
 
-#: ../plugins/netstatus/netstatus-icon.c:873
+#: ../plugins/netstatus/netstatus-icon.c:875
 msgid "Whether or not the signal strength should be displayed."
 msgstr "Si se mostrará o no la intensidad de la señal."
 
-#: ../plugins/netstatus/netstatus-icon.c:982
+#: ../plugins/netstatus/netstatus-icon.c:985
 #, c-format
 msgid ""
 "Please contact your system administrator to resolve the following problem:\n"
@@ -1332,170 +1357,172 @@ msgstr ""
 "\n"
 "%s"
 
-#: ../plugins/netstatus/netstatus-iface.c:148
+#: ../plugins/netstatus/netstatus-iface.c:149
 msgid "Name"
 msgstr "Nombre"
 
-#: ../plugins/netstatus/netstatus-iface.c:149
+#: ../plugins/netstatus/netstatus-iface.c:150
 msgid "The interface name"
 msgstr "Nombre de la interfaz"
 
-#: ../plugins/netstatus/netstatus-iface.c:156
-#: ../plugins/weather/weatherwidget.c:2137
+#: ../plugins/netstatus/netstatus-iface.c:157
+#, fuzzy
+#| msgid "State"
+msgctxt "Network"
 msgid "State"
 msgstr "Estado"
 
-#: ../plugins/netstatus/netstatus-iface.c:157
+#: ../plugins/netstatus/netstatus-iface.c:158
 msgid "The interface state"
 msgstr "Estado de la interfaz"
 
-#: ../plugins/netstatus/netstatus-iface.c:165
+#: ../plugins/netstatus/netstatus-iface.c:166
 msgid "Stats"
 msgstr "Estadísticas"
 
-#: ../plugins/netstatus/netstatus-iface.c:166
+#: ../plugins/netstatus/netstatus-iface.c:167
 msgid "The interface packets/bytes statistics"
 msgstr "Estadísticas de paquetes/bytes de la interfaz"
 
-#: ../plugins/netstatus/netstatus-iface.c:174
+#: ../plugins/netstatus/netstatus-iface.c:175
 msgid "Whether the interface is a wireless interface"
 msgstr "Si la interfaz es inalámbrica"
 
-#: ../plugins/netstatus/netstatus-iface.c:181
+#: ../plugins/netstatus/netstatus-iface.c:182
 msgid "Signal"
 msgstr "Señal"
 
-#: ../plugins/netstatus/netstatus-iface.c:182
+#: ../plugins/netstatus/netstatus-iface.c:183
 msgid "Wireless signal strength percentage"
 msgstr "Porcentaje de fuerza de la señal inalámbrica"
 
-#: ../plugins/netstatus/netstatus-iface.c:192
+#: ../plugins/netstatus/netstatus-iface.c:193
 msgid "The current error condition"
 msgstr "La condición de error actual"
 
-#: ../plugins/netstatus/netstatus-iface.c:440
-#: ../plugins/netstatus/netstatus-iface.c:1205
+#: ../plugins/netstatus/netstatus-iface.c:441
+#: ../plugins/netstatus/netstatus-iface.c:1200
 #, c-format
 msgid "Unable to open socket: %s"
 msgstr "No se puede abrir el socket: %s"
 
-#: ../plugins/netstatus/netstatus-iface.c:502
-#: ../plugins/netstatus/netstatus-iface.c:1231
+#: ../plugins/netstatus/netstatus-iface.c:503
+#: ../plugins/netstatus/netstatus-iface.c:1226
 #, c-format
 msgid "SIOCGIFFLAGS error: %s"
 msgstr "Error SIOCGIFFLAGS: %s"
 
-#: ../plugins/netstatus/netstatus-iface.c:879
+#: ../plugins/netstatus/netstatus-iface.c:880
 msgid "AMPR NET/ROM"
 msgstr "AMPR NET/ROM"
 
-#: ../plugins/netstatus/netstatus-iface.c:882
+#: ../plugins/netstatus/netstatus-iface.c:883
 msgid "Ethernet"
 msgstr "Ethernet"
 
-#: ../plugins/netstatus/netstatus-iface.c:888
+#: ../plugins/netstatus/netstatus-iface.c:889
 msgid "AMPR AX.25"
 msgstr "AMPR AX.25"
 
-#: ../plugins/netstatus/netstatus-iface.c:897
-#: ../plugins/netstatus/netstatus-iface.c:1017
+#: ../plugins/netstatus/netstatus-iface.c:898
+#: ../plugins/netstatus/netstatus-iface.c:1018
 msgid "16/4 Mbps Token Ring"
 msgstr "Token Ring de 16/4 Mbps"
 
-#: ../plugins/netstatus/netstatus-iface.c:900
+#: ../plugins/netstatus/netstatus-iface.c:901
 msgid "ARCnet"
 msgstr "ARCnet"
 
-#: ../plugins/netstatus/netstatus-iface.c:906
+#: ../plugins/netstatus/netstatus-iface.c:907
 msgid "Frame Relay DLCI"
 msgstr "Frame Relay DLCI"
 
-#: ../plugins/netstatus/netstatus-iface.c:912
+#: ../plugins/netstatus/netstatus-iface.c:913
 msgid "Metricom Starmode IP"
 msgstr "Metricom Starmode IP"
 
-#: ../plugins/netstatus/netstatus-iface.c:915
+#: ../plugins/netstatus/netstatus-iface.c:916
 msgid "Serial Line IP"
 msgstr "Serial Line IP"
 
-#: ../plugins/netstatus/netstatus-iface.c:918
+#: ../plugins/netstatus/netstatus-iface.c:919
 msgid "VJ Serial Line IP"
 msgstr "VJ Serial Line IP"
 
-#: ../plugins/netstatus/netstatus-iface.c:921
+#: ../plugins/netstatus/netstatus-iface.c:922
 msgid "6-bit Serial Line IP"
 msgstr "6-bit Serial Line IP"
 
-#: ../plugins/netstatus/netstatus-iface.c:924
+#: ../plugins/netstatus/netstatus-iface.c:925
 msgid "VJ 6-bit Serial Line IP"
 msgstr "VJ 6-bit Serial Line IP"
 
-#: ../plugins/netstatus/netstatus-iface.c:930
+#: ../plugins/netstatus/netstatus-iface.c:931
 msgid "Adaptive Serial Line IP"
 msgstr "Adaptive Serial Line IP"
 
-#: ../plugins/netstatus/netstatus-iface.c:933
+#: ../plugins/netstatus/netstatus-iface.c:934
 msgid "AMPR ROSE"
 msgstr "AMPR ROSE"
 
-#: ../plugins/netstatus/netstatus-iface.c:936
+#: ../plugins/netstatus/netstatus-iface.c:937
 msgid "Generic X.25"
 msgstr "X.25 Genérico"
 
-#: ../plugins/netstatus/netstatus-iface.c:939
+#: ../plugins/netstatus/netstatus-iface.c:940
 msgid "Point-to-Point Protocol"
 msgstr "Protocolo punto a punto"
 
-#: ../plugins/netstatus/netstatus-iface.c:945
+#: ../plugins/netstatus/netstatus-iface.c:946
 msgid "(Cisco)-HDLC"
 msgstr "(Cisco)-HDLC"
 
-#: ../plugins/netstatus/netstatus-iface.c:948
+#: ../plugins/netstatus/netstatus-iface.c:949
 msgid "LAPB"
 msgstr "LAPB"
 
-#: ../plugins/netstatus/netstatus-iface.c:957
+#: ../plugins/netstatus/netstatus-iface.c:958
 msgid "IPIP Tunnel"
 msgstr "Tunel IPIP"
 
-#: ../plugins/netstatus/netstatus-iface.c:963
+#: ../plugins/netstatus/netstatus-iface.c:964
 msgid "Frame Relay Access Device"
 msgstr "Dispositivo de acceso Frame Relay"
 
-#: ../plugins/netstatus/netstatus-iface.c:969
+#: ../plugins/netstatus/netstatus-iface.c:970
 msgid "Local Loopback"
 msgstr "Bucle local"
 
-#: ../plugins/netstatus/netstatus-iface.c:975
+#: ../plugins/netstatus/netstatus-iface.c:976
 msgid "Fiber Distributed Data Interface"
 msgstr "Interfaz de datos distribuidos por fibra"
 
-#: ../plugins/netstatus/netstatus-iface.c:981
+#: ../plugins/netstatus/netstatus-iface.c:982
 msgid "IPv6-in-IPv4"
 msgstr "IPv6-en-IPv4"
 
-#: ../plugins/netstatus/netstatus-iface.c:993
+#: ../plugins/netstatus/netstatus-iface.c:994
 msgid "HIPPI"
 msgstr "HIPPI"
 
-#: ../plugins/netstatus/netstatus-iface.c:996
+#: ../plugins/netstatus/netstatus-iface.c:997
 msgid "Ash"
 msgstr "Ash"
 
-#: ../plugins/netstatus/netstatus-iface.c:999
+#: ../plugins/netstatus/netstatus-iface.c:1000
 msgid "Econet"
 msgstr "Econet"
 
-#: ../plugins/netstatus/netstatus-iface.c:1002
+#: ../plugins/netstatus/netstatus-iface.c:1003
 msgid "IrLAP"
 msgstr "IrLAP"
 
-#: ../plugins/netstatus/netstatus-iface.c:1163
+#: ../plugins/netstatus/netstatus-iface.c:1158
 #, c-format
 msgid "SIOCGIFCONF error: %s"
 msgstr "Error de SIOCGIFCONF: %s"
 
-#: ../plugins/netstatus/netstatus-iface.c:1256
+#: ../plugins/netstatus/netstatus-iface.c:1251
 #, c-format
 msgid "No network devices found"
 msgstr "No se encontró ningún dispositivo de red"
@@ -1581,22 +1608,40 @@ msgstr "Recibiendo"
 msgid "Sending/Receiving"
 msgstr "Envío/recepción"
 
-#: ../plugins/batt/batt.c:156
+#: ../plugins/batt/batt.c:159
+#, fuzzy, c-format
+#| msgid "Battery %d: %d%% charged, %d:%02d until full"
+msgid "Battery: %d%% charged, %d:%02d until full"
+msgstr "Batería %d : %d %% de carga; %d:%02d para completar"
+
+#: ../plugins/batt/batt.c:163
 #, c-format
 msgid "Battery %d: %d%% charged, %d:%02d until full"
 msgstr "Batería %d : %d %% de carga; %d:%02d para completar"
 
-#: ../plugins/batt/batt.c:170
+#: ../plugins/batt/batt.c:178
+#, fuzzy, c-format
+#| msgid "Battery %d: %d%% charged, %d:%02d left"
+msgid "Battery: %d%% charged, %d:%02d left"
+msgstr "Batería %d: %d  %% de carga; quedan %d:%02d"
+
+#: ../plugins/batt/batt.c:182
 #, c-format
 msgid "Battery %d: %d%% charged, %d:%02d left"
 msgstr "Batería %d: %d  %% de carga; quedan %d:%02d"
 
-#: ../plugins/batt/batt.c:177
+#: ../plugins/batt/batt.c:190
+#, fuzzy, c-format
+#| msgid "Battery %d: %d%% charged"
+msgid "Battery: %d%% charged"
+msgstr "Batería %d: %d  %% de carga"
+
+#: ../plugins/batt/batt.c:194
 #, c-format
 msgid "Battery %d: %d%% charged"
 msgstr "Batería %d: %d  %% de carga"
 
-#: ../plugins/batt/batt.c:187
+#: ../plugins/batt/batt.c:204
 #, c-format
 msgid ""
 "\n"
@@ -1605,7 +1650,7 @@ msgstr ""
 "\n"
 "%sEnergía total teórica:\t\t%5d mWh"
 
-#: ../plugins/batt/batt.c:189
+#: ../plugins/batt/batt.c:206
 #, c-format
 msgid ""
 "\n"
@@ -1614,7 +1659,7 @@ msgstr ""
 "\n"
 "%sEnergía total:\t\t\t%5d mWh"
 
-#: ../plugins/batt/batt.c:191
+#: ../plugins/batt/batt.c:208
 #, c-format
 msgid ""
 "\n"
@@ -1623,7 +1668,7 @@ msgstr ""
 "\n"
 "%sEnergía actual:\t\t\t%5d mWh"
 
-#: ../plugins/batt/batt.c:193
+#: ../plugins/batt/batt.c:210
 #, c-format
 msgid ""
 "\n"
@@ -1632,7 +1677,7 @@ msgstr ""
 "\n"
 "%sPotencia actual:\t\t\t%5d mW"
 
-#: ../plugins/batt/batt.c:196
+#: ../plugins/batt/batt.c:213
 #, c-format
 msgid ""
 "\n"
@@ -1641,7 +1686,7 @@ msgstr ""
 "\n"
 "%sCarga total teórica:\t%5d mAh"
 
-#: ../plugins/batt/batt.c:198
+#: ../plugins/batt/batt.c:215
 #, c-format
 msgid ""
 "\n"
@@ -1650,7 +1695,7 @@ msgstr ""
 "\n"
 "%sCarga total:\t\t\t%5d mAh"
 
-#: ../plugins/batt/batt.c:200
+#: ../plugins/batt/batt.c:217
 #, c-format
 msgid ""
 "\n"
@@ -1659,7 +1704,7 @@ msgstr ""
 "\n"
 "%sCarga actual:\t\t\t%5d mAh"
 
-#: ../plugins/batt/batt.c:202
+#: ../plugins/batt/batt.c:219
 #, c-format
 msgid ""
 "\n"
@@ -1668,72 +1713,79 @@ msgstr ""
 "\n"
 "%sActual:\t\t\t%5d mA"
 
-#: ../plugins/batt/batt.c:205
-#, c-format
+#: ../plugins/batt/batt.c:222
+#, fuzzy, c-format
+#| msgid ""
+#| "\n"
+#| "%sCurrent Voltage:\t\t%.3lf V"
 msgid ""
 "\n"
-"%sCurrent Voltage:\t\t%.3lf V"
+"%sVoltage now:\t\t%.3lf V"
 msgstr ""
 "\n"
 "%sVoltaje actual:\t\t%.3lf V"
 
-#: ../plugins/batt/batt.c:243
+#: ../plugins/batt/batt.c:260
 msgid "No batteries found"
 msgstr "No se encontraron baterías"
 
-#: ../plugins/batt/batt.c:546 ../plugins/batt/batt.c:679
+#: ../plugins/batt/batt.c:566 ../plugins/batt/batt.c:699
 msgid "Battery low"
 msgstr "Batería con poca carga"
 
-#: ../plugins/batt/batt.c:702 ../plugins/batt/batt.c:726
+#: ../plugins/batt/batt.c:723 ../plugins/batt/batt.c:748
 msgid "Battery Monitor"
 msgstr "Monitor de batería"
 
-#: ../plugins/batt/batt.c:704
+#: ../plugins/batt/batt.c:725
 msgid "Hide if there is no battery"
 msgstr "Ocultar si no hay baterías"
 
-#: ../plugins/batt/batt.c:705
+#: ../plugins/batt/batt.c:726
 msgid "Alarm command"
 msgstr "Orden de alarma"
 
-#: ../plugins/batt/batt.c:706
+#: ../plugins/batt/batt.c:727
 msgid "Alarm time (minutes left)"
 msgstr "Hora de alarma (minutos restantes)"
 
-#: ../plugins/batt/batt.c:707
+#: ../plugins/batt/batt.c:728
 msgid "Background color"
 msgstr "Color de fondo"
 
-#: ../plugins/batt/batt.c:708
+#: ../plugins/batt/batt.c:729
 msgid "Charging color 1"
 msgstr "Color de carga n.º 1"
 
-#: ../plugins/batt/batt.c:709
+#: ../plugins/batt/batt.c:730
 msgid "Charging color 2"
 msgstr "Color de carga n.º 2"
 
-#: ../plugins/batt/batt.c:710
+#: ../plugins/batt/batt.c:731
 msgid "Discharging color 1"
 msgstr "Color de descarga n.º 1"
 
-#: ../plugins/batt/batt.c:711
+#: ../plugins/batt/batt.c:732
 msgid "Discharging color 2"
 msgstr "Color de descarga n.º 2"
 
-#: ../plugins/batt/batt.c:712
+#: ../plugins/batt/batt.c:733
 msgid "Border width"
 msgstr "Anchura del borde"
 
-#: ../plugins/batt/batt.c:716
+#: ../plugins/batt/batt.c:737
 msgid "Show Extended Information"
 msgstr "Mostrar información detallada"
 
-#: ../plugins/batt/batt.c:717
+#: ../plugins/batt/batt.c:738
 msgid "Number of battery to monitor"
 msgstr "Número de batería que supervisar"
 
-#: ../plugins/batt/batt.c:727
+#: ../plugins/batt/batt.c:739
+msgid "Don't show number of battery"
+msgstr ""
+
+#: ../plugins/batt/batt.c:749
 msgid "Display battery status using ACPI"
 msgstr "Mostrar el estado de la batería por medio de ACPI"
 
@@ -1794,37 +1846,41 @@ msgstr "Menú de sonido"
 msgid "Add indicator applets to the panel"
 msgstr "Añadir miniaplicaciones indicadoras al panel"
 
-#: ../plugins/monitors/monitors.c:285
+#: ../plugins/monitors/monitors.c:290
 #, c-format
 msgid "CPU usage: %.2f%%"
 msgstr "Uso de CPU: %.2f %%"
 
-#: ../plugins/monitors/monitors.c:386
+#: ../plugins/monitors/monitors.c:393
 #, c-format
 msgid "RAM usage: %.1fMB (%.2f%%)"
 msgstr "Uso de RAM: %.1f MB (%.2f %%)"
 
-#: ../plugins/monitors/monitors.c:732 ../plugins/monitors/monitors.c:821
+#: ../plugins/monitors/monitors.c:744 ../plugins/monitors/monitors.c:835
 msgid "Resource monitors"
 msgstr "Monitores de recursos"
 
-#: ../plugins/monitors/monitors.c:735
+#: ../plugins/monitors/monitors.c:747
 msgid "CPU color"
 msgstr "Color de la CPU"
 
-#: ../plugins/monitors/monitors.c:736
+#: ../plugins/monitors/monitors.c:748
 msgid "Display RAM usage"
 msgstr "Mostrar uso de la RAM"
 
-#: ../plugins/monitors/monitors.c:737
+#: ../plugins/monitors/monitors.c:749
 msgid "RAM color"
 msgstr "Color de la RAM"
 
-#: ../plugins/monitors/monitors.c:738
+#: ../plugins/monitors/monitors.c:750
+msgid "Show memory used by cache as free"
+msgstr ""
+
+#: ../plugins/monitors/monitors.c:751
 msgid "Action when clicked (default: lxtask)"
 msgstr "Acción al pulsar (predeterminada: lxtask)"
 
-#: ../plugins/monitors/monitors.c:822
+#: ../plugins/monitors/monitors.c:836
 msgid "Display monitors (CPU, RAM)"
 msgstr "Mostrar los monitores (CPU, RAM)"
 
@@ -2009,6 +2065,13 @@ msgstr "Coincidencias de ubicaciones para «%s»"
 #: ../plugins/weather/weatherwidget.c:2127
 msgid "City"
 msgstr "Ciudad"
+
+#: ../plugins/weather/weatherwidget.c:2137
+#, fuzzy
+#| msgid "State"
+msgctxt "Politics"
+msgid "State"
+msgstr "Estado"
 
 #: ../plugins/weather/weatherwidget.c:2147
 msgid "Country"
