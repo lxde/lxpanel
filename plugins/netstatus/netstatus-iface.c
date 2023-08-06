@@ -154,7 +154,7 @@ netstatus_iface_class_init (NetstatusIfaceClass *klass)
   g_object_class_install_property (gobject_class,
 				   PROP_STATE,
 				   g_param_spec_enum ("state",
-						      _("State"),
+						      C_("Network", "State"),
 						      _("The interface state"),
 						      NETSTATUS_TYPE_STATE,
 						      NETSTATUS_STATE_DISCONNECTED,

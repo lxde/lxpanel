@@ -2134,7 +2134,7 @@ gtk_weather_show_location_list(GtkWeather * weather, GList * list)
 
   /* state */
   cell_renderer = gtk_cell_renderer_text_new();
-  treeview_column = gtk_tree_view_column_new_with_attributes(_("State"),
+  treeview_column = gtk_tree_view_column_new_with_attributes(C_("Politics", "State"),
                                                              cell_renderer,
                                                              "text",
                                                              STATE_COLUMN,

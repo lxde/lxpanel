@@ -732,7 +732,7 @@ static GtkWidget *config(LXPanel *panel, GtkWidget *p) {
             _("Discharging color 2"), &b->dischargingColor2, CONF_TYPE_STR,
             "", panel_config_int_button_new(_("Border width"), (int *)&b->requestedBorder,
                                             0, 6), CONF_TYPE_EXTERNAL,
-            "", panel_config_int_button_new(_("Size"), (int *)&b->thickness,
+            "", panel_config_int_button_new(C_("Width", "Size"), (int *)&b->thickness,
                                             1, 50), CONF_TYPE_EXTERNAL,
             _("Show Extended Information"), &b->show_extended_information, CONF_TYPE_BOOL,
             _("Number of battery to monitor"), &b->battery_number, CONF_TYPE_INT,
