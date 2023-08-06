@@ -86,8 +86,8 @@ msgstr "اِل اِکس پنل"
 
 #: ../src/panel.c:1378
 #, fuzzy
-msgid "Copyright (C) 2008-2021"
-msgstr "حق نشر)c( 2010-2011"
+msgid "Copyright (C) 2008-2023"
+msgstr "حق نشر)c( 2008-2023"
 
 #: ../src/panel.c:1379
 msgid "Desktop panel for LXDE project"

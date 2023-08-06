@@ -84,8 +84,8 @@ msgstr "LXప్యానల్"
 
 #: ../src/panel.c:1378
 #, fuzzy
-msgid "Copyright (C) 2008-2021"
-msgstr "నకలుహక్కు (C) 2008-2011"
+msgid "Copyright (C) 2008-2023"
+msgstr "నకలుహక్కు (C) 2008-2023"
 
 #: ../src/panel.c:1379
 msgid "Desktop panel for LXDE project"
