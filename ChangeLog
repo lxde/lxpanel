@@ -1,6 +1,12 @@
 0.11.0
 -------------------------------------------------------------------------
 * Added tooltips to application launch bar and panel settings.
+* Added option to battery monitor to hide number of battery in tooltip.
+* Added option to resource monitors to show cached and buffered memory as
+    used.
+* Improved translations and design fix of ALSA volume control popup.
+* Made netstatus_icon_set_tooltips_enabled() work.
+* Fixed a sometimes incorrectly placed icon in the netstatus plugin.
 
 0.10.1
 -------------------------------------------------------------------------
@@ -10,12 +16,6 @@
 * Fixed battery indication when charge_full and energy_full are not available.
 * Corrected scaling of volume plugin for HiDPI monitors.
 * Fixed connection name dropdown list in netstatus plugin.
-* Added option to battery monitor to hide number of battery in tooltip.
-* Added option to resource monitors to show cached and buffered memory as
-    used.
-* Improved translations and design fix of ALSA volume control popup.
-* Made netstatus_icon_set_tooltips_enabled() work.
-* Fixed a sometimes incorrectly placed icon in the netstatus plugin.
 
 0.10.0
 -------------------------------------------------------------------------
