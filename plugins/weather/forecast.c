@@ -92,10 +92,16 @@ freeForecast(ForecastInfo * pEntry)
   g_free(pEntry->pcConditions_);
   g_free(pEntry->pcClouds_);
   g_free(pEntry->pcImageURL_);
+  g_free(pEntry->pcBigImageURL_);
   
   if (pEntry->pImage_)
     {
       g_object_unref(pEntry->pImage_);
+    }
+
+  if (pEntry->pBigImage_)
+    {
+      g_object_unref(pEntry->pBigImage_);
     }
 
   g_free(pEntry);

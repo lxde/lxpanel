@@ -1925,7 +1925,7 @@ gtk_weather_run_conditions_dialog(GtkWeather * weather)
       /* Need the minimum */
       gint dim = (req.width < req.height) ? req.width/2 : req.height/2;
 
-      GdkPixbuf * icon_buf = gdk_pixbuf_scale_simple(forecast->pImage_,
+      GdkPixbuf * icon_buf = gdk_pixbuf_scale_simple(forecast->pBigImage_ ? forecast->pBigImage_ : forecast->pImage_,
                                                      dim, dim,
                                                      GDK_INTERP_BILINEAR);
 

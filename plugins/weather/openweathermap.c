@@ -249,6 +249,10 @@ getImageFromURL(GdkPixbuf ** pImage, const gchar * pczURL)
  * @param pImage Pointer to the image storage.
  * @param pczNewURL The new url.
  * @param szURLLength The length of the new URL.
+ * @param pcStorage2 Same as pcStorage for the second image.
+ * @param pImage2 Same as pImage for the second image.
+ * @param pczNewURL2 Same as pczNewURL for the second image.
+ * @param szURL2Length Same as szURLLength for the second image.
  *
  * @return 0 on succes, -1 on failure.
  */
@@ -256,7 +260,11 @@ static gint
 setImageIfDifferent(gchar ** pcStorage,
                     GdkPixbuf ** pImage,
                     const gchar * pczNewURL,
-                    const gsize szURLLength)
+                    const gsize szURLLength,
+                    gchar ** pcStorage2,
+                    GdkPixbuf ** pImage2,
+                    const gchar * pczURL2,
+                    const gsize szURL2Length)
 {
   int err = 0;
 
@@ -264,8 +272,10 @@ setImageIfDifferent(gchar ** pcStorage,
   if (g_strcmp0(*pcStorage, pczNewURL))
     {
       g_free(*pcStorage);
+      g_free(*pcStorage2);
 
       *pcStorage = g_strndup(pczNewURL, szURLLength);
+      *pcStorage2 = g_strndup(pczURL2, szURL2Length);
 
       if (*pImage)
         {
@@ -274,10 +284,19 @@ setImageIfDifferent(gchar ** pcStorage,
           *pImage = NULL;
         }
 
+      if (*pImage2)
+        {
+          g_object_unref(*pImage2);
 
+          *pImage2 = NULL;
+        }
 
       err = getImageFromURL(pImage, pczNewURL);
 
+      if (err == 0)
+        {
+          err = getImageFromURL(pImage2, pczURL2);
+        }
     }
 
   return err;
@@ -612,14 +631,22 @@ parseResponse(const char * pResponse, GList ** pList, ForecastInfo ** pForecast,
               char * icon = CHAR_P(xmlGetProp(pNode, XMLCHAR_P("icon")));
               char * number = CHAR_P(xmlGetProp(pNode, XMLCHAR_P("number")));
               char * pcImageURL = NULL;
+              char * pcBigImageURL = NULL;
               gsize vlen = (value)?strlen(value):0;
 
               if (icon)
+              {
                 pcImageURL = g_strdup_printf("http://openweathermap.org/img/w/%s.png", icon);
+                pcBigImageURL = g_strdup_printf("http://openweathermap.org/img/wn/%s@4x.png", icon);
+              }
               setImageIfDifferent(&pEntry->pcImageURL_,
                                   &pEntry->pImage_,
                                   pcImageURL,
-                                  strlen(pcImageURL));
+                                  strlen(pcImageURL),
+                                  &pEntry->pcBigImageURL_,
+                                  &pEntry->pBigImage_,
+                                  pcBigImageURL,
+                                  strlen(pcBigImageURL));
 
               if (number && *number && atoi(number) < 800) /* not clear */
                 {
@@ -635,6 +662,7 @@ parseResponse(const char * pResponse, GList ** pList, ForecastInfo ** pForecast,
               xmlFree(icon);
               xmlFree(number);
               g_free(pcImageURL);
+              g_free(pcBigImageURL);
             }
           else if (xmlStrEqual(pNode->name, CONSTXMLCHAR_P("lastupdate"))) // value="2019-02-16T18:00:00"
             {
