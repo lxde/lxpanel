@@ -482,7 +482,7 @@ gtk_weather_render(GtkWeather * weather)
         {          
           /* set this image to the one in the forecast at correct scale */
           GdkPixbuf * forecast_pixbuf = gdk_pixbuf_scale_simple(forecast->pImage_,
-                                                                req.height,
+                                                                req.height * forecast->fAspectRatio,
                                                                 req.height,
                                                                 GDK_INTERP_BILINEAR);
           

@@ -185,11 +185,13 @@ setStringIfDifferent(gchar ** pcStorage,
  *
  * @param pImage Pointer to the image storage.
  * @param pczURL The url.
+ * @param iCropT Lines to cut at the top.
+ * @param iCropB Lines to cut at the bottom.
  *
  * @return 0 on succes, -1 on failure.
  */
 static gint
-getImageFromURL(GdkPixbuf ** pImage, const gchar * pczURL)
+getImageFromURL(GdkPixbuf ** pImage, const gchar * pczURL, int iCropT, int iCropB)
 {
   gint err = 0;
   CURLcode iRetCode = 0;
@@ -213,11 +215,26 @@ getImageFromURL(GdkPixbuf ** pImage, const gchar * pczURL)
 
   GError * pError = NULL;
 
-  *pImage = gdk_pixbuf_new_from_stream(pInputStream,
-                                       NULL,
-                                       &pError);
+  GdkPixbuf *stream = gdk_pixbuf_new_from_stream(pInputStream,
+                                                 NULL,
+                                                 &pError);
 
-  if (!*pImage)
+  if (stream)
+    {
+      if (iCropT > 0)
+        {
+          *pImage = gdk_pixbuf_new_subpixbuf(stream,
+                                             0, iCropT - 1,
+                                             gdk_pixbuf_get_width(stream),
+                                             gdk_pixbuf_get_height(stream) - (iCropT + iCropB));
+          g_object_unref(stream);
+        }
+      else
+        {
+          *pImage = stream;
+        }
+    }
+  else
     {
       LXW_LOG(LXW_ERROR, "openweathermap::getImageFromURL(): PixBuff allocation failed: %s",
               pError->message);
@@ -259,6 +276,7 @@ getImageFromURL(GdkPixbuf ** pImage, const gchar * pczURL)
 static gint
 setImageIfDifferent(gchar ** pcStorage,
                     GdkPixbuf ** pImage,
+                    float *fAspectRatio,
                     const gchar * pczNewURL,
                     const gsize szURLLength,
                     gchar ** pcStorage2,
@@ -291,11 +309,16 @@ setImageIfDifferent(gchar ** pcStorage,
           *pImage2 = NULL;
         }
 
-      err = getImageFromURL(pImage, pczNewURL);
+      /* cut 8 lines at the top and 6 lines at the bottom that
+       * are transparent and that contain no visible pixels which
+       * changes the aspect ratio from 1:1 to 50:36
+       */
+      err = getImageFromURL(pImage, pczNewURL, 8, 6);
+      *fAspectRatio = 50.0 / 36.0;
 
       if (err == 0)
         {
-          err = getImageFromURL(pImage2, pczURL2);
+          err = getImageFromURL(pImage2, pczURL2, 0, 0);
         }
     }
 
@@ -641,6 +664,7 @@ parseResponse(const char * pResponse, GList ** pList, ForecastInfo ** pForecast,
               }
               setImageIfDifferent(&pEntry->pcImageURL_,
                                   &pEntry->pImage_,
+                                  &pEntry->fAspectRatio,
                                   pcImageURL,
                                   strlen(pcImageURL),
                                   &pEntry->pcBigImageURL_,
