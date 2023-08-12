@@ -593,8 +593,11 @@ parseResponse(const char * pResponse, GList ** pList, ForecastInfo ** pForecast,
  */
 static const char *localeTranslations[] = {
     "cs", "cz", /* Checz */
+    "es", "sp", /* Spanish */
     "ko", "kr", /* Korean */
     "lv", "la", /* Latvian */
+    "pt_BR", "pt_br", /* Brazilian Portuguese */
+    "sq", "al", /* Albanian */
     "sv", "se", /* Swedish */
     "uk", "ua", /* Ukrainian */
     "zh_CN", "zh_cn",
