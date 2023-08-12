@@ -2268,7 +2268,7 @@ gtk_weather_get_tooltip_text(GtkWeather * weather)
       LocationInfo * location = priv->location;
       ForecastInfo * forecast = priv->forecast;
 
-      gchar * temperature = g_strdup_printf("%d \302\260%s\n", 
+      gchar * temperature = g_strdup_printf("%d \302\260%s",
                                             forecast->iTemperature_,
                                             forecast->units_.pcTemperature_);
 
