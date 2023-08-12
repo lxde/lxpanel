@@ -1,5 +1,6 @@
 /**
  * Copyright (c) 2012-2014 Piotr Sipika; see the AUTHORS file for more.
+ * Copyright (C) 2023 Ingo Brückl
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -1739,8 +1740,8 @@ gtk_weather_run_conditions_dialog(GtkWeather * weather)
                        GTK_EXPAND | GTK_FILL | GTK_SHRINK,
                        2,2);
 
-      gchar * pressure = g_strdup_printf("%4.2f %s", 
-                                         forecast->dPressure_,
+      gchar * pressure = g_strdup_printf("%ld %s",
+                                         (glong) forecast->dPressure_,
                                          forecast->units_.pcPressure_);
 
       GtkWidget * pressure_label = gtk_label_new(_("Pressure:"));
@@ -1766,8 +1767,8 @@ gtk_weather_run_conditions_dialog(GtkWeather * weather)
                        GTK_EXPAND | GTK_FILL | GTK_SHRINK,
                        2,2);
 
-      gchar * visibility = g_strdup_printf("%4.2f %s", 
-                                         forecast->dVisibility_,
+      gchar * visibility = g_strdup_printf("%ld %s",
+                                         (glong) forecast->dVisibility_,
                                          forecast->units_.pcDistance_);
 
       GtkWidget * visibility_label = gtk_label_new(_("Visibility:"));
