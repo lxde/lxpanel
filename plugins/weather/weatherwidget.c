@@ -1794,8 +1794,9 @@ gtk_weather_run_conditions_dialog(GtkWeather * weather)
                        GTK_EXPAND | GTK_FILL | GTK_SHRINK,
                        2,2);
 
-      gchar * wind = g_strdup_printf("%s, %d %s",
-                                     forecast->pcWindDirection_,
+      gchar * wind = g_strdup_printf("%s%s%d %s",
+                                     forecast->pcWindDirection_ ? forecast->pcWindDirection_ : "",
+                                     forecast->pcWindDirection_ ? ", ": "",
                                      forecast->iWindSpeed_,
                                      forecast->units_.pcSpeed_);
 
