@@ -181,6 +181,66 @@ setStringIfDifferent(gchar ** pcStorage,
 }
 
 /**
+ * Creates an image from an URL.
+ *
+ * @param pImage Pointer to the image storage.
+ * @param pczURL The url.
+ *
+ * @return 0 on succes, -1 on failure.
+ */
+static gint
+getImageFromURL(GdkPixbuf ** pImage, const gchar * pczURL)
+{
+  gint err = 0;
+  CURLcode iRetCode = 0;
+  gint iDataSize = 0;
+  char * pResponse = NULL;
+
+  iRetCode = getURL(pczURL, &pResponse, &iDataSize, NULL);
+
+  if (!pResponse || iRetCode != CURLE_OK)
+    {
+      LXW_LOG(LXW_ERROR, "openweathermap::getImageFromURL(): Failed to get URL (%d, %d)",
+              iRetCode, iDataSize);
+      g_free(pResponse);
+
+      return -1;
+    }
+
+  GInputStream * pInputStream = g_memory_input_stream_new_from_data(pResponse,
+                                                                    iDataSize,
+                                                                    g_free);
+
+  GError * pError = NULL;
+
+  *pImage = gdk_pixbuf_new_from_stream(pInputStream,
+                                       NULL,
+                                       &pError);
+
+  if (!*pImage)
+    {
+      LXW_LOG(LXW_ERROR, "openweathermap::getImageFromURL(): PixBuff allocation failed: %s",
+              pError->message);
+
+      g_error_free(pError);
+
+      err = -1;
+    }
+
+  if (!g_input_stream_close(pInputStream, NULL, &pError))
+    {
+      LXW_LOG(LXW_ERROR, "openweathermap::getImageFromURL(): InputStream closure failed: %s",
+              pError->message);
+
+      g_error_free(pError);
+
+      err = -1;
+    }
+
+  return err;
+}
+
+/**
  * Compares the URL of an image to the 'new' value. If the two
  * are different, the image at the 'new' URL is retrieved and replaces
  * the old one. The old one is freed.
@@ -214,51 +274,9 @@ setImageIfDifferent(gchar ** pcStorage,
           *pImage = NULL;
         }
 
-      // retrieve the URL and create the new image
-      CURLcode iRetCode = 0;
-      gint iDataSize = 0;
-      char * pResponse = NULL;
 
-      iRetCode = getURL(pczNewURL, &pResponse, &iDataSize, NULL);
 
-      if (!pResponse || iRetCode != CURLE_OK)
-        {
-          LXW_LOG(LXW_ERROR, "openweathermap::setImageIfDifferent(): Failed to get URL (%d, %d)",
-                  iRetCode, iDataSize);
-          g_free(pResponse);
-
-          return -1;
-        }
-
-      GInputStream * pInputStream = g_memory_input_stream_new_from_data(pResponse,
-                                                                        iDataSize,
-                                                                        g_free);
-
-      GError * pError = NULL;
-
-      *pImage = gdk_pixbuf_new_from_stream(pInputStream,
-                                           NULL,
-                                           &pError);
-
-      if (!*pImage)
-        {
-          LXW_LOG(LXW_ERROR, "openweathermap::setImageIfDifferent(): PixBuff allocation failed: %s",
-                  pError->message);
-
-          g_error_free(pError);
-
-          err = -1;
-        }
-
-      if (!g_input_stream_close(pInputStream, NULL, &pError))
-        {
-          LXW_LOG(LXW_ERROR, "openweathermap::setImageIfDifferent(): InputStream closure failed: %s",
-                  pError->message);
-
-          g_error_free(pError);
-
-          err = -1;
-        }
+      err = getImageFromURL(pImage, pczNewURL);
 
     }
 
