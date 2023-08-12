@@ -1,6 +1,7 @@
 /*
  * Copyright (C) 2012-2014 Piotr Sipika.
  * Copyright (C) 2019 Andriy Grytsenko <andrej@rep.kiev.ua>
+ * Copyright (C) 2023 Ingo Brückl
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -290,9 +291,54 @@ setIntIfDifferent(gint * piStorage, const gchar * pczString2)
 static gint
 setTimeIfDifferent(gchar ** pcStorage, const gchar * pczString)
 {
+  char adjTime[16];
+#if GLIB_CHECK_VERSION(2,26,0)
+  char *setTime = NULL;
+  gint year, month, day, hour, minute, second;
+  GDateTime *date_time = NULL;
+  time_t seconds;
+  struct tm *tm;
+
+  year = strtoul(pczString, (char **) &pczString, 10);
+
+  if (*pczString++ == '-')
+  {
+    month = strtoul(pczString, (char **) &pczString, 10);
+
+    if (*pczString++ == '-')
+    {
+      day = strtoul(pczString, (char **) &pczString, 10);
+
+      if (*pczString++ == 'T')
+      {
+        hour = strtoul(pczString, (char **) &pczString, 10);
+
+        if (*pczString++ == ':')
+        {
+          minute = strtoul(pczString, (char **) &pczString, 10);
+
+          if (*pczString++ == ':')
+          {
+            second = strtoul(pczString, (char **) &pczString, 10);
+
+            date_time = g_date_time_new_utc(year, month, day, hour, minute, second);
+          }
+        }
+      }
+    }
+  }
+
+  if (date_time)
+  {
+    seconds = g_date_time_to_unix(date_time);
+    tm = localtime(&seconds);
+    strftime(adjTime, sizeof(adjTime), "%H:%M:%S", tm);
+    setTime = adjTime;
+    g_date_time_unref(date_time);
+  }
+#else
   int hour, min, sec;
   char * setTime = pczString ? strchr(pczString, 'T') : NULL;
-  char adjTime[16];
 
   if (setTime && sscanf(setTime, "T%2u:%2u:%2u", &hour, &min, &sec) == 3)
     {
@@ -323,6 +369,7 @@ setTimeIfDifferent(gchar ** pcStorage, const gchar * pczString)
     }
   else
    setTime = NULL;
+#endif
 
   return setStringIfDifferent(pcStorage, setTime, setTime ? strlen(setTime) : 0);
 }
