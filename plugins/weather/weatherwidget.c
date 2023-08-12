@@ -2288,7 +2288,7 @@ gtk_weather_get_tooltip_text(GtkWeather * weather)
                                  forecast->pcClouds_ ? forecast->pcClouds_ : "",
                                  (forecast->pcConditions_ && forecast->pcClouds_) ? ", " : "",
                                  forecast->pcConditions_ ? forecast->pcConditions_ : "",
-                                 " ", temperature, "",
+                                 ", ", temperature, "",
 #if 0 // TODO!
                                  _("Today: "), today, "\n",
                                  _("Tomorrow: "), tomorrow,
