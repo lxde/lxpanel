@@ -592,7 +592,7 @@ parseResponse(const char * pResponse, GList ** pList, ForecastInfo ** pForecast,
  * pairs: first is ISO code, second is code on site
  */
 static const char *localeTranslations[] = {
-    "cs", "cz", /* Checz */
+    "cs", "cz", /* Czech */
     "es", "sp", /* Spanish */
     "ko", "kr", /* Korean */
     "lv", "la", /* Latvian */
@@ -600,8 +600,8 @@ static const char *localeTranslations[] = {
     "sq", "al", /* Albanian */
     "sv", "se", /* Swedish */
     "uk", "ua", /* Ukrainian */
-    "zh_CN", "zh_cn",
-    "zh_TW", "zh_tw",
+    "zh_CN", "zh_cn", /* Chinese, Simplified */
+    "zh_TW", "zh_tw", /* Chinese, Traditional */
     NULL
 };
 
