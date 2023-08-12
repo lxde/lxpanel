@@ -1942,7 +1942,7 @@ gtk_weather_run_conditions_dialog(GtkWeather * weather)
               gtk_weather_get_forecast(weather);
             }
 
-        }  while (response != GTK_RESPONSE_ACCEPT);
+        }  while (response != GTK_RESPONSE_ACCEPT && response != GTK_RESPONSE_DELETE_EVENT);
 
       if (GTK_IS_WIDGET(dialog))
         {
