@@ -1874,14 +1874,15 @@ gtk_weather_run_conditions_dialog(GtkWeather * weather)
       GtkWidget * icon_image = gtk_image_new_from_stock(GTK_STOCK_MISSING_IMAGE,
                                                         GTK_ICON_SIZE_MENU);
 
-      gchar * conditions_label_text = g_strdup_printf("<b>%d \302\260%s %s%s%s</b>", 
-                                                      forecast->iTemperature_,
-                                                      forecast->units_.pcTemperature_,
+      gchar * conditions_label_text = g_strdup_printf("<b>%s%s%s\n\n%d \302\260%s</b>",
                                                       forecast->pcClouds_ ? forecast->pcClouds_ : "",
                                                       (forecast->pcConditions_ && forecast->pcClouds_) ? ", " : "",
-                                                      forecast->pcConditions_ ? forecast->pcConditions_ : "");
+                                                      forecast->pcConditions_ ? forecast->pcConditions_ : "",
+                                                      forecast->iTemperature_,
+                                                      forecast->units_.pcTemperature_);
 
       GtkWidget * conditions_label = gtk_label_new(NULL);
+      gtk_label_set_justify(GTK_LABEL(conditions_label), GTK_JUSTIFY_CENTER);
       gtk_label_set_markup(GTK_LABEL(conditions_label), conditions_label_text);
 
       /* Pack boxes */
