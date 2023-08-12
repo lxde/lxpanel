@@ -7,6 +7,9 @@
 * Improved translations and design fix of ALSA volume control popup.
 * Made netstatus_icon_set_tooltips_enabled() work.
 * Fixed a sometimes incorrectly placed icon in the netstatus plugin.
+* Improved weather plugin: correct local time, normal closing of dialog,
+    easier to recognize information in dialog and tooltip, better quality
+    of weather conditions icon and image.
 
 0.10.1
 -------------------------------------------------------------------------
