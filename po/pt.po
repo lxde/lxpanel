@@ -3,7 +3,7 @@
 # This file is distributed under the same license as the lxpanel package.
 # Álvaro Morais <alvarommorais@gmail.com>, 2009.
 # Sérgio Marques <smarquespt@gmail.com>, 2010-2016.
-# Hugo Carvalho <hugokarvalho@hotmail.com>, 2021.
+# Hugo Carvalho <hugokarvalho@hotmail.com>, 2021, 2022, 2023.
 # Adaptado ao acordo ortográfico de 1990
 #
 msgid ""
@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-08-06 15:50+0200\n"
-"PO-Revision-Date: 2021-10-12 14:49+0100\n"
+"PO-Revision-Date: 2023-08-17 14:09+0100\n"
 "Last-Translator: Hugo Carvalho <hugokarvalho@hotmail.com>\n"
 "Language-Team: Portuguese\n"
 "Language: pt\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.0\n"
+"X-Generator: Poedit 3.3.2\n"
 "X-Pootle-Revision: 71\n"
 "X-Pootle-Path: /pt/lxpanel/po/pt.po\n"
 "X-Source-Language: C\n"
@@ -283,8 +283,6 @@ msgid "Spacer"
 msgstr "Separador"
 
 #: ../src/space.c:396 ../plugins/batt/batt.c:735
-#, fuzzy
-#| msgid "Size"
 msgctxt "Width"
 msgid "Size"
 msgstr "Tamanho"
@@ -551,8 +549,6 @@ msgid "Custom color"
 msgstr "Cor personalizada"
 
 #: ../data/ui/panel-pref.glade.h:32
-#, fuzzy
-#| msgid "Size"
 msgctxt "Font"
 msgid "Size"
 msgstr "Tamanho"
@@ -1023,10 +1019,10 @@ msgstr ""
 
 #. Display current level in tooltip.
 #: ../plugins/volumealsa/volumealsa.c:615
-#, fuzzy, c-format
+#, c-format
 #| msgid "Volume"
 msgid "Volume: %d%%"
-msgstr "Volume"
+msgstr "Volume: %d%%"
 
 #: ../plugins/volumealsa/volumealsa.c:703
 msgid ""
@@ -1069,17 +1065,15 @@ msgstr "Surround"
 
 #: ../plugins/volumealsa/volumealsa.c:1317
 msgid "Speaker+LO"
-msgstr "Colunas+Linha de saída"
+msgstr "Altifalante+Linha de saída"
 
 #: ../plugins/volumealsa/volumealsa.c:1318
-#, fuzzy
-#| msgid "Speaker+LO"
 msgid "Speaker"
-msgstr "Colunas+Linha de saída"
+msgstr "Altifalante"
 
 #: ../plugins/volumealsa/volumealsa.c:1318
 msgid "Beep"
-msgstr ""
+msgstr "Apitar"
 
 #: ../plugins/volumealsa/volumealsa.c:1357
 msgid "default"
@@ -1363,8 +1357,6 @@ msgid "The interface name"
 msgstr "Nome da interface"
 
 #: ../plugins/netstatus/netstatus-iface.c:157
-#, fuzzy
-#| msgid "State"
 msgctxt "Network"
 msgid "State"
 msgstr "Estado"
@@ -1608,10 +1600,9 @@ msgid "Sending/Receiving"
 msgstr "Envio/receção"
 
 #: ../plugins/batt/batt.c:159
-#, fuzzy, c-format
-#| msgid "Battery %d: %d%% charged, %d:%02d until full"
+#, c-format
 msgid "Battery: %d%% charged, %d:%02d until full"
-msgstr "Bateria: %d: %d%% carregada, %d:%02d até carregar"
+msgstr "Bateria: %d%% carregada, %d:%02d até carregar"
 
 #: ../plugins/batt/batt.c:163
 #, c-format
@@ -1619,10 +1610,9 @@ msgid "Battery %d: %d%% charged, %d:%02d until full"
 msgstr "Bateria: %d: %d%% carregada, %d:%02d até carregar"
 
 #: ../plugins/batt/batt.c:178
-#, fuzzy, c-format
-#| msgid "Battery %d: %d%% charged, %d:%02d left"
+#, c-format
 msgid "Battery: %d%% charged, %d:%02d left"
-msgstr "Bateria: %d: %d%% carregada, restam %d:%02d"
+msgstr "Bateria: %d%% carregada, %d:%02d restante"
 
 #: ../plugins/batt/batt.c:182
 #, c-format
@@ -1630,10 +1620,9 @@ msgid "Battery %d: %d%% charged, %d:%02d left"
 msgstr "Bateria: %d: %d%% carregada, restam %d:%02d"
 
 #: ../plugins/batt/batt.c:190
-#, fuzzy, c-format
-#| msgid "Battery %d: %d%% charged"
+#, c-format
 msgid "Battery: %d%% charged"
-msgstr "Bateria: %d: %d%% carregada"
+msgstr "Bateria: %d%% carregada"
 
 #: ../plugins/batt/batt.c:194
 #, c-format
@@ -1713,7 +1702,7 @@ msgstr ""
 "%sAtual:\t\t\t%5d mA"
 
 #: ../plugins/batt/batt.c:222
-#, fuzzy, c-format
+#, c-format
 #| msgid ""
 #| "\n"
 #| "%sCurrent Voltage:\t\t%.3lf V"
@@ -1782,7 +1771,7 @@ msgstr "Número da bateria a monitorizar"
 
 #: ../plugins/batt/batt.c:739
 msgid "Don't show number of battery"
-msgstr ""
+msgstr "Não mostrar o número da bateria"
 
 #: ../plugins/batt/batt.c:749
 msgid "Display battery status using ACPI"
@@ -1873,7 +1862,7 @@ msgstr "Cor de RAM"
 
 #: ../plugins/monitors/monitors.c:750
 msgid "Show memory used by cache as free"
-msgstr ""
+msgstr "Mostrar a memória utilizada pela cache como livre"
 
 #: ../plugins/monitors/monitors.c:751
 msgid "Action when clicked (default: lxtask)"
@@ -2066,8 +2055,6 @@ msgid "City"
 msgstr "Cidade"
 
 #: ../plugins/weather/weatherwidget.c:2137
-#, fuzzy
-#| msgid "State"
 msgctxt "Politics"
 msgid "State"
 msgstr "Estado"
