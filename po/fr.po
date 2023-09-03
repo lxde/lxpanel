@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel r839\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-06 15:50+0200\n"
+"POT-Creation-Date: 2023-09-03 21:29+0200\n"
 "PO-Revision-Date: 2017-05-23 09:24+0000\n"
 "Last-Translator: YvanM <yvan.masson@openmailbox.org>\n"
 "Language-Team: GNOME French Team <gnomefr@traduc.org>\n"
@@ -1116,51 +1116,63 @@ msgstr "Écouteurs"
 msgid "Click for Volume Slider"
 msgstr "Clic pour le curseur de volume"
 
-#: ../plugins/volumealsa/volumealsa.c:1451
+#: ../plugins/volumealsa/volumealsa.c:1448
+#: ../plugins/volumealsa/volumealsa.c:1453
+#: ../plugins/volumealsa/volumealsa.c:1458
+msgid "Click to select, then press a mouse button"
+msgstr ""
+
+#: ../plugins/volumealsa/volumealsa.c:1452
 msgid "Click for Toggle Mute"
 msgstr "Clic pour basculer la sourdine"
 
-#: ../plugins/volumealsa/volumealsa.c:1455
+#: ../plugins/volumealsa/volumealsa.c:1457
 msgid "Click for Open Mixer"
 msgstr "Clic pour ouvrir la console de mixage"
 
 #. setup hotkeys
-#: ../plugins/volumealsa/volumealsa.c:1459
+#: ../plugins/volumealsa/volumealsa.c:1462
 msgid "Hotkey for Volume Up"
 msgstr "Raccourci pour augmenter le volume"
 
-#: ../plugins/volumealsa/volumealsa.c:1461
+#: ../plugins/volumealsa/volumealsa.c:1463
+#: ../plugins/volumealsa/volumealsa.c:1466
+#: ../plugins/volumealsa/volumealsa.c:1469
+msgid "Click to select, then press a key"
+msgstr ""
+
+#: ../plugins/volumealsa/volumealsa.c:1465
 msgid "Hotkey for Volume Down"
 msgstr "Raccourci pour baisser le volume"
 
-#: ../plugins/volumealsa/volumealsa.c:1463
+#: ../plugins/volumealsa/volumealsa.c:1468
 msgid "Hotkey for Volume Mute"
 msgstr "Raccourci pour la sourdine"
 
-#: ../plugins/volumealsa/volumealsa.c:1519
-#: ../plugins/volumealsa/volumealsa.c:1558
-#: ../plugins/volumealsa/volumealsa.c:1579
+#: ../plugins/volumealsa/volumealsa.c:1525
+#: ../plugins/volumealsa/volumealsa.c:1564
+#: ../plugins/volumealsa/volumealsa.c:1585
 msgid "Volume Control"
 msgstr "Contrôle du volume"
 
-#: ../plugins/volumealsa/volumealsa.c:1521
+#: ../plugins/volumealsa/volumealsa.c:1527
 msgid "Audio Card"
 msgstr "Carte son"
 
-#: ../plugins/volumealsa/volumealsa.c:1524
+#: ../plugins/volumealsa/volumealsa.c:1530
 msgid "Channel to Operate"
 msgstr "Canal à commander"
 
-#: ../plugins/volumealsa/volumealsa.c:1532
+#: ../plugins/volumealsa/volumealsa.c:1538
 msgid "Command to Open Mixer"
 msgstr "Commande pour ouvrir la console de mixage"
 
-#: ../plugins/volumealsa/volumealsa.c:1547
+#: ../plugins/volumealsa/volumealsa.c:1553
 msgid "Launch Mixer"
 msgstr "Ouvrir la console de mixage"
 
-#: ../plugins/volumealsa/volumealsa.c:1559
-#: ../plugins/volumealsa/volumealsa.c:1580
+#: ../plugins/volumealsa/volumealsa.c:1565
+#: ../plugins/volumealsa/volumealsa.c:1586
 msgid "Display and control volume"
 msgstr "Afficher et contrôler le volume"
 
@@ -1906,19 +1918,19 @@ msgstr "Action lors d'un clic (par défaut : lxtask)"
 msgid "Display monitors (CPU, RAM)"
 msgstr "Affiche les moniteurs (processeur et mémoire vive)"
 
-#: ../plugins/weather/weatherwidget.c:52
+#: ../plugins/weather/weatherwidget.c:53
 msgid "[N/A]"
 msgstr "[N/A]"
 
-#: ../plugins/weather/weatherwidget.c:806
+#: ../plugins/weather/weatherwidget.c:807
 msgid "Enter New Location"
 msgstr "Saisir un nouveau lieu"
 
-#: ../plugins/weather/weatherwidget.c:820
+#: ../plugins/weather/weatherwidget.c:821
 msgid "_New Location:"
 msgstr "_Nouveau lieu :"
 
-#: ../plugins/weather/weatherwidget.c:831
+#: ../plugins/weather/weatherwidget.c:832
 msgid ""
 "Enter the:\n"
 "- city, or\n"
@@ -1932,183 +1944,183 @@ msgstr ""
 "- soit le code postal\n"
 "pour désigner le lieu pour lequel récupérer les prévisions météo."
 
-#: ../plugins/weather/weatherwidget.c:868
-#: ../plugins/weather/weatherwidget.c:1001
+#: ../plugins/weather/weatherwidget.c:869
+#: ../plugins/weather/weatherwidget.c:1002
 msgid "You must specify a location."
 msgstr "Vous devez spécifier un lieu."
 
-#: ../plugins/weather/weatherwidget.c:915
+#: ../plugins/weather/weatherwidget.c:916
 #, c-format
 msgid "Location '%s' not found!"
 msgstr "Le lieu « %s » n'a pas été trouvé !"
 
-#: ../plugins/weather/weatherwidget.c:1074
+#: ../plugins/weather/weatherwidget.c:1075
 msgid "Preferences"
 msgstr "Préférences"
 
-#: ../plugins/weather/weatherwidget.c:1080
+#: ../plugins/weather/weatherwidget.c:1081
 msgid "Refresh"
 msgstr "Actualiser"
 
-#: ../plugins/weather/weatherwidget.c:1086
+#: ../plugins/weather/weatherwidget.c:1087
 msgid "Quit"
 msgstr "Quitter"
 
-#: ../plugins/weather/weatherwidget.c:1253
+#: ../plugins/weather/weatherwidget.c:1254
 msgid "Weather Preferences"
 msgstr "Préférences Météo"
 
-#: ../plugins/weather/weatherwidget.c:1267
+#: ../plugins/weather/weatherwidget.c:1268
 msgid "Current Location"
 msgstr "Lieu actuel"
 
-#: ../plugins/weather/weatherwidget.c:1271
-#: ../plugins/weather/weatherwidget.c:1573
+#: ../plugins/weather/weatherwidget.c:1272
+#: ../plugins/weather/weatherwidget.c:1574
 msgid "None configured"
 msgstr "Aucun lieu configuré"
 
-#: ../plugins/weather/weatherwidget.c:1273
-#: ../plugins/weather/weatherwidget.c:1570
+#: ../plugins/weather/weatherwidget.c:1274
+#: ../plugins/weather/weatherwidget.c:1571
 msgid "_Set"
 msgstr "_Définir"
 
-#: ../plugins/weather/weatherwidget.c:1294
+#: ../plugins/weather/weatherwidget.c:1295
 msgid "Display"
 msgstr "Affichage"
 
-#: ../plugins/weather/weatherwidget.c:1298
+#: ../plugins/weather/weatherwidget.c:1299
 msgid "Name:"
 msgstr "Nom :"
 
-#: ../plugins/weather/weatherwidget.c:1302
+#: ../plugins/weather/weatherwidget.c:1303
 msgid "Units:"
 msgstr "Unités :"
 
-#: ../plugins/weather/weatherwidget.c:1306
+#: ../plugins/weather/weatherwidget.c:1307
 msgid "_Metric (°C)"
 msgstr "_Métriques (°C)"
 
-#: ../plugins/weather/weatherwidget.c:1308
+#: ../plugins/weather/weatherwidget.c:1309
 msgid "_English (°F)"
 msgstr "_Anglaises (°F)"
 
-#: ../plugins/weather/weatherwidget.c:1343
+#: ../plugins/weather/weatherwidget.c:1344
 msgid "Forecast"
 msgstr "Prévisions"
 
-#: ../plugins/weather/weatherwidget.c:1347
+#: ../plugins/weather/weatherwidget.c:1348
 msgid "Updates:"
 msgstr "Mises à jour :"
 
-#: ../plugins/weather/weatherwidget.c:1351
+#: ../plugins/weather/weatherwidget.c:1352
 msgid "Ma_nual"
 msgstr "Ma_nuelles"
 
-#: ../plugins/weather/weatherwidget.c:1355
+#: ../plugins/weather/weatherwidget.c:1356
 msgid "_Automatic, every"
 msgstr "_Automatique, toutes les"
 
-#: ../plugins/weather/weatherwidget.c:1376
+#: ../plugins/weather/weatherwidget.c:1377
 msgid "minutes"
 msgstr "minutes"
 
-#: ../plugins/weather/weatherwidget.c:1385
+#: ../plugins/weather/weatherwidget.c:1386
 msgid "Source:"
 msgstr "Source :"
 
-#: ../plugins/weather/weatherwidget.c:1521
+#: ../plugins/weather/weatherwidget.c:1522
 msgid "C_hange"
 msgstr "M_odifier"
 
 #. Both are available
-#: ../plugins/weather/weatherwidget.c:1612
+#: ../plugins/weather/weatherwidget.c:1613
 #, c-format
 msgid "Current Conditions for %s"
 msgstr "Conditions actuelles pour %s"
 
-#: ../plugins/weather/weatherwidget.c:1636
+#: ../plugins/weather/weatherwidget.c:1637
 msgid "Location:"
 msgstr "Lieu :"
 
-#: ../plugins/weather/weatherwidget.c:1659
+#: ../plugins/weather/weatherwidget.c:1660
 msgid "Last updated:"
 msgstr "Dernière mise à jour :"
 
-#: ../plugins/weather/weatherwidget.c:1693
+#: ../plugins/weather/weatherwidget.c:1694
 msgid "Feels like:"
 msgstr "Température ressentie :"
 
-#: ../plugins/weather/weatherwidget.c:1719
+#: ../plugins/weather/weatherwidget.c:1720
 msgid "Humidity:"
 msgstr "Humidité :"
 
-#: ../plugins/weather/weatherwidget.c:1746
+#: ../plugins/weather/weatherwidget.c:1747
 msgid "Pressure:"
 msgstr "Pression :"
 
-#: ../plugins/weather/weatherwidget.c:1773
+#: ../plugins/weather/weatherwidget.c:1774
 msgid "Visibility:"
 msgstr "Visibilité :"
 
-#: ../plugins/weather/weatherwidget.c:1801
+#: ../plugins/weather/weatherwidget.c:1803
 msgid "Wind:"
 msgstr "Vent :"
 
-#: ../plugins/weather/weatherwidget.c:1824
+#: ../plugins/weather/weatherwidget.c:1826
 msgid "Sunrise:"
 msgstr "Lever du soleil :"
 
-#: ../plugins/weather/weatherwidget.c:1847
+#: ../plugins/weather/weatherwidget.c:1849
 msgid "Sunset:"
 msgstr "Coucher du soleil :"
 
-#: ../plugins/weather/weatherwidget.c:1955
-#: ../plugins/weather/weatherwidget.c:2306
+#: ../plugins/weather/weatherwidget.c:1958
+#: ../plugins/weather/weatherwidget.c:2309
 #, c-format
 msgid "Forecast for %s unavailable."
 msgstr "Prévisions pour %s indisponibles."
 
-#: ../plugins/weather/weatherwidget.c:1964
-#: ../plugins/weather/weatherwidget.c:2311
+#: ../plugins/weather/weatherwidget.c:1967
+#: ../plugins/weather/weatherwidget.c:2314
 #, c-format
 msgid "Location not set."
 msgstr "Lieu non défini."
 
-#: ../plugins/weather/weatherwidget.c:1981
+#: ../plugins/weather/weatherwidget.c:1984
 #, c-format
 msgid "Searching for '%s'..."
 msgstr "Recherche de « %s »..."
 
-#: ../plugins/weather/weatherwidget.c:2107
+#: ../plugins/weather/weatherwidget.c:2110
 #, c-format
 msgid "Location matches for '%s'"
 msgstr "Lieux correspondant à « %s »"
 
-#: ../plugins/weather/weatherwidget.c:2127
+#: ../plugins/weather/weatherwidget.c:2130
 msgid "City"
 msgstr "Ville"
 
-#: ../plugins/weather/weatherwidget.c:2137
+#: ../plugins/weather/weatherwidget.c:2140
 #, fuzzy
 #| msgid "State"
 msgctxt "Politics"
 msgid "State"
 msgstr "État"
 
-#: ../plugins/weather/weatherwidget.c:2147
+#: ../plugins/weather/weatherwidget.c:2150
 msgid "Country"
 msgstr "Pays"
 
 #. make it nice and pretty
-#: ../plugins/weather/weatherwidget.c:2286
+#: ../plugins/weather/weatherwidget.c:2289
 msgid "Currently in "
 msgstr "Actuellement à "
 
-#: ../plugins/weather/weatherwidget.c:2292
+#: ../plugins/weather/weatherwidget.c:2295
 msgid "Today: "
 msgstr "Aujourd'hui : "
 
-#: ../plugins/weather/weatherwidget.c:2293
+#: ../plugins/weather/weatherwidget.c:2296
 msgid "Tomorrow: "
 msgstr "Demain : "
 
@@ -2120,87 +2132,87 @@ msgstr "Greffon de météo"
 msgid "Show weather conditions for a location."
 msgstr "Affiche les conditions météo pour un lieu donné."
 
-#: ../plugins/weather/yahooutil.c:51 ../plugins/weather/openweathermap.c:56
+#: ../plugins/weather/yahooutil.c:51 ../plugins/weather/openweathermap.c:57
 msgid "N"
 msgstr ""
 
-#: ../plugins/weather/yahooutil.c:52 ../plugins/weather/openweathermap.c:57
+#: ../plugins/weather/yahooutil.c:52 ../plugins/weather/openweathermap.c:58
 msgid "NNE"
 msgstr ""
 
-#: ../plugins/weather/yahooutil.c:53 ../plugins/weather/openweathermap.c:58
+#: ../plugins/weather/yahooutil.c:53 ../plugins/weather/openweathermap.c:59
 msgid "NE"
 msgstr ""
 
-#: ../plugins/weather/yahooutil.c:54 ../plugins/weather/openweathermap.c:59
+#: ../plugins/weather/yahooutil.c:54 ../plugins/weather/openweathermap.c:60
 msgid "ENE"
 msgstr ""
 
-#: ../plugins/weather/yahooutil.c:55 ../plugins/weather/openweathermap.c:60
+#: ../plugins/weather/yahooutil.c:55 ../plugins/weather/openweathermap.c:61
 msgid "E"
 msgstr ""
 
-#: ../plugins/weather/yahooutil.c:56 ../plugins/weather/openweathermap.c:61
+#: ../plugins/weather/yahooutil.c:56 ../plugins/weather/openweathermap.c:62
 msgid "ESE"
 msgstr ""
 
-#: ../plugins/weather/yahooutil.c:57 ../plugins/weather/openweathermap.c:62
+#: ../plugins/weather/yahooutil.c:57 ../plugins/weather/openweathermap.c:63
 msgid "SE"
 msgstr ""
 
-#: ../plugins/weather/yahooutil.c:58 ../plugins/weather/openweathermap.c:63
+#: ../plugins/weather/yahooutil.c:58 ../plugins/weather/openweathermap.c:64
 msgid "SSE"
 msgstr ""
 
-#: ../plugins/weather/yahooutil.c:59 ../plugins/weather/openweathermap.c:64
+#: ../plugins/weather/yahooutil.c:59 ../plugins/weather/openweathermap.c:65
 msgid "S"
 msgstr ""
 
-#: ../plugins/weather/yahooutil.c:60 ../plugins/weather/openweathermap.c:65
+#: ../plugins/weather/yahooutil.c:60 ../plugins/weather/openweathermap.c:66
 msgid "SSW"
 msgstr ""
 
-#: ../plugins/weather/yahooutil.c:61 ../plugins/weather/openweathermap.c:66
+#: ../plugins/weather/yahooutil.c:61 ../plugins/weather/openweathermap.c:67
 msgid "SW"
 msgstr ""
 
-#: ../plugins/weather/yahooutil.c:62 ../plugins/weather/openweathermap.c:67
+#: ../plugins/weather/yahooutil.c:62 ../plugins/weather/openweathermap.c:68
 msgid "WSW"
 msgstr ""
 
-#: ../plugins/weather/yahooutil.c:63 ../plugins/weather/openweathermap.c:68
+#: ../plugins/weather/yahooutil.c:63 ../plugins/weather/openweathermap.c:69
 msgid "W"
 msgstr ""
 
-#: ../plugins/weather/yahooutil.c:64 ../plugins/weather/openweathermap.c:69
+#: ../plugins/weather/yahooutil.c:64 ../plugins/weather/openweathermap.c:70
 msgid "WNW"
 msgstr ""
 
-#: ../plugins/weather/yahooutil.c:65 ../plugins/weather/openweathermap.c:70
+#: ../plugins/weather/yahooutil.c:65 ../plugins/weather/openweathermap.c:71
 msgid "NW"
 msgstr ""
 
-#: ../plugins/weather/yahooutil.c:66 ../plugins/weather/openweathermap.c:71
+#: ../plugins/weather/yahooutil.c:66 ../plugins/weather/openweathermap.c:72
 msgid "NNW"
 msgstr ""
 
-#: ../plugins/weather/yahooutil.c:1086
+#: ../plugins/weather/yahooutil.c:1092
 msgid "Yahoo! Weather"
 msgstr ""
 
-#: ../plugins/weather/openweathermap.c:365
+#: ../plugins/weather/openweathermap.c:472
 msgid "Mph"
 msgstr ""
 
-#: ../plugins/weather/openweathermap.c:365
+#: ../plugins/weather/openweathermap.c:472
 msgid "m/s"
 msgstr ""
 
-#: ../plugins/weather/openweathermap.c:535
+#: ../plugins/weather/openweathermap.c:642
 msgid "m"
 msgstr ""
 
-#: ../plugins/weather/openweathermap.c:932
+#: ../plugins/weather/openweathermap.c:1052
 msgid "OpenWeatherMap"
 msgstr ""
 
