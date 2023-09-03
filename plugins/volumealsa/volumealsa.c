@@ -11,7 +11,7 @@
  *               2014 Peter <ombalaxitabou@users.sf.net>
  *               2014-2016 Andriy Grytsenko <andrej@rep.kiev.ua>
  *               2020 TheZxcv <the.uint64.t@gmail.com>
- *               2020 Ingo Brückl
+ *               2020-2023 Ingo Brückl
  *
  * This file is a part of LXPanel project.
  *
@@ -1445,22 +1445,28 @@ static GtkWidget *volumealsa_configure(LXPanel *panel, GtkWidget *p)
     if (!config_setting_lookup_string(vol->settings, "SliderButton", &tmp_str))
         tmp_str = "1";
     volume_button = panel_config_click_button_new(_("Click for Volume Slider"), tmp_str);
+    gtk_widget_set_tooltip_text(volume_button, _("Click to select, then press a mouse button"));
     g_signal_connect(volume_button, "changed", G_CALLBACK(volume_button_changed), vol);
     if (!config_setting_lookup_string(vol->settings, "MuteButton", &tmp_str))
         tmp_str = "2";
     mute_button = panel_config_click_button_new(_("Click for Toggle Mute"), tmp_str);
+    gtk_widget_set_tooltip_text(mute_button, _("Click to select, then press a mouse button"));
     g_signal_connect(mute_button, "changed", G_CALLBACK(mute_button_changed), vol);
     if (!config_setting_lookup_string(vol->settings, "MixerButton", &tmp_str))
         tmp_str = NULL;
     mixer_button = panel_config_click_button_new(_("Click for Open Mixer"), tmp_str);
+    gtk_widget_set_tooltip_text(mixer_button, _("Click to select, then press a mouse button"));
     g_signal_connect(mixer_button, "changed", G_CALLBACK(mixer_button_changed), vol);
 
     /* setup hotkeys */
     up_key = panel_config_hotkey_button_new(_("Hotkey for Volume Up"), vol->hotkey_up);
+    gtk_widget_set_tooltip_text(up_key, _("Click to select, then press a key"));
     g_signal_connect(up_key, "changed", G_CALLBACK(up_key_changed), vol);
     down_key = panel_config_hotkey_button_new(_("Hotkey for Volume Down"), vol->hotkey_down);
+    gtk_widget_set_tooltip_text(down_key, _("Click to select, then press a key"));
     g_signal_connect(down_key, "changed", G_CALLBACK(down_key_changed), vol);
     mute_key = panel_config_hotkey_button_new(_("Hotkey for Volume Mute"), vol->hotkey_mute);
+    gtk_widget_set_tooltip_text(mute_key, _("Click to select, then press a key"));
     g_signal_connect(mute_key, "changed", G_CALLBACK(mute_key_changed), vol);
 
     /* setup mixer selector */
