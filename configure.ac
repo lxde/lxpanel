@@ -34,6 +34,7 @@ AC_HELP_STRING([--enable-gtk3],[enable to use gtk-3.0 instead of gtk-2.0]),
 esac],[])
 
 if test "x$enable_gtk3" = "xyes" ; then
+  CFLAGS="$CFLAGS -Wno-deprecated-declarations"
   gtk_module="gtk+-3.0"
   pkg_modules="$pkg_modules $gtk_module libfm-gtk3 >= 1.2.0 libwnck-3.0"
   keybinder_module=keybinder-3.0
