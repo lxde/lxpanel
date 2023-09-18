@@ -880,5 +880,5 @@ void netstatus_dialog_present (GtkWidget *dialog)
 
     data = g_object_get_data(G_OBJECT(dialog), "netstatus-dialog-data");
     gtk_window_present(GTK_WINDOW(dialog));
-    gtk_widget_show(data->icon);
+    gtk_widget_show(GTK_WIDGET(data->icon));
 }
