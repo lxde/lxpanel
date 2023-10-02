@@ -163,7 +163,9 @@ xkb_la_CFLAGS = \
 xkb_la_SOURCES = \
 	xkb/xkb-plugin.c \
 	xkb/xkb.c
-xkb_la_LIBADD = $(X11_LIBS)
+xkb_la_LIBADD = \
+	$(X11_LIBS) \
+	$(XKB_LIBS)
 
 xkeyboardconfigdir=$(datadir)/lxpanel/xkeyboardconfig
 xkeyboardconfig_DATA = \
