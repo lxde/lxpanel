@@ -929,6 +929,7 @@ static void _panel_update_background(LXPanel * p, gboolean enforce)
 
 #define GAP 2
 #define PERIOD 300
+#define SHOW_PERIOD 3000
 
 typedef enum
 {
@@ -965,6 +966,9 @@ mouse_watch(LXPanel *panel)
 
     if (p->move_state != PANEL_MOVE_STOP)
         /* prevent autohide when dragging is on */
+        return TRUE;
+    if (p->hide_timeout != 0)
+        /* Wait for hidden timeout */
         return TRUE;
 
     if (cw == 1) cw = 0;
@@ -1071,6 +1075,17 @@ static void ah_state_set(LXPanel *panel, PanelAHState ah_state)
         case AH_STATE_HIDDEN:
             ah_state_set(panel, AH_STATE_VISIBLE);
         }
+    }
+    RET();
+}
+
+/* Show panel if it is hidden */
+void ah_show_panel(LXPanel *p)
+{
+    ENTER;
+    if (!p->priv->visible) {
+        ah_state_set(p, AH_STATE_VISIBLE);
+        p->priv->hide_timeout = g_timeout_add(SHOW_PERIOD, ah_state_hide_timeout, p);
     }
     RET();
 }
