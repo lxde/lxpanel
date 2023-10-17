@@ -28,6 +28,7 @@ G_BEGIN_DECLS
 typedef struct /* bitwise rendering options for taskbar */
 {
     gboolean show_all_desks : 1;        /* show windows from all desktops */
+    gboolean show_square_brackets : 1;  /* show square brackets around the names of minimized windows */
     gboolean tooltips : 1;              /* show tooltips */
     gboolean icons_only : 1;            /* show icons only, omit name */
     gboolean use_mouse_wheel : 1;       /* scroll wheel does iconify and raise */
