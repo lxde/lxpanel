@@ -392,9 +392,9 @@ static void panel_icon_grid_get_preferred_width(GtkWidget *widget,
     }
     panel_icon_grid_size_request(widget, &requisition);
     if (minimal_width)
-        *minimal_width = requisition.width;
+        *minimal_width = ig->constrain_width ? 2 : requisition.width;
     if (natural_width)
-        *natural_width = requisition.width;
+        *natural_width = ig->constrain_width ? 2 : requisition.width;
 }
 
 static void panel_icon_grid_get_preferred_height(GtkWidget *widget,
