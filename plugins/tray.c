@@ -631,7 +631,7 @@ static GtkWidget *tray_constructor(LXPanel *panel, config_setting_t *settings)
     /* Add GDK event filter. */
     gdk_window_add_filter(NULL, (GdkFilterFunc) tray_event_filter, tr);
     /* Reference the window since it is never added to a container. */
-    tr->invisible = g_object_ref_sink(G_OBJECT(invisible));
+    tr->invisible = GTK_WIDGET(g_object_ref_sink(G_OBJECT(invisible)));
     tr->invisible_window = GDK_WINDOW_XID(gtk_widget_get_window(invisible));
 
     /* Allocate top level widget and set into Plugin widget pointer. */
