@@ -314,7 +314,7 @@ AC_SUBST(PLUGINS_LIST)
 # nestat
 if test x"$plugin_netstat" != "x";then
 AC_CHECK_HEADER([iwlib.h],,
- AC_MSG_ERROR([netstat plugin requires wireless-tools-devel]))
+ AC_MSG_ERROR([netstat plugin requires libiw development files]))
 fi
 
 # weather
