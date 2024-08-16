@@ -1,7 +1,0 @@
-lxpanel (0.4.1+svn20090524-1) unstable; urgency=low
-
-  Due to upstream dropped netstat plugin. User who installed
-  lxpanel-netstat-plugin are encouraged to switch to either wicd or
-  network-manager-gnome.
-
- -- Andrew Lee <andrew@linux.org.tw>  Sat, 30 May 2009 00:11:53 +0800

@@ -1,7 +1,0 @@
-usr/bin
-usr/lib/*/lxpanel/liblxpanel.so.*
-usr/lib/*/lxpanel/plugins
-usr/share/man
-etc/xdg/lxpanel
-
-debian/desktop/*	/usr/share/applications
