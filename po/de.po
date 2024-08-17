@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-09-03 21:29+0200\n"
-"PO-Revision-Date: 2023-09-03 21:49+0200\n"
+"PO-Revision-Date: 2024-08-17 20:01+0200\n"
 "Last-Translator: Ingo Brückl <ib@oddnet.de>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: de\n"
@@ -1812,15 +1812,15 @@ msgstr "Statusanzeigen für die Feststell-, Num- und Rollen-Taste"
 #. A label to allow for click through
 #: ../plugins/indicator/indicator.c:694
 msgid "No Indicators"
-msgstr "Keine Anzeige-Applets"
+msgstr "Keine Statusmeldungsanzeigen"
 
 #: ../plugins/indicator/indicator.c:863 ../plugins/indicator/indicator.c:881
 msgid "Indicator applets"
-msgstr "Anzeige-Applets"
+msgstr "Statusmeldungsanzeigen"
 
 #: ../plugins/indicator/indicator.c:865
 msgid "Indicator Applications"
-msgstr "Anzeige-Applets"
+msgstr "Statusmeldungsanwendungen"
 
 #: ../plugins/indicator/indicator.c:866
 msgid "Clock Indicator"
@@ -1844,7 +1844,7 @@ msgstr "Audioanzeige"
 
 #: ../plugins/indicator/indicator.c:882
 msgid "Add indicator applets to the panel"
-msgstr "Anzeige-Applets zur Leiste hinzufügen"
+msgstr "Statusmeldungsanzeigen zur Leiste hinzufügen"
 
 #: ../plugins/monitors/monitors.c:290
 #, c-format
