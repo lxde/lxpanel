@@ -3,7 +3,7 @@
 # This file is distributed under the same license as the lxpanel package.
 # Álvaro Morais <alvarommorais@gmail.com>, 2009.
 # Sérgio Marques <smarquespt@gmail.com>, 2010-2016.
-# Hugo Carvalho <hugokarvalho@hotmail.com>, 2021, 2022, 2023.
+# Hugo Carvalho <hugokarvalho@hotmail.com>, 2021, 2022, 2023, 2024.
 # Adaptado ao acordo ortográfico de 1990
 #
 msgid ""
@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-09-03 21:29+0200\n"
-"PO-Revision-Date: 2023-08-17 14:09+0100\n"
+"PO-Revision-Date: 2024-08-17 14:36+0100\n"
 "Last-Translator: Hugo Carvalho <hugokarvalho@hotmail.com>\n"
 "Language-Team: Portuguese\n"
 "Language: pt\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.3.2\n"
+"X-Generator: Poedit 3.4.4\n"
 "X-Pootle-Revision: 71\n"
 "X-Pootle-Path: /pt/lxpanel/po/pt.po\n"
 "X-Source-Language: C\n"
@@ -1099,7 +1099,7 @@ msgstr "Clqieu para mostrar o controlador"
 #: ../plugins/volumealsa/volumealsa.c:1453
 #: ../plugins/volumealsa/volumealsa.c:1458
 msgid "Click to select, then press a mouse button"
-msgstr ""
+msgstr "Clique para selecionar e, em seguida, prima um botão do rato"
 
 #: ../plugins/volumealsa/volumealsa.c:1452
 msgid "Click for Toggle Mute"
@@ -1118,7 +1118,7 @@ msgstr "Tecla de atalho para aumentar o volume"
 #: ../plugins/volumealsa/volumealsa.c:1466
 #: ../plugins/volumealsa/volumealsa.c:1469
 msgid "Click to select, then press a key"
-msgstr ""
+msgstr "Clique para selecionar e, em seguida, prima uma tecla"
 
 #: ../plugins/volumealsa/volumealsa.c:1465
 msgid "Hotkey for Volume Down"
