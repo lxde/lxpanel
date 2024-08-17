@@ -195,12 +195,13 @@ plugin_volume=
 plugin_cpu=
 plugin_deskno=
 plugin_batt=
-plugin_xkb=
 plugin_kbled=
+plugin_xkb=
 plugin_thermal=
 plugin_cpufreq=
 plugin_monitors=
 plugin_indicator=
+plugin_weather=
 
 AC_MSG_CHECKING([which plugins should be built dynamically])
 AC_ARG_WITH(plugins,
