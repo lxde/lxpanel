@@ -62,7 +62,7 @@ AC_SUBST(KEYBINDER_LIBS)
 ###########################
 AC_ARG_ENABLE([indicator_support],
     AS_HELP_STRING([--enable-indicator-support],
-               [enable plugin loading (default: disable)]),
+               [enable status notifier items (default: disable)]),
                indicator_support=$enableval, indicator_support="no")
 AM_CONDITIONAL(ENABLE_INDICATOR_SUPPORT, test x"$indicator_support" = x"yes")
 
