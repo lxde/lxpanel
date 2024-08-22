@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2014-2016 Andriy Grytsenko <andrej@rep.kiev.ua>
+ *               2024 Ingo Brückl
  *
  * This file is a part of LXPanel project.
  *
@@ -42,6 +43,14 @@
 
 #if !GTK_CHECK_VERSION(2, 24, 0)
 #  define  gdk_window_get_screen        gdk_drawable_get_screen
+#endif
+
+#if !GLIB_CHECK_VERSION(2, 28, 0)
+#define g_list_free_full(list, free_func)        \
+{                                                \
+  g_list_foreach(list, (GFunc) free_func, NULL); \
+  g_list_free(list);                             \
+}
 #endif
 
 #if GTK_CHECK_VERSION(3, 0, 0)

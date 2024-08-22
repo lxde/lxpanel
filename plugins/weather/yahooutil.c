@@ -42,6 +42,8 @@
 #include <stdlib.h>
 #include <locale.h>
 
+#include "gtk-compat.h"
+
 #define XMLCHAR_P(x) (xmlChar *)(x)
 #define CONSTXMLCHAR_P(x) (const xmlChar *)(x)
 #define CONSTCHAR_P(x) (const char *)(x)
