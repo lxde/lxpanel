@@ -4,6 +4,7 @@
 AM_CPPFLAGS = \
 	-I$(top_srcdir) \
 	-I$(top_srcdir)/src \
+	$(GTK_CFLAGS) \
 	$(PACKAGE_CFLAGS) \
 	$(G_CAST_CHECKS)
 
@@ -11,6 +12,7 @@ AM_LDFLAGS = \
 	-module -avoid-version -shared -export-dynamic \
 	-no-undefined -rpath $(libdir)/lxpanel/plugins \
 	$(top_builddir)/src/liblxpanel.la \
+	$(GTK_LIBS) \
 	$(PACKAGE_LIBS)
 
 BUILT_SOURCES = $(top_builddir)/src/liblxpanel.la

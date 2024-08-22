@@ -9,6 +9,7 @@ lxpanel_CPPFLAGS = \
 	-DPACKAGE_UI_DIR=\""$(datadir)/lxpanel/ui"\" \
 	-DPACKAGE_BIN_DIR=\""$(bindir)"\" \
 	-DPACKAGE_LOCALE_DIR=\""$(prefix)/$(DATADIRNAME)/locale"\" \
+	$(GTK_CFLAGS) \
 	$(PACKAGE_CFLAGS) \
 	$(KEYBINDER_CFLAGS) \
 	$(G_CAST_CHECKS)
@@ -40,6 +41,7 @@ liblxpanel_la_LDFLAGS = \
 	-version-info 0:0:0
 
 liblxpanel_la_LIBADD = \
+	$(GTK_LIBS) \
 	$(PACKAGE_LIBS) \
 	$(KEYBINDER_LIBS) \
 	$(X11_LIBS)
@@ -67,6 +69,7 @@ lxpanel_LDFLAGS = $(DYNAMIC_FLAGS)
 lxpanel_LDADD = \
 		liblxpanel.la \
 		$(BUILTIN_PLUGINS) \
+		$(GTK_LIBS) \
 		$(PACKAGE_LIBS) \
 		$(KEYBINDER_LIBS) \
 		$(X11_LIBS)
