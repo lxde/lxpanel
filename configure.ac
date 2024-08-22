@@ -44,6 +44,8 @@ else
   keybinder_module=keybinder
 fi
 
+PKG_CHECK_MODULES(GLIB, [glib-2.0 >= 2.22.0])
+
 pkg_modules="$pkg_modules \
              gio-unix-2.0 \
              gthread-2.0 \
