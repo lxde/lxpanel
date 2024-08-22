@@ -46,6 +46,7 @@ fi
 
 PKG_CHECK_MODULES(GLIB, [glib-2.0 >= 2.22.0])
 
+_gtk_cflags_libs="$GTK_CFLAGS$GTK_LIBS"
 PKG_CHECK_MODULES(GTK, [$gtk_module])
 AC_SUBST(GTK_CFLAGS)
 AC_SUBST(GTK_LIBS)
@@ -319,6 +320,17 @@ AC_SUBST(PLUGINS_LIST)
 if test x"$plugin_netstat" != "x";then
 AC_CHECK_HEADER([iwlib.h],,
  AC_MSG_ERROR([netstat plugin requires libiw development files]))
+fi
+
+# xkb
+if test x"$plugin_xkb" != "x";then
+  if test "x$enable_gtk3" != "xyes"; then
+    if test -z "$_gtk_cflags_libs"; then
+      GTK_CFLAGS=
+      GTK_LIBS=
+    fi
+    PKG_CHECK_MODULES(GTK, [gtk+-2.0 >= 2.20.0])
+  fi
 fi
 
 # weather
