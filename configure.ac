@@ -36,20 +36,17 @@ esac],[])
 if test "x$enable_gtk3" = "xyes" ; then
   CFLAGS="$CFLAGS -Wno-deprecated-declarations"
   gtk_module="gtk+-3.0"
-  pkg_modules="$pkg_modules $gtk_module libfm-gtk3 >= 1.2.0 libwnck-3.0"
+  pkg_modules="$gtk_module libfm-gtk3 >= 1.2.0 libwnck-3.0"
   keybinder_module=keybinder-3.0
 else
   gtk_module="gtk+-2.0 >= 2.18.0"
-  pkg_modules="$pkg_modules $gtk_module libfm-gtk >= 1.2.0 libwnck-1.0"
+  pkg_modules="$gtk_module libfm-gtk >= 1.2.0 libwnck-1.0"
   keybinder_module=keybinder
 fi
 
 PKG_CHECK_MODULES(GLIB, [glib-2.0 >= 2.22.0])
 
-pkg_modules="$pkg_modules \
-             gio-unix-2.0 \
-             gthread-2.0 \
-             gmodule-2.0"
+pkg_modules="$pkg_modules gio-unix-2.0 gthread-2.0 gmodule-2.0"
 PKG_CHECK_MODULES(PACKAGE, [$pkg_modules])
 AC_SUBST(PACKAGE_CFLAGS)
 AC_SUBST(PACKAGE_LIBS)
