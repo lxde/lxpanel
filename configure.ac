@@ -44,6 +44,7 @@ else
   keybinder_module=keybinder
 fi
 
+_glib_cflags_libs="$GLIB_CFLAGS$GLIB_LIBS"
 PKG_CHECK_MODULES(GLIB, [glib-2.0 >= 2.22.0])
 
 _gtk_cflags_libs="$GTK_CFLAGS$GTK_LIBS"
@@ -335,6 +336,11 @@ fi
 
 # weather
 if test x"$plugin_weather" != "x";then
+  if test -z "$_glib_cflags_libs"; then
+    GLIB_CFLAGS=
+    GLIB_LIBS=
+  fi
+PKG_CHECK_MODULES(GLIB, [glib-2.0 >= 2.26.0])
 PKG_CHECK_MODULES([LIBXML2], [libxml-2.0])
 AC_SUBST(LIBXML2_CFLAGS)
 AC_SUBST(LIBXML2_LIBS)
