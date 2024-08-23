@@ -124,7 +124,7 @@ static gboolean wincmd_button_clicked(GtkWidget * widget, GdkEventButton * event
     WinCmdPlugin * wc = lxpanel_plugin_get_data(widget);
 
     /* Left-click to iconify. */
-    if (event->button == 1)
+    if (event->button == 1 && event->type == GDK_BUTTON_PRESS)
     {
         GdkScreen* screen = gtk_widget_get_screen(widget);
         Screen *xscreen = GDK_SCREEN_XSCREEN(screen);
