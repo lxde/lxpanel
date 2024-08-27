@@ -797,6 +797,17 @@ static void volumealsa_popup_scale_scrolled(GtkScale * scale, GdkEventScroll * e
     /* Dispatch on scroll direction to update the value. */
     if ((evt->direction == GDK_SCROLL_UP) || (evt->direction == GDK_SCROLL_LEFT))
         val += 2;
+#if GTK_CHECK_VERSION(3, 0, 0)
+    else if (evt->direction == GDK_SCROLL_SMOOTH)
+    {
+        gdouble delta_x, delta_y;
+        gdk_event_get_scroll_deltas(evt, &delta_x, &delta_y);
+        if ((delta_x < 0) || (delta_y < 0))
+            val += 2;
+        else
+            val -= 2;
+    }
+#endif
     else
         val -= 2;
 
@@ -972,6 +983,9 @@ static GtkWidget *volumealsa_constructor(LXPanel *panel, config_setting_t *setti
     /* Allocate top level widget and set into Plugin widget pointer. */
     vol->panel = panel;
     vol->plugin = p = gtk_event_box_new();
+#if GTK_CHECK_VERSION(3, 0, 0)
+    gtk_widget_add_events(p, GDK_SCROLL_MASK);
+#endif
     vol->settings = settings;
     lxpanel_plugin_set_data(p, vol, volumealsa_destructor);
     gtk_widget_set_tooltip_text(p, _("Volume control"));
