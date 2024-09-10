@@ -1668,6 +1668,7 @@ panel_start_gui(LXPanel *panel, config_setting_t *list)
     p->visible = TRUE;
     _calculate_position(panel, &rect);
     gtk_window_move(GTK_WINDOW(panel), rect.x, rect.y);
+    gtk_window_set_default_size(GTK_WINDOW(panel),rect.width,rect.height);
     gtk_window_present(GTK_WINDOW(panel));
 
     /* the settings that should be done after window is mapped */
