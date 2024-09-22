@@ -1544,6 +1544,7 @@ void task_button_update_windows_list(TaskButton *button, Window *list, gint n)
         for (l = menu_list; l; l = l->next)
         {
             GtkMenu *menu = GTK_MENU(l->data);
+            gtk_menu_popdown(menu);
             gtk_menu_detach(menu);
         }
         g_list_free(menu_list);
