@@ -55,7 +55,7 @@ Plugin {
             id=pcmanfm.desktop
         }
         Button {
-            id=gnome-terminal.desktop
+            id=lxterminal.desktop
         }
         Button {
             id=firefox.desktop
