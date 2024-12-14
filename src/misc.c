@@ -632,6 +632,7 @@ get_textproperty(Window win, Atom atom)
 }
 
 
+
 int
 get_net_number_of_desktops()
 {
@@ -649,6 +650,24 @@ get_net_number_of_desktops()
     RET(desknum);
 }
 
+int get_net_showing_desktop(){
+
+    // 1 means Window Manager is in "showing the desktop" mode
+    int is_currently_showing_desktop = 0;
+    gulong *data = NULL;
+    int nitems = 0;
+
+    ENTER;
+    data = get_xaproperty (GDK_ROOT_WINDOW(), a_NET_SHOWING_DESKTOP , XA_CARDINAL, &nitems);
+    if (data) {
+        is_currently_showing_desktop = *data;
+        XFree (data);
+        data = NULL;
+    }
+    else{
+    }
+    RET(is_currently_showing_desktop);
+}
 
 int
 get_net_current_desktop ()
