@@ -396,6 +396,7 @@ gboolean battery_is_charging( battery *b )
     return ( strcasecmp( b->state, "Unknown" ) == 0
             || strcasecmp( b->state, "Full" ) == 0
             || strcasecmp( b->state, "Charging" ) == 0
+            || strcasecmp( b->state, "Not Charging" ) == 0
             || b->current_now == 0 ); /* bug sf.net, #720 */
 }
 
