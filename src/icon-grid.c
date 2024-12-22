@@ -204,10 +204,18 @@ static void panel_icon_grid_size_allocate(GtkWidget *widget,
 
     /* Initialize parameters to control repositioning each visible child. */
     direction = gtk_widget_get_direction(widget);
-    x = (direction == GTK_TEXT_DIR_RTL) ? allocation->width - x_border : x_border;
+    if (ig->orientation == GTK_ORIENTATION_HORIZONTAL)
+    {
+        x = (direction == GTK_TEXT_DIR_RTL) ? allocation->width - x_border : x_border;
+        next_coord = border;
+    }
+    else
+    {
+        x_border = MAX((gint) border, (child_width - ig->child_width) / 2);
+        next_coord = x_border;
+    }
     y = y_border;
     x_delta = 0;
-    next_coord = border;
 
     /* Reposition each visible child. */
     for (ige = ig->children; ige != NULL; ige = ige->next)
