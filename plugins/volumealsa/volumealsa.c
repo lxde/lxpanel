@@ -804,7 +804,7 @@ static void volumealsa_popup_scale_scrolled(GtkScale * scale, GdkEventScroll * e
         gdk_event_get_scroll_deltas((GdkEvent *) evt, &delta_x, &delta_y);
         if ((delta_y < 0) || (delta_x < 0))
             val += 2;
-        else
+        else if ((delta_y > 0) || (delta_x > 0))
             val -= 2;
     }
 #endif
