@@ -1458,7 +1458,7 @@ static void task_button_init(TaskButton *self)
     gtk_widget_set_can_focus(GTK_WIDGET(self), FALSE);
     gtk_widget_set_can_default(GTK_WIDGET(self), FALSE);
     gtk_widget_set_state(GTK_WIDGET(self), GTK_STATE_NORMAL);
-#if GTK_CHECK_VERSION(3, 0, 0)
+#if GTK_CHECK_VERSION(3, 4, 0)
     gtk_widget_add_events(GTK_WIDGET(self), GDK_SCROLL_MASK);
 #endif
 }
