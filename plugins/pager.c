@@ -104,7 +104,8 @@ static void on_style_updated(GtkWidget *p, LXPanel *panel)
 
     gtk_style_context_add_class(context, "wnck-pager");
     /* Provide a fallback color for the highlighted workspace based on the current theme */
-    gtk_style_context_lookup_color(context, "theme_selected_bg_color", &color);
+    if (!gtk_style_context_lookup_color(context, "theme_selected_bg_color", &color))
+        gdk_rgba_parse(&color, "#3584e4");
     color_str = gdk_rgba_to_string(&color);
     bg_css = g_strconcat(".wnck-pager:selected {\n"
                          "	background-color:", color_str, ";\n"
