@@ -91,6 +91,35 @@ static gboolean on_scroll_event(GtkWidget * p, GdkEventScroll * ev, LXPanel *pan
     return TRUE;
 }
 
+#if GTK_CHECK_VERSION(3, 0, 0)
+static void on_style_updated(GtkWidget *p, LXPanel *panel)
+{
+    PagerData *d = lxpanel_plugin_get_data(p);
+    GtkStyleContext *context = gtk_widget_get_style_context(d->pager);
+    GtkCssProvider *provider = gtk_css_provider_new();
+    GdkRGBA color;
+    gchar *color_str;
+    gchar *bg_css;
+
+    gtk_style_context_add_class(context, "wnck-pager");
+    /* Provide a fallback color for the highlighted workspace based on the current theme */
+    gtk_style_context_lookup_color(context, "theme_selected_bg_color", &color);
+    color_str = gdk_rgba_to_string(&color);
+    bg_css = g_strconcat(".wnck-pager:selected {\n"
+                         "	background-color:", color_str, ";\n"
+                         "}", NULL);
+    gtk_css_provider_load_from_data(provider, bg_css, -1, NULL);
+    g_free(bg_css);
+    g_free(color_str);
+
+    gtk_style_context_add_provider(context,
+                                   GTK_STYLE_PROVIDER(provider),
+                                   GTK_STYLE_PROVIDER_PRIORITY_FALLBACK);
+
+    g_object_unref(provider);
+}
+#endif
+
 static GtkWidget *pager_constructor(LXPanel *panel, config_setting_t *settings)
 {
     GtkWidget *p, *w;
@@ -115,6 +144,11 @@ static GtkWidget *pager_constructor(LXPanel *panel, config_setting_t *settings)
     g_signal_connect(p, "realize", G_CALLBACK(on_realize), panel);
     g_signal_connect(p, "size-allocate", G_CALLBACK(on_size_allocate), panel);
     g_signal_connect(p, "scroll-event", G_CALLBACK(on_scroll_event), panel);
+
+#if GTK_CHECK_VERSION(3, 0, 0)
+    g_signal_connect(p, "style-updated", G_CALLBACK(on_style_updated), panel);
+#endif
+
     wnck_pager_set_display_mode(d->pager, WNCK_PAGER_DISPLAY_CONTENT);
 
     gtk_widget_show(w);
