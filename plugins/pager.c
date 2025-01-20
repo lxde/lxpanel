@@ -4,6 +4,7 @@
  *               2012 Julien Lavergne <gilir@ubuntu.com>
  *               2014 Andriy Grytsenko <andrej@rep.kiev.ua>
  *               2018 number Zero <numzero@users.sf.net>
+ *               2025 Ingo Brückl
  *
  * This file is part of lxpanel.
  *
@@ -95,7 +96,7 @@ static gboolean on_scroll_event(GtkWidget * p, GdkEventScroll * ev, LXPanel *pan
 static void on_style_updated(GtkWidget *p, LXPanel *panel)
 {
     PagerData *d = lxpanel_plugin_get_data(p);
-    GtkStyleContext *context = gtk_widget_get_style_context(d->pager);
+    GtkStyleContext *context = gtk_widget_get_style_context(GTK_WIDGET(d->pager));
     GtkCssProvider *provider = gtk_css_provider_new();
     GdkRGBA color;
     gchar *color_str;
