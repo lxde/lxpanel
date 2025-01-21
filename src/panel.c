@@ -17,6 +17,7 @@
  *               2015 Rafał Mużyło <galtgendo@gmail.com>
  *               2015 Hanno Zulla <hhz@users.sf.net>
  *               2018 Mamoru TASAKA <mtasaka@fedoraproject.org>
+ *               2025 Ingo Brückl
  *
  * This file is a part of LXPanel project.
  *
@@ -681,7 +682,7 @@ void _panel_set_wm_strut(LXPanel *panel)
 #endif
         desired_strut[index] = strut_size * scale_factor;
         desired_strut[4 + index * 2] = strut_lower * scale_factor;
-        desired_strut[5 + index * 2] = (strut_upper - 1) * scale_factor;
+        desired_strut[5 + index * 2] = strut_upper * scale_factor - 1;
     }
     else
     {
