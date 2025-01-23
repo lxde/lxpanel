@@ -240,7 +240,6 @@ void update_display(lx_battery *lx_b, gboolean repaint) {
     cairo_t *cr;
     battery *b = lx_b->b;
     /* unit: mW */
-    int rate;
     gboolean isCharging;
 
     if (! lx_b->pixmap )
@@ -268,7 +267,6 @@ void update_display(lx_battery *lx_b, gboolean repaint) {
 
     /* fixme: only one battery supported */
 
-    rate = lx_b->b->current_now;
     if (lx_b->b->percentage == 100)
         isCharging = TRUE; /* if battery is fully charged then draw it green */
     else
