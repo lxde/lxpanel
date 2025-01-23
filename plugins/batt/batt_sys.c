@@ -6,6 +6,7 @@
  *                2015 Stanislav Kozina, Ersin <xersin@users.sf.net>
  *                2016-2017 Andriy Grytsenko <andrej@rep.kiev.ua>
  *                2019 Stuart D. Gathman <stuart@gathman.org>
+ *                2025 Ingo Brückl
  *
  * 	Parts shameless stolen and glibified from acpi package
  * 	Copyright (C) 2001  Grahame Bowland <grahame@angrygoats.net>
@@ -393,10 +394,7 @@ gboolean battery_is_charging( battery *b )
 {
     if (!b->state)
         return TRUE; // Same as "Unkown"
-    return ( strcasecmp( b->state, "Unknown" ) == 0
-            || strcasecmp( b->state, "Full" ) == 0
-            || strcasecmp( b->state, "Charging" ) == 0
-            || strcasecmp( b->state, "Not Charging" ) == 0
+    return ( strcasecmp(b->state, "Discharging") != 0
             || b->current_now == 0 ); /* bug sf.net, #720 */
 }
 
