@@ -25,8 +25,8 @@
  *
  *
  * This plugin monitors battery usage on ACPI-enabled systems by reading the
- * battery information found in /sys/class/power_supply. The update interval is
- * user-configurable and defaults to 3 second.
+ * battery information found in /sys/class/power_supply. The update interval
+ * defaults to 3 second.
  *
  * The battery's remaining life is estimated from its current charge and current
  * rate of discharge. The user may configure an alarm command to be run when
