@@ -22,13 +22,6 @@ Global {
 }
 
 Plugin {
-    type = space
-    Config {
-        Size=2
-    }
-}
-
-Plugin {
     type = menu
     Config {
         image = @prefix@/share/lxpanel/images/my-computer.svg
