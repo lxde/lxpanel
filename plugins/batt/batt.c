@@ -281,25 +281,25 @@ void update_display(lx_battery *lx_b, gboolean repaint) {
         {
             lx_b->alarmTimeReached = 0;
 
-        /* FIXME: this should be done using glibs process functions */
-        /* FIXME: see bug #463: it should not spawn process all the time */
-        /* Alarms should not run concurrently; determine whether an alarm is
-           already running */
-        int alarmCanRun;
-        sem_getvalue(&(lx_b->alarmProcessLock), &alarmCanRun);
+            /* FIXME: this should be done using glibs process functions */
+            /* FIXME: see bug #463: it should not spawn process all the time */
+            /* Alarms should not run concurrently; determine whether an alarm is
+               already running */
+            int alarmCanRun;
+            sem_getvalue(&(lx_b->alarmProcessLock), &alarmCanRun);
 
-        /* Run the alarm command if it isn't already running */
-        if (alarmCanRun) {
+            /* Run the alarm command if it isn't already running */
+            if (alarmCanRun) {
 
-            Alarm *a = (Alarm *) malloc(sizeof(Alarm));
-            a->command = lx_b->alarmCommand;
-            a->lock = &(lx_b->alarmProcessLock);
+                Alarm *a = (Alarm *) malloc(sizeof(Alarm));
+                a->command = lx_b->alarmCommand;
+                a->lock = &(lx_b->alarmProcessLock);
 
-            /* Manage the alarm process in a new thread, which which will be
-               responsible for freeing the alarm struct it's given */
-            pthread_t alarmThread;
-            pthread_create(&alarmThread, NULL, alarmProcess, a);
-        }
+                /* Manage the alarm process in a new thread, which which will be
+                   responsible for freeing the alarm struct it's given */
+                pthread_t alarmThread;
+                pthread_create(&alarmThread, NULL, alarmProcess, a);
+            }
         }
     }
     else
