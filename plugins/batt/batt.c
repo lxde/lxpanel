@@ -26,7 +26,7 @@
  *
  * This plugin monitors battery usage on ACPI-enabled systems by reading the
  * battery information found in /sys/class/power_supply. The update interval
- * defaults to 3 second.
+ * defaults to 9 second.
  *
  * The battery's remaining life is estimated from its current charge and current
  * rate of discharge. The user may configure an alarm command to be run when
@@ -342,7 +342,7 @@ update_done:
     cairo_destroy(cr);
 }
 
-/* This callback is called every 3 seconds */
+/* This callback is called every 9 seconds */
 static int update_timout(lx_battery *lx_b) {
     battery *bat;
     if (g_source_is_destroyed(g_main_current_source()))
