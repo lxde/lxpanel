@@ -282,7 +282,6 @@ void update_display(lx_battery *lx_b, gboolean repaint) {
             lx_b->alarmTimeReached = 0;
 
             /* FIXME: this should be done using glibs process functions */
-            /* FIXME: see bug #463: it should not spawn process all the time */
             /* Alarms should not run concurrently; determine whether an alarm is
                already running */
             int alarmCanRun;
