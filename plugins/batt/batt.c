@@ -7,7 +7,7 @@
  * Copyright (C) 2014-2019 Andriy Grytsenko <andrej@rep.kiev.ua>
  *               2015 Balló György <ballogyor@gmail.com>
  *               2015 Stanislav Kozina, Ersin <xersin@users.sf.net>
- *               2020 Ingo Brückl
+ *               2020,2025 Ingo Brückl
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -72,6 +72,7 @@ typedef struct {
     GtkWidget *drawingArea;
     GtkOrientation orientation;
     unsigned int alarmTime,
+        alarmTimeReached,
         border,
         height,
         length,
@@ -113,7 +114,6 @@ static void * alarmProcess(void *arg) {
     sem_wait(a->lock);
     if (system(a->command) != 0)
         g_warning("plugin batt: failed to execute alarm command \"%s\"", a->command);
-    sleep(51); /* do not spam messages more often than once a minute */
     sem_post(a->lock);
 
     g_free(a);
@@ -276,6 +276,11 @@ void update_display(lx_battery *lx_b, gboolean repaint) {
     if ( !isCharging &&
         ( ( battery_get_remaining( b ) / 60 ) < (int)lx_b->alarmTime ) )
     {
+        /* make sure it's stable enough for about a minute (6 * 9 seconds) */
+        if (++lx_b->alarmTimeReached > 6)
+        {
+            lx_b->alarmTimeReached = 0;
+
         /* FIXME: this should be done using glibs process functions */
         /* FIXME: see bug #463: it should not spawn process all the time */
         /* Alarms should not run concurrently; determine whether an alarm is
@@ -295,7 +300,10 @@ void update_display(lx_battery *lx_b, gboolean repaint) {
             pthread_t alarmThread;
             pthread_create(&alarmThread, NULL, alarmProcess, a);
         }
+        }
     }
+    else
+        lx_b->alarmTimeReached = 0;
 
     set_tooltip_text(lx_b);
 
@@ -500,7 +508,7 @@ static GtkWidget * constructor(LXPanel *panel, config_setting_t *settings)
             = lx_b->dischargingColor1 = lx_b->dischargingColor2 = NULL;
 
     /* Set default values for integers */
-    lx_b->alarmTime = 5;
+    lx_b->alarmTime = 6;
     lx_b->requestedBorder = 1;
     lx_b->thickness = 8;
 
