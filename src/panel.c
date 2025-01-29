@@ -1362,6 +1362,7 @@ static void panel_popupmenu_about( GtkMenuItem* item, Panel* panel )
         "Andriy Grytsenko <andrej@rep.kiev.ua>",
         "Giuseppe Penone <giuspen@gmail.com>",
         "Piotr Sipika <piotr.sipika@gmail.com>",
+        "Ingo Brückl",
         NULL
     };
     /* TRANSLATORS: Replace this string with your names, one name per line. */
