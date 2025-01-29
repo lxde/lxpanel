@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LXPanel\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-03 21:29+0200\n"
+"POT-Creation-Date: 2025-01-29 15:52+0100\n"
 "PO-Revision-Date: 2018-12-23 18:15+0000\n"
 "Last-Translator: markos <jezzivi@yahoo.com>\n"
 "Language-Team: \n"
@@ -61,11 +61,11 @@ msgstr "Изаберите датотеку"
 msgid "_Browse"
 msgstr "_Разгледај"
 
-#: ../src/panel.c:1292
+#: ../src/panel.c:1305
 msgid "There is no room for another panel. All the edges are taken."
 msgstr "Нема места за други панел. Све ивице су заузете."
 
-#: ../src/panel.c:1318
+#: ../src/panel.c:1331
 msgid ""
 "Really delete this panel?\n"
 "<b>Warning: This can not be recovered.</b>"
@@ -73,82 +73,82 @@ msgstr ""
 "Желите ли да обришете овај панел?\n"
 "<b>ПАЖЊА: Панел не може да се врати у ово стање.</b>"
 
-#: ../src/panel.c:1320
+#: ../src/panel.c:1333
 msgid "Confirm"
 msgstr "Потврда"
 
 #. TRANSLATORS: Replace this string with your names, one name per line.
-#: ../src/panel.c:1355
+#: ../src/panel.c:1369
 msgid "translator-credits"
 msgstr "Српски — Jay A. Fleming  tito.nehru.naser@gmail.com"
 
-#: ../src/panel.c:1360
+#: ../src/panel.c:1374
 msgid "LXPanel"
 msgstr "ЛИкс-Панел"
 
-#: ../src/panel.c:1378
+#: ../src/panel.c:1392
 msgid "Copyright (C) 2008-2025"
 msgstr "Права творца — 2008-2025"
 
-#: ../src/panel.c:1379
+#: ../src/panel.c:1393
 msgid "Desktop panel for LXDE project"
 msgstr "Панел радне површи за ЛИкс-ДЕ радно окружење"
 
-#: ../src/panel.c:1421
+#: ../src/panel.c:1435
 #, c-format
 msgid "\"%s\" Settings"
 msgstr "„%s“ Подешавања"
 
-#: ../src/panel.c:1442
+#: ../src/panel.c:1456
 msgid "Add / Remove Panel Items"
 msgstr "Додајте/Обришите ставке у панелу"
 
-#: ../src/panel.c:1450
+#: ../src/panel.c:1464
 #, c-format
 msgid "Remove \"%s\" From Panel"
 msgstr "Уклони „%s“ са панела"
 
-#: ../src/panel.c:1462
+#: ../src/panel.c:1476
 msgid "Panel Settings"
 msgstr "Подешавања панела"
 
-#: ../src/panel.c:1468
+#: ../src/panel.c:1482
 msgid "Create New Panel"
 msgstr "Створи нови панел"
 
-#: ../src/panel.c:1474
+#: ../src/panel.c:1488
 msgid "Delete This Panel"
 msgstr "Уклони овај панел"
 
-#: ../src/panel.c:1485
+#: ../src/panel.c:1499
 msgid "About"
 msgstr "О програму"
 
-#: ../src/panel.c:1492
+#: ../src/panel.c:1506
 msgid "Panel"
 msgstr "Панел"
 
-#: ../src/panel.c:1710 ../src/panel.c:1718 ../data/ui/panel-pref.glade.h:22
+#: ../src/panel.c:1724 ../src/panel.c:1732 ../data/ui/panel-pref.glade.h:22
 msgid "Height:"
 msgstr "Висина:"
 
-#: ../src/panel.c:1711 ../src/panel.c:1717 ../data/ui/panel-pref.glade.h:21
+#: ../src/panel.c:1725 ../src/panel.c:1731 ../data/ui/panel-pref.glade.h:21
 msgid "Width:"
 msgstr "Ширина:"
 
-#: ../src/panel.c:1712 ../data/ui/panel-pref.glade.h:13
+#: ../src/panel.c:1726 ../data/ui/panel-pref.glade.h:13
 msgid "Left"
 msgstr "лево"
 
-#: ../src/panel.c:1713 ../data/ui/panel-pref.glade.h:14
+#: ../src/panel.c:1727 ../data/ui/panel-pref.glade.h:14
 msgid "Right"
 msgstr "десно"
 
-#: ../src/panel.c:1719 ../data/ui/panel-pref.glade.h:12
+#: ../src/panel.c:1733 ../data/ui/panel-pref.glade.h:12
 msgid "Top"
 msgstr "горе"
 
-#: ../src/panel.c:1720 ../data/ui/panel-pref.glade.h:11
+#: ../src/panel.c:1734 ../data/ui/panel-pref.glade.h:11
 msgid "Bottom"
 msgstr "доле"
 
@@ -156,7 +156,6 @@ msgstr "доле"
 msgid "No file manager is configured."
 msgstr "Управник датотека није подешен."
 
-#. { "configure", N_("Preferences"), configure },
 #: ../src/gtk-run.c:385 ../src/main.c:69 ../plugins/menu.c:718
 msgid "Run"
 msgstr "Покрени"
@@ -193,8 +192,6 @@ msgstr " --help      -- штампа ову помоћ и излази\n"
 msgid " --version   -- print version and exit\n"
 msgstr " --version   -- приказује информације о издању и излази\n"
 
-#. g_print(_(" --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"));
-#. g_print(_(" --configure -- launch configuration utility\n"));
 #: ../src/main.c:329
 #, c-format
 msgid " --profile name -- use specified profile\n"
@@ -215,7 +212,6 @@ msgstr " -p  -- исто као --profile\n"
 msgid " -v  -- same as --version\n"
 msgstr " -v  -- исто као --version\n"
 
-#. g_print(_(" -C  -- same as --configure\n"));
 #: ../src/main.c:335
 #, c-format
 msgid ""
@@ -255,7 +251,6 @@ msgstr "Комбинација тастера „%s“ се не може упо
 msgid "Error"
 msgstr "Грешка"
 
-#. GtkRadioButton "None"
 #: ../src/input-button.c:329 ../data/ui/panel-pref.glade.h:5
 msgid "None"
 msgstr "Ништа"
@@ -273,7 +268,7 @@ msgstr "Не могу да придружим „%s“ као општу пре�
 msgid "Spacer"
 msgstr "Раздвајач — проширив"
 
-#: ../src/space.c:396 ../plugins/batt/batt.c:735
+#: ../src/space.c:396 ../plugins/batt/batt.c:740
 #, fuzzy
 #| msgid "Size"
 msgctxt "Width"
@@ -284,11 +279,10 @@ msgstr "Величина"
 msgid "Allocate space"
 msgstr "Обезбеди простор"
 
-#: ../data/ui/launchtaskbar.glade.h:1 ../plugins/launchtaskbar.c:2484
+#: ../data/ui/launchtaskbar.glade.h:1 ../plugins/launchtaskbar.c:2497
 msgid "Application Launch and Task Bar"
 msgstr "Трака задатака и покретача програма"
 
-#. Launchtaskbar mode: launchbar, taskbar, or combined
 #: ../data/ui/launchtaskbar.glade.h:3
 msgid "<b>Mode:</b>"
 msgstr "<b>Режим:</b>"
@@ -314,54 +308,58 @@ msgid "Flat buttons"
 msgstr "Равна дугмад"
 
 #: ../data/ui/launchtaskbar.glade.h:9
+msgid "Show square brackets around the names of minimized windows"
+msgstr ""
+
+#: ../data/ui/launchtaskbar.glade.h:10
 msgid "Show windows from all desktops"
 msgstr "Прикажи прозоре са свих радних површи"
 
-#: ../data/ui/launchtaskbar.glade.h:10
+#: ../data/ui/launchtaskbar.glade.h:11
 msgid "Only show windows on the same monitor as the task bar"
 msgstr "Прикажи само оне прозоре на истом екрану где је и трака задатака"
 
-#: ../data/ui/launchtaskbar.glade.h:11
+#: ../data/ui/launchtaskbar.glade.h:12
 msgid "Use mouse wheel"
 msgstr "Употребљавај точкић миша"
 
-#: ../data/ui/launchtaskbar.glade.h:12
+#: ../data/ui/launchtaskbar.glade.h:13
 msgid "Flash when there is any window requiring attention"
 msgstr "Трепћи када неки програм захтева пажњу"
 
-#: ../data/ui/launchtaskbar.glade.h:13
+#: ../data/ui/launchtaskbar.glade.h:14
 msgid "Combine multiple application windows into a single button"
 msgstr "Приказуј више прозора програма кроз једно дугме"
 
-#: ../data/ui/launchtaskbar.glade.h:14
+#: ../data/ui/launchtaskbar.glade.h:15
 msgid "Disable enlargement for small task icons"
 msgstr "Онемогући увећавање малих икона задатака"
 
-#: ../data/ui/launchtaskbar.glade.h:15
+#: ../data/ui/launchtaskbar.glade.h:16
 msgid "Show task icons smaller than rest of panel icons"
 msgstr "Иконе задатака су мање од других икона панела"
 
-#: ../data/ui/launchtaskbar.glade.h:16
+#: ../data/ui/launchtaskbar.glade.h:17
 msgid "Maximum width of task button"
 msgstr "Највећа ширина дугмади задатака"
 
-#: ../data/ui/launchtaskbar.glade.h:17
+#: ../data/ui/launchtaskbar.glade.h:18
 msgid "Spacing"
 msgstr "Размак"
 
-#: ../data/ui/launchtaskbar.glade.h:18
+#: ../data/ui/launchtaskbar.glade.h:19
 msgid "<b>Taskbar</b>"
 msgstr "<b>Трака задатака</b>"
 
-#: ../data/ui/launchtaskbar.glade.h:19
+#: ../data/ui/launchtaskbar.glade.h:20
 msgid "Only Application Launch Bar"
 msgstr "Само трака покретача програма"
 
-#: ../data/ui/launchtaskbar.glade.h:20
+#: ../data/ui/launchtaskbar.glade.h:21
 msgid "Only Task Bar (Window List)"
 msgstr "Само трака задатака (списак прозора)"
 
-#: ../data/ui/launchtaskbar.glade.h:21
+#: ../data/ui/launchtaskbar.glade.h:22
 msgid "Integrated Application Launch Bar and Task Bar"
 msgstr "Обједињене траке задатака и покретача програма"
 
@@ -484,7 +482,7 @@ msgstr "Подешавања панела"
 msgid "Edge:"
 msgstr "Уз ивицу:"
 
-#: ../data/ui/panel-pref.glade.h:16 ../plugins/volumealsa/volumealsa.c:1317
+#: ../data/ui/panel-pref.glade.h:16 ../plugins/volumealsa/volumealsa.c:1331
 msgid "Center"
 msgstr "на средини"
 
@@ -639,31 +637,31 @@ msgstr "Прикажи називе радних површи"
 msgid "Display workspace number, by cmeury@users.sf.net"
 msgstr "Прикажи број радне површи (створио „cmeury@users.sf.net“)"
 
-#: ../plugins/launchtaskbar.c:1833 ../plugins/launchtaskbar.c:2454
+#: ../plugins/launchtaskbar.c:1846 ../plugins/launchtaskbar.c:2467
 msgid "Application Launch Bar"
 msgstr "Трака покретача програма"
 
-#: ../plugins/launchtaskbar.c:1836 ../plugins/launchtaskbar.c:2464
+#: ../plugins/launchtaskbar.c:1849 ../plugins/launchtaskbar.c:2477
 msgid "Task Bar (Window List)"
 msgstr "Трака задатака (списак прозора)"
 
-#: ../plugins/launchtaskbar.c:1987
+#: ../plugins/launchtaskbar.c:2000
 msgid "A_dd to Launcher"
 msgstr "До_дај покретач"
 
-#: ../plugins/launchtaskbar.c:1989
+#: ../plugins/launchtaskbar.c:2002
 msgid "Rem_ove from Launcher"
 msgstr "Укл_они покретач"
 
-#: ../plugins/launchtaskbar.c:1991
+#: ../plugins/launchtaskbar.c:2004
 msgid "_New Instance"
 msgstr "_Нови примерак"
 
-#: ../plugins/launchtaskbar.c:2455
+#: ../plugins/launchtaskbar.c:2468
 msgid "Bar with buttons to launch application"
 msgstr "Трака са дугмадима за покретање програма"
 
-#: ../plugins/launchtaskbar.c:2465
+#: ../plugins/launchtaskbar.c:2478
 #, fuzzy
 msgid ""
 "Taskbar shows all opened windows and allows to iconify them, shade or get "
@@ -671,58 +669,51 @@ msgid ""
 msgstr ""
 "Трака задатака приказује све отворене прозоре и омогућује управљање њима"
 
-#: ../plugins/launchtaskbar.c:2485
+#: ../plugins/launchtaskbar.c:2498
 msgid "Bar with buttons to launch application and/or show all opened windows"
 msgstr ""
 "Трака са дугмадима за покретање програма и/или приказивање свих отворених "
 "прозора"
 
-#. Add Raise menu item.
-#: ../plugins/task-button.c:351
+#: ../plugins/task-button.c:352
 msgid "_Raise"
 msgstr "_Издигни"
 
-#. Add Restore menu item.
-#: ../plugins/task-button.c:356
+#: ../plugins/task-button.c:357
 msgid "R_estore"
 msgstr "_Врати"
 
-#. Add Maximize menu item.
-#: ../plugins/task-button.c:361
+#: ../plugins/task-button.c:362
 msgid "Ma_ximize"
 msgstr "_Увећај"
 
-#. Add Iconify menu item.
-#: ../plugins/task-button.c:366
+#: ../plugins/task-button.c:367
 msgid "Ico_nify"
 msgstr "У_мањи"
 
-#: ../plugins/task-button.c:387
+#: ../plugins/task-button.c:388
 #, c-format
 msgid "Workspace _%d"
 msgstr "Површ _%d"
 
-#: ../plugins/task-button.c:392
+#: ../plugins/task-button.c:393
 #, c-format
 msgid "Workspace %d"
 msgstr "Радна површ %d"
 
-#. Add "move to all workspaces" item.  This causes the window to be visible no matter what desktop is active.
-#: ../plugins/task-button.c:409
+#: ../plugins/task-button.c:410
 msgid "_All workspaces"
 msgstr "_Све радне површи"
 
-#. FIXME: add "Current workspace" item, active if not on a current
-#. Add Move to Workspace menu item as a submenu.
-#: ../plugins/task-button.c:417
+#: ../plugins/task-button.c:418
 msgid "_Move to Workspace"
 msgstr "Пре_мести на радну површ"
 
-#: ../plugins/task-button.c:432
+#: ../plugins/task-button.c:433
 msgid "_Close Window"
 msgstr "_Затвори прозор"
 
-#: ../plugins/task-button.c:1255
+#: ../plugins/task-button.c:1256
 msgid "_Close all windows"
 msgstr "_Затвори све прозоре"
 
@@ -789,15 +780,15 @@ msgstr "Раздвајач"
 msgid "Add a separator to the panel"
 msgstr "Додај раздвајач на панел"
 
-#: ../plugins/pager.c:141
+#: ../plugins/pager.c:177
 msgid "Sorry, there was no window manager configuration program found."
 msgstr "На жалост, нисам пронашао програм за подешавање управника прозора."
 
-#: ../plugins/pager.c:193 ../plugins/pager.c:209
+#: ../plugins/pager.c:229 ../plugins/pager.c:245
 msgid "Desktop Pager"
 msgstr "Измењивач радних површи"
 
-#: ../plugins/pager.c:194 ../plugins/pager.c:210
+#: ../plugins/pager.c:230 ../plugins/pager.c:246
 msgid "Simple pager plugin"
 msgstr "Прост додатак за измену радних површи"
 
@@ -813,7 +804,6 @@ msgstr "Обавештајна зона"
 msgid "New session is required for this option to take effect"
 msgstr "Да би се применила ова опција неопходна је нова сесија"
 
-#. dialog
 #: ../plugins/xkb/xkb-plugin.c:590
 msgid "Select Keyboard Model"
 msgstr "Изаберите модел тастатуре"
@@ -827,12 +817,10 @@ msgstr "Опис"
 msgid "Id"
 msgstr "ИБ"
 
-#. dialog
 #: ../plugins/xkb/xkb-plugin.c:714
 msgid "Select Layout Change Type"
 msgstr "Изаберите начин промене распореда тастатуре"
 
-#. dialog
 #: ../plugins/xkb/xkb-plugin.c:887
 msgid "Add Keyboard Layout"
 msgstr "Додај распоред тастатуре"
@@ -965,17 +953,14 @@ msgstr "Боја 2. упозорења"
 msgid "Automatic sensor location"
 msgstr "Аутоматска локација сензора"
 
-#. FIXME: if off, disable next one
 #: ../plugins/thermal/thermal.c:569
 msgid "Sensor"
 msgstr "Сензор"
 
-#. FIXME: create a list to select instead
 #: ../plugins/thermal/thermal.c:570
 msgid "Automatic temperature levels"
 msgstr "Аутоматски нивои температуре"
 
-#. FIXME: if off, disable two below
 #: ../plugins/thermal/thermal.c:571
 msgid "Warning1 temperature"
 msgstr "Температура 1. упозорења"
@@ -1010,7 +995,6 @@ msgstr "Приказује радни такт ЦПЈ и омогућује из
 msgid "ALSA (or pulseaudio) had a problem. Please check the lxpanel logs."
 msgstr "Проблем са звучним посредником! Проверите извештај ЛИкс-панела."
 
-#. Display current level in tooltip.
 #: ../plugins/volumealsa/volumealsa.c:615
 #, fuzzy, c-format
 #| msgid "Volume"
@@ -1025,129 +1009,124 @@ msgstr ""
 "Грешка. Поставите програм за подешавање звука („pavucontrol“, "
 "„alsamixer“, ...)"
 
-#. Create a frame as the child of the viewport.
-#: ../plugins/volumealsa/volumealsa.c:900
+#: ../plugins/volumealsa/volumealsa.c:911
 msgid "Volume"
 msgstr "Гласноћа"
 
-#. Create a check button as the child of the vertical box.
-#: ../plugins/volumealsa/volumealsa.c:918
+#: ../plugins/volumealsa/volumealsa.c:929
 msgid "Mute"
 msgstr "Мук"
 
-#: ../plugins/volumealsa/volumealsa.c:977
+#: ../plugins/volumealsa/volumealsa.c:988
 msgid "Volume control"
 msgstr "Гласноћа: "
 
-#. Just to have these translated
-#: ../plugins/volumealsa/volumealsa.c:1317
+#: ../plugins/volumealsa/volumealsa.c:1331
 msgid "Line"
 msgstr "Линијски"
 
-#: ../plugins/volumealsa/volumealsa.c:1317
+#: ../plugins/volumealsa/volumealsa.c:1331
 msgid "LineOut"
 msgstr "Линијски—ИЗЛ"
 
-#: ../plugins/volumealsa/volumealsa.c:1317
+#: ../plugins/volumealsa/volumealsa.c:1331
 msgid "Front"
 msgstr "предњи"
 
-#: ../plugins/volumealsa/volumealsa.c:1317
+#: ../plugins/volumealsa/volumealsa.c:1331
 msgid "Surround"
 msgstr "Окружујући"
 
-#: ../plugins/volumealsa/volumealsa.c:1317
+#: ../plugins/volumealsa/volumealsa.c:1331
 msgid "Speaker+LO"
 msgstr "Звучник+LO"
 
-#: ../plugins/volumealsa/volumealsa.c:1318
+#: ../plugins/volumealsa/volumealsa.c:1332
 #, fuzzy
 #| msgid "Speaker+LO"
 msgid "Speaker"
 msgstr "Звучник+LO"
 
-#: ../plugins/volumealsa/volumealsa.c:1318
+#: ../plugins/volumealsa/volumealsa.c:1332
 msgid "Beep"
 msgstr ""
 
-#: ../plugins/volumealsa/volumealsa.c:1357
+#: ../plugins/volumealsa/volumealsa.c:1371
 msgid "default"
 msgstr "уобичајено"
 
-#. desc, index
-#: ../plugins/volumealsa/volumealsa.c:1417
+#: ../plugins/volumealsa/volumealsa.c:1431
 msgid "Master"
 msgstr "главни"
 
-#: ../plugins/volumealsa/volumealsa.c:1421
+#: ../plugins/volumealsa/volumealsa.c:1435
 msgid "PCM"
 msgstr "ИКМ (PCM)"
 
-#: ../plugins/volumealsa/volumealsa.c:1425
+#: ../plugins/volumealsa/volumealsa.c:1439
 msgid "Headphone"
 msgstr "Слушалице"
 
-#: ../plugins/volumealsa/volumealsa.c:1447
+#: ../plugins/volumealsa/volumealsa.c:1461
 msgid "Click for Volume Slider"
 msgstr "Дугме за контролу гласноће"
 
-#: ../plugins/volumealsa/volumealsa.c:1448
-#: ../plugins/volumealsa/volumealsa.c:1453
-#: ../plugins/volumealsa/volumealsa.c:1458
+#: ../plugins/volumealsa/volumealsa.c:1462
+#: ../plugins/volumealsa/volumealsa.c:1467
+#: ../plugins/volumealsa/volumealsa.c:1472
 msgid "Click to select, then press a mouse button"
 msgstr ""
 
-#: ../plugins/volumealsa/volumealsa.c:1452
+#: ../plugins/volumealsa/volumealsa.c:1466
 msgid "Click for Toggle Mute"
 msgstr "Дугме за Укљ/Искљ. звука"
 
-#: ../plugins/volumealsa/volumealsa.c:1457
+#: ../plugins/volumealsa/volumealsa.c:1471
 msgid "Click for Open Mixer"
 msgstr "Дугме за покретање миксете"
 
-#. setup hotkeys
-#: ../plugins/volumealsa/volumealsa.c:1462
+#: ../plugins/volumealsa/volumealsa.c:1476
 msgid "Hotkey for Volume Up"
 msgstr "Пречица за појачавање"
 
-#: ../plugins/volumealsa/volumealsa.c:1463
-#: ../plugins/volumealsa/volumealsa.c:1466
-#: ../plugins/volumealsa/volumealsa.c:1469
+#: ../plugins/volumealsa/volumealsa.c:1477
+#: ../plugins/volumealsa/volumealsa.c:1480
+#: ../plugins/volumealsa/volumealsa.c:1483
 msgid "Click to select, then press a key"
 msgstr ""
 
-#: ../plugins/volumealsa/volumealsa.c:1465
+#: ../plugins/volumealsa/volumealsa.c:1479
 msgid "Hotkey for Volume Down"
 msgstr "Пречица за утишавање"
 
-#: ../plugins/volumealsa/volumealsa.c:1468
+#: ../plugins/volumealsa/volumealsa.c:1482
 msgid "Hotkey for Volume Mute"
 msgstr "Пречица  за Укљ/Искљ. звука"
 
-#: ../plugins/volumealsa/volumealsa.c:1525
-#: ../plugins/volumealsa/volumealsa.c:1564
-#: ../plugins/volumealsa/volumealsa.c:1585
+#: ../plugins/volumealsa/volumealsa.c:1539
+#: ../plugins/volumealsa/volumealsa.c:1578
+#: ../plugins/volumealsa/volumealsa.c:1599
 msgid "Volume Control"
 msgstr "Управљање гласноћом"
 
-#: ../plugins/volumealsa/volumealsa.c:1527
+#: ../plugins/volumealsa/volumealsa.c:1541
 msgid "Audio Card"
 msgstr "Звучна картица"
 
-#: ../plugins/volumealsa/volumealsa.c:1530
+#: ../plugins/volumealsa/volumealsa.c:1544
 msgid "Channel to Operate"
 msgstr "Зв. канал за управљање: "
 
-#: ../plugins/volumealsa/volumealsa.c:1538
+#: ../plugins/volumealsa/volumealsa.c:1552
 msgid "Command to Open Mixer"
 msgstr "Наредба за покретање миксете"
 
-#: ../plugins/volumealsa/volumealsa.c:1553
+#: ../plugins/volumealsa/volumealsa.c:1567
 msgid "Launch Mixer"
 msgstr "Покрени миксету"
 
-#: ../plugins/volumealsa/volumealsa.c:1565
-#: ../plugins/volumealsa/volumealsa.c:1586
+#: ../plugins/volumealsa/volumealsa.c:1579
+#: ../plugins/volumealsa/volumealsa.c:1600
 msgid "Display and control volume"
 msgstr "Приказ и управљање гласноћом"
 
@@ -1159,12 +1138,10 @@ msgstr "<Скривена приступна тачка>"
 msgid "Wireless Networks not found in range"
 msgstr "Нема доступних бежичних мрежа"
 
-#. Repair
 #: ../plugins/netstat/netstat.c:256
 msgid "Repair"
 msgstr "Поправи"
 
-#. interface down
 #: ../plugins/netstat/netstat.c:261
 msgid "Disable"
 msgstr "Искључи"
@@ -1240,7 +1217,6 @@ msgstr "Управљање мрежама"
 msgid "Monitor and Manage networks"
 msgstr "Надгледање и управљање мрежама"
 
-#. create dialog
 #: ../plugins/netstat/passwd_gui.c:90
 msgid "Setting Encryption Key"
 msgstr "Постављање кључа за шифровање"
@@ -1724,67 +1700,67 @@ msgstr ""
 "\n"
 "%sТекући напон:\t\t%.3lf В (V)"
 
-#: ../plugins/batt/batt.c:260
+#: ../plugins/batt/batt.c:259
 msgid "No batteries found"
 msgstr "Нема батерија"
 
-#: ../plugins/batt/batt.c:566 ../plugins/batt/batt.c:699
+#: ../plugins/batt/batt.c:571 ../plugins/batt/batt.c:704
 msgid "Battery low"
 msgstr "Батерија је скоро празна"
 
-#: ../plugins/batt/batt.c:723 ../plugins/batt/batt.c:748
+#: ../plugins/batt/batt.c:728 ../plugins/batt/batt.c:753
 msgid "Battery Monitor"
 msgstr "Надгледач батерије"
 
-#: ../plugins/batt/batt.c:725
+#: ../plugins/batt/batt.c:730
 msgid "Hide if there is no battery"
 msgstr "Не приказуј ако нема батерије"
 
-#: ../plugins/batt/batt.c:726
+#: ../plugins/batt/batt.c:731
 msgid "Alarm command"
 msgstr "Наредба за узбуњивање"
 
-#: ../plugins/batt/batt.c:727
+#: ../plugins/batt/batt.c:732
 msgid "Alarm time (minutes left)"
 msgstr "Време за узбуну (преостало минута)"
 
-#: ../plugins/batt/batt.c:728
+#: ../plugins/batt/batt.c:733
 msgid "Background color"
 msgstr "Позадинска боја"
 
-#: ../plugins/batt/batt.c:729
+#: ../plugins/batt/batt.c:734
 msgid "Charging color 1"
 msgstr "Боја при пуњењу 1"
 
-#: ../plugins/batt/batt.c:730
+#: ../plugins/batt/batt.c:735
 msgid "Charging color 2"
 msgstr "Боја при пуњењу 2"
 
-#: ../plugins/batt/batt.c:731
+#: ../plugins/batt/batt.c:736
 msgid "Discharging color 1"
 msgstr "Боја пражњења 1"
 
-#: ../plugins/batt/batt.c:732
+#: ../plugins/batt/batt.c:737
 msgid "Discharging color 2"
 msgstr "Боја пражњења 2"
 
-#: ../plugins/batt/batt.c:733
+#: ../plugins/batt/batt.c:738
 msgid "Border width"
 msgstr "Ширина ивице"
 
-#: ../plugins/batt/batt.c:737
+#: ../plugins/batt/batt.c:742
 msgid "Show Extended Information"
 msgstr "Прикажи опширније податке"
 
-#: ../plugins/batt/batt.c:738
+#: ../plugins/batt/batt.c:743
 msgid "Number of battery to monitor"
 msgstr "Количина надгледаних батерија"
 
-#: ../plugins/batt/batt.c:739
+#: ../plugins/batt/batt.c:744
 msgid "Don't show number of battery"
 msgstr ""
 
-#: ../plugins/batt/batt.c:749
+#: ../plugins/batt/batt.c:754
 msgid "Display battery status using ACPI"
 msgstr "Прикажи стање батерије користећи АЦПИ"
 
@@ -1808,7 +1784,6 @@ msgstr "Надгледај тастер „ScrollLock“"
 msgid "Indicators for CapsLock, NumLock, and ScrollLock keys"
 msgstr "Надгледач тастера „CapsLock“, „NumLock“ и „ScrollLock“"
 
-#. A label to allow for click through
 #: ../plugins/indicator/indicator.c:694
 msgid "No Indicators"
 msgstr "Нема показивача"
@@ -1997,7 +1972,6 @@ msgstr "Извор:"
 msgid "C_hange"
 msgstr "_Промени"
 
-#. Both are available
 #: ../plugins/weather/weatherwidget.c:1613
 #, c-format
 msgid "Current Conditions for %s"
@@ -2076,7 +2050,6 @@ msgstr "Стање"
 msgid "Country"
 msgstr "Земља"
 
-#. make it nice and pretty
 #: ../plugins/weather/weatherwidget.c:2289
 msgid "Currently in "
 msgstr "Тренутно: "
@@ -2097,71 +2070,71 @@ msgstr "Извештај о времену"
 msgid "Show weather conditions for a location."
 msgstr "Прикажи временске услове за место."
 
-#: ../plugins/weather/yahooutil.c:51 ../plugins/weather/openweathermap.c:57
+#: ../plugins/weather/yahooutil.c:53 ../plugins/weather/openweathermap.c:57
 msgid "N"
 msgstr ""
 
-#: ../plugins/weather/yahooutil.c:52 ../plugins/weather/openweathermap.c:58
+#: ../plugins/weather/yahooutil.c:54 ../plugins/weather/openweathermap.c:58
 msgid "NNE"
 msgstr ""
 
-#: ../plugins/weather/yahooutil.c:53 ../plugins/weather/openweathermap.c:59
+#: ../plugins/weather/yahooutil.c:55 ../plugins/weather/openweathermap.c:59
 msgid "NE"
 msgstr ""
 
-#: ../plugins/weather/yahooutil.c:54 ../plugins/weather/openweathermap.c:60
+#: ../plugins/weather/yahooutil.c:56 ../plugins/weather/openweathermap.c:60
 msgid "ENE"
 msgstr ""
 
-#: ../plugins/weather/yahooutil.c:55 ../plugins/weather/openweathermap.c:61
+#: ../plugins/weather/yahooutil.c:57 ../plugins/weather/openweathermap.c:61
 msgid "E"
 msgstr ""
 
-#: ../plugins/weather/yahooutil.c:56 ../plugins/weather/openweathermap.c:62
+#: ../plugins/weather/yahooutil.c:58 ../plugins/weather/openweathermap.c:62
 msgid "ESE"
 msgstr ""
 
-#: ../plugins/weather/yahooutil.c:57 ../plugins/weather/openweathermap.c:63
+#: ../plugins/weather/yahooutil.c:59 ../plugins/weather/openweathermap.c:63
 msgid "SE"
 msgstr ""
 
-#: ../plugins/weather/yahooutil.c:58 ../plugins/weather/openweathermap.c:64
+#: ../plugins/weather/yahooutil.c:60 ../plugins/weather/openweathermap.c:64
 msgid "SSE"
 msgstr ""
 
-#: ../plugins/weather/yahooutil.c:59 ../plugins/weather/openweathermap.c:65
+#: ../plugins/weather/yahooutil.c:61 ../plugins/weather/openweathermap.c:65
 msgid "S"
 msgstr ""
 
-#: ../plugins/weather/yahooutil.c:60 ../plugins/weather/openweathermap.c:66
+#: ../plugins/weather/yahooutil.c:62 ../plugins/weather/openweathermap.c:66
 msgid "SSW"
 msgstr ""
 
-#: ../plugins/weather/yahooutil.c:61 ../plugins/weather/openweathermap.c:67
+#: ../plugins/weather/yahooutil.c:63 ../plugins/weather/openweathermap.c:67
 msgid "SW"
 msgstr ""
 
-#: ../plugins/weather/yahooutil.c:62 ../plugins/weather/openweathermap.c:68
+#: ../plugins/weather/yahooutil.c:64 ../plugins/weather/openweathermap.c:68
 msgid "WSW"
 msgstr ""
 
-#: ../plugins/weather/yahooutil.c:63 ../plugins/weather/openweathermap.c:69
+#: ../plugins/weather/yahooutil.c:65 ../plugins/weather/openweathermap.c:69
 msgid "W"
 msgstr ""
 
-#: ../plugins/weather/yahooutil.c:64 ../plugins/weather/openweathermap.c:70
+#: ../plugins/weather/yahooutil.c:66 ../plugins/weather/openweathermap.c:70
 msgid "WNW"
 msgstr ""
 
-#: ../plugins/weather/yahooutil.c:65 ../plugins/weather/openweathermap.c:71
+#: ../plugins/weather/yahooutil.c:67 ../plugins/weather/openweathermap.c:71
 msgid "NW"
 msgstr ""
 
-#: ../plugins/weather/yahooutil.c:66 ../plugins/weather/openweathermap.c:72
+#: ../plugins/weather/yahooutil.c:68 ../plugins/weather/openweathermap.c:72
 msgid "NNW"
 msgstr ""
 
-#: ../plugins/weather/yahooutil.c:1092
+#: ../plugins/weather/yahooutil.c:1094
 msgid "Yahoo! Weather"
 msgstr ""
 

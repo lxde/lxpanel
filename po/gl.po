@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-03 21:29+0200\n"
+"POT-Creation-Date: 2025-01-29 15:52+0100\n"
 "PO-Revision-Date: 2019-02-22 09:49+0000\n"
 "Last-Translator: Miguel Anxo Bouzada <mbouzada@gmail.com>\n"
 "Language-Team: Galician <proxecto@trasno.net>\n"
@@ -61,11 +61,11 @@ msgstr "Seleccionar un ficheiro"
 msgid "_Browse"
 msgstr "_Examinar"
 
-#: ../src/panel.c:1292
+#: ../src/panel.c:1305
 msgid "There is no room for another panel. All the edges are taken."
 msgstr "Non hai espazo para outro panel. Todos os bordos están ocupados."
 
-#: ../src/panel.c:1318
+#: ../src/panel.c:1331
 msgid ""
 "Really delete this panel?\n"
 "<b>Warning: This can not be recovered.</b>"
@@ -73,12 +73,12 @@ msgstr ""
 "Confirma que quere retirar este panel?\n"
 "<b>Advertencia: Isto non poderá desfacerse.</b>"
 
-#: ../src/panel.c:1320
+#: ../src/panel.c:1333
 msgid "Confirm"
 msgstr "Confirmar"
 
 #. TRANSLATORS: Replace this string with your names, one name per line.
-#: ../src/panel.c:1355
+#: ../src/panel.c:1369
 msgid "translator-credits"
 msgstr ""
 "Indalecio Freiría Santos <ifreiria@gmail.com>, 2009.\n"
@@ -86,73 +86,73 @@ msgstr ""
 "2015, 2016, 2017,2018,2019.\n"
 "Proxecto Trasno <proxecto@trasno.net>."
 
-#: ../src/panel.c:1360
+#: ../src/panel.c:1374
 msgid "LXPanel"
 msgstr "LXPanel"
 
-#: ../src/panel.c:1378
+#: ../src/panel.c:1392
 msgid "Copyright (C) 2008-2025"
 msgstr "Copyright (C) 2008-2025"
 
-#: ../src/panel.c:1379
+#: ../src/panel.c:1393
 msgid "Desktop panel for LXDE project"
 msgstr "Panel de escritorio para o proxecto LXDE"
 
-#: ../src/panel.c:1421
+#: ../src/panel.c:1435
 #, c-format
 msgid "\"%s\" Settings"
 msgstr "Configuración de «%s»"
 
-#: ../src/panel.c:1442
+#: ../src/panel.c:1456
 msgid "Add / Remove Panel Items"
 msgstr "Engadir / Eliminar elementos do panel"
 
-#: ../src/panel.c:1450
+#: ../src/panel.c:1464
 #, c-format
 msgid "Remove \"%s\" From Panel"
 msgstr "Retirar «%s» do panel"
 
-#: ../src/panel.c:1462
+#: ../src/panel.c:1476
 msgid "Panel Settings"
 msgstr "Configuración do panel"
 
-#: ../src/panel.c:1468
+#: ../src/panel.c:1482
 msgid "Create New Panel"
 msgstr "Crear un panel novo"
 
-#: ../src/panel.c:1474
+#: ../src/panel.c:1488
 msgid "Delete This Panel"
 msgstr "Eliminar este panel"
 
-#: ../src/panel.c:1485
+#: ../src/panel.c:1499
 msgid "About"
 msgstr "Sobre"
 
-#: ../src/panel.c:1492
+#: ../src/panel.c:1506
 msgid "Panel"
 msgstr "Panel"
 
-#: ../src/panel.c:1710 ../src/panel.c:1718 ../data/ui/panel-pref.glade.h:22
+#: ../src/panel.c:1724 ../src/panel.c:1732 ../data/ui/panel-pref.glade.h:22
 msgid "Height:"
 msgstr "Altura:"
 
-#: ../src/panel.c:1711 ../src/panel.c:1717 ../data/ui/panel-pref.glade.h:21
+#: ../src/panel.c:1725 ../src/panel.c:1731 ../data/ui/panel-pref.glade.h:21
 msgid "Width:"
 msgstr "Largura:"
 
-#: ../src/panel.c:1712 ../data/ui/panel-pref.glade.h:13
+#: ../src/panel.c:1726 ../data/ui/panel-pref.glade.h:13
 msgid "Left"
 msgstr "Esquerda"
 
-#: ../src/panel.c:1713 ../data/ui/panel-pref.glade.h:14
+#: ../src/panel.c:1727 ../data/ui/panel-pref.glade.h:14
 msgid "Right"
 msgstr "Dereita"
 
-#: ../src/panel.c:1719 ../data/ui/panel-pref.glade.h:12
+#: ../src/panel.c:1733 ../data/ui/panel-pref.glade.h:12
 msgid "Top"
 msgstr "Arriba"
 
-#: ../src/panel.c:1720 ../data/ui/panel-pref.glade.h:11
+#: ../src/panel.c:1734 ../data/ui/panel-pref.glade.h:11
 msgid "Bottom"
 msgstr "Abaixo"
 
@@ -160,7 +160,6 @@ msgstr "Abaixo"
 msgid "No file manager is configured."
 msgstr "O xestor de ficheiros non está configurado."
 
-#. { "configure", N_("Preferences"), configure },
 #: ../src/gtk-run.c:385 ../src/main.c:69 ../plugins/menu.c:718
 msgid "Run"
 msgstr "Executar"
@@ -197,8 +196,6 @@ msgstr " --help      -- amosar esta axuda e saír\n"
 msgid " --version   -- print version and exit\n"
 msgstr " --version   -- amosar a versión e saír\n"
 
-#. g_print(_(" --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"));
-#. g_print(_(" --configure -- launch configuration utility\n"));
 #: ../src/main.c:329
 #, c-format
 msgid " --profile name -- use specified profile\n"
@@ -219,7 +216,6 @@ msgstr " -p  -- equivalente a --profile\n"
 msgid " -v  -- same as --version\n"
 msgstr " -v  -- equivalente a --version\n"
 
-#. g_print(_(" -C  -- same as --configure\n"));
 #: ../src/main.c:335
 #, c-format
 msgid ""
@@ -261,7 +257,6 @@ msgstr ""
 msgid "Error"
 msgstr "Erro"
 
-#. GtkRadioButton "None"
 #: ../src/input-button.c:329 ../data/ui/panel-pref.glade.h:5
 msgid "None"
 msgstr "Ningún"
@@ -281,7 +276,7 @@ msgstr ""
 msgid "Spacer"
 msgstr "Espazador"
 
-#: ../src/space.c:396 ../plugins/batt/batt.c:735
+#: ../src/space.c:396 ../plugins/batt/batt.c:740
 #, fuzzy
 #| msgid "Size"
 msgctxt "Width"
@@ -292,11 +287,10 @@ msgstr "Tamaño"
 msgid "Allocate space"
 msgstr "Asignar espazo"
 
-#: ../data/ui/launchtaskbar.glade.h:1 ../plugins/launchtaskbar.c:2484
+#: ../data/ui/launchtaskbar.glade.h:1 ../plugins/launchtaskbar.c:2497
 msgid "Application Launch and Task Bar"
 msgstr "Barra de tarefas e iniciador de aplicativos"
 
-#. Launchtaskbar mode: launchbar, taskbar, or combined
 #: ../data/ui/launchtaskbar.glade.h:3
 msgid "<b>Mode:</b>"
 msgstr "<b>Modo:</b>"
@@ -322,55 +316,59 @@ msgid "Flat buttons"
 msgstr "Botóns simples"
 
 #: ../data/ui/launchtaskbar.glade.h:9
+msgid "Show square brackets around the names of minimized windows"
+msgstr ""
+
+#: ../data/ui/launchtaskbar.glade.h:10
 msgid "Show windows from all desktops"
 msgstr "Amosar as xanelas de todas as áreas de traballo"
 
-#: ../data/ui/launchtaskbar.glade.h:10
+#: ../data/ui/launchtaskbar.glade.h:11
 msgid "Only show windows on the same monitor as the task bar"
 msgstr "Amosar as xanelas só na mesma pantalla que a barra de tarefas"
 
-#: ../data/ui/launchtaskbar.glade.h:11
+#: ../data/ui/launchtaskbar.glade.h:12
 msgid "Use mouse wheel"
 msgstr "Usar a roda do rato"
 
-#: ../data/ui/launchtaskbar.glade.h:12
+#: ../data/ui/launchtaskbar.glade.h:13
 msgid "Flash when there is any window requiring attention"
 msgstr "Avisar cando unha xanela require atención"
 
-#: ../data/ui/launchtaskbar.glade.h:13
+#: ../data/ui/launchtaskbar.glade.h:14
 msgid "Combine multiple application windows into a single button"
 msgstr "Combinar múltiples xanelas de aplicativos nun só botón"
 
-#: ../data/ui/launchtaskbar.glade.h:14
+#: ../data/ui/launchtaskbar.glade.h:15
 msgid "Disable enlargement for small task icons"
 msgstr "Desactivar a ampliación para iconas pequenas de tarefas"
 
-#: ../data/ui/launchtaskbar.glade.h:15
+#: ../data/ui/launchtaskbar.glade.h:16
 msgid "Show task icons smaller than rest of panel icons"
 msgstr ""
 "Amosar as iconas de tarefas máis pequenas que o resto de iconas do panel"
 
-#: ../data/ui/launchtaskbar.glade.h:16
+#: ../data/ui/launchtaskbar.glade.h:17
 msgid "Maximum width of task button"
 msgstr "Largura máxima do botón de tarefas"
 
-#: ../data/ui/launchtaskbar.glade.h:17
+#: ../data/ui/launchtaskbar.glade.h:18
 msgid "Spacing"
 msgstr "Espazado"
 
-#: ../data/ui/launchtaskbar.glade.h:18
+#: ../data/ui/launchtaskbar.glade.h:19
 msgid "<b>Taskbar</b>"
 msgstr "<b>Barra de tarefas</b>"
 
-#: ../data/ui/launchtaskbar.glade.h:19
+#: ../data/ui/launchtaskbar.glade.h:20
 msgid "Only Application Launch Bar"
 msgstr "Só a barra de iniciadores de aplicativos"
 
-#: ../data/ui/launchtaskbar.glade.h:20
+#: ../data/ui/launchtaskbar.glade.h:21
 msgid "Only Task Bar (Window List)"
 msgstr "Só a barra de tarefas (lista de xanelas)"
 
-#: ../data/ui/launchtaskbar.glade.h:21
+#: ../data/ui/launchtaskbar.glade.h:22
 msgid "Integrated Application Launch Bar and Task Bar"
 msgstr "Barras de iniciadores de aplicativos e tarefas integradas"
 
@@ -493,7 +491,7 @@ msgstr "Preferencias do panel"
 msgid "Edge:"
 msgstr "Bordo:"
 
-#: ../data/ui/panel-pref.glade.h:16 ../plugins/volumealsa/volumealsa.c:1317
+#: ../data/ui/panel-pref.glade.h:16 ../plugins/volumealsa/volumealsa.c:1331
 msgid "Center"
 msgstr "Centro"
 
@@ -648,31 +646,31 @@ msgstr "Amosar os nomes dos escritorios"
 msgid "Display workspace number, by cmeury@users.sf.net"
 msgstr "Amosa o número da área de traballo, por cmeury@users.sf.net"
 
-#: ../plugins/launchtaskbar.c:1833 ../plugins/launchtaskbar.c:2454
+#: ../plugins/launchtaskbar.c:1846 ../plugins/launchtaskbar.c:2467
 msgid "Application Launch Bar"
 msgstr "Barra de aplicativos"
 
-#: ../plugins/launchtaskbar.c:1836 ../plugins/launchtaskbar.c:2464
+#: ../plugins/launchtaskbar.c:1849 ../plugins/launchtaskbar.c:2477
 msgid "Task Bar (Window List)"
 msgstr "Barra de tarefas (lista de xanelas)"
 
-#: ../plugins/launchtaskbar.c:1987
+#: ../plugins/launchtaskbar.c:2000
 msgid "A_dd to Launcher"
 msgstr "E_ngadir ao iniciador"
 
-#: ../plugins/launchtaskbar.c:1989
+#: ../plugins/launchtaskbar.c:2002
 msgid "Rem_ove from Launcher"
 msgstr "Re_tirar do iniciador"
 
-#: ../plugins/launchtaskbar.c:1991
+#: ../plugins/launchtaskbar.c:2004
 msgid "_New Instance"
 msgstr "Instancia _nova"
 
-#: ../plugins/launchtaskbar.c:2455
+#: ../plugins/launchtaskbar.c:2468
 msgid "Bar with buttons to launch application"
 msgstr "Barra de aceso a aplicativos"
 
-#: ../plugins/launchtaskbar.c:2465
+#: ../plugins/launchtaskbar.c:2478
 #, fuzzy
 msgid ""
 "Taskbar shows all opened windows and allows to iconify them, shade or get "
@@ -681,58 +679,51 @@ msgstr ""
 "A barra de tarefas amosa todas as xanelas abertas e permite minimizalas, "
 "repregalas ou enfocalas"
 
-#: ../plugins/launchtaskbar.c:2485
+#: ../plugins/launchtaskbar.c:2498
 msgid "Bar with buttons to launch application and/or show all opened windows"
 msgstr ""
 "Barra con botóns para iniciar aplicativos e/ou amosar todas as xanelas "
 "abertas"
 
-#. Add Raise menu item.
-#: ../plugins/task-button.c:351
+#: ../plugins/task-button.c:352
 msgid "_Raise"
 msgstr "_Erguer"
 
-#. Add Restore menu item.
-#: ../plugins/task-button.c:356
+#: ../plugins/task-button.c:357
 msgid "R_estore"
 msgstr "_Restaurar"
 
-#. Add Maximize menu item.
-#: ../plugins/task-button.c:361
+#: ../plugins/task-button.c:362
 msgid "Ma_ximize"
 msgstr "Ma_ximizar"
 
-#. Add Iconify menu item.
-#: ../plugins/task-button.c:366
+#: ../plugins/task-button.c:367
 msgid "Ico_nify"
 msgstr "Ico_nificar"
 
-#: ../plugins/task-button.c:387
+#: ../plugins/task-button.c:388
 #, c-format
 msgid "Workspace _%d"
 msgstr "Área de traballo _%d"
 
-#: ../plugins/task-button.c:392
+#: ../plugins/task-button.c:393
 #, c-format
 msgid "Workspace %d"
 msgstr "Área de traballo %d"
 
-#. Add "move to all workspaces" item.  This causes the window to be visible no matter what desktop is active.
-#: ../plugins/task-button.c:409
+#: ../plugins/task-button.c:410
 msgid "_All workspaces"
 msgstr "_Todas as áreas de traballo"
 
-#. FIXME: add "Current workspace" item, active if not on a current
-#. Add Move to Workspace menu item as a submenu.
-#: ../plugins/task-button.c:417
+#: ../plugins/task-button.c:418
 msgid "_Move to Workspace"
 msgstr "_Mover á área de traballo"
 
-#: ../plugins/task-button.c:432
+#: ../plugins/task-button.c:433
 msgid "_Close Window"
 msgstr "_Pechar a xanela"
 
-#: ../plugins/task-button.c:1255
+#: ../plugins/task-button.c:1256
 msgid "_Close all windows"
 msgstr "_Pechar todas as xanelas"
 
@@ -797,15 +788,15 @@ msgstr "Separador"
 msgid "Add a separator to the panel"
 msgstr "Engadir un separador ao panel"
 
-#: ../plugins/pager.c:141
+#: ../plugins/pager.c:177
 msgid "Sorry, there was no window manager configuration program found."
 msgstr "Nos se atopou un programa de configuración do xestor de xanelas."
 
-#: ../plugins/pager.c:193 ../plugins/pager.c:209
+#: ../plugins/pager.c:229 ../plugins/pager.c:245
 msgid "Desktop Pager"
 msgstr "Escritorios virtuais"
 
-#: ../plugins/pager.c:194 ../plugins/pager.c:210
+#: ../plugins/pager.c:230 ../plugins/pager.c:246
 msgid "Simple pager plugin"
 msgstr "Complemento sinxelo para escritorios virtuais"
 
@@ -821,7 +812,6 @@ msgstr "Área de notificación"
 msgid "New session is required for this option to take effect"
 msgstr "Para que esta opción teña efecto ten que reiniciar a sesión"
 
-#. dialog
 #: ../plugins/xkb/xkb-plugin.c:590
 msgid "Select Keyboard Model"
 msgstr "Para que esta opción teña efecto debe reiniciar a sesión"
@@ -835,12 +825,10 @@ msgstr "Descrición"
 msgid "Id"
 msgstr "ID"
 
-#. dialog
 #: ../plugins/xkb/xkb-plugin.c:714
 msgid "Select Layout Change Type"
 msgstr "Escolla unha disposición para cambiar"
 
-#. dialog
 #: ../plugins/xkb/xkb-plugin.c:887
 msgid "Add Keyboard Layout"
 msgstr "Engadir unha disposición de teclado"
@@ -974,17 +962,14 @@ msgstr "Cor de aviso 2"
 msgid "Automatic sensor location"
 msgstr "Localización automática do sensor"
 
-#. FIXME: if off, disable next one
 #: ../plugins/thermal/thermal.c:569
 msgid "Sensor"
 msgstr "Sensor"
 
-#. FIXME: create a list to select instead
 #: ../plugins/thermal/thermal.c:570
 msgid "Automatic temperature levels"
 msgstr "Niveis automáticos de temperatura"
 
-#. FIXME: if off, disable two below
 #: ../plugins/thermal/thermal.c:571
 msgid "Warning1 temperature"
 msgstr "Aviso de temperatura 1"
@@ -1021,7 +1006,6 @@ msgid "ALSA (or pulseaudio) had a problem. Please check the lxpanel logs."
 msgstr ""
 "ALSA (ou pulseaudio) tivo un problema. Comprobe os rexistros de lxpanel."
 
-#. Display current level in tooltip.
 #: ../plugins/volumealsa/volumealsa.c:615
 #, fuzzy, c-format
 #| msgid "Volume"
@@ -1036,129 +1020,124 @@ msgstr ""
 "Erro, é necesario instalar un aplicativo para configurar o son (pavucontol, "
 "alsamixer ...)"
 
-#. Create a frame as the child of the viewport.
-#: ../plugins/volumealsa/volumealsa.c:900
+#: ../plugins/volumealsa/volumealsa.c:911
 msgid "Volume"
 msgstr "Volume"
 
-#. Create a check button as the child of the vertical box.
-#: ../plugins/volumealsa/volumealsa.c:918
+#: ../plugins/volumealsa/volumealsa.c:929
 msgid "Mute"
 msgstr "Silenciar"
 
-#: ../plugins/volumealsa/volumealsa.c:977
+#: ../plugins/volumealsa/volumealsa.c:988
 msgid "Volume control"
 msgstr "Control de volume"
 
-#. Just to have these translated
-#: ../plugins/volumealsa/volumealsa.c:1317
+#: ../plugins/volumealsa/volumealsa.c:1331
 msgid "Line"
 msgstr "Liña"
 
-#: ../plugins/volumealsa/volumealsa.c:1317
+#: ../plugins/volumealsa/volumealsa.c:1331
 msgid "LineOut"
 msgstr "Saída de liña"
 
-#: ../plugins/volumealsa/volumealsa.c:1317
+#: ../plugins/volumealsa/volumealsa.c:1331
 msgid "Front"
 msgstr "Frontal"
 
-#: ../plugins/volumealsa/volumealsa.c:1317
+#: ../plugins/volumealsa/volumealsa.c:1331
 msgid "Surround"
 msgstr "Envolvente"
 
-#: ../plugins/volumealsa/volumealsa.c:1317
+#: ../plugins/volumealsa/volumealsa.c:1331
 msgid "Speaker+LO"
 msgstr "Altofalante+SL"
 
-#: ../plugins/volumealsa/volumealsa.c:1318
+#: ../plugins/volumealsa/volumealsa.c:1332
 #, fuzzy
 #| msgid "Speaker+LO"
 msgid "Speaker"
 msgstr "Altofalante+SL"
 
-#: ../plugins/volumealsa/volumealsa.c:1318
+#: ../plugins/volumealsa/volumealsa.c:1332
 msgid "Beep"
 msgstr ""
 
-#: ../plugins/volumealsa/volumealsa.c:1357
+#: ../plugins/volumealsa/volumealsa.c:1371
 msgid "default"
 msgstr "predeterminada"
 
-#. desc, index
-#: ../plugins/volumealsa/volumealsa.c:1417
+#: ../plugins/volumealsa/volumealsa.c:1431
 msgid "Master"
 msgstr "Mestra"
 
-#: ../plugins/volumealsa/volumealsa.c:1421
+#: ../plugins/volumealsa/volumealsa.c:1435
 msgid "PCM"
 msgstr "PCM"
 
-#: ../plugins/volumealsa/volumealsa.c:1425
+#: ../plugins/volumealsa/volumealsa.c:1439
 msgid "Headphone"
 msgstr "Auriculares"
 
-#: ../plugins/volumealsa/volumealsa.c:1447
+#: ../plugins/volumealsa/volumealsa.c:1461
 msgid "Click for Volume Slider"
 msgstr "Prema para o esvarador do volume"
 
-#: ../plugins/volumealsa/volumealsa.c:1448
-#: ../plugins/volumealsa/volumealsa.c:1453
-#: ../plugins/volumealsa/volumealsa.c:1458
+#: ../plugins/volumealsa/volumealsa.c:1462
+#: ../plugins/volumealsa/volumealsa.c:1467
+#: ../plugins/volumealsa/volumealsa.c:1472
 msgid "Click to select, then press a mouse button"
 msgstr ""
 
-#: ../plugins/volumealsa/volumealsa.c:1452
+#: ../plugins/volumealsa/volumealsa.c:1466
 msgid "Click for Toggle Mute"
 msgstr "Prema para alternar o silenciador do volume"
 
-#: ../plugins/volumealsa/volumealsa.c:1457
+#: ../plugins/volumealsa/volumealsa.c:1471
 msgid "Click for Open Mixer"
 msgstr "Prema para abrir o mesturador"
 
-#. setup hotkeys
-#: ../plugins/volumealsa/volumealsa.c:1462
+#: ../plugins/volumealsa/volumealsa.c:1476
 msgid "Hotkey for Volume Up"
 msgstr "Atallo de teclado para subir o volume"
 
-#: ../plugins/volumealsa/volumealsa.c:1463
-#: ../plugins/volumealsa/volumealsa.c:1466
-#: ../plugins/volumealsa/volumealsa.c:1469
+#: ../plugins/volumealsa/volumealsa.c:1477
+#: ../plugins/volumealsa/volumealsa.c:1480
+#: ../plugins/volumealsa/volumealsa.c:1483
 msgid "Click to select, then press a key"
 msgstr ""
 
-#: ../plugins/volumealsa/volumealsa.c:1465
+#: ../plugins/volumealsa/volumealsa.c:1479
 msgid "Hotkey for Volume Down"
 msgstr "Atallo de teclado para baixar o volume"
 
-#: ../plugins/volumealsa/volumealsa.c:1468
+#: ../plugins/volumealsa/volumealsa.c:1482
 msgid "Hotkey for Volume Mute"
 msgstr "Atallo de teclado para silenciar o volume"
 
-#: ../plugins/volumealsa/volumealsa.c:1525
-#: ../plugins/volumealsa/volumealsa.c:1564
-#: ../plugins/volumealsa/volumealsa.c:1585
+#: ../plugins/volumealsa/volumealsa.c:1539
+#: ../plugins/volumealsa/volumealsa.c:1578
+#: ../plugins/volumealsa/volumealsa.c:1599
 msgid "Volume Control"
 msgstr "Control de volume"
 
-#: ../plugins/volumealsa/volumealsa.c:1527
+#: ../plugins/volumealsa/volumealsa.c:1541
 msgid "Audio Card"
 msgstr "Tarxeta de son"
 
-#: ../plugins/volumealsa/volumealsa.c:1530
+#: ../plugins/volumealsa/volumealsa.c:1544
 msgid "Channel to Operate"
 msgstr "Canle para operar"
 
-#: ../plugins/volumealsa/volumealsa.c:1538
+#: ../plugins/volumealsa/volumealsa.c:1552
 msgid "Command to Open Mixer"
 msgstr "Orde para abrir o mesturador"
 
-#: ../plugins/volumealsa/volumealsa.c:1553
+#: ../plugins/volumealsa/volumealsa.c:1567
 msgid "Launch Mixer"
 msgstr "Iniciador do mesturador"
 
-#: ../plugins/volumealsa/volumealsa.c:1565
-#: ../plugins/volumealsa/volumealsa.c:1586
+#: ../plugins/volumealsa/volumealsa.c:1579
+#: ../plugins/volumealsa/volumealsa.c:1600
 msgid "Display and control volume"
 msgstr "Vista e control do volume"
 
@@ -1170,12 +1149,10 @@ msgstr "<Punto de acceso agachado>"
 msgid "Wireless Networks not found in range"
 msgstr "Non se atoparon redes sen fíos no intervalo"
 
-#. Repair
 #: ../plugins/netstat/netstat.c:256
 msgid "Repair"
 msgstr "Arranxar"
 
-#. interface down
 #: ../plugins/netstat/netstat.c:261
 msgid "Disable"
 msgstr "Desactivar"
@@ -1251,7 +1228,6 @@ msgstr "Administrar redes"
 msgid "Monitor and Manage networks"
 msgstr "Monitorizar e administrar o estado das redes"
 
-#. create dialog
 #: ../plugins/netstat/passwd_gui.c:90
 msgid "Setting Encryption Key"
 msgstr "Configuración de chave cifrada"
@@ -1734,67 +1710,67 @@ msgstr ""
 "\n"
 "%sVoltaxe actual:\t\t%.3lf V"
 
-#: ../plugins/batt/batt.c:260
+#: ../plugins/batt/batt.c:259
 msgid "No batteries found"
 msgstr "Non se atoparon baterías"
 
-#: ../plugins/batt/batt.c:566 ../plugins/batt/batt.c:699
+#: ../plugins/batt/batt.c:571 ../plugins/batt/batt.c:704
 msgid "Battery low"
 msgstr "Batería baixa"
 
-#: ../plugins/batt/batt.c:723 ../plugins/batt/batt.c:748
+#: ../plugins/batt/batt.c:728 ../plugins/batt/batt.c:753
 msgid "Battery Monitor"
 msgstr "Monitor da batería"
 
-#: ../plugins/batt/batt.c:725
+#: ../plugins/batt/batt.c:730
 msgid "Hide if there is no battery"
 msgstr "Agachar se non hai baterías"
 
-#: ../plugins/batt/batt.c:726
+#: ../plugins/batt/batt.c:731
 msgid "Alarm command"
 msgstr "Orde de alarma"
 
-#: ../plugins/batt/batt.c:727
+#: ../plugins/batt/batt.c:732
 msgid "Alarm time (minutes left)"
 msgstr "Hora de alarma (minutos restantes)"
 
-#: ../plugins/batt/batt.c:728
+#: ../plugins/batt/batt.c:733
 msgid "Background color"
 msgstr "Cor de fondo"
 
-#: ../plugins/batt/batt.c:729
+#: ../plugins/batt/batt.c:734
 msgid "Charging color 1"
 msgstr "Cor de carga n°1"
 
-#: ../plugins/batt/batt.c:730
+#: ../plugins/batt/batt.c:735
 msgid "Charging color 2"
 msgstr "Cor de carga n°2"
 
-#: ../plugins/batt/batt.c:731
+#: ../plugins/batt/batt.c:736
 msgid "Discharging color 1"
 msgstr "Cor de descarga n°1"
 
-#: ../plugins/batt/batt.c:732
+#: ../plugins/batt/batt.c:737
 msgid "Discharging color 2"
 msgstr "Cor de descarga n°2"
 
-#: ../plugins/batt/batt.c:733
+#: ../plugins/batt/batt.c:738
 msgid "Border width"
 msgstr "Largura do bordo"
 
-#: ../plugins/batt/batt.c:737
+#: ../plugins/batt/batt.c:742
 msgid "Show Extended Information"
 msgstr "Amosar a información estendida"
 
-#: ../plugins/batt/batt.c:738
+#: ../plugins/batt/batt.c:743
 msgid "Number of battery to monitor"
 msgstr "Número da batería que supervisar"
 
-#: ../plugins/batt/batt.c:739
+#: ../plugins/batt/batt.c:744
 msgid "Don't show number of battery"
 msgstr ""
 
-#: ../plugins/batt/batt.c:749
+#: ../plugins/batt/batt.c:754
 msgid "Display battery status using ACPI"
 msgstr "Amosar o estado da batería por medio de ACPI"
 
@@ -1818,7 +1794,6 @@ msgstr "Amosar BloqDespl"
 msgid "Indicators for CapsLock, NumLock, and ScrollLock keys"
 msgstr "Indicadores para as teclas BloqMaiús, BloqNum, BloqDespl"
 
-#. A label to allow for click through
 #: ../plugins/indicator/indicator.c:694
 msgid "No Indicators"
 msgstr "Sen indicadores"
@@ -2007,7 +1982,6 @@ msgstr "Orixe:"
 msgid "C_hange"
 msgstr "Ca_mbiar"
 
-#. Both are available
 #: ../plugins/weather/weatherwidget.c:1613
 #, c-format
 msgid "Current Conditions for %s"
@@ -2086,7 +2060,6 @@ msgstr "Estado"
 msgid "Country"
 msgstr "País"
 
-#. make it nice and pretty
 #: ../plugins/weather/weatherwidget.c:2289
 msgid "Currently in "
 msgstr "Actualmente en "
@@ -2107,71 +2080,71 @@ msgstr "Complemento de tempo climático"
 msgid "Show weather conditions for a location."
 msgstr "Amosa as condicións meteorolóxicas para unha localización."
 
-#: ../plugins/weather/yahooutil.c:51 ../plugins/weather/openweathermap.c:57
+#: ../plugins/weather/yahooutil.c:53 ../plugins/weather/openweathermap.c:57
 msgid "N"
 msgstr "N"
 
-#: ../plugins/weather/yahooutil.c:52 ../plugins/weather/openweathermap.c:58
+#: ../plugins/weather/yahooutil.c:54 ../plugins/weather/openweathermap.c:58
 msgid "NNE"
 msgstr "NNL"
 
-#: ../plugins/weather/yahooutil.c:53 ../plugins/weather/openweathermap.c:59
+#: ../plugins/weather/yahooutil.c:55 ../plugins/weather/openweathermap.c:59
 msgid "NE"
 msgstr "NL"
 
-#: ../plugins/weather/yahooutil.c:54 ../plugins/weather/openweathermap.c:60
+#: ../plugins/weather/yahooutil.c:56 ../plugins/weather/openweathermap.c:60
 msgid "ENE"
 msgstr "LSL"
 
-#: ../plugins/weather/yahooutil.c:55 ../plugins/weather/openweathermap.c:61
+#: ../plugins/weather/yahooutil.c:57 ../plugins/weather/openweathermap.c:61
 msgid "E"
 msgstr "L"
 
-#: ../plugins/weather/yahooutil.c:56 ../plugins/weather/openweathermap.c:62
+#: ../plugins/weather/yahooutil.c:58 ../plugins/weather/openweathermap.c:62
 msgid "ESE"
 msgstr "LSL"
 
-#: ../plugins/weather/yahooutil.c:57 ../plugins/weather/openweathermap.c:63
+#: ../plugins/weather/yahooutil.c:59 ../plugins/weather/openweathermap.c:63
 msgid "SE"
 msgstr "SL"
 
-#: ../plugins/weather/yahooutil.c:58 ../plugins/weather/openweathermap.c:64
+#: ../plugins/weather/yahooutil.c:60 ../plugins/weather/openweathermap.c:64
 msgid "SSE"
 msgstr "SSL"
 
-#: ../plugins/weather/yahooutil.c:59 ../plugins/weather/openweathermap.c:65
+#: ../plugins/weather/yahooutil.c:61 ../plugins/weather/openweathermap.c:65
 msgid "S"
 msgstr "S"
 
-#: ../plugins/weather/yahooutil.c:60 ../plugins/weather/openweathermap.c:66
+#: ../plugins/weather/yahooutil.c:62 ../plugins/weather/openweathermap.c:66
 msgid "SSW"
 msgstr "SSO"
 
-#: ../plugins/weather/yahooutil.c:61 ../plugins/weather/openweathermap.c:67
+#: ../plugins/weather/yahooutil.c:63 ../plugins/weather/openweathermap.c:67
 msgid "SW"
 msgstr "SO"
 
-#: ../plugins/weather/yahooutil.c:62 ../plugins/weather/openweathermap.c:68
+#: ../plugins/weather/yahooutil.c:64 ../plugins/weather/openweathermap.c:68
 msgid "WSW"
 msgstr "OSO"
 
-#: ../plugins/weather/yahooutil.c:63 ../plugins/weather/openweathermap.c:69
+#: ../plugins/weather/yahooutil.c:65 ../plugins/weather/openweathermap.c:69
 msgid "W"
 msgstr "O"
 
-#: ../plugins/weather/yahooutil.c:64 ../plugins/weather/openweathermap.c:70
+#: ../plugins/weather/yahooutil.c:66 ../plugins/weather/openweathermap.c:70
 msgid "WNW"
 msgstr "ONO"
 
-#: ../plugins/weather/yahooutil.c:65 ../plugins/weather/openweathermap.c:71
+#: ../plugins/weather/yahooutil.c:67 ../plugins/weather/openweathermap.c:71
 msgid "NW"
 msgstr "NO"
 
-#: ../plugins/weather/yahooutil.c:66 ../plugins/weather/openweathermap.c:72
+#: ../plugins/weather/yahooutil.c:68 ../plugins/weather/openweathermap.c:72
 msgid "NNW"
 msgstr "NNO"
 
-#: ../plugins/weather/yahooutil.c:1092
+#: ../plugins/weather/yahooutil.c:1094
 msgid "Yahoo! Weather"
 msgstr "Yahoo! Weather"
 
