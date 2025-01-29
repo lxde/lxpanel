@@ -1751,7 +1751,8 @@ void task_button_update(TaskButton *button, gint desk, gint desks,
     if (button->icon_size != icon_size
         || button->flags.disable_taskbar_upscale != flags.disable_taskbar_upscale)
         changed_icon = TRUE;
-    if (button->flags.flat_button != flags.flat_button)
+    if (button->flags.flat_button != flags.flat_button ||
+        button->flags.show_square_brackets != flags.show_square_brackets)
         changed_label = TRUE;
     if (button->flags.icons_only != flags.icons_only)
     {
