@@ -4,6 +4,7 @@
  *               2012-2013 Giuseppe Penone <giuspen@gmail.com>
  *               2013 Henry Gebhardt <hsggebhardt@gmail.com>
  *               2014-2016 Andriy Grytsenko <andrej@rep.kiev.ua>
+ *               2025 Ingo Brückl
  *
  * This file is a part of LXPanel project.
  *
@@ -275,6 +276,9 @@ static GtkWidget *xkb_constructor(LXPanel *panel, config_setting_t *settings)
     GtkWidget * hbox = gtk_hbox_new(FALSE, 0);
     gtk_container_set_border_width(GTK_CONTAINER(hbox), 3);
     gtk_container_add(GTK_CONTAINER(p), hbox);
+#if GTK_CHECK_VERSION(3, 4, 0)
+    gtk_widget_add_events(p, GDK_SCROLL_MASK);
+#endif
     gtk_widget_show(hbox);
 
     /* Create a label and an image as children of the horizontal box.
