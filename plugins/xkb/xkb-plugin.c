@@ -197,7 +197,7 @@ static gboolean on_xkb_button_scroll_event(GtkWidget * widget, GdkEventScroll * 
 
     /* Change to next or previous group. */
     xkb_change_group(xkb,
-        (((event->direction == GDK_SCROLL_UP) || (event->direction == GDK_SCROLL_RIGHT)) ? 1 : -1));
+        (((event->direction == GDK_SCROLL_DOWN) || (event->direction == GDK_SCROLL_RIGHT)) ? 1 : -1));
     return TRUE;
 }
 
