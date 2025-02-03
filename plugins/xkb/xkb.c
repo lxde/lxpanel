@@ -113,6 +113,12 @@ const char * xkb_get_current_symbol_name_lowercase(XkbPlugin * xkb)
     return ((tmp != NULL) ? g_utf8_strdown(tmp, -1) : NULL);
 }
 
+/* Get the current variant name. */
+const char * xkb_get_current_variant_name(XkbPlugin * xkb)
+{
+    return xkb->variant_names[xkb->current_group_xkb_no];
+}
+
 /* Refresh current group number from Xkb state. */
 static void refresh_group_xkb(XkbPlugin * xkb)
 {
@@ -156,11 +162,13 @@ static int initialize_keyboard_description(XkbPlugin * xkb)
                 }
             }
 
-            /* Reinitialize the symbol name storage. */
+            /* Reinitialize the symbol and variant name storages. */
             for (i = 0; i < XkbNumKbdGroups; i += 1)
             {
                 g_free(xkb->symbol_names[i]);
                 xkb->symbol_names[i] = NULL;
+                g_free(xkb->variant_names[i]);
+                xkb->variant_names[i] = NULL;
             }
 
             /* Get the symbol names of all keyboard layouts. */
@@ -197,6 +205,22 @@ static int initialize_keyboard_description(XkbPlugin * xkb)
                                 g_strfreev(symbols);
                             }
 
+                            /* variant names */
+                            if (substr == 4)
+                            {
+                                gchar **variants = g_strsplit(prop + pos, ",", XkbNumKbdGroups + 1);
+
+                                for (i = 0; i < XkbNumKbdGroups; i++)
+                                {
+                                    if (variants[i])
+                                        xkb->variant_names[i] = g_strdup(variants[i]);
+                                    else
+                                        break;
+                                }
+
+                                g_strfreev(variants);
+                            }
+
                             pos += strlen(prop + pos) + 1;
                             substr++;
                         }
@@ -217,6 +241,8 @@ static int initialize_keyboard_description(XkbPlugin * xkb)
             xkb->group_names[i] = g_strdup("Unknown");
         if (xkb->symbol_names[i] == NULL)
             xkb->symbol_names[i] = g_strdup("None");
+        if (xkb->variant_names[i] == NULL)
+            xkb->variant_names[i] = g_strdup("");
     }
 
     /* Create or recreate hash table */
@@ -318,6 +344,11 @@ void xkb_mechanism_destructor(XkbPlugin * xkb)
         {
             g_free(xkb->symbol_names[i]);
             xkb->symbol_names[i] = NULL;
+        }
+        if (xkb->variant_names[i] != NULL)
+        {
+            g_free(xkb->variant_names[i]);
+            xkb->variant_names[i] = NULL;
         }
     }
 

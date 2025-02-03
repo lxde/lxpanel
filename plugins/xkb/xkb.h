@@ -62,6 +62,7 @@ typedef struct {
     int       group_count;                    /* Count of groups as returned by Xkb */
     char     *group_names[XkbNumKbdGroups];   /* Group names as returned by Xkb */
     char     *symbol_names[XkbNumKbdGroups];  /* Symbol names as returned by Xkb */
+    char     *variant_names[XkbNumKbdGroups]; /* Variant names as returned by Xkb */
     GHashTable *p_hash_table_group;             /* Hash table to correlate window with layout */
     gchar    *kbd_model;
     gchar    *kbd_layouts;
@@ -89,6 +90,7 @@ extern const char * xkb_get_symbol_name_by_res_no(XkbPlugin * xkb, int group_res
 extern const char * xkb_get_current_group_name(XkbPlugin * xkb);
 extern const char * xkb_get_current_symbol_name(XkbPlugin * xkb);
 extern const char * xkb_get_current_symbol_name_lowercase(XkbPlugin * xkb);
+extern const char * xkb_get_current_variant_name(XkbPlugin * xkb);
 extern void xkb_mechanism_constructor(XkbPlugin * xkb);
 extern void xkb_mechanism_destructor(XkbPlugin * xkb);
 extern int xkb_change_group(XkbPlugin * xkb, int increment);

@@ -305,7 +305,7 @@ static GtkWidget *xkb_constructor(LXPanel *panel, config_setting_t *settings)
         gchar *symbol_name_lowercase = (char *)xkb_get_current_symbol_name_lowercase(p_xkb);
         p_xkb->kbd_layouts = g_strdup(symbol_name_lowercase);
         g_free(symbol_name_lowercase);
-        p_xkb->kbd_variants = g_strdup(",");
+        p_xkb->kbd_variants = g_strdup(xkb_get_current_variant_name(p_xkb));
         p_xkb->kbd_change_option = g_strdup("grp:shift_caps_toggle");
         config_group_set_string(p_xkb->settings, "Model", p_xkb->kbd_model);
         config_group_set_string(p_xkb->settings, "LayoutsList", p_xkb->kbd_layouts);
