@@ -335,21 +335,12 @@ void xkb_mechanism_destructor(XkbPlugin * xkb)
     int i;
     for (i = 0; i < XkbNumKbdGroups; i++)
     {
-        if (xkb->group_names[i] != NULL)
-        {
-            g_free(xkb->group_names[i]);
-            xkb->group_names[i] = NULL;
-        }
-        if (xkb->symbol_names[i] != NULL)
-        {
-            g_free(xkb->symbol_names[i]);
-            xkb->symbol_names[i] = NULL;
-        }
-        if (xkb->variant_names[i] != NULL)
-        {
-            g_free(xkb->variant_names[i]);
-            xkb->variant_names[i] = NULL;
-        }
+        g_free(xkb->group_names[i]);
+        xkb->group_names[i] = NULL;
+        g_free(xkb->symbol_names[i]);
+        xkb->symbol_names[i] = NULL;
+        g_free(xkb->variant_names[i]);
+        xkb->variant_names[i] = NULL;
     }
 
     /* Destroy the hash table. */
