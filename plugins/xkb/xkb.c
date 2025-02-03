@@ -106,17 +106,48 @@ const char * xkb_get_symbol_name_by_res_no(XkbPlugin * xkb, int n)
     return xkb->symbol_names[n];
 }
 
-/* Get the current symbol name. */
-const char * xkb_get_current_symbol_name(XkbPlugin * xkb)
+static gchar *add_variant (XkbPlugin *xkb, const char *name)
 {
-    return xkb_get_symbol_name_by_res_no(xkb, xkb->current_group_xkb_no);
+    int i, count = 0;
+
+    for (i = 0; i < XkbNumKbdGroups; i++)
+        if (strcmp(xkb->symbol_names[i], xkb->symbol_names[xkb->current_group_xkb_no]) == 0)
+            count++;
+
+    if (count > 1 && *xkb->variant_names[xkb->current_group_xkb_no])
+        return g_strdup_printf("%s(%s)", name, xkb->variant_names[xkb->current_group_xkb_no]);
+    else
+        return g_strdup(name);
+}
+
+/* Get the current symbol name. */
+gchar * xkb_get_current_symbol_name(XkbPlugin * xkb, gboolean layout)
+{
+    const char *name = xkb_get_symbol_name_by_res_no(xkb, xkb->current_group_xkb_no);
+
+    if (layout)
+        return g_strdup(name);
+    else
+        return add_variant(xkb, name);
 }
 
 /* Get the current symbol name converted to lowercase. */
-const char * xkb_get_current_symbol_name_lowercase(XkbPlugin * xkb)
+gchar * xkb_get_current_symbol_name_lowercase(XkbPlugin * xkb, gboolean layout)
 {
-    const char * tmp = xkb_get_current_symbol_name(xkb);
-    return ((tmp != NULL) ? g_utf8_strdown(tmp, -1) : NULL);
+    gchar *curr, *name;
+
+    curr = xkb_get_current_symbol_name(xkb, TRUE);
+    name = g_utf8_strdown(curr, -1);
+    g_free(curr);
+
+    if (layout)
+        return name;
+    else
+    {
+      gchar *name_v = add_variant(xkb, name);
+      g_free(name);
+      return name_v;
+    }
 }
 
 /* Get the current variant name. */

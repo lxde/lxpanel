@@ -119,7 +119,7 @@ void xkb_redraw(XkbPlugin *p_xkb)
     int  size = xkb_get_flag_size(p_xkb);
     if( (p_xkb->display_type == DISP_TYPE_IMAGE) || (p_xkb->display_type == DISP_TYPE_IMAGE_CUST) )
     {
-        char * group_name = (char *)xkb_get_current_symbol_name_lowercase(p_xkb);
+        char *group_name = xkb_get_current_symbol_name_lowercase(p_xkb, FALSE);
         if(group_name != NULL)
         {
             gchar *flag_filepath = NULL;
@@ -163,7 +163,7 @@ void xkb_redraw(XkbPlugin *p_xkb)
     /* Set the label. */
     if( (p_xkb->display_type == DISP_TYPE_TEXT) || ( ! valid_image) )
     {
-        char *group_name = (char *)xkb_get_current_symbol_name(p_xkb);
+        gchar *group_name = xkb_get_current_symbol_name(p_xkb, FALSE);
         if (group_name != NULL)
         {
             lxpanel_draw_label_text(p_xkb->panel, p_xkb->p_label, group_name,
@@ -171,6 +171,7 @@ void xkb_redraw(XkbPlugin *p_xkb)
             gtk_widget_hide(p_xkb->p_image);
             gtk_widget_show(p_xkb->p_label);
             gtk_widget_set_tooltip_text(p_xkb->p_plugin, xkb_get_current_group_name(p_xkb));
+            g_free(group_name);
         }
     }
 }
@@ -302,7 +303,7 @@ static GtkWidget *xkb_constructor(LXPanel *panel, config_setting_t *settings)
         if(p_xkb->kbd_change_option != NULL) g_free(p_xkb->kbd_change_option);
 
         p_xkb->kbd_model = g_strdup(xkb_get_model_name(p_xkb));
-        gchar *symbol_name_lowercase = (char *)xkb_get_current_symbol_name_lowercase(p_xkb);
+        gchar *symbol_name_lowercase = xkb_get_current_symbol_name_lowercase(p_xkb, TRUE);
         p_xkb->kbd_layouts = g_strdup(symbol_name_lowercase);
         g_free(symbol_name_lowercase);
         p_xkb->kbd_variants = g_strdup(xkb_get_current_variant_name(p_xkb));
@@ -1415,7 +1416,7 @@ static GtkWidget *xkb_configure(LXPanel *panel, GtkWidget *p)
     // radiobuttons
     GtkWidget * p_image_disp_type_image = gtk_image_new();
     GtkWidget * p_image_disp_type_image_cust = NULL;
-    gchar *symbol_name_lowercase = (char *)xkb_get_current_symbol_name_lowercase(p_xkb);
+    gchar *symbol_name_lowercase = xkb_get_current_symbol_name_lowercase(p_xkb, FALSE);
     gchar *flag_filepath = NULL;
     gchar *flag_filepath_cust = NULL;
     if(strchr(symbol_name_lowercase, '/') != NULL)
@@ -1454,7 +1455,9 @@ static GtkWidget *xkb_configure(LXPanel *panel, GtkWidget *p)
         g_free(flag_filepath_cust);
     g_free(symbol_name_lowercase);
     GtkWidget * p_label_disp_type_text = gtk_label_new(NULL);
-    snprintf(markup_str, MAX_MARKUP_LEN, "<span font='%d' font_weight='heavy'>%s</span>", 16, xkb_get_current_symbol_name(p_xkb));
+    gchar *symbol_name = xkb_get_current_symbol_name(p_xkb, FALSE);
+    snprintf(markup_str, MAX_MARKUP_LEN, "<span font='%d' font_weight='heavy'>%s</span>", 16, symbol_name);
+    g_free(symbol_name);
     gtk_label_set_markup(GTK_LABEL(p_label_disp_type_text), markup_str);
     GtkWidget * p_radiobutton_disp_type_image = gtk_radio_button_new_with_label(NULL, (const gchar *)_("Image"));
     GtkWidget * p_radiobutton_disp_type_image_cust = gtk_radio_button_new_with_label_from_widget(GTK_RADIO_BUTTON(p_radiobutton_disp_type_image), (const gchar *)_("Custom Image"));
