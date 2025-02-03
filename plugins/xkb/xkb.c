@@ -3,6 +3,7 @@
  *               2009-2010 Marty Jack <martyj19@comcast.net>
  *               2012-2013 Giuseppe Penone <giuspen@gmail.com>
  *               2017 Max Kirillov <max@max630.net>
+ *               2025 Ingo Brückl
  *
  * This file is a part of LXPanel project.
  *
@@ -33,6 +34,7 @@
 #include <string.h>
 
 #include <X11/XKBlib.h>
+#include <X11/Xatom.h>
 
 #include <gtk/gtk.h>
 #include <gdk-pixbuf/gdk-pixbuf.h>
@@ -139,7 +141,7 @@ static int initialize_keyboard_description(XkbPlugin * xkb)
         else
         {
             /* Get the group name of each keyboard layout.  Infer the group count from the highest available. */
-            Atom * group_source = xkb_desc->names->groups;
+            Atom atom, *group_source = xkb_desc->names->groups;
             int i;
             for (i = 0; i < XkbNumKbdGroups; i += 1)
             {
@@ -161,64 +163,46 @@ static int initialize_keyboard_description(XkbPlugin * xkb)
                 xkb->symbol_names[i] = NULL;
             }
 
-            /* Get the symbol name of all keyboard layouts.
-             * This is a plus-sign separated string. */
-            if (xkb_desc->names->symbols != None)
+            /* Get the symbol names of all keyboard layouts. */
+            atom = XInternAtom(xdisplay, "_XKB_RULES_NAMES", True);
+            if (atom != None)
             {
-                char * symbol_string = XGetAtomName(xdisplay, xkb_desc->names->symbols);
-                if (symbol_string != NULL)
+                Atom actual_type;
+                int actual_format, substr = 1;
+                unsigned long nitems, bytes_after, pos = 0;
+                unsigned char *prop;
+
+                if (XGetWindowProperty(xdisplay, DefaultRootWindow(xdisplay),
+                    atom, 0, (~0L), False, XA_STRING,
+                    &actual_type, &actual_format, &nitems, &bytes_after,
+                    &prop) == Success)
                 {
-                    char * p = symbol_string;
-                    char * q = p;
-                    int symbol_group_number = 0;
-                    for ( ; symbol_group_number < XkbNumKbdGroups; p += 1)
+                    if (prop)
                     {
-                        char c = *p;
-                        if ((c == '\0') || (c == '+'))
+                        while (pos < nitems)
                         {
-                            /* End of a symbol.  Ignore the symbols "pc" and "inet" and "group". */
-                            *p = '\0';
-                            if ((strcmp(q, "pc") != 0) && (strcmp(q, "inet") != 0) && (strcmp(q, "group") != 0))
+                            /* symbol names aka layouts */
+                            if (substr == 3)
                             {
-                                xkb->symbol_names[symbol_group_number] = g_ascii_strup(q, -1);
-                                symbol_group_number += 1;
+                                gchar **symbols = g_strsplit(prop + pos, ",", XkbNumKbdGroups + 1);
+
+                                for (i = 0; i < XkbNumKbdGroups; i++)
+                                {
+                                    if (symbols[i])
+                                        xkb->symbol_names[i] = g_ascii_strup(symbols[i], -1);
+                                    else
+                                        break;
+                                }
+
+                                g_strfreev(symbols);
                             }
-                            if (c == '\0')
-                                break;
-                            q = p + 1;
-                        }
-                        else if ((c == ':') && (p[1] >= '1') && (p[1] < ('1' + XkbNumKbdGroups)))
-                        {
-                            /* Construction ":n" at the end of a symbol.  The digit is a one-based index of the symbol.
-                             * If not present, we will default to "next index". */
-                            *p = '\0';
-                            symbol_group_number = p[1] - '1';
-                            xkb->symbol_names[symbol_group_number] = g_ascii_strup(q, -1);
-                            symbol_group_number += 1;
-                            p += 2;
-                            if (*p == '\0')
-                                break;
-                            q = p + 1;
-                        }
-                        else if ((*p >= 'A') && (*p <= 'Z'))
-                            *p |= 'a' - 'A';
-                        else if ((*p < 'a') || (*p > 'z'))
-                            *p = '\0';
-                    }
 
-                    /* Crosscheck the group count determined from the "ctrls" structure,
-                     * that determined from the "groups" vector, and that determined from the "symbols" string.
-                     * The "ctrls" structure is considered less reliable because it has been observed to be incorrect. */
-                    if ((xkb->group_count != symbol_group_number)
-                    || (xkb->group_count != xkb_desc->ctrls->num_groups))
-                    {
-                        //g_warning("Group count mismatch, ctrls = %d, groups = %d, symbols = %d\n", xkb_desc->ctrls->num_groups, xkb->group_count, symbol_group_number);
+                            pos += strlen(prop + pos) + 1;
+                            substr++;
+                        }
 
-                        /* Maximize the "groups" and "symbols" value. */
-                        if (xkb->group_count < symbol_group_number)
-                            xkb->group_count = symbol_group_number;
+                        XFree(prop);
                     }
-                    XFree(symbol_string);
                 }
             }
         }
