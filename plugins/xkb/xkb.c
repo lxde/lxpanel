@@ -88,6 +88,12 @@ int xkb_get_group_count(XkbPlugin * xkb)
   return xkb->group_count;
 }
 
+/* Get the model name. */
+const char * xkb_get_model_name(XkbPlugin * xkb)
+{
+    return xkb->model_name;
+}
+
 /* Get the current group name. */
 const char * xkb_get_current_group_name(XkbPlugin * xkb)
 {
@@ -191,6 +197,13 @@ static int initialize_keyboard_description(XkbPlugin * xkb)
 
                         while (pos < nitems)
                         {
+                            /* model name */
+                            if (substr == 2)
+                            {
+                                g_free(xkb->model_name);
+                                xkb->model_name = g_strdup(prop + pos);
+                            }
+
                             /* symbol names aka layouts */
                             if (substr == 3)
                             {
@@ -262,6 +275,8 @@ static int initialize_keyboard_description(XkbPlugin * xkb)
         if (xkb->variant_names[i] == NULL)
             xkb->variant_names[i] = g_strdup("");
     }
+    if (!xkb->model_name)
+        xkb->model_name = g_strdup("pc105");
 
     /* Create or recreate hash table */
     if (xkb->p_hash_table_group != NULL)
@@ -360,6 +375,8 @@ void xkb_mechanism_destructor(XkbPlugin * xkb)
         g_free(xkb->variant_names[i]);
         xkb->variant_names[i] = NULL;
     }
+    g_free(xkb->model_name);
+    xkb->model_name = NULL;
 
     /* Destroy the hash table. */
     g_hash_table_destroy(xkb->p_hash_table_group);

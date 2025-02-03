@@ -301,7 +301,7 @@ static GtkWidget *xkb_constructor(LXPanel *panel, config_setting_t *settings)
         if(p_xkb->kbd_variants != NULL) g_free(p_xkb->kbd_variants);
         if(p_xkb->kbd_change_option != NULL) g_free(p_xkb->kbd_change_option);
 
-        p_xkb->kbd_model = g_strdup("pc105");
+        p_xkb->kbd_model = g_strdup(xkb_get_model_name(p_xkb));
         gchar *symbol_name_lowercase = (char *)xkb_get_current_symbol_name_lowercase(p_xkb);
         p_xkb->kbd_layouts = g_strdup(symbol_name_lowercase);
         g_free(symbol_name_lowercase);
