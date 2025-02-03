@@ -121,17 +121,6 @@ static void refresh_group_xkb(XkbPlugin * xkb)
     xkb->current_group_xkb_no = xkb_state.group & (XkbNumKbdGroups - 1);
 }
 
-static int exists_by_prefix(char * const *arr, int length, const char *sample, int prefix_length)
-{
-    int i;
-    for (i = 0; i < length; i++)
-    {
-        if (strncmp(arr[i], sample, prefix_length) == 0 && arr[i][prefix_length] == '\0')
-            return 1;
-    }
-    return 0;
-}
-
 /* Initialize the keyboard description initially or after a NewKeyboard event. */
 static int initialize_keyboard_description(XkbPlugin * xkb)
 {
@@ -200,19 +189,11 @@ static int initialize_keyboard_description(XkbPlugin * xkb)
                         }
                         else if ((c == ':') && (p[1] >= '1') && (p[1] < ('1' + XkbNumKbdGroups)))
                         {
-                            char *lparen;
                             /* Construction ":n" at the end of a symbol.  The digit is a one-based index of the symbol.
                              * If not present, we will default to "next index". */
                             *p = '\0';
                             symbol_group_number = p[1] - '1';
                             xkb->symbol_names[symbol_group_number] = g_ascii_strup(q, -1);
-                            lparen = strchr(xkb->symbol_names[symbol_group_number], '(');
-                            if (lparen)
-                            {
-                                int prefix_length = lparen - xkb->symbol_names[symbol_group_number];
-                                if (!exists_by_prefix(xkb->symbol_names, symbol_group_number, xkb->symbol_names[symbol_group_number], prefix_length))
-                                    *lparen = '\0';
-                            }
                             symbol_group_number += 1;
                             p += 2;
                             if (*p == '\0')
@@ -221,7 +202,7 @@ static int initialize_keyboard_description(XkbPlugin * xkb)
                         }
                         else if ((*p >= 'A') && (*p <= 'Z'))
                             *p |= 'a' - 'A';
-                        else if (((*p < 'a') || (*p > 'z')) && *p != '(' && *p != ')')
+                        else if ((*p < 'a') || (*p > 'z'))
                             *p = '\0';
                     }
 
