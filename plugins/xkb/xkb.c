@@ -125,6 +125,12 @@ const char * xkb_get_current_variant_name(XkbPlugin * xkb)
     return xkb->variant_names[xkb->current_group_xkb_no];
 }
 
+/* Get the option names. */
+const char * xkb_get_option_names(XkbPlugin * xkb)
+{
+    return xkb->option_names;
+}
+
 /* Refresh current group number from Xkb state. */
 static void refresh_group_xkb(XkbPlugin * xkb)
 {
@@ -242,6 +248,13 @@ static int initialize_keyboard_description(XkbPlugin * xkb)
                                 g_strfreev(variants);
                             }
 
+                            /* option names */
+                            if (substr == 5)
+                            {
+                                g_free(xkb->option_names);
+                                xkb->option_names = g_strdup(prop + pos);
+                            }
+
                             pos += strlen(prop + pos) + 1;
                             substr++;
                         }
@@ -277,6 +290,8 @@ static int initialize_keyboard_description(XkbPlugin * xkb)
     }
     if (!xkb->model_name)
         xkb->model_name = g_strdup("pc105");
+    if (!xkb->option_names)
+        xkb->option_names = g_strdup("grp:shift_caps_toggle");
 
     /* Create or recreate hash table */
     if (xkb->p_hash_table_group != NULL)
@@ -377,6 +392,8 @@ void xkb_mechanism_destructor(XkbPlugin * xkb)
     }
     g_free(xkb->model_name);
     xkb->model_name = NULL;
+    g_free(xkb->option_names);
+    xkb->option_names = NULL;
 
     /* Destroy the hash table. */
     g_hash_table_destroy(xkb->p_hash_table_group);
