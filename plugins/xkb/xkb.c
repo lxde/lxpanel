@@ -187,12 +187,17 @@ static int initialize_keyboard_description(XkbPlugin * xkb)
                 {
                     if (prop)
                     {
+                        gboolean n_symbols, n_variants;
+
                         while (pos < nitems)
                         {
                             /* symbol names aka layouts */
                             if (substr == 3)
                             {
-                                gchar **symbols = g_strsplit(prop + pos, ",", XkbNumKbdGroups + 1);
+                                gchar **symbols;
+
+                                n_symbols = (strchr(prop + pos, ',') != NULL);
+                                symbols = g_strsplit(prop + pos, ",", XkbNumKbdGroups + 1);
 
                                 for (i = 0; i < XkbNumKbdGroups; i++)
                                 {
@@ -208,7 +213,10 @@ static int initialize_keyboard_description(XkbPlugin * xkb)
                             /* variant names */
                             if (substr == 4)
                             {
-                                gchar **variants = g_strsplit(prop + pos, ",", XkbNumKbdGroups + 1);
+                                gchar **variants;
+
+                                n_variants = (strchr(prop + pos, ',') != NULL);
+                                variants = g_strsplit(prop + pos, ",", XkbNumKbdGroups + 1);
 
                                 for (i = 0; i < XkbNumKbdGroups; i++)
                                 {
@@ -223,6 +231,16 @@ static int initialize_keyboard_description(XkbPlugin * xkb)
 
                             pos += strlen(prop + pos) + 1;
                             substr++;
+                        }
+
+                        /* check for a valid variant list */
+                        if (n_symbols && !n_variants || !n_symbols && n_variants)
+                        {
+                            for (i = 0; i < XkbNumKbdGroups; i++)
+                            {
+                                g_free(xkb->variant_names[i]);
+                                xkb->variant_names[i] = NULL;
+                            }
                         }
 
                         XFree(prop);
