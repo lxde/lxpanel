@@ -1252,8 +1252,8 @@ static GtkWidget *xkb_configure(LXPanel *panel, GtkWidget *p)
     GtkWidget * p_vbox_right = gtk_vbox_new(FALSE, 0);
     gtk_container_add(GTK_CONTAINER(gtk_dialog_get_content_area(GTK_DIALOG(dlg))),
                       p_hbox_main);
-    gtk_box_pack_start(GTK_BOX(p_hbox_main), p_vbox_left, FALSE, TRUE, 0);
-    gtk_box_pack_start(GTK_BOX(p_hbox_main), p_vbox_right, FALSE, TRUE, 0);
+    gtk_box_pack_start(GTK_BOX(p_hbox_main), p_vbox_left, FALSE, FALSE, 0);
+    gtk_box_pack_start(GTK_BOX(p_hbox_main), p_vbox_right, FALSE, FALSE, 0);
 
 
     // 'KEYBOARD MODEL' frame
@@ -1288,7 +1288,7 @@ static GtkWidget *xkb_configure(LXPanel *panel, GtkWidget *p)
     gtk_frame_set_shadow_type(GTK_FRAME(p_xkb->p_frame_kbd_layouts), GTK_SHADOW_NONE);
     gtk_box_pack_start(GTK_BOX(p_vbox_left), p_xkb->p_frame_kbd_layouts, TRUE, TRUE, 2);
     gtk_container_set_border_width(GTK_CONTAINER(p_xkb->p_frame_kbd_layouts), 3);
-    gtk_widget_set_size_request(GTK_WIDGET(p_xkb->p_frame_kbd_layouts), 300, 180);
+    gtk_widget_set_size_request(GTK_WIDGET(p_xkb->p_frame_kbd_layouts), 310, 180);
 
     // frame alignment
     GtkWidget * p_alignment_kbd_layouts = gtk_alignment_new(0.5, 0.5, 1, 1);
