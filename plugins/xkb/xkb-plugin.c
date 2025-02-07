@@ -1187,7 +1187,7 @@ static void xkb_add_layout(XkbPlugin *p_xkb, gchar *layout, gchar*variant)
 static void xkb_settings_fill_layout_tree_model_with_config(XkbPlugin *p_xkb)
 {
     p_xkb->num_layouts = 0;
-    if(strlen(p_xkb->kbd_layouts) && strlen(p_xkb->kbd_variants))
+    if (*p_xkb->kbd_layouts)
     {
         char **layouts = g_strsplit_set(p_xkb->kbd_layouts, ",", 0);
         char **variants = g_strsplit_set(p_xkb->kbd_variants, ",", 0);
