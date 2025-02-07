@@ -863,7 +863,7 @@ msgid "Variant"
 msgstr "ۋارىيانتى"
 
 #: ../plugins/xkb/xkb-plugin.c:1319
-msgid "Change Layout Option"
+msgid "Keyboard Layout Options"
 msgstr "ئورۇنلاشتۇرۇش تاللانمىسىنى ئۆزگەرتىش"
 
 #: ../plugins/xkb/xkb-plugin.c:1339

@@ -858,7 +858,7 @@ msgid "Variant"
 msgstr "Varyant"
 
 #: ../plugins/xkb/xkb-plugin.c:1319
-msgid "Change Layout Option"
+msgid "Keyboard Layout Options"
 msgstr "Yerleşim Seçeneğini Değiştir"
 
 #: ../plugins/xkb/xkb-plugin.c:1339

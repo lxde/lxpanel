@@ -850,7 +850,7 @@ msgid "Variant"
 msgstr "Variant"
 
 #: ../plugins/xkb/xkb-plugin.c:1319
-msgid "Change Layout Option"
+msgid "Keyboard Layout Options"
 msgstr "Endre oppsettsinnstilling"
 
 #: ../plugins/xkb/xkb-plugin.c:1339

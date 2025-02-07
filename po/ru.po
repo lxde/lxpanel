@@ -852,7 +852,7 @@ msgid "Variant"
 msgstr "Вариант"
 
 #: ../plugins/xkb/xkb-plugin.c:1319
-msgid "Change Layout Option"
+msgid "Keyboard Layout Options"
 msgstr "Изменение параметров раскладки"
 
 #: ../plugins/xkb/xkb-plugin.c:1339

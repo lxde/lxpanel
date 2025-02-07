@@ -850,7 +850,7 @@ msgid "Variant"
 msgstr "Oblik"
 
 #: ../plugins/xkb/xkb-plugin.c:1319
-msgid "Change Layout Option"
+msgid "Keyboard Layout Options"
 msgstr "Postavka promene rasporeda tastature"
 
 #: ../plugins/xkb/xkb-plugin.c:1339

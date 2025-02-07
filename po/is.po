@@ -848,7 +848,7 @@ msgid "Variant"
 msgstr "Tilbrigði"
 
 #: ../plugins/xkb/xkb-plugin.c:1319
-msgid "Change Layout Option"
+msgid "Keyboard Layout Options"
 msgstr "Veldu valkosti uppsetningar"
 
 #: ../plugins/xkb/xkb-plugin.c:1339

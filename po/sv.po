@@ -853,7 +853,7 @@ msgid "Variant"
 msgstr "Variant"
 
 #: ../plugins/xkb/xkb-plugin.c:1319
-msgid "Change Layout Option"
+msgid "Keyboard Layout Options"
 msgstr "Alternativ för att byta upplägg"
 
 #: ../plugins/xkb/xkb-plugin.c:1339

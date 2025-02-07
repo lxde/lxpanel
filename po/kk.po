@@ -851,7 +851,7 @@ msgid "Variant"
 msgstr "Нұсқасы"
 
 #: ../plugins/xkb/xkb-plugin.c:1319
-msgid "Change Layout Option"
+msgid "Keyboard Layout Options"
 msgstr "Жайма опцияларын ауыстыру"
 
 #: ../plugins/xkb/xkb-plugin.c:1339

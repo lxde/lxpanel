@@ -864,7 +864,7 @@ msgid "Variant"
 msgstr "Nkola"
 
 #: ../plugins/xkb/xkb-plugin.c:1319
-msgid "Change Layout Option"
+msgid "Keyboard Layout Options"
 msgstr "Kyusa mu ntereeza"
 
 #: ../plugins/xkb/xkb-plugin.c:1339

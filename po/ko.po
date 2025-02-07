@@ -848,7 +848,7 @@ msgid "Variant"
 msgstr "변형"
 
 #: ../plugins/xkb/xkb-plugin.c:1319
-msgid "Change Layout Option"
+msgid "Keyboard Layout Options"
 msgstr "배치 옵션 바꾸기"
 
 #: ../plugins/xkb/xkb-plugin.c:1339

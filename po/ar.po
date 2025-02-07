@@ -853,7 +853,7 @@ msgid "Variant"
 msgstr "التّنويعة"
 
 #: ../plugins/xkb/xkb-plugin.c:1319
-msgid "Change Layout Option"
+msgid "Keyboard Layout Options"
 msgstr "خيار تغيير التّخطيط"
 
 #: ../plugins/xkb/xkb-plugin.c:1339

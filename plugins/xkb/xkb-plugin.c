@@ -1356,11 +1356,11 @@ static GtkWidget *xkb_configure(LXPanel *panel, GtkWidget *p)
     xkb_settings_fill_layout_tree_model_with_config(p_xkb);
 
 
-    // 'CHANGE LAYOUT OPTION' frame
+    // 'KEYBOARD LAYOUT OPTIONS' frame
     p_xkb->p_frame_change_layout = gtk_frame_new(NULL);
     gtk_widget_set_sensitive(p_xkb->p_frame_change_layout, !p_xkb->keep_system_layouts);
     GtkWidget * p_label_change_layout = gtk_label_new(NULL);
-    snprintf(markup_str, MAX_MARKUP_LEN, "<b>%s</b>", _("Change Layout Option"));
+    snprintf(markup_str, MAX_MARKUP_LEN, "<b>%s</b>", _("Keyboard Layout Options"));
     gtk_label_set_markup(GTK_LABEL(p_label_change_layout), markup_str);
     gtk_misc_set_padding(GTK_MISC(p_label_change_layout), 1, 0);
     gtk_frame_set_label_widget(GTK_FRAME(p_xkb->p_frame_change_layout), p_label_change_layout);
