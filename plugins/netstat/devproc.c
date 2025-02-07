@@ -30,14 +30,22 @@
 #include <net/if_arp.h>
 #include <arpa/inet.h>
 #include <linux/sockios.h>
-#include <linux/types.h>
-#include <linux/ethtool.h>
 #include <iwlib.h>
 #include "nsconfig.h"
 #include "netstat.h"
 #include "statusicon.h"
 #include "devproc.h"
 #include "dbg.h"
+
+/* for requesting NIC test and getting results*/
+struct ethtool_test {
+        uint32_t   cmd;            /* ETHTOOL_TEST */
+        uint32_t   flags;          /* ETH_TEST_FL_xxx */
+        uint32_t   reserved;
+        uint32_t   len;            /* result length, in number of u64 elements */
+        uint64_t   data[0];
+};
+
 
 /* network device list */
 static void netproc_netdevlist_add(NETDEVLIST_PTR *netdev_list,
