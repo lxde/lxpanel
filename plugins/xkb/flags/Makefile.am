@@ -4,6 +4,7 @@ flags_DATA = ae.png \
                                  am.png \
                                  ar.png \
                                  at.png \
+                                 au.png \
                                  az.png \
                                  be.png \
                                  bg.png \
@@ -28,6 +29,7 @@ flags_DATA = ae.png \
                                  gr.png \
                                  hr.png \
                                  hu.png \
+                                 id.png \
                                  il.png \
                                  iq.png \
                                  is.png \
@@ -42,11 +44,14 @@ flags_DATA = ae.png \
                                  lt.png \
                                  ly.png \
                                  ma.png \
+                                 md.png \
                                  mk.png \
                                  mn.png \
                                  mx.png \
+                                 my.png \
                                  nl.png \
                                  no.png \
+                                 nz.png \
                                  om.png \
                                  pl.png \
                                  ps.png \
@@ -63,6 +68,7 @@ flags_DATA = ae.png \
                                  so.png \
                                  sr.png \
                                  sy.png \
+                                 tg.png \
                                  th.png \
                                  tn.png \
                                  tr.png \

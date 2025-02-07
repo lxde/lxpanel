@@ -183,6 +183,7 @@ flags_DATA= \
 	xkb/flags/ar.png \
 	xkb/flags/ara.png \
 	xkb/flags/at.png \
+	xkb/flags/au.png \
 	xkb/flags/az.png \
 	xkb/flags/ba.png \
 	xkb/flags/bd.png \
@@ -224,6 +225,7 @@ flags_DATA= \
 	xkb/flags/gr.png \
 	xkb/flags/hr.png \
 	xkb/flags/hu.png \
+	xkb/flags/id.png \
 	xkb/flags/ie.png \
 	xkb/flags/il.png \
 	xkb/flags/in.png \
@@ -250,6 +252,7 @@ flags_DATA= \
 	xkb/flags/ly.png \
 	xkb/flags/ma.png \
 	xkb/flags/mao.png \
+	xkb/flags/md.png \
 	xkb/flags/me.png \
 	xkb/flags/mk.png \
 	xkb/flags/ml.png \
@@ -258,11 +261,13 @@ flags_DATA= \
 	xkb/flags/mt.png \
 	xkb/flags/mv.png \
 	xkb/flags/mx.png \
+	xkb/flags/my.png \
 	xkb/flags/nec_vndr-jp.png \
 	xkb/flags/ng.png \
 	xkb/flags/nl.png \
 	xkb/flags/no.png \
 	xkb/flags/np.png \
+	xkb/flags/nz.png \
 	xkb/flags/om.png \
 	xkb/flags/ph.png \
 	xkb/flags/pk.png \
@@ -283,6 +288,7 @@ flags_DATA= \
 	xkb/flags/so.png \
 	xkb/flags/sr.png \
 	xkb/flags/sy.png \
+	xkb/flags/tg.png \
 	xkb/flags/th.png \
 	xkb/flags/tj.png \
 	xkb/flags/tm.png \
