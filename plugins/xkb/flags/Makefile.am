@@ -1,84 +1,101 @@
 flagsdir = $(datadir)/xfce4/xkb/flags
 
-flags_DATA = ae.png \
+flags_DATA = af.png \
+                                 al.png \
                                  am.png \
-                                 ar.png \
+                                 ara.png \
                                  at.png \
                                  au.png \
                                  az.png \
+                                 ba.png \
+                                 bd.png \
                                  be.png \
                                  bg.png \
-                                 bh.png \
                                  br.png \
+                                 bt.png \
+                                 bw.png \
                                  by.png \
                                  ca.png \
+                                 cd.png \
                                  ch.png \
-                                 cu.png \
+                                 cm.png \
+                                 cn.png \
                                  cz.png \
                                  de.png \
-                                 dj.png \
                                  dk.png \
                                  dz.png \
                                  ee.png \
                                  eg.png \
+                                 epo.png \
                                  es.png \
-                                 eu.png \
+                                 et.png \
                                  fi.png \
+                                 fo.png \
                                  fr.png \
+                                 gb.png \
                                  ge.png \
+                                 gh.png \
+                                 gn.png \
                                  gr.png \
                                  hr.png \
                                  hu.png \
                                  id.png \
+                                 ie.png \
                                  il.png \
+                                 in.png \
                                  iq.png \
+                                 ir.png \
                                  is.png \
                                  it.png \
-                                 jo.png \
                                  jp.png \
-                                 km.png \
+                                 ke.png \
+                                 kg.png \
+                                 kh.png \
                                  kr.png \
-                                 kw.png \
+                                 kz.png \
                                  la.png \
-                                 lb.png \
+                                 latam.png \
+                                 lk.png \
                                  lt.png \
-                                 ly.png \
+                                 lv.png \
                                  ma.png \
                                  md.png \
+                                 me.png \
                                  mk.png \
+                                 ml.png \
+                                 mm.png \
                                  mn.png \
-                                 mx.png \
+                                 mt.png \
+                                 mv.png \
                                  my.png \
+                                 ng.png \
                                  nl.png \
                                  no.png \
+                                 np.png \
                                  nz.png \
-                                 om.png \
+                                 ph.png \
+                                 pk.png \
                                  pl.png \
-                                 ps.png \
                                  pt.png \
-                                 qa.png \
-                                 qc.png \
                                  ro.png \
+                                 rs.png \
                                  ru.png \
-                                 sa.png \
-                                 sd.png \
                                  se.png \
                                  si.png \
                                  sk.png \
-                                 so.png \
-                                 sr.png \
+                                 sn.png \
                                  sy.png \
                                  tg.png \
                                  th.png \
-                                 tn.png \
+                                 tj.png \
+                                 tm.png \
                                  tr.png \
+                                 tw.png \
+                                 tz.png \
                                  ua.png \
-                                 uk.png \
-                                 un.png \
                                  us.png \
-                                 uy.png \
+                                 uz.png \
                                  vn.png \
-                                 ye.png \
-                                 yu.png
+                                 za.png
 
 EXTRA_DIST = $(flags_DATA)

@@ -175,12 +175,9 @@ xkeyboardconfig_DATA = \
 
 flagsdir=$(datadir)/lxpanel/images/xkb-flags
 flags_DATA= \
-	xkb/flags/ad.png \
-	xkb/flags/ae.png \
 	xkb/flags/af.png \
 	xkb/flags/al.png \
 	xkb/flags/am.png \
-	xkb/flags/ar.png \
 	xkb/flags/ara.png \
 	xkb/flags/at.png \
 	xkb/flags/au.png \
@@ -188,11 +185,8 @@ flags_DATA= \
 	xkb/flags/ba.png \
 	xkb/flags/bd.png \
 	xkb/flags/be.png \
-	xkb/flags/ben.png \
 	xkb/flags/bg.png \
-	xkb/flags/bh.png \
 	xkb/flags/br.png \
-	xkb/flags/brai.png \
 	xkb/flags/bt.png \
 	xkb/flags/bw.png \
 	xkb/flags/by.png \
@@ -201,20 +195,15 @@ flags_DATA= \
 	xkb/flags/ch.png \
 	xkb/flags/cm.png \
 	xkb/flags/cn.png \
-	xkb/flags/cu.png \
 	xkb/flags/cz.png \
 	xkb/flags/de.png \
-	xkb/flags/dev.png \
-	xkb/flags/dj.png \
 	xkb/flags/dk.png \
-	xkb/flags/dvorak.png \
 	xkb/flags/dz.png \
 	xkb/flags/ee.png \
 	xkb/flags/eg.png \
 	xkb/flags/epo.png \
 	xkb/flags/es.png \
 	xkb/flags/et.png \
-	xkb/flags/eu.png \
 	xkb/flags/fi.png \
 	xkb/flags/fo.png \
 	xkb/flags/fr.png \
@@ -233,25 +222,18 @@ flags_DATA= \
 	xkb/flags/ir.png \
 	xkb/flags/is.png \
 	xkb/flags/it.png \
-	xkb/flags/jo.png \
 	xkb/flags/jp.png \
 	xkb/flags/ke.png \
 	xkb/flags/kg.png \
 	xkb/flags/kh.png \
-	xkb/flags/km.png \
-	xkb/flags/kp.png \
 	xkb/flags/kr.png \
-	xkb/flags/kw.png \
 	xkb/flags/kz.png \
 	xkb/flags/la.png \
 	xkb/flags/latam.png \
-	xkb/flags/lb.png \
 	xkb/flags/lk.png \
 	xkb/flags/lt.png \
 	xkb/flags/lv.png \
-	xkb/flags/ly.png \
 	xkb/flags/ma.png \
-	xkb/flags/mao.png \
 	xkb/flags/md.png \
 	xkb/flags/me.png \
 	xkb/flags/mk.png \
@@ -260,51 +242,35 @@ flags_DATA= \
 	xkb/flags/mn.png \
 	xkb/flags/mt.png \
 	xkb/flags/mv.png \
-	xkb/flags/mx.png \
 	xkb/flags/my.png \
-	xkb/flags/nec_vndr-jp.png \
 	xkb/flags/ng.png \
 	xkb/flags/nl.png \
 	xkb/flags/no.png \
 	xkb/flags/np.png \
 	xkb/flags/nz.png \
-	xkb/flags/om.png \
 	xkb/flags/ph.png \
 	xkb/flags/pk.png \
 	xkb/flags/pl.png \
-	xkb/flags/ps.png \
 	xkb/flags/pt.png \
-	xkb/flags/qa.png \
-	xkb/flags/qc.png \
 	xkb/flags/ro.png \
 	xkb/flags/rs.png \
 	xkb/flags/ru.png \
-	xkb/flags/sa.png \
-	xkb/flags/sd.png \
 	xkb/flags/se.png \
 	xkb/flags/si.png \
 	xkb/flags/sk.png \
 	xkb/flags/sn.png \
-	xkb/flags/so.png \
-	xkb/flags/sr.png \
 	xkb/flags/sy.png \
 	xkb/flags/tg.png \
 	xkb/flags/th.png \
 	xkb/flags/tj.png \
 	xkb/flags/tm.png \
-	xkb/flags/tn.png \
 	xkb/flags/tr.png \
 	xkb/flags/tw.png \
 	xkb/flags/tz.png \
 	xkb/flags/ua.png \
-	xkb/flags/uk.png \
 	xkb/flags/us.png \
-	xkb/flags/un.png \
-	xkb/flags/uy.png \
 	xkb/flags/uz.png \
 	xkb/flags/vn.png \
-	xkb/flags/ye.png \
-	xkb/flags/yu.png \
 	xkb/flags/za.png
 
 EXTRA_DIST = \
