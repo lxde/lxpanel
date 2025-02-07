@@ -106,6 +106,11 @@ const char * xkb_get_symbol_name_by_res_no(XkbPlugin * xkb, int n)
     return xkb->symbol_names[n];
 }
 
+const char * xkb_get_variant_name_by_res_no(XkbPlugin * xkb, int n)
+{
+    return xkb->variant_names[n];
+}
+
 static gchar *add_variant (XkbPlugin *xkb, const char *name)
 {
     int i, count = 0;

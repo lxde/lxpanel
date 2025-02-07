@@ -90,6 +90,7 @@ extern int xkb_get_current_group_xkb_no(XkbPlugin * xkb);
 extern int xkb_get_group_count(XkbPlugin * xkb);
 extern const char * xkb_get_model_name(XkbPlugin * xkb);
 extern const char * xkb_get_symbol_name_by_res_no(XkbPlugin * xkb, int group_res_no);
+extern const char * xkb_get_variant_name_by_res_no(XkbPlugin * xkb, int group_res_no);
 extern const char * xkb_get_current_group_name(XkbPlugin * xkb);
 extern gchar * xkb_get_current_symbol_name(XkbPlugin * xkb, gboolean layout);
 extern gchar * xkb_get_current_symbol_name_lowercase(XkbPlugin * xkb, gboolean layout);

@@ -294,6 +294,10 @@ static GtkWidget *xkb_constructor(LXPanel *panel, config_setting_t *settings)
     if( (p_xkb->kbd_model == NULL) || (p_xkb->kbd_layouts == NULL) ||
         (p_xkb->kbd_variants == NULL) || (p_xkb->kbd_change_option == NULL) )
     {
+        int i;
+        GString *layouts = g_string_new("");
+        GString *variants = g_string_new("");
+
         /* This is a first run, read the current layout */
         xkb_mechanism_constructor(p_xkb);
 
@@ -302,11 +306,30 @@ static GtkWidget *xkb_constructor(LXPanel *panel, config_setting_t *settings)
         if(p_xkb->kbd_variants != NULL) g_free(p_xkb->kbd_variants);
         if(p_xkb->kbd_change_option != NULL) g_free(p_xkb->kbd_change_option);
 
+        for (i = 0; i < xkb_get_group_count(p_xkb); i++)
+        {
+            char *name;
+
+            if (*layouts->str)
+            {
+                g_string_append_c(layouts, ',');
+                g_string_append_c(variants, ',');
+            }
+
+            name = g_utf8_strdown(xkb_get_symbol_name_by_res_no(p_xkb, i), -1);
+            g_string_append(layouts, name);
+            g_free(name);
+
+            g_string_append(variants, xkb_get_variant_name_by_res_no(p_xkb, i));
+        }
+
+        p_xkb->kbd_layouts = layouts->str;
+        p_xkb->kbd_variants = variants->str;
+
+        g_string_free(layouts, FALSE);
+        g_string_free(variants, FALSE);
+
         p_xkb->kbd_model = g_strdup(xkb_get_model_name(p_xkb));
-        gchar *symbol_name_lowercase = xkb_get_current_symbol_name_lowercase(p_xkb, TRUE);
-        p_xkb->kbd_layouts = g_strdup(symbol_name_lowercase);
-        g_free(symbol_name_lowercase);
-        p_xkb->kbd_variants = g_strdup(xkb_get_current_variant_name(p_xkb));
         p_xkb->kbd_change_option = g_strdup(xkb_get_option_names(p_xkb));
         config_group_set_string(p_xkb->settings, "Model", p_xkb->kbd_model);
         config_group_set_string(p_xkb->settings, "LayoutsList", p_xkb->kbd_layouts);
