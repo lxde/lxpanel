@@ -734,6 +734,21 @@ static gboolean  change_opt_tree_model_foreach(GtkTreeModel *p_model,
     return FALSE;
 }
 
+static gchar *options_button (GtkWidget *button)
+{
+    const gchar *label = gtk_button_get_label(GTK_BUTTON(button));
+
+    if (strcmp(label, ",") == 0)
+        gtk_button_set_label(GTK_BUTTON(button), "");
+    else if (strlen(label) > 40)
+    {
+        GtkWidget *label = gtk_bin_get_child(GTK_BIN(button));
+
+        gtk_label_set_ellipsize(GTK_LABEL(label), PANGO_ELLIPSIZE_END);
+        gtk_label_set_max_width_chars(GTK_LABEL(label), 40);
+    }
+}
+
 static void on_button_kbd_change_layout_clicked(GtkButton *p_button, gpointer *p_data)
 {
     XkbPlugin *p_xkb = (XkbPlugin *)p_data;
@@ -845,6 +860,7 @@ static void on_button_kbd_change_layout_clicked(GtkButton *p_button, gpointer *p
         g_string_free(p_xkb->p_gstring_change_opt_partial, TRUE/*free also gstring->str*/);
 
         gtk_button_set_label(GTK_BUTTON(p_xkb->p_button_change_layout), p_xkb->kbd_change_option);
+        options_button(p_xkb->p_button_change_layout);
         xkb_setxkbmap(p_xkb);
         xkb_redraw(p_xkb);
     }
@@ -1357,6 +1373,7 @@ static GtkWidget *xkb_configure(LXPanel *panel, GtkWidget *p)
     gtk_container_add(GTK_CONTAINER(p_xkb->p_frame_change_layout), p_alignment_change_layout);
     gtk_alignment_set_padding(GTK_ALIGNMENT(p_alignment_change_layout), 4, 4, 10, 10);
     p_xkb->p_button_change_layout = gtk_button_new_with_label(p_xkb->kbd_change_option);
+    options_button(p_xkb->p_button_change_layout);
     g_signal_connect(p_xkb->p_button_change_layout, "clicked", G_CALLBACK(on_button_kbd_change_layout_clicked), p_xkb);
     gtk_container_add(GTK_CONTAINER(p_alignment_change_layout), p_xkb->p_button_change_layout);
 
