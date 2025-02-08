@@ -632,7 +632,6 @@ get_textproperty(Window win, Atom atom)
 }
 
 
-
 int
 get_net_number_of_desktops()
 {
