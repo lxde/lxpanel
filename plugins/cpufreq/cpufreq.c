@@ -52,7 +52,7 @@ typedef struct {
     char* cur_governor;
     int   cur_freq;
     unsigned int timer;
-    //gboolean remember;
+    gboolean remember;
 } cpufreq;
 
 typedef struct {
@@ -99,7 +99,7 @@ get_cur_freq(cpufreq *cf){
     }
 }
 
-/*static void
+static void
 get_governors(cpufreq *cf){
     FILE *fp;
     GList *l;
@@ -137,18 +137,38 @@ get_governors(cpufreq *cf){
     fclose(fp);
 }
 
-static void
-cpufreq_set_freq(GtkWidget *widget, Param* p){
+static void set_file(const char* cpu, const char* val, const char* file) {
     FILE *fp;
-    char buf[ 100 ], sstmp [ 256 ];
-
-    if(strcmp(p->cf->cur_governor, "userspace")) return;
-
-    sprintf(sstmp,"%s/%s",p->cf->cpus->data, SCALING_SETFREQ);
-    if ((fp = fopen( sstmp, "w")) != NULL) {
-        fprintf(fp,"%s",p->data);
+    char path [ 256 ];
+    sprintf(path, "%s/%s", cpu, file);
+    if ((fp = fopen( path, "w")) != NULL) {
+        fprintf(fp,"%s",val);
         fclose(fp);
     }
+}
+
+static void set_freq(const char* cpu, const char* val) {
+    set_file(cpu, val, SCALING_SETFREQ);
+}
+
+static void set_gov(const char* cpu, const char* val) {
+    set_file(cpu, val, SCALING_GOV);
+}
+
+
+static void
+cpufreq_set_freq(GtkWidget *widget, Param* p){
+    if(strcmp(p->cf->cur_governor, "userspace")) return;
+    GList *curr;
+    for(curr = p->cf->cpus; curr; curr = curr->next)
+        set_freq(curr->data, p->data);
+}
+
+static void
+cpufreq_set_governor(GtkWidget *widget, Param* p) {
+    GList *curr;
+    for(curr = p->cf->cpus; curr; curr = curr->next)
+        set_gov(curr->data, p->data);
 }
 
 static GtkWidget *
@@ -189,7 +209,7 @@ frequency_menu(cpufreq *cf){
 
     fclose(fp);
     return GTK_WIDGET(menu);
-}*/
+}
 
 static void
 get_cpus(cpufreq *cf)
@@ -226,18 +246,6 @@ get_cpus(cpufreq *cf)
         }
     }
     g_dir_close(cpuDirectory);
-}
-
-/*static void
-cpufreq_set_governor(GtkWidget *widget, Param* p){
-    FILE *fp;
-    char buf[ 100 ], sstmp [ 256 ];
-
-    sprintf(sstmp, "%s/%s", p->cf->cpus->data, SCALING_GOV);
-    if ((fp = fopen( sstmp, "w")) != NULL) {
-        fprintf(fp,"%s",p->data);
-        fclose(fp);
-    }
 }
 
 static GtkWidget *
@@ -291,7 +299,7 @@ cpufreq_menu(cpufreq *cf){
     }
 
     return GTK_WIDGET (menu);
-}*/
+}
 
 
 
@@ -299,13 +307,14 @@ static  gboolean
 clicked(GtkWidget *widget, GdkEventButton *evt, LXPanel *panel)
 {
     ENTER;
+    cpufreq *plugin = lxpanel_plugin_get_data(widget);
 
     /* Standard right-click handling. */
     if( evt->button == 1 )
     {
 // Setting governor can't work without root privilege
-//      gtk_menu_popup( cpufreq_menu((cpufreq*)plugin->priv), NULL, NULL, NULL, NULL,
-//                      evt->button, evt->time );
+      gtk_menu_popup( GTK_MENU(cpufreq_menu(plugin)), NULL, NULL, NULL, NULL,
+                      evt->button, evt->time );
       return TRUE;
     }
 
@@ -355,9 +364,12 @@ static GtkWidget *cpufreq_constructor(LXPanel *panel, config_setting_t *settings
 
     get_cpus(cf);
 
-    //if (config_setting_lookup_int(settings, "Remember", &tmp_int)) cf->remember = tmp_int != 0;
-    //if (config_setting_lookup_int(settings, "Governor", &tmp_str)) cf->cur_governor = g_strdup(tmp_str);
-    //config_setting_lookup_int(settings, "Frequency", &cf->cur_freq);
+    int tmp_int;
+    const char *tmp_str;
+
+    if (config_setting_lookup_int(settings, "Remember", &tmp_int)) cf->remember = tmp_int != 0;
+    if (config_setting_lookup_string(settings, "Governor", &tmp_str)) cf->cur_governor = g_strdup(tmp_str);
+    config_setting_lookup_int(settings, "Frequency", &cf->cur_freq);
 
     _update_tooltip(cf);
     cf->timer = g_timeout_add_seconds(2, update_tooltip, (gpointer)cf);
@@ -365,7 +377,7 @@ static GtkWidget *cpufreq_constructor(LXPanel *panel, config_setting_t *settings
     RET(cf->main);
 }
 
-/*
+
 static gboolean applyConfig(gpointer user_data)
 {
     cpufreq *cf = lxpanel_plugin_get_data(user_data);
@@ -374,14 +386,14 @@ static gboolean applyConfig(gpointer user_data)
     return FALSE;
 }
 
-static GtkWidget *config(LXPanel *panel, GtkWidget *p, GtkWindow *parent)
+static GtkWidget *config(LXPanel *panel, GtkWidget *p)
 {
     cpufreq *cf = lxpanel_plugin_get_data(p);
     return lxpanel_generic_config_dlg(_("CPUFreq frontend"), panel, applyConfig, p,
             _("Remember governor and frequency"), &cf->remember, CONF_TYPE_BOOL,
             NULL);
 }
-*/
+
 
 static void
 cpufreq_destructor(gpointer user_data)
@@ -402,6 +414,6 @@ LXPanelPluginInit fm_module_init_lxpanel_gtk = {
     .description = N_("Display CPU frequency and allow one to change governors and frequency"),
 
     .new_instance = cpufreq_constructor,
-    //.config      = config,
+    .config      = config,
     .button_press_event = clicked
 };
