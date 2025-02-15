@@ -3,7 +3,7 @@
 # This file is distributed under the same license as the lxpanel package.
 # Álvaro Morais <alvarommorais@gmail.com>, 2009.
 # Sérgio Marques <smarquespt@gmail.com>, 2010-2016.
-# Hugo Carvalho <hugokarvalho@hotmail.com>, 2021, 2022, 2023, 2024.
+# Hugo Carvalho <hugokarvalho@hotmail.com>, 2021, 2022, 2023, 2024, 2025.
 # Adaptado ao acordo ortográfico de 1990
 #
 msgid ""
@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-01-29 15:52+0100\n"
-"PO-Revision-Date: 2024-08-17 14:36+0100\n"
+"PO-Revision-Date: 2025-02-15 01:32+0000\n"
 "Last-Translator: Hugo Carvalho <hugokarvalho@hotmail.com>\n"
 "Language-Team: Portuguese\n"
 "Language: pt\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.4.4\n"
+"X-Generator: Poedit 3.0.1\n"
 "X-Pootle-Revision: 71\n"
 "X-Pootle-Path: /pt/lxpanel/po/pt.po\n"
 "X-Source-Language: C\n"
@@ -75,7 +75,7 @@ msgid ""
 "Really delete this panel?\n"
 "<b>Warning: This can not be recovered.</b>"
 msgstr ""
-"Deseja mesmo eliminar este painel?\n"
+"Prertende mesmo eliminar este painel?\n"
 "<b>Atenção: o painel não poderá ser recuperado.</b>"
 
 #: ../src/panel.c:1333
@@ -316,7 +316,7 @@ msgstr "Botões planos"
 
 #: ../data/ui/launchtaskbar.glade.h:9
 msgid "Show square brackets around the names of minimized windows"
-msgstr ""
+msgstr "Mostrar parênteses retos à volta dos nomes das janelas minimizadas"
 
 #: ../data/ui/launchtaskbar.glade.h:10
 msgid "Show windows from all desktops"
@@ -856,7 +856,7 @@ msgstr "Variante"
 
 #: ../plugins/xkb/xkb-plugin.c:1319
 msgid "Keyboard Layout Options"
-msgstr "Mudar opções de disposição"
+msgstr "Opções de disposição do teclado"
 
 #: ../plugins/xkb/xkb-plugin.c:1339
 msgid "Advanced setxkbmap Options"
