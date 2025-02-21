@@ -1924,7 +1924,7 @@ panel_parse_global(Panel *p, config_setting_t *cfg)
     if (config_setting_lookup_string(cfg, "align", &str) ||
         /* NOTE: supporting "allign" for backward compatibility */
         config_setting_lookup_string(cfg, "allign", &str))
-        p->align = str2num(allign_pair, str, ALIGN_NONE);
+        p->align = str2num(align_pair, str, ALIGN_NONE);
     config_setting_lookup_int(cfg, "monitor", &p->monitor);
     config_setting_lookup_int(cfg, "margin", &p->margin);
     if (config_setting_lookup_string(cfg, "widthtype", &str))

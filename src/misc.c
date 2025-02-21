@@ -172,7 +172,7 @@ enum{
     N_ATOMS
 };
 
-pair allign_pair[] = {
+pair align_pair[] = {
     { ALIGN_NONE, "none" },
     { ALIGN_LEFT, "left" },
     { ALIGN_RIGHT, "right" },

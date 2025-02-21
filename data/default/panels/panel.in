@@ -3,7 +3,7 @@
 
 Global {
     edge=bottom
-    allign=left
+    align=left
     margin=0
     widthtype=percent
     width=100

@@ -250,7 +250,7 @@ static void set_alignment(LXPanel* panel, int align)
         gtk_widget_set_sensitive(p->margin_control, (align != ALIGN_CENTER));
     p->align = align;
     gtk_widget_queue_resize(GTK_WIDGET(panel));
-    UPDATE_GLOBAL_STRING(p, "align", num2str(allign_pair, align, "none"));
+    UPDATE_GLOBAL_STRING(p, "align", num2str(align_pair, align, "none"));
 }
 
 static void align_left_toggle(GtkToggleButton *widget, LXPanel *p)

@@ -186,7 +186,7 @@ typedef struct {
     gchar *str;
 } pair;
 
-extern pair allign_pair[];
+extern pair align_pair[];
 extern pair edge_pair[];
 extern pair width_pair[];
 extern pair height_pair[];
