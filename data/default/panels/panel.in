@@ -16,7 +16,7 @@ Global {
     usefontcolor=1
     fontcolor=#ffffff
     usefontsize=0
-    fontsize=10    
+    fontsize=10
     background=1
     backgroundfile=@prefix@/share/lxpanel/images/background.png
 }
