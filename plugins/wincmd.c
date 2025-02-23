@@ -136,6 +136,9 @@ static gboolean wincmd_button_clicked(GtkWidget * widget, GdkEventButton * event
          * Otherwise, fall back to iconifying windows individually. */
         if (gdk_x11_screen_supports_net_wm_hint(screen, atom))
         {
+
+	    wc->toggle_state = get_net_showing_desktop();
+		
             int showing_desktop = ((( ! wc->toggle_preference) || ( ! wc->toggle_state)) ? 1 : 0);
             Xclimsgx(xscreen, RootWindowOfScreen(xscreen),
                     a_NET_SHOWING_DESKTOP, showing_desktop, 0, 0, 0, 0);
