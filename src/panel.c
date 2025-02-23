@@ -52,6 +52,10 @@
 #include <gdk/gdkx.h>
 #include <libfm/fm-gtk.h>
 #include <cairo-xlib.h>
+#ifndef WNCK_I_KNOW_THIS_IS_UNSTABLE
+#define WNCK_I_KNOW_THIS_IS_UNSTABLE
+#endif
+#include <libwnck/libwnck.h>
 
 #define __LXPANEL_INTERNALS__
 
@@ -236,6 +240,28 @@ static void lxpanel_style_set(GtkWidget *widget, GtkStyle* prev)
     _panel_queue_update_background(LXPANEL(widget));
 }
 
+static gboolean lxpanel_has_plugin (LXPanel *panel, const char *name)
+{
+    gboolean found = FALSE;
+    GList *plugins = NULL, *plugin;
+
+    if (panel->priv->box)
+        plugins = gtk_container_get_children(GTK_CONTAINER(panel->priv->box));
+
+    for (plugin = plugins; plugin; plugin = plugin->next)
+    {
+        if (g_strcmp0(gtk_widget_get_name(GTK_WIDGET(plugin->data)), name) == 0)
+        {
+            found = TRUE;
+            break;
+        }
+    }
+
+    g_list_free(plugins);
+
+    return found;
+}
+
 static void lxpanel_size_request(GtkWidget *widget, GtkRequisition *req)
 {
     LXPanel *panel = LXPANEL(widget);
@@ -249,9 +275,26 @@ static void lxpanel_size_request(GtkWidget *widget, GtkRequisition *req)
     GTK_WIDGET_CLASS(lxpanel_parent_class)->get_preferred_height(widget, &req->height, &req->height);
 #endif
 
-    if (!p->visible)
+    if (!p->visible
         /* When the panel is in invisible state, the content box also got hidden, thus always
          * report 0 size.  Ask the content box instead for its size. */
+#if WNCK_CHECK_VERSION(40, 0, 0)
+    /* Commit 3456b747b6381f17d48629dd8fdd4d511e739b10 in libwnck and
+       lxpanel sizing being implemented based on GTK+ 2 result in a cropped
+       panel when using the "dynamic width" setting (GitHub issue #86).
+
+       As a workaround for libwnck-3, version >= 40, we do not use the
+       preferred width of the parent class, but instead ask the content box
+       for its size.
+
+       It may be overkill to check if the pager is being used as a plugin,
+       but this is exactly the constellation in which the error occurs.
+
+       This fix should be replaced with a proper GTK 3
+       width-for-height/height-for-width implementation. */
+        || (p->widthtype == WIDTH_REQUEST && lxpanel_has_plugin(panel, "pager"))
+#endif
+       )
         gtk_widget_size_request(p->box, req);
 
     rect.width = req->width;
