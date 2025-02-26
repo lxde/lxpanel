@@ -278,6 +278,7 @@ static void lxpanel_size_request(GtkWidget *widget, GtkRequisition *req)
     if (!p->visible
         /* When the panel is in invisible state, the content box also got hidden, thus always
          * report 0 size.  Ask the content box instead for its size. */
+#ifdef WNCK_CHECK_VERSION
 #if WNCK_CHECK_VERSION(40, 0, 0)
     /* Commit 3456b747b6381f17d48629dd8fdd4d511e739b10 in libwnck and
        lxpanel sizing being implemented based on GTK+ 2 result in a cropped
@@ -293,6 +294,7 @@ static void lxpanel_size_request(GtkWidget *widget, GtkRequisition *req)
        This fix should be replaced with a proper GTK 3
        width-for-height/height-for-width implementation. */
         || (p->widthtype == WIDTH_REQUEST && lxpanel_has_plugin(panel, "pager"))
+#endif
 #endif
        )
         gtk_widget_size_request(p->box, req);
