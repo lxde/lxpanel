@@ -31,8 +31,9 @@
 #include <arpa/inet.h>
 #include <linux/sockios.h>
 #include <linux/types.h>
-#include <linux/ethtool.h>
-#include <iwlib.h>
+#include <linux/ethtool.h>    /* This includes linux/if_ether.h, which defines struct ethhdr. */
+#define _NETINET_IF_ETHER_H   /* Avoid including musl libc's netinet/if_ether.h (which also */
+#include <iwlib.h>            /* defines struct ethhdr), included by iwlib.h's #include <net/ethernet.h>. */
 #include "nsconfig.h"
 #include "netstat.h"
 #include "statusicon.h"
