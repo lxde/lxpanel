@@ -346,7 +346,9 @@ find_sensors(thermal* th, char const* directory, char const* subdir_prefix,
                 continue;
         }
         snprintf(sensor_path,sizeof(sensor_path),"%s%s/", directory, sensor_name);
-        add_sensor(th, sensor_path, sensor_name, get_temp, get_crit);
+	/* make sure sensor works: https://bugzilla.kernel.org/show_bug.cgi?id=201761 */
+        if (get_temp(sensor_path) >= 0)
+            add_sensor(th, sensor_path, sensor_name, get_temp, get_crit);
     }
     g_dir_close(sensorsDirectory);
 }
