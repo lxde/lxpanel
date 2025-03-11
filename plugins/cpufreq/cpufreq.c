@@ -172,7 +172,7 @@ frequency_menu(cpufreq *cf){
             if(bufl > 1){
                 buf[bufl] = '\0';
                 menuitem = gtk_menu_item_new_with_label(strdup(buf));
-                gtk_menu_append (GTK_MENU_SHELL (menu), menuitem);
+                gtk_menu_shell_append (GTK_MENU_SHELL (menu), menuitem);
                 gtk_widget_show (menuitem);
                 param = g_new0(Param, 1);
                 param->data = strdup(buf);
@@ -256,18 +256,18 @@ cpufreq_menu(cpufreq *cf){
 
     if((cf->governors == NULL) || (!cf->has_cpufreq) || (cf->cur_governor == NULL)){
         menuitem = GTK_MENU_ITEM(gtk_menu_item_new_with_label("CPUFreq not supported"));
-        gtk_menu_append (GTK_MENU_SHELL (menu), GTK_WIDGET (menuitem));
+        gtk_menu_shell_append (GTK_MENU_SHELL (menu), GTK_WIDGET (menuitem));
         gtk_widget_show (GTK_WIDGET (menuitem));
         return GTK_WIDGET(menu);
     }
 
     if(strcmp(cf->cur_governor, "userspace") == 0){
         menuitem = GTK_MENU_ITEM(gtk_menu_item_new_with_label("  Frequency"));
-        gtk_menu_append (GTK_MENU_SHELL (menu), GTK_WIDGET (menuitem));
+        gtk_menu_shell_append (GTK_MENU_SHELL (menu), GTK_WIDGET (menuitem));
         gtk_widget_show (GTK_WIDGET (menuitem));
         gtk_menu_item_set_submenu(menuitem, frequency_menu(cf));
         menuitem = GTK_MENU_ITEM(gtk_separator_menu_item_new());
-        gtk_menu_append (GTK_MENU_SHELL (menu), GTK_WIDGET (menuitem));
+        gtk_menu_shell_append (GTK_MENU_SHELL (menu), GTK_WIDGET (menuitem));
         gtk_widget_show (GTK_WIDGET(menuitem));
     }
 
