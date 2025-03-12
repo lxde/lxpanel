@@ -138,17 +138,32 @@ get_governors(cpufreq *cf){
 }
 
 static void
-cpufreq_set_freq(GtkWidget *widget, Param* p){
+set_file(const char* cpu, const char* val, const char* file) {
     FILE *fp;
-    char buf[ 100 ], sstmp [ 256 ];
+    char path [ 256 ];
 
-    if(strcmp(p->cf->cur_governor, "userspace")) return;
+    snprintf(path, sizeof(path), "%s/%s", cpu, file);
 
-    sprintf(sstmp,"%s/%s",p->cf->cpus->data, SCALING_SETFREQ);
-    if ((fp = fopen( sstmp, "w")) != NULL) {
-        fprintf(fp,"%s",p->data);
+    if ((fp = fopen( path, "w")) != NULL) {
+        fprintf(fp,"%s",val);
         fclose(fp);
     }
+}
+
+static void
+set_freq(const char* cpu, const char* val) {
+    set_file(cpu, val, SCALING_SETFREQ);
+}
+
+static void
+set_gov(const char* cpu, const char* val) {
+    set_file(cpu, val, SCALING_GOV);
+}
+
+static void
+cpufreq_set_freq(GtkWidget *widget, Param* p){
+    if(strcmp(p->cf->cur_governor, "userspace")) return;
+    set_freq(p->cf->cpus->data, p->data);
 }
 
 static GtkWidget *
@@ -230,14 +245,7 @@ get_cpus(cpufreq *cf)
 
 static void
 cpufreq_set_governor(GtkWidget *widget, Param* p){
-    FILE *fp;
-    char buf[ 100 ], sstmp [ 256 ];
-
-    sprintf(sstmp, "%s/%s", p->cf->cpus->data, SCALING_GOV);
-    if ((fp = fopen( sstmp, "w")) != NULL) {
-        fprintf(fp,"%s",p->data);
-        fclose(fp);
-    }
+    set_gov(p->cf->cpus->data, p->data);
 }
 
 static GtkWidget *
