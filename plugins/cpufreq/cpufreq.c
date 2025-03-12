@@ -99,7 +99,7 @@ get_cur_freq(cpufreq *cf){
     }
 }
 
-/*static void
+static void
 get_governors(cpufreq *cf){
     FILE *fp;
     GList *l;
@@ -189,7 +189,7 @@ frequency_menu(cpufreq *cf){
 
     fclose(fp);
     return GTK_WIDGET(menu);
-}*/
+}
 
 static void
 get_cpus(cpufreq *cf)
@@ -228,7 +228,7 @@ get_cpus(cpufreq *cf)
     g_dir_close(cpuDirectory);
 }
 
-/*static void
+static void
 cpufreq_set_governor(GtkWidget *widget, Param* p){
     FILE *fp;
     char buf[ 100 ], sstmp [ 256 ];
@@ -291,7 +291,7 @@ cpufreq_menu(cpufreq *cf){
     }
 
     return GTK_WIDGET (menu);
-}*/
+}
 
 
 
@@ -303,9 +303,9 @@ clicked(GtkWidget *widget, GdkEventButton *evt, LXPanel *panel)
     /* Standard right-click handling. */
     if( evt->button == 1 )
     {
-// Setting governor can't work without root privilege
-//      gtk_menu_popup( cpufreq_menu((cpufreq*)plugin->priv), NULL, NULL, NULL, NULL,
-//                      evt->button, evt->time );
+      cpufreq *cf = lxpanel_plugin_get_data(widget);
+      gtk_menu_popup( GTK_MENU(cpufreq_menu(cf)), NULL, NULL, NULL, NULL,
+                      evt->button, evt->time );
       return TRUE;
     }
 
