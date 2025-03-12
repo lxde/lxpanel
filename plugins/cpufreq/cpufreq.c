@@ -162,8 +162,12 @@ set_gov(const char* cpu, const char* val) {
 
 static void
 cpufreq_set_freq(GtkWidget *widget, Param* p){
+    GList *curr;
+
     if(strcmp(p->cf->cur_governor, "userspace")) return;
-    set_freq(p->cf->cpus->data, p->data);
+
+    for(curr = p->cf->cpus; curr; curr = curr->next)
+        set_freq(curr->data, p->data);
 }
 
 static GtkWidget *
@@ -245,7 +249,10 @@ get_cpus(cpufreq *cf)
 
 static void
 cpufreq_set_governor(GtkWidget *widget, Param* p){
-    set_gov(p->cf->cpus->data, p->data);
+    GList *curr;
+
+    for(curr = p->cf->cpus; curr; curr = curr->next)
+        set_gov(curr->data, p->data);
 }
 
 static GtkWidget *
