@@ -170,6 +170,14 @@ cpufreq_set_freq(GtkWidget *widget, Param* p){
         set_freq(curr->data, p->data);
 }
 
+static void
+cpufreq_set_governor(GtkWidget *widget, Param* p) {
+    GList *curr;
+
+    for(curr = p->cf->cpus; curr; curr = curr->next)
+        set_gov(curr->data, p->data);
+}
+
 static GtkWidget *
 frequency_menu(cpufreq *cf){
     FILE *fp;
@@ -245,14 +253,6 @@ get_cpus(cpufreq *cf)
         }
     }
     g_dir_close(cpuDirectory);
-}
-
-static void
-cpufreq_set_governor(GtkWidget *widget, Param* p){
-    GList *curr;
-
-    for(curr = p->cf->cpus; curr; curr = curr->next)
-        set_gov(curr->data, p->data);
 }
 
 static GtkWidget *
