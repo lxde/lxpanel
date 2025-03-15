@@ -99,7 +99,7 @@ get_cur_freq(cpufreq *cf){
     }
 }
 
-/*static void
+static void
 get_governors(cpufreq *cf){
     FILE *fp;
     GList *l;
@@ -138,17 +138,44 @@ get_governors(cpufreq *cf){
 }
 
 static void
-cpufreq_set_freq(GtkWidget *widget, Param* p){
+set_file(const char* cpu, const char* val, const char* file) {
     FILE *fp;
-    char buf[ 100 ], sstmp [ 256 ];
+    char path [ 256 ];
+
+    snprintf(path, sizeof(path), "%s/%s", cpu, file);
+
+    if ((fp = fopen( path, "w")) != NULL) {
+        fprintf(fp,"%s",val);
+        fclose(fp);
+    }
+}
+
+static void
+set_freq(const char* cpu, const char* val) {
+    set_file(cpu, val, SCALING_SETFREQ);
+}
+
+static void
+set_gov(const char* cpu, const char* val) {
+    set_file(cpu, val, SCALING_GOV);
+}
+
+static void
+cpufreq_set_freq(GtkWidget *widget, Param* p){
+    GList *curr;
 
     if(strcmp(p->cf->cur_governor, "userspace")) return;
 
-    sprintf(sstmp,"%s/%s",p->cf->cpus->data, SCALING_SETFREQ);
-    if ((fp = fopen( sstmp, "w")) != NULL) {
-        fprintf(fp,"%s",p->data);
-        fclose(fp);
-    }
+    for(curr = p->cf->cpus; curr; curr = curr->next)
+        set_freq(curr->data, p->data);
+}
+
+static void
+cpufreq_set_governor(GtkWidget *widget, Param* p){
+    GList *curr;
+
+    for(curr = p->cf->cpus; curr; curr = curr->next)
+        set_gov(curr->data, p->data);
 }
 
 static GtkWidget *
@@ -189,7 +216,7 @@ frequency_menu(cpufreq *cf){
 
     fclose(fp);
     return GTK_WIDGET(menu);
-}*/
+}
 
 static void
 get_cpus(cpufreq *cf)
@@ -226,18 +253,6 @@ get_cpus(cpufreq *cf)
         }
     }
     g_dir_close(cpuDirectory);
-}
-
-/*static void
-cpufreq_set_governor(GtkWidget *widget, Param* p){
-    FILE *fp;
-    char buf[ 100 ], sstmp [ 256 ];
-
-    sprintf(sstmp, "%s/%s", p->cf->cpus->data, SCALING_GOV);
-    if ((fp = fopen( sstmp, "w")) != NULL) {
-        fprintf(fp,"%s",p->data);
-        fclose(fp);
-    }
 }
 
 static GtkWidget *
@@ -291,7 +306,7 @@ cpufreq_menu(cpufreq *cf){
     }
 
     return GTK_WIDGET (menu);
-}*/
+}
 
 
 
@@ -303,9 +318,9 @@ clicked(GtkWidget *widget, GdkEventButton *evt, LXPanel *panel)
     /* Standard right-click handling. */
     if( evt->button == 1 )
     {
-// Setting governor can't work without root privilege
-//      gtk_menu_popup( cpufreq_menu((cpufreq*)plugin->priv), NULL, NULL, NULL, NULL,
-//                      evt->button, evt->time );
+      cpufreq *cf = lxpanel_plugin_get_data(widget);
+      gtk_menu_popup( GTK_MENU(cpufreq_menu(cf)), NULL, NULL, NULL, NULL,
+                      evt->button, evt->time );
       return TRUE;
     }
 
