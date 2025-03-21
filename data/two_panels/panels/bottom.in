@@ -15,8 +15,6 @@ Global {
     setpartialstrut=1
     usefontcolor=0
     fontcolor=#ffffff
-    usefontsize=0
-    fontsize=10
     background=0
     backgroundfile=@prefix@/share/lxpanel/images/background.png
 }

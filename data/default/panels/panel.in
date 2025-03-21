@@ -15,8 +15,6 @@ Global {
     setpartialstrut=1
     usefontcolor=1
     fontcolor=#ffffff
-    usefontsize=0
-    fontsize=10
     background=1
     backgroundfile=@prefix@/share/lxpanel/images/background.png
 }
@@ -110,6 +108,15 @@ Plugin {
 
 Plugin {
     type = cpu
+}
+
+Plugin {
+    type = volume
+    Config {
+        VolumeMuteKey=XF86AudioMute
+        VolumeDownKey=XF86AudioLowerVolume
+        VolumeUpKey=XF86AudioRaiseVolume
+    }
 }
 
 Plugin {
