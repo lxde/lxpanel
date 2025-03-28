@@ -18,7 +18,7 @@
  *               2014 Andy Balaam <axis3x3@users.sf.net>
  *               2015 Balló György <ballogyor@gmail.com>
  *               2015 Rafał Mużyło <galtgendo@gmail.com>
- *               2023 Ingo Brückl
+ *               2023,2025 Ingo Brückl
  *
  * This file is a part of LXPanel project.
  *
@@ -1051,6 +1051,9 @@ static void launchtaskbar_constructor_task(LaunchTaskBarPlugin *ltbp)
 
         /* Connect a signal to be notified when the window manager changes.  This causes re-evaluation of the "use_net_active" status. */
         g_signal_connect(ltbp->screen, "window-manager-changed", G_CALLBACK(taskbar_window_manager_changed), ltbp);
+#if GTK_CHECK_VERSION(3, 0, 0)
+        taskbar_window_manager_changed(NULL, ltbp);
+#endif
 
         /* Start blinking timeout if configured */
         if (ltbp->flags.use_urgency_hint)
@@ -2444,7 +2447,9 @@ static void taskbar_window_manager_changed(GdkScreen * screen, LaunchTaskBarPlug
     /* Force re-evaluation of use_net_active. */
     GdkAtom net_active_atom = gdk_x11_xatom_to_atom(a_NET_ACTIVE_WINDOW);
     tb->flags.use_net_active = gdk_x11_screen_supports_net_wm_hint(tb->screen, net_active_atom);
-    taskbar_redraw(tb);
+
+    if (screen)
+        taskbar_redraw(tb);
 }
 
 /* Callback from configuration dialog mechanism to apply the configuration. */
