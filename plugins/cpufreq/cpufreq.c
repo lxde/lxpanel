@@ -114,7 +114,7 @@ get_governors(cpufreq *cf){
         cf->governors = NULL;
         return;
     }
-    sprintf(sstmp,"%s/%s",cf->cpus->data, SCALING_AGOV);
+    snprintf(sstmp, sizeof(sstmp), "%s/%s", cf->cpus->data, SCALING_AGOV);
 
     if (!(fp = fopen( sstmp, "r"))) {
         printf("cpufreq: cannot open %s\n",sstmp);
@@ -184,7 +184,7 @@ frequency_menu(cpufreq *cf){
     Param* param;
     char buf[ 100 ], sstmp [ 256 ], c, bufl = 0;
 
-    sprintf(sstmp,"%s/%s",cf->cpus->data, SCALING_AFREQ);
+    snprintf(sstmp, sizeof(sstmp), "%s/%s", cf->cpus->data, SCALING_AFREQ);
 
     if (!(fp = fopen( sstmp, "r"))) {
         printf("cpufreq: cannot open %s\n",sstmp);
@@ -289,10 +289,10 @@ cpufreq_menu(cpufreq *cf){
     for( l = cf->governors; l; l = l->next )
     {
       if(strcmp((char*)l->data, cf->cur_governor) == 0){
-        sprintf(buff,"> %s", l->data);
+        snprintf(buff, sizeof(buff), "> %s", l->data);
         menuitem = GTK_MENU_ITEM(gtk_menu_item_new_with_label(strdup(buff)));
       }else{
-        sprintf(buff,"   %s", l->data);
+        snprintf(buff, sizeof(buff), "   %s", l->data);
         menuitem = GTK_MENU_ITEM(gtk_menu_item_new_with_label(strdup(buff)));
       }
 

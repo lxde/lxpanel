@@ -47,7 +47,7 @@ asc2hex(char const *src)
     tmp = buf;
 
     for (;*src!='\0';src++) {
-        sprintf(c, "%X", *src);
+        snprintf(c, sizeof(c), "%X", *src);
         *tmp = c[0];
         *(tmp+1) = c[1];
         tmp += 2;
