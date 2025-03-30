@@ -2,6 +2,7 @@
  * CPUFreq plugin to lxpanel
  *
  * Copyright (C) 2009 by Daniel Kesler <kesler.daniel@gmail.com>
+ *               2025 Ingo Brückl
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -178,6 +179,14 @@ cpufreq_set_governor(GtkWidget *widget, Param* p) {
         set_gov(curr->data, p->data);
 }
 
+static gboolean
+permission(cpufreq *cf, const char* file) {
+    char path [ 256 ];
+
+    snprintf(path, sizeof(path), "%s/%s", cf->cpus->data, file);
+    return (g_access(path, W_OK) == 0);
+}
+
 static GtkWidget *
 frequency_menu(cpufreq *cf){
     FILE *fp;
@@ -259,6 +268,7 @@ static GtkWidget *
 cpufreq_menu(cpufreq *cf){
     GList *l;
     GSList *group;
+    gboolean can_write;
     char buff[100];
     GtkMenuItem* menuitem;
     Param* param;
@@ -276,15 +286,20 @@ cpufreq_menu(cpufreq *cf){
         return GTK_WIDGET(menu);
     }
 
+    can_write = permission(cf, SCALING_SETFREQ);
+
     if(strcmp(cf->cur_governor, "userspace") == 0){
         menuitem = GTK_MENU_ITEM(gtk_menu_item_new_with_label("  Frequency"));
         gtk_menu_shell_append (GTK_MENU_SHELL (menu), GTK_WIDGET (menuitem));
+        gtk_widget_set_sensitive (GTK_WIDGET (menuitem), can_write);
         gtk_widget_show (GTK_WIDGET (menuitem));
         gtk_menu_item_set_submenu(menuitem, frequency_menu(cf));
         menuitem = GTK_MENU_ITEM(gtk_separator_menu_item_new());
         gtk_menu_shell_append (GTK_MENU_SHELL (menu), GTK_WIDGET (menuitem));
         gtk_widget_show (GTK_WIDGET(menuitem));
     }
+
+    can_write = permission(cf, SCALING_GOV);
 
     for( l = cf->governors; l; l = l->next )
     {
@@ -297,6 +312,7 @@ cpufreq_menu(cpufreq *cf){
       }
 
       gtk_menu_shell_append (GTK_MENU_SHELL (menu), GTK_WIDGET (menuitem));
+      gtk_widget_set_sensitive (GTK_WIDGET (menuitem), can_write);
       gtk_widget_show (GTK_WIDGET (menuitem));
       param = g_new0(Param, 1);
       param->data = l->data;
