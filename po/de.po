@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-29 15:52+0100\n"
-"PO-Revision-Date: 2025-01-29 16:03+0100\n"
+"POT-Creation-Date: 2025-03-30 13:47+0200\n"
+"PO-Revision-Date: 2025-03-30 13:55+0200\n"
 "Last-Translator: Ingo Brückl <ib@oddnet.de>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: de\n"
@@ -58,11 +58,11 @@ msgstr "Bilddatei auswählen"
 msgid "_Browse"
 msgstr "A_uswählen"
 
-#: ../src/panel.c:1305
+#: ../src/panel.c:1350
 msgid "There is no room for another panel. All the edges are taken."
 msgstr "Es ist kein Platz für eine weitere Leiste. Alle Ränder sind belegt."
 
-#: ../src/panel.c:1331
+#: ../src/panel.c:1376
 msgid ""
 "Really delete this panel?\n"
 "<b>Warning: This can not be recovered.</b>"
@@ -70,12 +70,12 @@ msgstr ""
 "Diese Leiste wirklich entfernen?\n"
 "<b>Warnung: Wiederherstellung ist nicht möglich.</b>"
 
-#: ../src/panel.c:1333
+#: ../src/panel.c:1378
 msgid "Confirm"
 msgstr "Bestätigen"
 
 #. TRANSLATORS: Replace this string with your names, one name per line.
-#: ../src/panel.c:1369
+#: ../src/panel.c:1414
 msgid "translator-credits"
 msgstr ""
 "Christoph Wickert <cwickert@fedorapeoject.org>\n"
@@ -83,73 +83,73 @@ msgstr ""
 "Daniel Winzen <d@winzen4.de>\n"
 "Ingo Brückl"
 
-#: ../src/panel.c:1374
+#: ../src/panel.c:1419
 msgid "LXPanel"
 msgstr "LXPanel"
 
-#: ../src/panel.c:1392
+#: ../src/panel.c:1437
 msgid "Copyright (C) 2008-2025"
 msgstr "Copyright © 2008–2025"
 
-#: ../src/panel.c:1393
+#: ../src/panel.c:1438
 msgid "Desktop panel for LXDE project"
 msgstr "Arbeitsflächen-Leiste für das LXDE-Projekt"
 
-#: ../src/panel.c:1435
+#: ../src/panel.c:1480
 #, c-format
 msgid "\"%s\" Settings"
 msgstr "»%s«-Einstellungen"
 
-#: ../src/panel.c:1456
+#: ../src/panel.c:1501
 msgid "Add / Remove Panel Items"
 msgstr "Leisteneinträge hinzufügen/entfernen"
 
-#: ../src/panel.c:1464
+#: ../src/panel.c:1509
 #, c-format
 msgid "Remove \"%s\" From Panel"
 msgstr "»%s« aus der Leiste entfernen"
 
-#: ../src/panel.c:1476
+#: ../src/panel.c:1521
 msgid "Panel Settings"
 msgstr "Leisten-Einstellungen"
 
-#: ../src/panel.c:1482
+#: ../src/panel.c:1527
 msgid "Create New Panel"
 msgstr "Neue Leiste anlegen"
 
-#: ../src/panel.c:1488
+#: ../src/panel.c:1533
 msgid "Delete This Panel"
 msgstr "Diese Leiste entfernen"
 
-#: ../src/panel.c:1499
+#: ../src/panel.c:1544
 msgid "About"
 msgstr "Info"
 
-#: ../src/panel.c:1506
+#: ../src/panel.c:1551
 msgid "Panel"
 msgstr "Leiste"
 
-#: ../src/panel.c:1724 ../src/panel.c:1732 ../data/ui/panel-pref.glade.h:22
+#: ../src/panel.c:1769 ../src/panel.c:1777 ../data/ui/panel-pref.glade.h:22
 msgid "Height:"
 msgstr "Höhe:"
 
-#: ../src/panel.c:1725 ../src/panel.c:1731 ../data/ui/panel-pref.glade.h:21
+#: ../src/panel.c:1770 ../src/panel.c:1776 ../data/ui/panel-pref.glade.h:21
 msgid "Width:"
 msgstr "Breite:"
 
-#: ../src/panel.c:1726 ../data/ui/panel-pref.glade.h:13
+#: ../src/panel.c:1771 ../data/ui/panel-pref.glade.h:13
 msgid "Left"
 msgstr "Links"
 
-#: ../src/panel.c:1727 ../data/ui/panel-pref.glade.h:14
+#: ../src/panel.c:1772 ../data/ui/panel-pref.glade.h:14
 msgid "Right"
 msgstr "Rechts"
 
-#: ../src/panel.c:1733 ../data/ui/panel-pref.glade.h:12
+#: ../src/panel.c:1778 ../data/ui/panel-pref.glade.h:12
 msgid "Top"
 msgstr "Oben"
 
-#: ../src/panel.c:1734 ../data/ui/panel-pref.glade.h:11
+#: ../src/panel.c:1779 ../data/ui/panel-pref.glade.h:11
 msgid "Bottom"
 msgstr "Unten"
 
@@ -283,7 +283,7 @@ msgstr "Breite:"
 msgid "Allocate space"
 msgstr "Zwischenraum hinzufügen"
 
-#: ../data/ui/launchtaskbar.glade.h:1 ../plugins/launchtaskbar.c:2497
+#: ../data/ui/launchtaskbar.glade.h:1 ../plugins/launchtaskbar.c:2502
 msgid "Application Launch and Task Bar"
 msgstr "Schnellstart- und Fensterleiste"
 
@@ -529,7 +529,7 @@ msgstr "Kein (Systemthema verwenden)"
 msgid "Solid color (with opacity)"
 msgstr "Durchgehende Farbe (deckend)"
 
-#: ../data/ui/panel-pref.glade.h:28 ../plugins/xkb/xkb-plugin.c:1455
+#: ../data/ui/panel-pref.glade.h:28 ../plugins/xkb/xkb-plugin.c:1502
 msgid "Image"
 msgstr "Bild"
 
@@ -642,31 +642,31 @@ msgstr "Namen der Arbeitsflächen anzeigen"
 msgid "Display workspace number, by cmeury@users.sf.net"
 msgstr "Anzeige von Name oder Nummer der Arbeitsfläche"
 
-#: ../plugins/launchtaskbar.c:1846 ../plugins/launchtaskbar.c:2467
+#: ../plugins/launchtaskbar.c:1849 ../plugins/launchtaskbar.c:2472
 msgid "Application Launch Bar"
 msgstr "Schnellstartleiste"
 
-#: ../plugins/launchtaskbar.c:1849 ../plugins/launchtaskbar.c:2477
+#: ../plugins/launchtaskbar.c:1852 ../plugins/launchtaskbar.c:2482
 msgid "Task Bar (Window List)"
 msgstr "Fensterleiste"
 
-#: ../plugins/launchtaskbar.c:2000
+#: ../plugins/launchtaskbar.c:2003
 msgid "A_dd to Launcher"
 msgstr "Zur Startleiste hinzufügen"
 
-#: ../plugins/launchtaskbar.c:2002
+#: ../plugins/launchtaskbar.c:2005
 msgid "Rem_ove from Launcher"
 msgstr "Aus der Startleiste _entfernen"
 
-#: ../plugins/launchtaskbar.c:2004
+#: ../plugins/launchtaskbar.c:2007
 msgid "_New Instance"
 msgstr "_Neue Instanz"
 
-#: ../plugins/launchtaskbar.c:2468
+#: ../plugins/launchtaskbar.c:2473
 msgid "Bar with buttons to launch application"
 msgstr "Leiste mit Symbolen zum Starten von Anwendungen"
 
-#: ../plugins/launchtaskbar.c:2478
+#: ../plugins/launchtaskbar.c:2483
 msgid ""
 "Taskbar shows all opened windows and allows to iconify them, shade or get "
 "focus"
@@ -674,7 +674,7 @@ msgstr ""
 "Anzeige aller geöffneten Fenster mit der Möglichkeit, diese auf Symbolgröße "
 "zu verkleinern, sie einzurollen oder in den Vordergrund zu holen"
 
-#: ../plugins/launchtaskbar.c:2498
+#: ../plugins/launchtaskbar.c:2503
 msgid "Bar with buttons to launch application and/or show all opened windows"
 msgstr ""
 "Leiste mit Symbolen zum Starten von Anwendungen und/oder zur Anzeige aller "
@@ -805,114 +805,114 @@ msgstr "Benachrichtigungen"
 msgid "System tray"
 msgstr "Anzeige von Benachrichtigungen"
 
-#: ../plugins/xkb/xkb-plugin.c:409
+#: ../plugins/xkb/xkb-plugin.c:437
 msgid "New session is required for this option to take effect"
 msgstr "Damit diese Option wirksam wird, ist eine neue Sitzung erforderlich."
 
-#: ../plugins/xkb/xkb-plugin.c:590
+#: ../plugins/xkb/xkb-plugin.c:618
 msgid "Select Keyboard Model"
 msgstr "Tastaturmodell auswählen"
 
-#: ../plugins/xkb/xkb-plugin.c:614 ../plugins/xkb/xkb-plugin.c:743
-#: ../plugins/xkb/xkb-plugin.c:921
+#: ../plugins/xkb/xkb-plugin.c:642 ../plugins/xkb/xkb-plugin.c:786
+#: ../plugins/xkb/xkb-plugin.c:965
 msgid "Description"
 msgstr "Beschreibung"
 
-#: ../plugins/xkb/xkb-plugin.c:619 ../plugins/xkb/xkb-plugin.c:750
+#: ../plugins/xkb/xkb-plugin.c:647 ../plugins/xkb/xkb-plugin.c:793
 msgid "Id"
 msgstr "ID"
 
-#: ../plugins/xkb/xkb-plugin.c:714
+#: ../plugins/xkb/xkb-plugin.c:757
 msgid "Select Layout Change Type"
 msgstr "Belegungsoptionen auswählen"
 
-#: ../plugins/xkb/xkb-plugin.c:887
+#: ../plugins/xkb/xkb-plugin.c:931
 msgid "Add Keyboard Layout"
 msgstr "Tastaturbelegung hinzufügen"
 
-#: ../plugins/xkb/xkb-plugin.c:911 ../plugins/xkb/xkb-plugin.c:1302
+#: ../plugins/xkb/xkb-plugin.c:955 ../plugins/xkb/xkb-plugin.c:1346
 msgid "Flag"
 msgstr "Flagge"
 
-#: ../plugins/xkb/xkb-plugin.c:916 ../plugins/xkb/xkb-plugin.c:1306
+#: ../plugins/xkb/xkb-plugin.c:960 ../plugins/xkb/xkb-plugin.c:1350
 msgid "Layout"
 msgstr "Belegung"
 
-#: ../plugins/xkb/xkb-plugin.c:1212 ../plugins/xkb/xkb-plugin.c:1544
+#: ../plugins/xkb/xkb-plugin.c:1256 ../plugins/xkb/xkb-plugin.c:1591
 msgid "Keyboard Layout Handler"
 msgstr "Tastaturbelegung"
 
-#: ../plugins/xkb/xkb-plugin.c:1235
+#: ../plugins/xkb/xkb-plugin.c:1279
 msgid "Keyboard Model"
 msgstr "Tastaturmodell"
 
-#: ../plugins/xkb/xkb-plugin.c:1256
+#: ../plugins/xkb/xkb-plugin.c:1300
 msgid "Keyboard Layouts"
 msgstr "Tastaturbelegungen"
 
-#: ../plugins/xkb/xkb-plugin.c:1310
+#: ../plugins/xkb/xkb-plugin.c:1354
 msgid "Variant"
 msgstr "Variante"
 
-#: ../plugins/xkb/xkb-plugin.c:1319
+#: ../plugins/xkb/xkb-plugin.c:1363
 msgid "Keyboard Layout Options"
 msgstr "Belegungsoptionen"
 
-#: ../plugins/xkb/xkb-plugin.c:1339
+#: ../plugins/xkb/xkb-plugin.c:1384
 msgid "Advanced setxkbmap Options"
 msgstr "Erweiterte setxkbmap-Optionen"
 
-#: ../plugins/xkb/xkb-plugin.c:1360
+#: ../plugins/xkb/xkb-plugin.c:1405
 msgid "Do _not reset existing options"
 msgstr "Bestehende Einstellungen _nicht zurücksetzen"
 
-#: ../plugins/xkb/xkb-plugin.c:1365
+#: ../plugins/xkb/xkb-plugin.c:1410
 msgid "Keep _system layouts"
 msgstr "_Systembelegungen beibehalten"
 
-#: ../plugins/xkb/xkb-plugin.c:1374
+#: ../plugins/xkb/xkb-plugin.c:1419
 msgid "Per Window Settings"
 msgstr "Fenstereinstellungen"
 
-#: ../plugins/xkb/xkb-plugin.c:1386
+#: ../plugins/xkb/xkb-plugin.c:1431
 msgid "_Remember layout for each window"
 msgstr "Belegung für jedes Fenster _beibehalten"
 
-#: ../plugins/xkb/xkb-plugin.c:1395
+#: ../plugins/xkb/xkb-plugin.c:1440
 msgid "Show Layout as"
 msgstr "Belegung anzeigen als"
 
-#: ../plugins/xkb/xkb-plugin.c:1456
+#: ../plugins/xkb/xkb-plugin.c:1503
 msgid "Custom Image"
 msgstr "Benutzerdefiniertes Bild"
 
-#: ../plugins/xkb/xkb-plugin.c:1457
+#: ../plugins/xkb/xkb-plugin.c:1504
 msgid "Text"
 msgstr "Text"
 
-#: ../plugins/xkb/xkb-plugin.c:1483
+#: ../plugins/xkb/xkb-plugin.c:1530
 msgid "Panel Icon Size"
 msgstr "Leisten-Symbolgröße"
 
-#: ../plugins/xkb/xkb-plugin.c:1545
+#: ../plugins/xkb/xkb-plugin.c:1592
 msgid "Handle keyboard layouts"
 msgstr "Verwaltung der Tastaturbelegungen"
 
-#: ../plugins/wincmd.c:207
+#: ../plugins/wincmd.c:216
 msgid "Left click to iconify all windows.  Middle click to shade them."
 msgstr ""
 "Linksklick minimiert alle Fenster\n"
 "Mittelklick rollt alle Fenster ein"
 
-#: ../plugins/wincmd.c:245 ../plugins/wincmd.c:255
+#: ../plugins/wincmd.c:254 ../plugins/wincmd.c:264
 msgid "Minimize All Windows"
 msgstr "Fensterminimierung"
 
-#: ../plugins/wincmd.c:247
+#: ../plugins/wincmd.c:256
 msgid "Alternately iconify/shade and raise"
 msgstr "Fenster abwechselnd minimieren/einrollen und wieder anzeigen"
 
-#: ../plugins/wincmd.c:256
+#: ../plugins/wincmd.c:265
 msgid ""
 "Sends commands to all desktop windows.\n"
 "Supported commands are 1) iconify and 2) shade"
@@ -940,47 +940,55 @@ msgstr "Bezeichnung:"
 msgid "Browse directory tree via menu (Author = PCMan)"
 msgstr "Menü zum Durchsuchen der Ordnerstruktur (Autor: PCMan)"
 
-#: ../plugins/thermal/thermal.c:563 ../plugins/thermal/thermal.c:581
+#: ../plugins/thermal/thermal.c:565 ../plugins/thermal/thermal.c:583
 msgid "Temperature Monitor"
 msgstr "Temperatur-Überwachung"
 
-#: ../plugins/thermal/thermal.c:565
+#: ../plugins/thermal/thermal.c:567
 msgid "Normal color"
 msgstr "Normale Farbe:"
 
-#: ../plugins/thermal/thermal.c:566
+#: ../plugins/thermal/thermal.c:568
 msgid "Warning1 color"
 msgstr "Farbe - Warnung 1:"
 
-#: ../plugins/thermal/thermal.c:567
+#: ../plugins/thermal/thermal.c:569
 msgid "Warning2 color"
 msgstr "Farbe - Warnung 2:"
 
-#: ../plugins/thermal/thermal.c:568
+#: ../plugins/thermal/thermal.c:570
 msgid "Automatic sensor location"
 msgstr "Automatische Wahl des Sensors"
 
-#: ../plugins/thermal/thermal.c:569
+#: ../plugins/thermal/thermal.c:571
 msgid "Sensor"
 msgstr "Sensor:"
 
-#: ../plugins/thermal/thermal.c:570
+#: ../plugins/thermal/thermal.c:572
 msgid "Automatic temperature levels"
 msgstr "Automatische Temperatur-Stufen"
 
-#: ../plugins/thermal/thermal.c:571
+#: ../plugins/thermal/thermal.c:573
 msgid "Warning1 temperature"
 msgstr "Temperatur - Warnung 1:"
 
-#: ../plugins/thermal/thermal.c:572
+#: ../plugins/thermal/thermal.c:574
 msgid "Warning2 temperature"
 msgstr "Temperatur - Warnung 2:"
 
-#: ../plugins/thermal/thermal.c:582
+#: ../plugins/thermal/thermal.c:584
 msgid "Display system temperature"
 msgstr "Anzeige der Systemtemperatur"
 
-#: ../plugins/cpufreq/cpufreq.c:325
+#: ../plugins/cpufreq/cpufreq.c:283
+msgid "CPUFreq not supported"
+msgstr "CPUFreq wird nicht unterstützt"
+
+#: ../plugins/cpufreq/cpufreq.c:292
+msgid "   Frequency"
+msgstr "   Frequenz"
+
+#: ../plugins/cpufreq/cpufreq.c:356
 #, c-format
 msgid ""
 "Frequency: %d MHz\n"
@@ -989,11 +997,11 @@ msgstr ""
 "Frequenz: %d MHz\n"
 "Regler: %s"
 
-#: ../plugins/cpufreq/cpufreq.c:401
+#: ../plugins/cpufreq/cpufreq.c:432
 msgid "CPUFreq frontend"
 msgstr "CPUFreq-Frontend"
 
-#: ../plugins/cpufreq/cpufreq.c:402
+#: ../plugins/cpufreq/cpufreq.c:433
 msgid "Display CPU frequency and allow one to change governors and frequency"
 msgstr ""
 "Anzeige der CPU-Frequenz sowie Regler- und Frequenz-Änderungen ermöglichen"
