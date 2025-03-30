@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-29 15:52+0100\n"
+"POT-Creation-Date: 2025-03-30 13:47+0200\n"
 "PO-Revision-Date: 2010-07-18 23:10+0200\n"
 "Last-Translator: Gunleif <gunleif@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -57,11 +57,11 @@ msgstr "Vel eina fílu"
 msgid "_Browse"
 msgstr "_Kaga"
 
-#: ../src/panel.c:1305
+#: ../src/panel.c:1350
 msgid "There is no room for another panel. All the edges are taken."
 msgstr ""
 
-#: ../src/panel.c:1331
+#: ../src/panel.c:1376
 msgid ""
 "Really delete this panel?\n"
 "<b>Warning: This can not be recovered.</b>"
@@ -69,12 +69,12 @@ msgstr ""
 "Vátta strikan av hesum paneli?\n"
 "<b>Ávaring: Hetta kann ikki endurgerðast.</b>"
 
-#: ../src/panel.c:1333
+#: ../src/panel.c:1378
 msgid "Confirm"
 msgstr "Vátta"
 
 #. TRANSLATORS: Replace this string with your names, one name per line.
-#: ../src/panel.c:1369
+#: ../src/panel.c:1414
 msgid "translator-credits"
 msgstr ""
 "Gunleif Joensen\n"
@@ -82,74 +82,74 @@ msgstr ""
 "Sjónarmið viðvíkjandi týðingini kunnu sendast til:\n"
 "<fo.umseting@gmail.com>"
 
-#: ../src/panel.c:1374
+#: ../src/panel.c:1419
 msgid "LXPanel"
 msgstr "LXPanel"
 
-#: ../src/panel.c:1392
+#: ../src/panel.c:1437
 #, fuzzy
 msgid "Copyright (C) 2008-2025"
 msgstr "Upphavsrættindi (C) 2008-2025"
 
-#: ../src/panel.c:1393
+#: ../src/panel.c:1438
 msgid "Desktop panel for LXDE project"
 msgstr "Skriviborðspanel hjá LXDE verkætlaninni"
 
-#: ../src/panel.c:1435
+#: ../src/panel.c:1480
 #, c-format
 msgid "\"%s\" Settings"
 msgstr "\"%s\" uppsetingar"
 
-#: ../src/panel.c:1456
+#: ../src/panel.c:1501
 msgid "Add / Remove Panel Items"
 msgstr "Legg til / tak burtur Panel liðir"
 
-#: ../src/panel.c:1464
+#: ../src/panel.c:1509
 #, c-format
 msgid "Remove \"%s\" From Panel"
 msgstr "Tak \"%s\" burtur úr panelinum"
 
-#: ../src/panel.c:1476
+#: ../src/panel.c:1521
 msgid "Panel Settings"
 msgstr "Panel setingar"
 
-#: ../src/panel.c:1482
+#: ../src/panel.c:1527
 msgid "Create New Panel"
 msgstr "Stovna nýtt panel"
 
-#: ../src/panel.c:1488
+#: ../src/panel.c:1533
 msgid "Delete This Panel"
 msgstr "Strika hetta panel"
 
-#: ../src/panel.c:1499
+#: ../src/panel.c:1544
 msgid "About"
 msgstr "Um"
 
-#: ../src/panel.c:1506
+#: ../src/panel.c:1551
 msgid "Panel"
 msgstr "Panel"
 
-#: ../src/panel.c:1724 ../src/panel.c:1732 ../data/ui/panel-pref.glade.h:22
+#: ../src/panel.c:1769 ../src/panel.c:1777 ../data/ui/panel-pref.glade.h:22
 msgid "Height:"
 msgstr "Hædd:"
 
-#: ../src/panel.c:1725 ../src/panel.c:1731 ../data/ui/panel-pref.glade.h:21
+#: ../src/panel.c:1770 ../src/panel.c:1776 ../data/ui/panel-pref.glade.h:21
 msgid "Width:"
 msgstr "Vídd:"
 
-#: ../src/panel.c:1726 ../data/ui/panel-pref.glade.h:13
+#: ../src/panel.c:1771 ../data/ui/panel-pref.glade.h:13
 msgid "Left"
 msgstr "Vinstru"
 
-#: ../src/panel.c:1727 ../data/ui/panel-pref.glade.h:14
+#: ../src/panel.c:1772 ../data/ui/panel-pref.glade.h:14
 msgid "Right"
 msgstr "Høgru"
 
-#: ../src/panel.c:1733 ../data/ui/panel-pref.glade.h:12
+#: ../src/panel.c:1778 ../data/ui/panel-pref.glade.h:12
 msgid "Top"
 msgstr "Toppur"
 
-#: ../src/panel.c:1734 ../data/ui/panel-pref.glade.h:11
+#: ../src/panel.c:1779 ../data/ui/panel-pref.glade.h:11
 msgid "Bottom"
 msgstr "Botnir"
 
@@ -283,7 +283,7 @@ msgstr "Stødd"
 msgid "Allocate space"
 msgstr "Útluta pláss"
 
-#: ../data/ui/launchtaskbar.glade.h:1 ../plugins/launchtaskbar.c:2497
+#: ../data/ui/launchtaskbar.glade.h:1 ../plugins/launchtaskbar.c:2502
 #, fuzzy
 msgid "Application Launch and Task Bar"
 msgstr "Nýtsluskipanar varpingarstong"
@@ -536,7 +536,7 @@ msgstr "Kervis-eyðkenni"
 msgid "Solid color (with opacity)"
 msgstr "Einslitt (við skygni)"
 
-#: ../data/ui/panel-pref.glade.h:28 ../plugins/xkb/xkb-plugin.c:1455
+#: ../data/ui/panel-pref.glade.h:28 ../plugins/xkb/xkb-plugin.c:1502
 msgid "Image"
 msgstr "Mynd"
 
@@ -652,32 +652,32 @@ msgstr "Sýn skriviborðsnøvn"
 msgid "Display workspace number, by cmeury@users.sf.net"
 msgstr "Sýn verkøkisnummar, av cmeury@users.sf.net"
 
-#: ../plugins/launchtaskbar.c:1846 ../plugins/launchtaskbar.c:2467
+#: ../plugins/launchtaskbar.c:1849 ../plugins/launchtaskbar.c:2472
 msgid "Application Launch Bar"
 msgstr "Nýtsluskipanar varpingarstong"
 
-#: ../plugins/launchtaskbar.c:1849 ../plugins/launchtaskbar.c:2477
+#: ../plugins/launchtaskbar.c:1852 ../plugins/launchtaskbar.c:2482
 msgid "Task Bar (Window List)"
 msgstr "Koyrslustong (gluggalisti)"
 
-#: ../plugins/launchtaskbar.c:2000
+#: ../plugins/launchtaskbar.c:2003
 msgid "A_dd to Launcher"
 msgstr ""
 
-#: ../plugins/launchtaskbar.c:2002
+#: ../plugins/launchtaskbar.c:2005
 #, fuzzy
 msgid "Rem_ove from Launcher"
 msgstr "Tak \"%s\" burtur úr panelinum"
 
-#: ../plugins/launchtaskbar.c:2004
+#: ../plugins/launchtaskbar.c:2007
 msgid "_New Instance"
 msgstr ""
 
-#: ../plugins/launchtaskbar.c:2468
+#: ../plugins/launchtaskbar.c:2473
 msgid "Bar with buttons to launch application"
 msgstr "Stong við knappum til byrjan av nýtsluskipanum"
 
-#: ../plugins/launchtaskbar.c:2478
+#: ../plugins/launchtaskbar.c:2483
 #, fuzzy
 msgid ""
 "Taskbar shows all opened windows and allows to iconify them, shade or get "
@@ -686,7 +686,7 @@ msgstr ""
 "Koyrslustong vísur allir upplatnir gluggar, og ímyndagerð teir, skugga ella "
 "brennidepil"
 
-#: ../plugins/launchtaskbar.c:2498
+#: ../plugins/launchtaskbar.c:2503
 #, fuzzy
 msgid "Bar with buttons to launch application and/or show all opened windows"
 msgstr "Stong við knappum til byrjan av nýtsluskipanum"
@@ -816,126 +816,126 @@ msgstr "Kervisbakki"
 msgid "System tray"
 msgstr "Kervisbakki"
 
-#: ../plugins/xkb/xkb-plugin.c:409
+#: ../plugins/xkb/xkb-plugin.c:437
 msgid "New session is required for this option to take effect"
 msgstr ""
 
-#: ../plugins/xkb/xkb-plugin.c:590
+#: ../plugins/xkb/xkb-plugin.c:618
 msgid "Select Keyboard Model"
 msgstr ""
 
-#: ../plugins/xkb/xkb-plugin.c:614 ../plugins/xkb/xkb-plugin.c:743
-#: ../plugins/xkb/xkb-plugin.c:921
+#: ../plugins/xkb/xkb-plugin.c:642 ../plugins/xkb/xkb-plugin.c:786
+#: ../plugins/xkb/xkb-plugin.c:965
 #, fuzzy
 msgid "Description"
 msgstr "Mál:"
 
-#: ../plugins/xkb/xkb-plugin.c:619 ../plugins/xkb/xkb-plugin.c:750
+#: ../plugins/xkb/xkb-plugin.c:647 ../plugins/xkb/xkb-plugin.c:793
 #, fuzzy
 msgid "Id"
 msgstr "Letist"
 
-#: ../plugins/xkb/xkb-plugin.c:714
+#: ../plugins/xkb/xkb-plugin.c:757
 #, fuzzy
 msgid "Select Layout Change Type"
 msgstr "Avspæl tín tónleik lættliga"
 
-#: ../plugins/xkb/xkb-plugin.c:887
+#: ../plugins/xkb/xkb-plugin.c:931
 #, fuzzy
 msgid "Add Keyboard Layout"
 msgstr "Skiftari á knappaborðssniði"
 
-#: ../plugins/xkb/xkb-plugin.c:911 ../plugins/xkb/xkb-plugin.c:1302
+#: ../plugins/xkb/xkb-plugin.c:955 ../plugins/xkb/xkb-plugin.c:1346
 msgid "Flag"
 msgstr ""
 
-#: ../plugins/xkb/xkb-plugin.c:916 ../plugins/xkb/xkb-plugin.c:1306
+#: ../plugins/xkb/xkb-plugin.c:960 ../plugins/xkb/xkb-plugin.c:1350
 msgid "Layout"
 msgstr ""
 
-#: ../plugins/xkb/xkb-plugin.c:1212 ../plugins/xkb/xkb-plugin.c:1544
+#: ../plugins/xkb/xkb-plugin.c:1256 ../plugins/xkb/xkb-plugin.c:1591
 #, fuzzy
 msgid "Keyboard Layout Handler"
 msgstr "Skiftari á knappaborðssniði"
 
-#: ../plugins/xkb/xkb-plugin.c:1235
+#: ../plugins/xkb/xkb-plugin.c:1279
 #, fuzzy
 msgid "Keyboard Model"
 msgstr "Knappaborðs LED"
 
-#: ../plugins/xkb/xkb-plugin.c:1256
+#: ../plugins/xkb/xkb-plugin.c:1300
 #, fuzzy
 msgid "Keyboard Layouts"
 msgstr "Skiftari á knappaborðssniði"
 
-#: ../plugins/xkb/xkb-plugin.c:1310
+#: ../plugins/xkb/xkb-plugin.c:1354
 msgid "Variant"
 msgstr ""
 
-#: ../plugins/xkb/xkb-plugin.c:1319
+#: ../plugins/xkb/xkb-plugin.c:1363
 msgid "Keyboard Layout Options"
 msgstr ""
 
-#: ../plugins/xkb/xkb-plugin.c:1339
+#: ../plugins/xkb/xkb-plugin.c:1384
 msgid "Advanced setxkbmap Options"
 msgstr ""
 
-#: ../plugins/xkb/xkb-plugin.c:1360
+#: ../plugins/xkb/xkb-plugin.c:1405
 msgid "Do _not reset existing options"
 msgstr ""
 
-#: ../plugins/xkb/xkb-plugin.c:1365
+#: ../plugins/xkb/xkb-plugin.c:1410
 msgid "Keep _system layouts"
 msgstr ""
 
-#: ../plugins/xkb/xkb-plugin.c:1374
+#: ../plugins/xkb/xkb-plugin.c:1419
 #, fuzzy
 msgid "Per Window Settings"
 msgstr "Panel setingar"
 
-#: ../plugins/xkb/xkb-plugin.c:1386
+#: ../plugins/xkb/xkb-plugin.c:1431
 #, fuzzy
 msgid "_Remember layout for each window"
 msgstr "_Minnst til sniðið á hvørjari nýtsluskipan"
 
-#: ../plugins/xkb/xkb-plugin.c:1395
+#: ../plugins/xkb/xkb-plugin.c:1440
 #, fuzzy
 msgid "Show Layout as"
 msgstr "Vís snið sum"
 
-#: ../plugins/xkb/xkb-plugin.c:1456
+#: ../plugins/xkb/xkb-plugin.c:1503
 msgid "Custom Image"
 msgstr ""
 
-#: ../plugins/xkb/xkb-plugin.c:1457
+#: ../plugins/xkb/xkb-plugin.c:1504
 #, fuzzy
 msgid "Text"
 msgstr "tekstur"
 
-#: ../plugins/xkb/xkb-plugin.c:1483
+#: ../plugins/xkb/xkb-plugin.c:1530
 msgid "Panel Icon Size"
 msgstr ""
 
-#: ../plugins/xkb/xkb-plugin.c:1545
+#: ../plugins/xkb/xkb-plugin.c:1592
 #, fuzzy
 msgid "Handle keyboard layouts"
 msgstr "Skiftir ímullum tøk knappaborðssnið"
 
-#: ../plugins/wincmd.c:207
+#: ../plugins/wincmd.c:216
 msgid "Left click to iconify all windows.  Middle click to shade them."
 msgstr ""
 "Vinstraklikkja fyri at ímyndagerða allar gluggar.  Klikkja á miðuna fyri at "
 "skugga teir."
 
-#: ../plugins/wincmd.c:245 ../plugins/wincmd.c:255
+#: ../plugins/wincmd.c:254 ../plugins/wincmd.c:264
 msgid "Minimize All Windows"
 msgstr "Minsta allar gluggar"
 
-#: ../plugins/wincmd.c:247
+#: ../plugins/wincmd.c:256
 msgid "Alternately iconify/shade and raise"
 msgstr ""
 
-#: ../plugins/wincmd.c:256
+#: ../plugins/wincmd.c:265
 msgid ""
 "Sends commands to all desktop windows.\n"
 "Supported commands are 1) iconify and 2) shade"
@@ -964,63 +964,71 @@ msgstr "Spjaldur"
 msgid "Browse directory tree via menu (Author = PCMan)"
 msgstr "Kaga eftir fíluskrá træið um eina valmynd (rithøvundi: PCMan)"
 
-#: ../plugins/thermal/thermal.c:563 ../plugins/thermal/thermal.c:581
+#: ../plugins/thermal/thermal.c:565 ../plugins/thermal/thermal.c:583
 msgid "Temperature Monitor"
 msgstr "Hitavøka"
 
-#: ../plugins/thermal/thermal.c:565
+#: ../plugins/thermal/thermal.c:567
 #, fuzzy
 msgid "Normal color"
 msgstr "Vel ein annan lit"
 
-#: ../plugins/thermal/thermal.c:566
+#: ../plugins/thermal/thermal.c:568
 #, fuzzy
 msgid "Warning1 color"
 msgstr "Løðingarlitur 1"
 
-#: ../plugins/thermal/thermal.c:567
+#: ../plugins/thermal/thermal.c:569
 #, fuzzy
 msgid "Warning2 color"
 msgstr "Løðingarlitur 1"
 
-#: ../plugins/thermal/thermal.c:568
+#: ../plugins/thermal/thermal.c:570
 msgid "Automatic sensor location"
 msgstr "Sjálvvirkin staðfesting varnara"
 
-#: ../plugins/thermal/thermal.c:569
+#: ../plugins/thermal/thermal.c:571
 msgid "Sensor"
 msgstr "Varnari"
 
-#: ../plugins/thermal/thermal.c:570
+#: ../plugins/thermal/thermal.c:572
 msgid "Automatic temperature levels"
 msgstr "Sjálvvirkin hitastig"
 
-#: ../plugins/thermal/thermal.c:571
+#: ../plugins/thermal/thermal.c:573
 #, fuzzy
 msgid "Warning1 temperature"
 msgstr "Ávaring1 hiti"
 
-#: ../plugins/thermal/thermal.c:572
+#: ../plugins/thermal/thermal.c:574
 #, fuzzy
 msgid "Warning2 temperature"
 msgstr "Ávaring2 hiti"
 
-#: ../plugins/thermal/thermal.c:582
+#: ../plugins/thermal/thermal.c:584
 msgid "Display system temperature"
 msgstr "Vís hita á kervi"
 
-#: ../plugins/cpufreq/cpufreq.c:325
+#: ../plugins/cpufreq/cpufreq.c:283
+msgid "CPUFreq not supported"
+msgstr ""
+
+#: ../plugins/cpufreq/cpufreq.c:292
+msgid "   Frequency"
+msgstr ""
+
+#: ../plugins/cpufreq/cpufreq.c:356
 #, c-format
 msgid ""
 "Frequency: %d MHz\n"
 "Governor: %s"
 msgstr ""
 
-#: ../plugins/cpufreq/cpufreq.c:401
+#: ../plugins/cpufreq/cpufreq.c:432
 msgid "CPUFreq frontend"
 msgstr ""
 
-#: ../plugins/cpufreq/cpufreq.c:402
+#: ../plugins/cpufreq/cpufreq.c:433
 msgid "Display CPU frequency and allow one to change governors and frequency"
 msgstr ""
 

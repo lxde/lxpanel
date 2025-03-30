@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-29 15:52+0100\n"
+"POT-Creation-Date: 2025-03-30 13:47+0200\n"
 "PO-Revision-Date: 2014-11-24 22:01+0000\n"
 "Last-Translator: armakolas <armakolas@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -61,13 +61,13 @@ msgstr "Επιλογή αρχείου"
 msgid "_Browse"
 msgstr "_Περιήγηση"
 
-#: ../src/panel.c:1305
+#: ../src/panel.c:1350
 msgid "There is no room for another panel. All the edges are taken."
 msgstr ""
 "Δεν υπάρχει χώρος για επιπλέον γραμμή εργασιών. Όλες οι γωνίες είναι "
 "κατειλημμένες."
 
-#: ../src/panel.c:1331
+#: ../src/panel.c:1376
 msgid ""
 "Really delete this panel?\n"
 "<b>Warning: This can not be recovered.</b>"
@@ -75,85 +75,85 @@ msgstr ""
 "Να διαγραφεί αυτό το πλαίσιο;\n"
 "<b>Προειδοποίηση: Δεν μπορεί να επαναφερθεί.</b>"
 
-#: ../src/panel.c:1333
+#: ../src/panel.c:1378
 msgid "Confirm"
 msgstr "Επιβεβαίωση"
 
 #. TRANSLATORS: Replace this string with your names, one name per line.
-#: ../src/panel.c:1369
+#: ../src/panel.c:1414
 msgid "translator-credits"
 msgstr ""
 "Βασιλάκος Γιώργος <forfolias@linuxteam.cs.teilar.gr> \n"
 "Αρμακόλας Νικόλαος <armakolas@gmail.com> 2014"
 
-#: ../src/panel.c:1374
+#: ../src/panel.c:1419
 msgid "LXPanel"
 msgstr "LXPanel"
 
-#: ../src/panel.c:1392
+#: ../src/panel.c:1437
 #, fuzzy
 msgid "Copyright (C) 2008-2025"
 msgstr "Πνευματικά Δικαιώματα (C) 2008-2025"
 
-#: ../src/panel.c:1393
+#: ../src/panel.c:1438
 msgid "Desktop panel for LXDE project"
 msgstr "Πλαίσιο επιφάνειας εργασίας για το LXDE project"
 
-#: ../src/panel.c:1435
+#: ../src/panel.c:1480
 #, c-format
 msgid "\"%s\" Settings"
 msgstr "\"%s\" Επιλογές"
 
-#: ../src/panel.c:1456
+#: ../src/panel.c:1501
 msgid "Add / Remove Panel Items"
 msgstr "Προσθήκη / Αφαίρεση αντικειμένων πλαισίου"
 
-#: ../src/panel.c:1464
+#: ../src/panel.c:1509
 #, c-format
 msgid "Remove \"%s\" From Panel"
 msgstr "Αφαίρεση του \"%s\" από το πλαίσιο"
 
-#: ../src/panel.c:1476
+#: ../src/panel.c:1521
 msgid "Panel Settings"
 msgstr "Επιλογές πλαισίου"
 
-#: ../src/panel.c:1482
+#: ../src/panel.c:1527
 msgid "Create New Panel"
 msgstr "Δημιουργία νέου πλαισίου"
 
-#: ../src/panel.c:1488
+#: ../src/panel.c:1533
 msgid "Delete This Panel"
 msgstr "Διαγραφή του πλαισίου"
 
-#: ../src/panel.c:1499
+#: ../src/panel.c:1544
 msgid "About"
 msgstr "Περί"
 
-#: ../src/panel.c:1506
+#: ../src/panel.c:1551
 msgid "Panel"
 msgstr "Πλαίσιο"
 
-#: ../src/panel.c:1724 ../src/panel.c:1732 ../data/ui/panel-pref.glade.h:22
+#: ../src/panel.c:1769 ../src/panel.c:1777 ../data/ui/panel-pref.glade.h:22
 msgid "Height:"
 msgstr "Ύψος:"
 
-#: ../src/panel.c:1725 ../src/panel.c:1731 ../data/ui/panel-pref.glade.h:21
+#: ../src/panel.c:1770 ../src/panel.c:1776 ../data/ui/panel-pref.glade.h:21
 msgid "Width:"
 msgstr "Πλάτος:"
 
-#: ../src/panel.c:1726 ../data/ui/panel-pref.glade.h:13
+#: ../src/panel.c:1771 ../data/ui/panel-pref.glade.h:13
 msgid "Left"
 msgstr "Αριστερά"
 
-#: ../src/panel.c:1727 ../data/ui/panel-pref.glade.h:14
+#: ../src/panel.c:1772 ../data/ui/panel-pref.glade.h:14
 msgid "Right"
 msgstr "Δεξιά"
 
-#: ../src/panel.c:1733 ../data/ui/panel-pref.glade.h:12
+#: ../src/panel.c:1778 ../data/ui/panel-pref.glade.h:12
 msgid "Top"
 msgstr "Πάνω"
 
-#: ../src/panel.c:1734 ../data/ui/panel-pref.glade.h:11
+#: ../src/panel.c:1779 ../data/ui/panel-pref.glade.h:11
 msgid "Bottom"
 msgstr "Κάτω"
 
@@ -288,7 +288,7 @@ msgstr "Μέγεθος"
 msgid "Allocate space"
 msgstr "Δέσμευση χώρου"
 
-#: ../data/ui/launchtaskbar.glade.h:1 ../plugins/launchtaskbar.c:2497
+#: ../data/ui/launchtaskbar.glade.h:1 ../plugins/launchtaskbar.c:2502
 msgid "Application Launch and Task Bar"
 msgstr "Εκκίνηση Εφαρμογών και Γραμμή Εργασιών"
 
@@ -533,7 +533,7 @@ msgstr "Θέμα συστήματος"
 msgid "Solid color (with opacity)"
 msgstr "Συμπαγές χρώμα (με αδιαφάνεια)"
 
-#: ../data/ui/panel-pref.glade.h:28 ../plugins/xkb/xkb-plugin.c:1455
+#: ../data/ui/panel-pref.glade.h:28 ../plugins/xkb/xkb-plugin.c:1502
 msgid "Image"
 msgstr "Εικόνα"
 
@@ -649,31 +649,31 @@ msgstr "Εμφάνιση ονόματος επιφάνειας εργασίας"
 msgid "Display workspace number, by cmeury@users.sf.net"
 msgstr "Εμφάνιση αριθμού χώρου εργασίας, από cmeury@users.sf.net"
 
-#: ../plugins/launchtaskbar.c:1846 ../plugins/launchtaskbar.c:2467
+#: ../plugins/launchtaskbar.c:1849 ../plugins/launchtaskbar.c:2472
 msgid "Application Launch Bar"
 msgstr "Μπάρα εκκίνησης εφαρμογών"
 
-#: ../plugins/launchtaskbar.c:1849 ../plugins/launchtaskbar.c:2477
+#: ../plugins/launchtaskbar.c:1852 ../plugins/launchtaskbar.c:2482
 msgid "Task Bar (Window List)"
 msgstr "Μπάρα εργασιών (λίστα παραθύρων)"
 
-#: ../plugins/launchtaskbar.c:2000
+#: ../plugins/launchtaskbar.c:2003
 msgid "A_dd to Launcher"
 msgstr "Π_ροσθήκη στον Εκκινητή"
 
-#: ../plugins/launchtaskbar.c:2002
+#: ../plugins/launchtaskbar.c:2005
 msgid "Rem_ove from Launcher"
 msgstr "Αφ_αίρεση από τον Εκκινητή"
 
-#: ../plugins/launchtaskbar.c:2004
+#: ../plugins/launchtaskbar.c:2007
 msgid "_New Instance"
 msgstr "Νέα περίπτωση"
 
-#: ../plugins/launchtaskbar.c:2468
+#: ../plugins/launchtaskbar.c:2473
 msgid "Bar with buttons to launch application"
 msgstr "Μπάρα με κουμπιά για την εκκίνηση εφαρμογών"
 
-#: ../plugins/launchtaskbar.c:2478
+#: ../plugins/launchtaskbar.c:2483
 #, fuzzy
 msgid ""
 "Taskbar shows all opened windows and allows to iconify them, shade or get "
@@ -682,7 +682,7 @@ msgstr ""
 "Η μπάρα εργασιών εμφανίζει όλα τα ανοιχτά παράθυρα και σας επιτρέπει να τα "
 "εικονιδιοποιήσετε, συμπτύξετε ή να εστιάσετε πάνω τους"
 
-#: ../plugins/launchtaskbar.c:2498
+#: ../plugins/launchtaskbar.c:2503
 msgid "Bar with buttons to launch application and/or show all opened windows"
 msgstr ""
 "Γραμμή με πλήκτρα για εκκίνηση εφαρμογών και/ή εμφάνιση όλων των ανοιγμένων "
@@ -811,114 +811,114 @@ msgstr "Πλαίσιο συστήματος"
 msgid "System tray"
 msgstr "Πλαίσιο συστήματος"
 
-#: ../plugins/xkb/xkb-plugin.c:409
+#: ../plugins/xkb/xkb-plugin.c:437
 msgid "New session is required for this option to take effect"
 msgstr "Απαιτείται νέα συνεδρία για να ενεργοποιηθεί αυτή η επιλογή"
 
-#: ../plugins/xkb/xkb-plugin.c:590
+#: ../plugins/xkb/xkb-plugin.c:618
 msgid "Select Keyboard Model"
 msgstr "Επιλογή Υποδείγματος Πληκτρολογίου"
 
-#: ../plugins/xkb/xkb-plugin.c:614 ../plugins/xkb/xkb-plugin.c:743
-#: ../plugins/xkb/xkb-plugin.c:921
+#: ../plugins/xkb/xkb-plugin.c:642 ../plugins/xkb/xkb-plugin.c:786
+#: ../plugins/xkb/xkb-plugin.c:965
 msgid "Description"
 msgstr "Περιγραφή"
 
-#: ../plugins/xkb/xkb-plugin.c:619 ../plugins/xkb/xkb-plugin.c:750
+#: ../plugins/xkb/xkb-plugin.c:647 ../plugins/xkb/xkb-plugin.c:793
 msgid "Id"
 msgstr "Ταυτότητα"
 
-#: ../plugins/xkb/xkb-plugin.c:714
+#: ../plugins/xkb/xkb-plugin.c:757
 msgid "Select Layout Change Type"
 msgstr "Επιλογή Τύπου Αλλαγής Διάταξης"
 
-#: ../plugins/xkb/xkb-plugin.c:887
+#: ../plugins/xkb/xkb-plugin.c:931
 msgid "Add Keyboard Layout"
 msgstr "Προσθήκη Διάταξης Πληκτρολογίου"
 
-#: ../plugins/xkb/xkb-plugin.c:911 ../plugins/xkb/xkb-plugin.c:1302
+#: ../plugins/xkb/xkb-plugin.c:955 ../plugins/xkb/xkb-plugin.c:1346
 msgid "Flag"
 msgstr "Σημαία"
 
-#: ../plugins/xkb/xkb-plugin.c:916 ../plugins/xkb/xkb-plugin.c:1306
+#: ../plugins/xkb/xkb-plugin.c:960 ../plugins/xkb/xkb-plugin.c:1350
 msgid "Layout"
 msgstr "Διάταξη"
 
-#: ../plugins/xkb/xkb-plugin.c:1212 ../plugins/xkb/xkb-plugin.c:1544
+#: ../plugins/xkb/xkb-plugin.c:1256 ../plugins/xkb/xkb-plugin.c:1591
 msgid "Keyboard Layout Handler"
 msgstr "Xειριστής Διάταξης Πληκτρολογίου"
 
-#: ../plugins/xkb/xkb-plugin.c:1235
+#: ../plugins/xkb/xkb-plugin.c:1279
 msgid "Keyboard Model"
 msgstr "Μοντέλο Πληκτρολογίου"
 
-#: ../plugins/xkb/xkb-plugin.c:1256
+#: ../plugins/xkb/xkb-plugin.c:1300
 msgid "Keyboard Layouts"
 msgstr "Διατάξεις Πληκτρολογίου"
 
-#: ../plugins/xkb/xkb-plugin.c:1310
+#: ../plugins/xkb/xkb-plugin.c:1354
 msgid "Variant"
 msgstr "Παραλλαγή"
 
-#: ../plugins/xkb/xkb-plugin.c:1319
+#: ../plugins/xkb/xkb-plugin.c:1363
 msgid "Keyboard Layout Options"
 msgstr "Αλλαγή Επιλογής Διάταξης"
 
-#: ../plugins/xkb/xkb-plugin.c:1339
+#: ../plugins/xkb/xkb-plugin.c:1384
 msgid "Advanced setxkbmap Options"
 msgstr "Προχωρημένες Επιλογές setxkbmap"
 
-#: ../plugins/xkb/xkb-plugin.c:1360
+#: ../plugins/xkb/xkb-plugin.c:1405
 msgid "Do _not reset existing options"
 msgstr "Να μη σβηστούν οι υφιστάμενες επιλογές"
 
-#: ../plugins/xkb/xkb-plugin.c:1365
+#: ../plugins/xkb/xkb-plugin.c:1410
 msgid "Keep _system layouts"
 msgstr "Διατήρηση διατάξεων συστήματος"
 
-#: ../plugins/xkb/xkb-plugin.c:1374
+#: ../plugins/xkb/xkb-plugin.c:1419
 msgid "Per Window Settings"
 msgstr "Ρυθμίσεις Ανά Παράθυρο"
 
-#: ../plugins/xkb/xkb-plugin.c:1386
+#: ../plugins/xkb/xkb-plugin.c:1431
 msgid "_Remember layout for each window"
 msgstr "Ενθύμηση διάταξης για κάθε παράθυρο"
 
-#: ../plugins/xkb/xkb-plugin.c:1395
+#: ../plugins/xkb/xkb-plugin.c:1440
 msgid "Show Layout as"
 msgstr "Εμφάνιση Διάταξης ως"
 
-#: ../plugins/xkb/xkb-plugin.c:1456
+#: ../plugins/xkb/xkb-plugin.c:1503
 msgid "Custom Image"
 msgstr "Προσωπικά Επιλεγμένη Εικόνα"
 
-#: ../plugins/xkb/xkb-plugin.c:1457
+#: ../plugins/xkb/xkb-plugin.c:1504
 msgid "Text"
 msgstr "Κείμενο"
 
-#: ../plugins/xkb/xkb-plugin.c:1483
+#: ../plugins/xkb/xkb-plugin.c:1530
 msgid "Panel Icon Size"
 msgstr "Μέγεθος Εικονιδίου Γραμμής Εργαλείων"
 
-#: ../plugins/xkb/xkb-plugin.c:1545
+#: ../plugins/xkb/xkb-plugin.c:1592
 msgid "Handle keyboard layouts"
 msgstr "Χειρισμός διατάξεων πληκτρολογίου"
 
-#: ../plugins/wincmd.c:207
+#: ../plugins/wincmd.c:216
 msgid "Left click to iconify all windows.  Middle click to shade them."
 msgstr ""
 "Αριστερό κλικ για εικονιδιοποίηση όλων των παραθύρων.  Μεσαίο κλικ για "
 "τύλιγμά τους."
 
-#: ../plugins/wincmd.c:245 ../plugins/wincmd.c:255
+#: ../plugins/wincmd.c:254 ../plugins/wincmd.c:264
 msgid "Minimize All Windows"
 msgstr "Ελαχιστοποίηση όλων των παραθύρων"
 
-#: ../plugins/wincmd.c:247
+#: ../plugins/wincmd.c:256
 msgid "Alternately iconify/shade and raise"
 msgstr "Εναλλαγή μεταξύ εικονιδοποίησης/τυλίγματος και ανύψωσης"
 
-#: ../plugins/wincmd.c:256
+#: ../plugins/wincmd.c:265
 msgid ""
 "Sends commands to all desktop windows.\n"
 "Supported commands are 1) iconify and 2) shade"
@@ -946,47 +946,57 @@ msgstr "Ταμπέλα"
 msgid "Browse directory tree via menu (Author = PCMan)"
 msgstr "Περιήγηση δενδροειδούς καταλόγου μέσω μενού (Συγγραφέας = PCMan)"
 
-#: ../plugins/thermal/thermal.c:563 ../plugins/thermal/thermal.c:581
+#: ../plugins/thermal/thermal.c:565 ../plugins/thermal/thermal.c:583
 msgid "Temperature Monitor"
 msgstr "Παρακολούθηση θερμοκρασίας"
 
-#: ../plugins/thermal/thermal.c:565
+#: ../plugins/thermal/thermal.c:567
 msgid "Normal color"
 msgstr "Κανονικό χρώμα"
 
-#: ../plugins/thermal/thermal.c:566
+#: ../plugins/thermal/thermal.c:568
 msgid "Warning1 color"
 msgstr "Χρώμα προειδοποίησης1"
 
-#: ../plugins/thermal/thermal.c:567
+#: ../plugins/thermal/thermal.c:569
 msgid "Warning2 color"
 msgstr "Χρώμα προειδοποίησης2"
 
-#: ../plugins/thermal/thermal.c:568
+#: ../plugins/thermal/thermal.c:570
 msgid "Automatic sensor location"
 msgstr "Αυτόματη περιοχή αισθητήρα"
 
-#: ../plugins/thermal/thermal.c:569
+#: ../plugins/thermal/thermal.c:571
 msgid "Sensor"
 msgstr "Αισθητήρας"
 
-#: ../plugins/thermal/thermal.c:570
+#: ../plugins/thermal/thermal.c:572
 msgid "Automatic temperature levels"
 msgstr "Αυτόματα επίπεδα θερμοκρασίας"
 
-#: ../plugins/thermal/thermal.c:571
+#: ../plugins/thermal/thermal.c:573
 msgid "Warning1 temperature"
 msgstr "Προειδοποίηση θερμοκρασίας1"
 
-#: ../plugins/thermal/thermal.c:572
+#: ../plugins/thermal/thermal.c:574
 msgid "Warning2 temperature"
 msgstr "Προειδοποίηση θερμοκρασίας2"
 
-#: ../plugins/thermal/thermal.c:582
+#: ../plugins/thermal/thermal.c:584
 msgid "Display system temperature"
 msgstr "Εμφάνιση θερμοκρασίας συστήματος"
 
-#: ../plugins/cpufreq/cpufreq.c:325
+#: ../plugins/cpufreq/cpufreq.c:283
+#, fuzzy
+#| msgid "CPUFreq frontend"
+msgid "CPUFreq not supported"
+msgstr "Μέτωπο CPUFreq"
+
+#: ../plugins/cpufreq/cpufreq.c:292
+msgid "   Frequency"
+msgstr ""
+
+#: ../plugins/cpufreq/cpufreq.c:356
 #, c-format
 msgid ""
 "Frequency: %d MHz\n"
@@ -995,11 +1005,11 @@ msgstr ""
 "Συχνότητα: %d MHz\n"
 "Ελεγκτής: %s"
 
-#: ../plugins/cpufreq/cpufreq.c:401
+#: ../plugins/cpufreq/cpufreq.c:432
 msgid "CPUFreq frontend"
 msgstr "Μέτωπο CPUFreq"
 
-#: ../plugins/cpufreq/cpufreq.c:402
+#: ../plugins/cpufreq/cpufreq.c:433
 #, fuzzy
 msgid "Display CPU frequency and allow one to change governors and frequency"
 msgstr "Εμφάνισε συχνότητα CPU και επίτρεψε την αλλαγή ελεγκτών και συχνότητας"

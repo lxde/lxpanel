@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel 0.3.8.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-29 15:52+0100\n"
+"POT-Creation-Date: 2025-03-30 13:47+0200\n"
 "PO-Revision-Date: 2016-10-25 09:35+0800\n"
 "Last-Translator: Yinghua Wang <wantinghard@gmail.com>\n"
 "Language-Team: Chinese (simplified) <i18n-zh@googlegroups.com>\n"
@@ -59,11 +59,11 @@ msgstr "选择文件"
 msgid "_Browse"
 msgstr "浏览(_B)"
 
-#: ../src/panel.c:1305
+#: ../src/panel.c:1350
 msgid "There is no room for another panel. All the edges are taken."
 msgstr "没有空间再放面板了。所有边都占用了。"
 
-#: ../src/panel.c:1331
+#: ../src/panel.c:1376
 msgid ""
 "Really delete this panel?\n"
 "<b>Warning: This can not be recovered.</b>"
@@ -71,84 +71,84 @@ msgstr ""
 "真的要删除这个面板吗？\n"
 "<b>警告：这个动作无法复原。</b>"
 
-#: ../src/panel.c:1333
+#: ../src/panel.c:1378
 msgid "Confirm"
 msgstr "确认"
 
 #. TRANSLATORS: Replace this string with your names, one name per line.
-#: ../src/panel.c:1369
+#: ../src/panel.c:1414
 msgid "translator-credits"
 msgstr ""
 "Wylmer Wang <wantinghard@gmail.com>\n"
 "ideal <05281253@bjtu.edu.cn>"
 
-#: ../src/panel.c:1374
+#: ../src/panel.c:1419
 msgid "LXPanel"
 msgstr "LXPanel"
 
-#: ../src/panel.c:1392
+#: ../src/panel.c:1437
 msgid "Copyright (C) 2008-2025"
 msgstr "版权所有 (C) 2008-2025"
 
-#: ../src/panel.c:1393
+#: ../src/panel.c:1438
 msgid "Desktop panel for LXDE project"
 msgstr "LXDE 项目的桌面面板"
 
-#: ../src/panel.c:1435
+#: ../src/panel.c:1480
 #, c-format
 msgid "\"%s\" Settings"
 msgstr "“%s”设置"
 
-#: ../src/panel.c:1456
+#: ../src/panel.c:1501
 msgid "Add / Remove Panel Items"
 msgstr "添加/删除面板项"
 
-#: ../src/panel.c:1464
+#: ../src/panel.c:1509
 #, c-format
 msgid "Remove \"%s\" From Panel"
 msgstr "从面板中删除“%s”"
 
-#: ../src/panel.c:1476
+#: ../src/panel.c:1521
 msgid "Panel Settings"
 msgstr "面板设置"
 
-#: ../src/panel.c:1482
+#: ../src/panel.c:1527
 msgid "Create New Panel"
 msgstr "创建新面板"
 
-#: ../src/panel.c:1488
+#: ../src/panel.c:1533
 msgid "Delete This Panel"
 msgstr "删除此面板"
 
-#: ../src/panel.c:1499
+#: ../src/panel.c:1544
 msgid "About"
 msgstr "关于"
 
-#: ../src/panel.c:1506
+#: ../src/panel.c:1551
 msgid "Panel"
 msgstr "面板"
 
-#: ../src/panel.c:1724 ../src/panel.c:1732 ../data/ui/panel-pref.glade.h:22
+#: ../src/panel.c:1769 ../src/panel.c:1777 ../data/ui/panel-pref.glade.h:22
 msgid "Height:"
 msgstr "高度："
 
-#: ../src/panel.c:1725 ../src/panel.c:1731 ../data/ui/panel-pref.glade.h:21
+#: ../src/panel.c:1770 ../src/panel.c:1776 ../data/ui/panel-pref.glade.h:21
 msgid "Width:"
 msgstr "宽度："
 
-#: ../src/panel.c:1726 ../data/ui/panel-pref.glade.h:13
+#: ../src/panel.c:1771 ../data/ui/panel-pref.glade.h:13
 msgid "Left"
 msgstr "左"
 
-#: ../src/panel.c:1727 ../data/ui/panel-pref.glade.h:14
+#: ../src/panel.c:1772 ../data/ui/panel-pref.glade.h:14
 msgid "Right"
 msgstr "右"
 
-#: ../src/panel.c:1733 ../data/ui/panel-pref.glade.h:12
+#: ../src/panel.c:1778 ../data/ui/panel-pref.glade.h:12
 msgid "Top"
 msgstr "上"
 
-#: ../src/panel.c:1734 ../data/ui/panel-pref.glade.h:11
+#: ../src/panel.c:1779 ../data/ui/panel-pref.glade.h:11
 msgid "Bottom"
 msgstr "下"
 
@@ -279,7 +279,7 @@ msgstr "大小"
 msgid "Allocate space"
 msgstr "分配空间"
 
-#: ../data/ui/launchtaskbar.glade.h:1 ../plugins/launchtaskbar.c:2497
+#: ../data/ui/launchtaskbar.glade.h:1 ../plugins/launchtaskbar.c:2502
 msgid "Application Launch and Task Bar"
 msgstr "应用启动和任务栏"
 
@@ -522,7 +522,7 @@ msgstr "统主题"
 msgid "Solid color (with opacity)"
 msgstr "颜色填充(带透明度)"
 
-#: ../data/ui/panel-pref.glade.h:28 ../plugins/xkb/xkb-plugin.c:1455
+#: ../data/ui/panel-pref.glade.h:28 ../plugins/xkb/xkb-plugin.c:1502
 msgid "Image"
 msgstr "图标"
 
@@ -637,38 +637,38 @@ msgstr "显示桌面名称"
 msgid "Display workspace number, by cmeury@users.sf.net"
 msgstr "显示工作区编号，由 cmeury@users.sf.net 撰写"
 
-#: ../plugins/launchtaskbar.c:1846 ../plugins/launchtaskbar.c:2467
+#: ../plugins/launchtaskbar.c:1849 ../plugins/launchtaskbar.c:2472
 msgid "Application Launch Bar"
 msgstr "快速启动栏"
 
-#: ../plugins/launchtaskbar.c:1849 ../plugins/launchtaskbar.c:2477
+#: ../plugins/launchtaskbar.c:1852 ../plugins/launchtaskbar.c:2482
 msgid "Task Bar (Window List)"
 msgstr "任务面板 (窗口清单)"
 
-#: ../plugins/launchtaskbar.c:2000
+#: ../plugins/launchtaskbar.c:2003
 msgid "A_dd to Launcher"
 msgstr "添加到启动器(_D)"
 
-#: ../plugins/launchtaskbar.c:2002
+#: ../plugins/launchtaskbar.c:2005
 msgid "Rem_ove from Launcher"
 msgstr "从启动器中移除(_O)"
 
-#: ../plugins/launchtaskbar.c:2004
+#: ../plugins/launchtaskbar.c:2007
 msgid "_New Instance"
 msgstr "新建实例(_N)"
 
-#: ../plugins/launchtaskbar.c:2468
+#: ../plugins/launchtaskbar.c:2473
 msgid "Bar with buttons to launch application"
 msgstr "用以快速启动应用程序的工具栏"
 
-#: ../plugins/launchtaskbar.c:2478
+#: ../plugins/launchtaskbar.c:2483
 #, fuzzy
 msgid ""
 "Taskbar shows all opened windows and allows to iconify them, shade or get "
 "focus"
 msgstr "面板显示所有开启的窗口，并让能窗口最小化、折叠、或取得焦点"
 
-#: ../plugins/launchtaskbar.c:2498
+#: ../plugins/launchtaskbar.c:2503
 msgid "Bar with buttons to launch application and/or show all opened windows"
 msgstr "带按钮的工具栏，用来启动应用程序和/或显示所有打开的窗口"
 
@@ -795,112 +795,112 @@ msgstr "系统托盘"
 msgid "System tray"
 msgstr "系统托盘"
 
-#: ../plugins/xkb/xkb-plugin.c:409
+#: ../plugins/xkb/xkb-plugin.c:437
 msgid "New session is required for this option to take effect"
 msgstr "此选项在新会话中才会生效"
 
-#: ../plugins/xkb/xkb-plugin.c:590
+#: ../plugins/xkb/xkb-plugin.c:618
 msgid "Select Keyboard Model"
 msgstr "选择键盘型号"
 
-#: ../plugins/xkb/xkb-plugin.c:614 ../plugins/xkb/xkb-plugin.c:743
-#: ../plugins/xkb/xkb-plugin.c:921
+#: ../plugins/xkb/xkb-plugin.c:642 ../plugins/xkb/xkb-plugin.c:786
+#: ../plugins/xkb/xkb-plugin.c:965
 msgid "Description"
 msgstr "描述"
 
-#: ../plugins/xkb/xkb-plugin.c:619 ../plugins/xkb/xkb-plugin.c:750
+#: ../plugins/xkb/xkb-plugin.c:647 ../plugins/xkb/xkb-plugin.c:793
 msgid "Id"
 msgstr "Id"
 
-#: ../plugins/xkb/xkb-plugin.c:714
+#: ../plugins/xkb/xkb-plugin.c:757
 msgid "Select Layout Change Type"
 msgstr "选择布局更改类型"
 
-#: ../plugins/xkb/xkb-plugin.c:887
+#: ../plugins/xkb/xkb-plugin.c:931
 msgid "Add Keyboard Layout"
 msgstr "添加键盘布局"
 
-#: ../plugins/xkb/xkb-plugin.c:911 ../plugins/xkb/xkb-plugin.c:1302
+#: ../plugins/xkb/xkb-plugin.c:955 ../plugins/xkb/xkb-plugin.c:1346
 msgid "Flag"
 msgstr "标志"
 
-#: ../plugins/xkb/xkb-plugin.c:916 ../plugins/xkb/xkb-plugin.c:1306
+#: ../plugins/xkb/xkb-plugin.c:960 ../plugins/xkb/xkb-plugin.c:1350
 msgid "Layout"
 msgstr "布局"
 
-#: ../plugins/xkb/xkb-plugin.c:1212 ../plugins/xkb/xkb-plugin.c:1544
+#: ../plugins/xkb/xkb-plugin.c:1256 ../plugins/xkb/xkb-plugin.c:1591
 msgid "Keyboard Layout Handler"
 msgstr "键盘布局调控器"
 
-#: ../plugins/xkb/xkb-plugin.c:1235
+#: ../plugins/xkb/xkb-plugin.c:1279
 msgid "Keyboard Model"
 msgstr "键盘型号"
 
-#: ../plugins/xkb/xkb-plugin.c:1256
+#: ../plugins/xkb/xkb-plugin.c:1300
 msgid "Keyboard Layouts"
 msgstr "键盘布局"
 
-#: ../plugins/xkb/xkb-plugin.c:1310
+#: ../plugins/xkb/xkb-plugin.c:1354
 msgid "Variant"
 msgstr "变体"
 
-#: ../plugins/xkb/xkb-plugin.c:1319
+#: ../plugins/xkb/xkb-plugin.c:1363
 msgid "Keyboard Layout Options"
 msgstr "更改布局选项"
 
-#: ../plugins/xkb/xkb-plugin.c:1339
+#: ../plugins/xkb/xkb-plugin.c:1384
 msgid "Advanced setxkbmap Options"
 msgstr "高级 setxkbmap 选项"
 
-#: ../plugins/xkb/xkb-plugin.c:1360
+#: ../plugins/xkb/xkb-plugin.c:1405
 msgid "Do _not reset existing options"
 msgstr "不重置已有的选项(_N)"
 
-#: ../plugins/xkb/xkb-plugin.c:1365
+#: ../plugins/xkb/xkb-plugin.c:1410
 msgid "Keep _system layouts"
 msgstr "保持系统布局(_S)"
 
-#: ../plugins/xkb/xkb-plugin.c:1374
+#: ../plugins/xkb/xkb-plugin.c:1419
 msgid "Per Window Settings"
 msgstr "按窗口设置"
 
-#: ../plugins/xkb/xkb-plugin.c:1386
+#: ../plugins/xkb/xkb-plugin.c:1431
 msgid "_Remember layout for each window"
 msgstr "记住各窗口的布局(_R)"
 
-#: ../plugins/xkb/xkb-plugin.c:1395
+#: ../plugins/xkb/xkb-plugin.c:1440
 msgid "Show Layout as"
 msgstr "将布局显示为"
 
-#: ../plugins/xkb/xkb-plugin.c:1456
+#: ../plugins/xkb/xkb-plugin.c:1503
 msgid "Custom Image"
 msgstr "自定义图像"
 
-#: ../plugins/xkb/xkb-plugin.c:1457
+#: ../plugins/xkb/xkb-plugin.c:1504
 msgid "Text"
 msgstr "文本"
 
-#: ../plugins/xkb/xkb-plugin.c:1483
+#: ../plugins/xkb/xkb-plugin.c:1530
 msgid "Panel Icon Size"
 msgstr "面板图标大小"
 
-#: ../plugins/xkb/xkb-plugin.c:1545
+#: ../plugins/xkb/xkb-plugin.c:1592
 msgid "Handle keyboard layouts"
 msgstr "调控键盘布局"
 
-#: ../plugins/wincmd.c:207
+#: ../plugins/wincmd.c:216
 msgid "Left click to iconify all windows.  Middle click to shade them."
 msgstr "按左键最小化所有窗口。  中键卷起所有窗口。"
 
-#: ../plugins/wincmd.c:245 ../plugins/wincmd.c:255
+#: ../plugins/wincmd.c:254 ../plugins/wincmd.c:264
 msgid "Minimize All Windows"
 msgstr "最小化所有窗口"
 
-#: ../plugins/wincmd.c:247
+#: ../plugins/wincmd.c:256
 msgid "Alternately iconify/shade and raise"
 msgstr "交替最小化/卷起和提升"
 
-#: ../plugins/wincmd.c:256
+#: ../plugins/wincmd.c:265
 msgid ""
 "Sends commands to all desktop windows.\n"
 "Supported commands are 1) iconify and 2) shade"
@@ -928,47 +928,57 @@ msgstr "标签"
 msgid "Browse directory tree via menu (Author = PCMan)"
 msgstr "使用菜单浏览目录 (作者：PCMan)"
 
-#: ../plugins/thermal/thermal.c:563 ../plugins/thermal/thermal.c:581
+#: ../plugins/thermal/thermal.c:565 ../plugins/thermal/thermal.c:583
 msgid "Temperature Monitor"
 msgstr "温度监视器"
 
-#: ../plugins/thermal/thermal.c:565
+#: ../plugins/thermal/thermal.c:567
 msgid "Normal color"
 msgstr "正常颜色"
 
-#: ../plugins/thermal/thermal.c:566
+#: ../plugins/thermal/thermal.c:568
 msgid "Warning1 color"
 msgstr "警告1 颜色"
 
-#: ../plugins/thermal/thermal.c:567
+#: ../plugins/thermal/thermal.c:569
 msgid "Warning2 color"
 msgstr "警告2 颜色"
 
-#: ../plugins/thermal/thermal.c:568
+#: ../plugins/thermal/thermal.c:570
 msgid "Automatic sensor location"
 msgstr "自动定位传感器"
 
-#: ../plugins/thermal/thermal.c:569
+#: ../plugins/thermal/thermal.c:571
 msgid "Sensor"
 msgstr "传感器"
 
-#: ../plugins/thermal/thermal.c:570
+#: ../plugins/thermal/thermal.c:572
 msgid "Automatic temperature levels"
 msgstr "自动确定温度级别"
 
-#: ../plugins/thermal/thermal.c:571
+#: ../plugins/thermal/thermal.c:573
 msgid "Warning1 temperature"
 msgstr "警告1 温度"
 
-#: ../plugins/thermal/thermal.c:572
+#: ../plugins/thermal/thermal.c:574
 msgid "Warning2 temperature"
 msgstr "警告2 温度"
 
-#: ../plugins/thermal/thermal.c:582
+#: ../plugins/thermal/thermal.c:584
 msgid "Display system temperature"
 msgstr "显示系统温度"
 
-#: ../plugins/cpufreq/cpufreq.c:325
+#: ../plugins/cpufreq/cpufreq.c:283
+#, fuzzy
+#| msgid "CPUFreq frontend"
+msgid "CPUFreq not supported"
+msgstr "CPUFreq 前端"
+
+#: ../plugins/cpufreq/cpufreq.c:292
+msgid "   Frequency"
+msgstr ""
+
+#: ../plugins/cpufreq/cpufreq.c:356
 #, c-format
 msgid ""
 "Frequency: %d MHz\n"
@@ -977,11 +987,11 @@ msgstr ""
 "频率：%d MHz\n"
 "调速器：%s"
 
-#: ../plugins/cpufreq/cpufreq.c:401
+#: ../plugins/cpufreq/cpufreq.c:432
 msgid "CPUFreq frontend"
 msgstr "CPUFreq 前端"
 
-#: ../plugins/cpufreq/cpufreq.c:402
+#: ../plugins/cpufreq/cpufreq.c:433
 #, fuzzy
 msgid "Display CPU frequency and allow one to change governors and frequency"
 msgstr "显示 CPU 频率，并可以更改调速器和频率"

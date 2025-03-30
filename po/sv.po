@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-29 15:52+0100\n"
+"POT-Creation-Date: 2025-03-30 13:47+0200\n"
 "PO-Revision-Date: 2017-06-26 11:02+0000\n"
 "Last-Translator: Martin Bagge <brother@bsnet.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
@@ -61,12 +61,12 @@ msgstr "Välj fil"
 msgid "_Browse"
 msgstr "_Bläddra"
 
-#: ../src/panel.c:1305
+#: ../src/panel.c:1350
 msgid "There is no room for another panel. All the edges are taken."
 msgstr ""
 "Det finns inte plats för ytterligare en panel. Alla kanter är upptagna."
 
-#: ../src/panel.c:1331
+#: ../src/panel.c:1376
 msgid ""
 "Really delete this panel?\n"
 "<b>Warning: This can not be recovered.</b>"
@@ -74,85 +74,85 @@ msgstr ""
 "Ska panelen verkligen raderas?\n"
 "<b>Varning: Detta kan inte ångras.</b>"
 
-#: ../src/panel.c:1333
+#: ../src/panel.c:1378
 msgid "Confirm"
 msgstr "Acceptera"
 
 #. TRANSLATORS: Replace this string with your names, one name per line.
-#: ../src/panel.c:1369
+#: ../src/panel.c:1414
 msgid "translator-credits"
 msgstr ""
 "Martin Bagge 2009-2014 <brother@bsnet.se>\n"
 "\n"
 "Synpunkter på översättningen kan sändas till tp-sv@listor.tp-sv.se"
 
-#: ../src/panel.c:1374
+#: ../src/panel.c:1419
 msgid "LXPanel"
 msgstr "LXPanel"
 
-#: ../src/panel.c:1392
+#: ../src/panel.c:1437
 msgid "Copyright (C) 2008-2025"
 msgstr "Copyright © 2008-2025"
 
-#: ../src/panel.c:1393
+#: ../src/panel.c:1438
 msgid "Desktop panel for LXDE project"
 msgstr "Skrivbordspanel för LXDE-projektet"
 
-#: ../src/panel.c:1435
+#: ../src/panel.c:1480
 #, c-format
 msgid "\"%s\" Settings"
 msgstr "Inställningar för \"%s\""
 
-#: ../src/panel.c:1456
+#: ../src/panel.c:1501
 msgid "Add / Remove Panel Items"
 msgstr "Lägg till/Ta bort panelelement"
 
-#: ../src/panel.c:1464
+#: ../src/panel.c:1509
 #, c-format
 msgid "Remove \"%s\" From Panel"
 msgstr "Ta bort \"%s\" från panel"
 
-#: ../src/panel.c:1476
+#: ../src/panel.c:1521
 msgid "Panel Settings"
 msgstr "Panelinställningar"
 
-#: ../src/panel.c:1482
+#: ../src/panel.c:1527
 msgid "Create New Panel"
 msgstr "Skapa ny panel"
 
-#: ../src/panel.c:1488
+#: ../src/panel.c:1533
 msgid "Delete This Panel"
 msgstr "Ta bort panel"
 
-#: ../src/panel.c:1499
+#: ../src/panel.c:1544
 msgid "About"
 msgstr "Om"
 
-#: ../src/panel.c:1506
+#: ../src/panel.c:1551
 msgid "Panel"
 msgstr "Panel"
 
-#: ../src/panel.c:1724 ../src/panel.c:1732 ../data/ui/panel-pref.glade.h:22
+#: ../src/panel.c:1769 ../src/panel.c:1777 ../data/ui/panel-pref.glade.h:22
 msgid "Height:"
 msgstr "Höjd:"
 
-#: ../src/panel.c:1725 ../src/panel.c:1731 ../data/ui/panel-pref.glade.h:21
+#: ../src/panel.c:1770 ../src/panel.c:1776 ../data/ui/panel-pref.glade.h:21
 msgid "Width:"
 msgstr "Bredd:"
 
-#: ../src/panel.c:1726 ../data/ui/panel-pref.glade.h:13
+#: ../src/panel.c:1771 ../data/ui/panel-pref.glade.h:13
 msgid "Left"
 msgstr "Vänster"
 
-#: ../src/panel.c:1727 ../data/ui/panel-pref.glade.h:14
+#: ../src/panel.c:1772 ../data/ui/panel-pref.glade.h:14
 msgid "Right"
 msgstr "Höger"
 
-#: ../src/panel.c:1733 ../data/ui/panel-pref.glade.h:12
+#: ../src/panel.c:1778 ../data/ui/panel-pref.glade.h:12
 msgid "Top"
 msgstr "Upptill"
 
-#: ../src/panel.c:1734 ../data/ui/panel-pref.glade.h:11
+#: ../src/panel.c:1779 ../data/ui/panel-pref.glade.h:11
 msgid "Bottom"
 msgstr "Nedtilld"
 
@@ -283,7 +283,7 @@ msgstr "Storlek"
 msgid "Allocate space"
 msgstr "Reservera utrymme"
 
-#: ../data/ui/launchtaskbar.glade.h:1 ../plugins/launchtaskbar.c:2497
+#: ../data/ui/launchtaskbar.glade.h:1 ../plugins/launchtaskbar.c:2502
 msgid "Application Launch and Task Bar"
 msgstr "Programstartspanel"
 
@@ -526,7 +526,7 @@ msgstr "Systemtema"
 msgid "Solid color (with opacity)"
 msgstr "Solid färg (vid genomskinlighet)"
 
-#: ../data/ui/panel-pref.glade.h:28 ../plugins/xkb/xkb-plugin.c:1455
+#: ../data/ui/panel-pref.glade.h:28 ../plugins/xkb/xkb-plugin.c:1502
 msgid "Image"
 msgstr "Bild"
 
@@ -642,31 +642,31 @@ msgstr "Visa skrivbordsnamn"
 msgid "Display workspace number, by cmeury@users.sf.net"
 msgstr "Visa arbetsytans nummer av cmeury@users.sf.net"
 
-#: ../plugins/launchtaskbar.c:1846 ../plugins/launchtaskbar.c:2467
+#: ../plugins/launchtaskbar.c:1849 ../plugins/launchtaskbar.c:2472
 msgid "Application Launch Bar"
 msgstr "Programstartspanel"
 
-#: ../plugins/launchtaskbar.c:1849 ../plugins/launchtaskbar.c:2477
+#: ../plugins/launchtaskbar.c:1852 ../plugins/launchtaskbar.c:2482
 msgid "Task Bar (Window List)"
 msgstr "Aktivitetspanel (fönsterlista)"
 
-#: ../plugins/launchtaskbar.c:2000
+#: ../plugins/launchtaskbar.c:2003
 msgid "A_dd to Launcher"
 msgstr "Lägg till i programstartare"
 
-#: ../plugins/launchtaskbar.c:2002
+#: ../plugins/launchtaskbar.c:2005
 msgid "Rem_ove from Launcher"
 msgstr "Ta bort från panel"
 
-#: ../plugins/launchtaskbar.c:2004
+#: ../plugins/launchtaskbar.c:2007
 msgid "_New Instance"
 msgstr "_Ny instans"
 
-#: ../plugins/launchtaskbar.c:2468
+#: ../plugins/launchtaskbar.c:2473
 msgid "Bar with buttons to launch application"
 msgstr "Panel med knappar för att starta program"
 
-#: ../plugins/launchtaskbar.c:2478
+#: ../plugins/launchtaskbar.c:2483
 #, fuzzy
 msgid ""
 "Taskbar shows all opened windows and allows to iconify them, shade or get "
@@ -675,7 +675,7 @@ msgstr ""
 "Aktivitetspanelen visar alla öppnade fönster och möjliggör minimering, "
 "upprullning eller att sätta fokus på dem"
 
-#: ../plugins/launchtaskbar.c:2498
+#: ../plugins/launchtaskbar.c:2503
 msgid "Bar with buttons to launch application and/or show all opened windows"
 msgstr "Panel med knappar för att starta program eller visa alla öppna fönster"
 
@@ -803,114 +803,114 @@ msgstr "Systemdocka"
 msgid "System tray"
 msgstr "Systembricka"
 
-#: ../plugins/xkb/xkb-plugin.c:409
+#: ../plugins/xkb/xkb-plugin.c:437
 msgid "New session is required for this option to take effect"
 msgstr "En ny session behövs för att detta alternativ ska användas"
 
-#: ../plugins/xkb/xkb-plugin.c:590
+#: ../plugins/xkb/xkb-plugin.c:618
 msgid "Select Keyboard Model"
 msgstr "Ange tangentbordsmodell"
 
-#: ../plugins/xkb/xkb-plugin.c:614 ../plugins/xkb/xkb-plugin.c:743
-#: ../plugins/xkb/xkb-plugin.c:921
+#: ../plugins/xkb/xkb-plugin.c:642 ../plugins/xkb/xkb-plugin.c:786
+#: ../plugins/xkb/xkb-plugin.c:965
 msgid "Description"
 msgstr "Beskrivning"
 
-#: ../plugins/xkb/xkb-plugin.c:619 ../plugins/xkb/xkb-plugin.c:750
+#: ../plugins/xkb/xkb-plugin.c:647 ../plugins/xkb/xkb-plugin.c:793
 msgid "Id"
 msgstr "Id"
 
-#: ../plugins/xkb/xkb-plugin.c:714
+#: ../plugins/xkb/xkb-plugin.c:757
 msgid "Select Layout Change Type"
 msgstr "Ange typ av tangentupplägsbyte"
 
-#: ../plugins/xkb/xkb-plugin.c:887
+#: ../plugins/xkb/xkb-plugin.c:931
 msgid "Add Keyboard Layout"
 msgstr "Lägg till tangentbordsupplägg"
 
-#: ../plugins/xkb/xkb-plugin.c:911 ../plugins/xkb/xkb-plugin.c:1302
+#: ../plugins/xkb/xkb-plugin.c:955 ../plugins/xkb/xkb-plugin.c:1346
 msgid "Flag"
 msgstr "Flagga"
 
-#: ../plugins/xkb/xkb-plugin.c:916 ../plugins/xkb/xkb-plugin.c:1306
+#: ../plugins/xkb/xkb-plugin.c:960 ../plugins/xkb/xkb-plugin.c:1350
 msgid "Layout"
 msgstr "Upplägg"
 
-#: ../plugins/xkb/xkb-plugin.c:1212 ../plugins/xkb/xkb-plugin.c:1544
+#: ../plugins/xkb/xkb-plugin.c:1256 ../plugins/xkb/xkb-plugin.c:1591
 msgid "Keyboard Layout Handler"
 msgstr "Hanterare för tangentbordsupplägg"
 
-#: ../plugins/xkb/xkb-plugin.c:1235
+#: ../plugins/xkb/xkb-plugin.c:1279
 msgid "Keyboard Model"
 msgstr "Tangentbordsmodell"
 
-#: ../plugins/xkb/xkb-plugin.c:1256
+#: ../plugins/xkb/xkb-plugin.c:1300
 msgid "Keyboard Layouts"
 msgstr "Tangentbordsupplägg"
 
-#: ../plugins/xkb/xkb-plugin.c:1310
+#: ../plugins/xkb/xkb-plugin.c:1354
 msgid "Variant"
 msgstr "Variant"
 
-#: ../plugins/xkb/xkb-plugin.c:1319
+#: ../plugins/xkb/xkb-plugin.c:1363
 msgid "Keyboard Layout Options"
 msgstr "Alternativ för att byta upplägg"
 
-#: ../plugins/xkb/xkb-plugin.c:1339
+#: ../plugins/xkb/xkb-plugin.c:1384
 msgid "Advanced setxkbmap Options"
 msgstr "Avancerade setxkbmap-alternativ"
 
-#: ../plugins/xkb/xkb-plugin.c:1360
+#: ../plugins/xkb/xkb-plugin.c:1405
 msgid "Do _not reset existing options"
 msgstr "Återställ _inte existerande alternativ"
 
-#: ../plugins/xkb/xkb-plugin.c:1365
+#: ../plugins/xkb/xkb-plugin.c:1410
 msgid "Keep _system layouts"
 msgstr "Behåll _systemupplägg"
 
-#: ../plugins/xkb/xkb-plugin.c:1374
+#: ../plugins/xkb/xkb-plugin.c:1419
 msgid "Per Window Settings"
 msgstr "Inställningar per fönster"
 
-#: ../plugins/xkb/xkb-plugin.c:1386
+#: ../plugins/xkb/xkb-plugin.c:1431
 msgid "_Remember layout for each window"
 msgstr "_Kom ihåg tangentbordsuppsättning för varje fönster"
 
-#: ../plugins/xkb/xkb-plugin.c:1395
+#: ../plugins/xkb/xkb-plugin.c:1440
 msgid "Show Layout as"
 msgstr "Visa upplägg som"
 
-#: ../plugins/xkb/xkb-plugin.c:1456
+#: ../plugins/xkb/xkb-plugin.c:1503
 msgid "Custom Image"
 msgstr "Anpassad bild"
 
-#: ../plugins/xkb/xkb-plugin.c:1457
+#: ../plugins/xkb/xkb-plugin.c:1504
 msgid "Text"
 msgstr "Text"
 
-#: ../plugins/xkb/xkb-plugin.c:1483
+#: ../plugins/xkb/xkb-plugin.c:1530
 msgid "Panel Icon Size"
 msgstr "Ikonstorlek i panel"
 
-#: ../plugins/xkb/xkb-plugin.c:1545
+#: ../plugins/xkb/xkb-plugin.c:1592
 msgid "Handle keyboard layouts"
 msgstr "Hantera tangentbordsupplägg"
 
-#: ../plugins/wincmd.c:207
+#: ../plugins/wincmd.c:216
 msgid "Left click to iconify all windows.  Middle click to shade them."
 msgstr ""
 "Vänsterklick för att minimera alla fönster.  Mittklick för att rulla upp."
 
-#: ../plugins/wincmd.c:245 ../plugins/wincmd.c:255
+#: ../plugins/wincmd.c:254 ../plugins/wincmd.c:264
 msgid "Minimize All Windows"
 msgstr "Minimera alla fönster"
 
 # crazy mode? =)
-#: ../plugins/wincmd.c:247
+#: ../plugins/wincmd.c:256
 msgid "Alternately iconify/shade and raise"
 msgstr "Altenera mellan minimera/rulla upp och återställ"
 
-#: ../plugins/wincmd.c:256
+#: ../plugins/wincmd.c:265
 msgid ""
 "Sends commands to all desktop windows.\n"
 "Supported commands are 1) iconify and 2) shade"
@@ -939,47 +939,57 @@ msgstr "Ettikett"
 msgid "Browse directory tree via menu (Author = PCMan)"
 msgstr "Bläddra i katalogsträdet via en meny (Skapad av: PCMan)"
 
-#: ../plugins/thermal/thermal.c:563 ../plugins/thermal/thermal.c:581
+#: ../plugins/thermal/thermal.c:565 ../plugins/thermal/thermal.c:583
 msgid "Temperature Monitor"
 msgstr "Temperaturövervakning"
 
-#: ../plugins/thermal/thermal.c:565
+#: ../plugins/thermal/thermal.c:567
 msgid "Normal color"
 msgstr "Alternativ färg"
 
-#: ../plugins/thermal/thermal.c:566
+#: ../plugins/thermal/thermal.c:568
 msgid "Warning1 color"
 msgstr "Laddningsfärg 1"
 
-#: ../plugins/thermal/thermal.c:567
+#: ../plugins/thermal/thermal.c:569
 msgid "Warning2 color"
 msgstr "Laddningsfärg 1"
 
-#: ../plugins/thermal/thermal.c:568
+#: ../plugins/thermal/thermal.c:570
 msgid "Automatic sensor location"
 msgstr "Automatisk sensorplats"
 
-#: ../plugins/thermal/thermal.c:569
+#: ../plugins/thermal/thermal.c:571
 msgid "Sensor"
 msgstr "Sensor"
 
-#: ../plugins/thermal/thermal.c:570
+#: ../plugins/thermal/thermal.c:572
 msgid "Automatic temperature levels"
 msgstr "Automatisk temperaturnivå"
 
-#: ../plugins/thermal/thermal.c:571
+#: ../plugins/thermal/thermal.c:573
 msgid "Warning1 temperature"
 msgstr "Varning1 temperatur"
 
-#: ../plugins/thermal/thermal.c:572
+#: ../plugins/thermal/thermal.c:574
 msgid "Warning2 temperature"
 msgstr "Varning2 temperatur"
 
-#: ../plugins/thermal/thermal.c:582
+#: ../plugins/thermal/thermal.c:584
 msgid "Display system temperature"
 msgstr "Visa systemtemperatur"
 
-#: ../plugins/cpufreq/cpufreq.c:325
+#: ../plugins/cpufreq/cpufreq.c:283
+#, fuzzy
+#| msgid "CPUFreq frontend"
+msgid "CPUFreq not supported"
+msgstr "Gränssnittt till CPUFreq"
+
+#: ../plugins/cpufreq/cpufreq.c:292
+msgid "   Frequency"
+msgstr ""
+
+#: ../plugins/cpufreq/cpufreq.c:356
 #, c-format
 msgid ""
 "Frequency: %d MHz\n"
@@ -988,11 +998,11 @@ msgstr ""
 "Frekvens: %d MHz\n"
 "Profil: %s"
 
-#: ../plugins/cpufreq/cpufreq.c:401
+#: ../plugins/cpufreq/cpufreq.c:432
 msgid "CPUFreq frontend"
 msgstr "Gränssnittt till CPUFreq"
 
-#: ../plugins/cpufreq/cpufreq.c:402
+#: ../plugins/cpufreq/cpufreq.c:433
 #, fuzzy
 msgid "Display CPU frequency and allow one to change governors and frequency"
 msgstr "Visar och redigerar CPU-profil och -frekvens"
