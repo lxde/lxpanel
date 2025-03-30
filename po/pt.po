@@ -1,5 +1,5 @@
 # Portuguese translations for lxpanel package.
-# Copyright (C) 2021 THE lxpanel'S COPYRIGHT HOLDER
+# Copyright (C) 2025 THE lxpanel'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the lxpanel package.
 # Álvaro Morais <alvarommorais@gmail.com>, 2009.
 # Sérgio Marques <smarquespt@gmail.com>, 2010-2016.
@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-03-30 13:47+0200\n"
-"PO-Revision-Date: 2025-02-15 01:32+0000\n"
+"PO-Revision-Date: 2025-03-30 19:13+0100\n"
 "Last-Translator: Hugo Carvalho <hugokarvalho@hotmail.com>\n"
 "Language-Team: Portuguese\n"
 "Language: pt\n"
@@ -36,7 +36,7 @@ msgstr ""
 
 #: ../src/configurator.c:635
 msgid "Currently loaded plugins"
-msgstr "Plugins carregados"
+msgstr "Plugins atualmente carregados"
 
 #: ../src/configurator.c:644
 msgid "Stretch"
@@ -75,7 +75,7 @@ msgid ""
 "Really delete this panel?\n"
 "<b>Warning: This can not be recovered.</b>"
 msgstr ""
-"Prertende mesmo eliminar este painel?\n"
+"Pretende mesmo eliminar este painel?\n"
 "<b>Atenção: o painel não poderá ser recuperado.</b>"
 
 #: ../src/panel.c:1378
@@ -130,7 +130,7 @@ msgstr "Eliminar este painel"
 
 #: ../src/panel.c:1544
 msgid "About"
-msgstr "Sobre"
+msgstr "Acerca"
 
 #: ../src/panel.c:1551
 msgid "Panel"
@@ -162,7 +162,7 @@ msgstr "Inferior"
 
 #: ../src/plugin.c:347
 msgid "No file manager is configured."
-msgstr "Não há um gestor de ficheiros configurado."
+msgstr "Não está configurado nenhum gestor de ficheiros."
 
 #: ../src/gtk-run.c:385 ../src/main.c:69 ../plugins/menu.c:718
 msgid "Run"
@@ -170,7 +170,7 @@ msgstr "Executar"
 
 #: ../src/gtk-run.c:399
 msgid "Enter the command you want to execute:"
-msgstr "Digite o comando a executar:"
+msgstr "Introduza o comando que se pretende executar:"
 
 #: ../src/main.c:70 ../plugins/menu.c:719
 msgid "Restart"
@@ -459,7 +459,7 @@ msgstr "Dinâmico"
 
 #: ../data/ui/panel-pref.glade.h:2
 msgid "Pixels"
-msgstr "Pixeis"
+msgstr "Pixéis"
 
 #: ../data/ui/panel-pref.glade.h:4
 #, no-c-format
@@ -601,7 +601,7 @@ msgstr "Tamanho ao minimizar"
 
 #: ../data/ui/panel-pref.glade.h:45
 msgid "pixels"
-msgstr "pixeis"
+msgstr "pixéis"
 
 #: ../data/ui/panel-pref.glade.h:46
 msgid "<b>Automatic hiding</b>"
@@ -629,7 +629,7 @@ msgstr "Mostra a utilização do CPU"
 
 #: ../plugins/deskno/deskno.c:210 ../plugins/deskno/deskno.c:230
 msgid "Desktop Number / Workspace Name"
-msgstr "Ambiente de trabalho n.º/ Nome da área de trabalho"
+msgstr "Número do ambiente de trabalho / Nome da área de trabalho"
 
 #: ../plugins/deskno/deskno.c:212 ../plugins/dclock.c:439
 msgid "Bold font"
@@ -637,11 +637,11 @@ msgstr "Letra em negrito"
 
 #: ../plugins/deskno/deskno.c:213
 msgid "Display desktop names"
-msgstr "Mostrar nomes das áreas de trabalho"
+msgstr "Mostrar nomes dos ambientes de trabalho"
 
 #: ../plugins/deskno/deskno.c:231
 msgid "Display workspace number, by cmeury@users.sf.net"
-msgstr "Mostrar número da área de trabalho. Por cmeury@users.sf.net"
+msgstr "Mostrar número da área de trabalho, por cmeury@users.sf.net"
 
 #: ../plugins/launchtaskbar.c:1849 ../plugins/launchtaskbar.c:2472
 msgid "Application Launch Bar"
@@ -786,8 +786,8 @@ msgstr "Adicionar um separador ao painel"
 #: ../plugins/pager.c:177
 msgid "Sorry, there was no window manager configuration program found."
 msgstr ""
-"Desculpe mas não foi encontrado um programa para configurar o gestor de "
-"janelas."
+"Lamentamos, mas não foi encontrado nenhum programa de configuração do gestor "
+"de janelas."
 
 #: ../plugins/pager.c:229 ../plugins/pager.c:245
 msgid "Desktop Pager"
@@ -795,11 +795,11 @@ msgstr "Paginador da área de trabalho"
 
 #: ../plugins/pager.c:230 ../plugins/pager.c:246
 msgid "Simple pager plugin"
-msgstr "Plugin Paginador"
+msgstr "Plugin de paginação simples"
 
 #: ../plugins/tray.c:691
 msgid "System Tray"
-msgstr "Área de notificação"
+msgstr "Área de Notificação"
 
 #: ../plugins/tray.c:692
 msgid "System tray"
@@ -876,7 +876,7 @@ msgstr "Definições por janela"
 
 #: ../plugins/xkb/xkb-plugin.c:1431
 msgid "_Remember layout for each window"
-msgstr "Lembra_r definições para cada janela"
+msgstr "Memorizar a disposição de cada janela"
 
 #: ../plugins/xkb/xkb-plugin.c:1440
 msgid "Show Layout as"
@@ -979,14 +979,12 @@ msgid "Display system temperature"
 msgstr "Mostra a temperatura do sistema"
 
 #: ../plugins/cpufreq/cpufreq.c:283
-#, fuzzy
-#| msgid "CPUFreq frontend"
 msgid "CPUFreq not supported"
-msgstr "Interface CPUFreq"
+msgstr "CPUFreq não suportada"
 
 #: ../plugins/cpufreq/cpufreq.c:292
 msgid "   Frequency"
-msgstr ""
+msgstr "   Frequência"
 
 #: ../plugins/cpufreq/cpufreq.c:356
 #, c-format
