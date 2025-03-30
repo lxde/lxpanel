@@ -1,14 +1,14 @@
 # Georgian translation for lxpanel.
 # Copyright (C) 2023 lxpanel' authors
 # This file is distributed under the same license as the lxpanel package.
-# Temuri Doghonadze <temuri.doghonadze@gmail.com>, 2023.
+# Temuri Doghonadze <temuri.doghonadze@gmail.com>, 2023 2025.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-03-30 13:47+0200\n"
-"PO-Revision-Date: 2023-07-30 15:49+0200\n"
+"PO-Revision-Date: 2025-03-30 14:36+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <(nothing)>\n"
 "Language: ka\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.3.2\n"
+"X-Generator: Poedit 3.5\n"
 
 #: ../src/configurator.c:149
 msgid ""
@@ -269,8 +269,6 @@ msgid "Spacer"
 msgstr "დაშორება"
 
 #: ../src/space.c:396 ../plugins/batt/batt.c:740
-#, fuzzy
-#| msgid "Size"
 msgctxt "Width"
 msgid "Size"
 msgstr "ზომა"
@@ -309,7 +307,7 @@ msgstr "ბრტყელი ღილაკები"
 
 #: ../data/ui/launchtaskbar.glade.h:9
 msgid "Show square brackets around the names of minimized windows"
-msgstr ""
+msgstr "კვადრატული ფრჩხილების ჩვენება ჩაკეცილი ფანჯრის სახელების გარშემო"
 
 #: ../data/ui/launchtaskbar.glade.h:10
 msgid "Show windows from all desktops"
@@ -541,8 +539,6 @@ msgid "Custom color"
 msgstr "ფერის არჩევა"
 
 #: ../data/ui/panel-pref.glade.h:32
-#, fuzzy
-#| msgid "Size"
 msgctxt "Font"
 msgid "Size"
 msgstr "ზომა"
@@ -973,14 +969,12 @@ msgid "Display system temperature"
 msgstr "სისტემის ტემპერატურის ჩვენება"
 
 #: ../plugins/cpufreq/cpufreq.c:283
-#, fuzzy
-#| msgid "CPUFreq frontend"
 msgid "CPUFreq not supported"
-msgstr "CPUFreq-ის წინაბოლო"
+msgstr "CPUFreq მხარდაჭერილი არაა"
 
 #: ../plugins/cpufreq/cpufreq.c:292
 msgid "   Frequency"
-msgstr ""
+msgstr "   სიხშირე"
 
 #: ../plugins/cpufreq/cpufreq.c:356
 #, c-format
@@ -1004,10 +998,10 @@ msgid "ALSA (or pulseaudio) had a problem. Please check the lxpanel logs."
 msgstr "ALSA-ს (pulseaudio-ს) პრობლემა. ჩაიხედეთ lxpanel-ის ჟურნალში."
 
 #: ../plugins/volumealsa/volumealsa.c:615
-#, fuzzy, c-format
+#, c-format
 #| msgid "Volume"
 msgid "Volume: %d%%"
-msgstr "ხმა"
+msgstr "ხმა: %d%%"
 
 #: ../plugins/volumealsa/volumealsa.c:703
 msgid ""
@@ -1050,14 +1044,12 @@ msgid "Speaker+LO"
 msgstr "დინამიკი+LO"
 
 #: ../plugins/volumealsa/volumealsa.c:1332
-#, fuzzy
-#| msgid "Speaker+LO"
 msgid "Speaker"
-msgstr "დინამიკი+LO"
+msgstr "დინამიკი"
 
 #: ../plugins/volumealsa/volumealsa.c:1332
 msgid "Beep"
-msgstr ""
+msgstr "პიპინი"
 
 #: ../plugins/volumealsa/volumealsa.c:1371
 msgid "default"
@@ -1083,7 +1075,7 @@ msgstr "წკაპი ხმის ჩოჩიისთვის"
 #: ../plugins/volumealsa/volumealsa.c:1467
 #: ../plugins/volumealsa/volumealsa.c:1472
 msgid "Click to select, then press a mouse button"
-msgstr ""
+msgstr "დააწკაპუნეთ მოსანიშნად, შემდეგ კი დააწკაპუნეთ თაგუნას ღილაკზე"
 
 #: ../plugins/volumealsa/volumealsa.c:1466
 msgid "Click for Toggle Mute"
@@ -1101,7 +1093,7 @@ msgstr "მალსახმობი ღილაკი ხმის ასა
 #: ../plugins/volumealsa/volumealsa.c:1480
 #: ../plugins/volumealsa/volumealsa.c:1483
 msgid "Click to select, then press a key"
-msgstr ""
+msgstr "დააწკაპუნეთ მოსანიშნად, შემდეგ კი დააჭირეთ ღილაკს"
 
 #: ../plugins/volumealsa/volumealsa.c:1479
 msgid "Hotkey for Volume Down"
@@ -1348,8 +1340,6 @@ msgid "The interface name"
 msgstr "ინტერფეისის სახელი"
 
 #: ../plugins/netstatus/netstatus-iface.c:157
-#, fuzzy
-#| msgid "State"
 msgctxt "Network"
 msgid "State"
 msgstr "მდგომარეობა"
@@ -1594,10 +1584,9 @@ msgid "Sending/Receiving"
 msgstr "გაგზავნა/მიღება"
 
 #: ../plugins/batt/batt.c:159
-#, fuzzy, c-format
-#| msgid "Battery %d: %d%% charged, %d:%02d until full"
+#, c-format
 msgid "Battery: %d%% charged, %d:%02d until full"
-msgstr "ელემენტი %d: %d%% დამუხტულია, %d:%02d სრულ მუხტამდე"
+msgstr "ელემენტი %d%% დამუხტულია. სრულად დატენვამდა დარჩა %d:%02d"
 
 #: ../plugins/batt/batt.c:163
 #, c-format
@@ -1605,10 +1594,9 @@ msgid "Battery %d: %d%% charged, %d:%02d until full"
 msgstr "ელემენტი %d: %d%% დამუხტულია, %d:%02d სრულ მუხტამდე"
 
 #: ../plugins/batt/batt.c:178
-#, fuzzy, c-format
-#| msgid "Battery %d: %d%% charged, %d:%02d left"
+#, c-format
 msgid "Battery: %d%% charged, %d:%02d left"
-msgstr "ელემენტი %d: %d%% დამუხტულია, %d:%02d დარჩენილია"
+msgstr "ელემენტი %d%% დამუხტულია. დარჩენილია %d:%02d"
 
 #: ../plugins/batt/batt.c:182
 #, c-format
@@ -1616,10 +1604,9 @@ msgid "Battery %d: %d%% charged, %d:%02d left"
 msgstr "ელემენტი %d: %d%% დამუხტულია, %d:%02d დარჩენილია"
 
 #: ../plugins/batt/batt.c:190
-#, fuzzy, c-format
-#| msgid "Battery %d: %d%% charged"
+#, c-format
 msgid "Battery: %d%% charged"
-msgstr "ელემენტი %d: %d%% დამუხტულია"
+msgstr "ელემენტი %d%% დამუხტულია"
 
 #: ../plugins/batt/batt.c:194
 #, c-format
@@ -1699,16 +1686,13 @@ msgstr ""
 "%sდენი ახლა:\t\t\t%5d მა"
 
 #: ../plugins/batt/batt.c:222
-#, fuzzy, c-format
-#| msgid ""
-#| "\n"
-#| "%sCurrent Voltage:\t\t%.3lf V"
+#, c-format
 msgid ""
 "\n"
 "%sVoltage now:\t\t%.3lf V"
 msgstr ""
 "\n"
-"%sმიმდინარე ვოლტაჟი:\t\t%.3lf ვ"
+"%sვოლტაჟი ახლა:\t\t%.3lf ვ"
 
 #: ../plugins/batt/batt.c:259
 msgid "No batteries found"
@@ -1768,7 +1752,7 @@ msgstr "ელემენტების რაოდენობა მონ�
 
 #: ../plugins/batt/batt.c:744
 msgid "Don't show number of battery"
-msgstr ""
+msgstr "არ მაჩვენო ელემენტის მუხტი"
 
 #: ../plugins/batt/batt.c:754
 msgid "Display battery status using ACPI"
@@ -1858,7 +1842,7 @@ msgstr "RAM-ის ფერი"
 
 #: ../plugins/monitors/monitors.c:750
 msgid "Show memory used by cache as free"
-msgstr ""
+msgstr "კეშად გამოყენებული მეხსიერების თავისუფლად ჩვენება"
 
 #: ../plugins/monitors/monitors.c:751
 msgid "Action when clicked (default: lxtask)"
@@ -2050,11 +2034,9 @@ msgid "City"
 msgstr "ქალაქი"
 
 #: ../plugins/weather/weatherwidget.c:2140
-#, fuzzy
-#| msgid "State"
 msgctxt "Politics"
 msgid "State"
-msgstr "მდგომარეობა"
+msgstr "შტატი"
 
 #: ../plugins/weather/weatherwidget.c:2150
 msgid "Country"
@@ -2062,15 +2044,15 @@ msgstr "ქვეყანა"
 
 #: ../plugins/weather/weatherwidget.c:2289
 msgid "Currently in "
-msgstr "ამჟამად"
+msgstr "ამჟამად "
 
 #: ../plugins/weather/weatherwidget.c:2295
 msgid "Today: "
-msgstr "დღეს:"
+msgstr "დღეს: "
 
 #: ../plugins/weather/weatherwidget.c:2296
 msgid "Tomorrow: "
-msgstr "ხვალ:"
+msgstr "ხვალ: "
 
 #: ../plugins/weather/weather.c:415
 msgid "Weather Plugin"
