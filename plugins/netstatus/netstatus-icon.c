@@ -319,25 +319,25 @@ netstatus_icon_init_pixbufs (NetstatusIcon *icon)
 
   netstatus_icon_init_pixbuf (icon,
 			      &icon->priv->signal_icons [NETSTATUS_SIGNAL_0_24],
-			      "gnome-netstatus-0-24");
+			      "network-wireless-signal-weak");
   icon->priv->rotated_signal_icons [NETSTATUS_SIGNAL_0_24] = NULL;
   icon->priv->scaled_signal_icons  [NETSTATUS_SIGNAL_0_24] = NULL;
 
   netstatus_icon_init_pixbuf (icon,
 			      &icon->priv->signal_icons [NETSTATUS_SIGNAL_25_49],
-			      "gnome-netstatus-25-49");
+			      "network-wireless-signal-ok");
   icon->priv->rotated_signal_icons [NETSTATUS_SIGNAL_25_49] = NULL;
   icon->priv->scaled_signal_icons  [NETSTATUS_SIGNAL_25_49] = NULL;
 
   netstatus_icon_init_pixbuf (icon,
 			      &icon->priv->signal_icons [NETSTATUS_SIGNAL_50_74],
-			      "gnome-netstatus-50-74");
+			      "network-wireless-signal-good");
   icon->priv->rotated_signal_icons [NETSTATUS_SIGNAL_50_74] = NULL;
   icon->priv->scaled_signal_icons  [NETSTATUS_SIGNAL_50_74] = NULL;
 
   netstatus_icon_init_pixbuf (icon,
 			      &icon->priv->signal_icons [NETSTATUS_SIGNAL_75_100],
-			      "gnome-netstatus-75-100");
+			      "network-wireless-signal-excellent");
   icon->priv->rotated_signal_icons [NETSTATUS_SIGNAL_75_100] = NULL;
   icon->priv->scaled_signal_icons  [NETSTATUS_SIGNAL_75_100] = NULL;
 

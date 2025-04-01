@@ -37,10 +37,10 @@ lxpanel_images_DATA = \
 	images/file-manager.png \
 	images/gnome-fs-desktop.png \
 	images/gnome-logout.png \
-	images/gnome-netstatus-0-24.png \
-	images/gnome-netstatus-25-49.png \
-	images/gnome-netstatus-50-74.png \
-	images/gnome-netstatus-75-100.png \
+	images/network-wireless-signal-weak.png \
+	images/network-wireless-signal-ok.png \
+	images/network-wireless-signal-good.png \
+	images/network-wireless-signal-excellent.png \
 	images/gnome-netstatus-disconn.png \
 	images/gnome-netstatus-error.png \
 	images/gnome-netstatus-idle.png \
