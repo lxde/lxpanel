@@ -55,7 +55,7 @@ About theming & lxpanel:
 	*"scrllock-off"
 	*"window-manager"
 	*"ns-lock"
-	*"cpufreq-icon"
+	*"cpufreq"
 	*possibly more, as yet unfound.
 
 There are also a substantial amount of others, but they use the icon naming specification.

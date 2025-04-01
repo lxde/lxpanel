@@ -33,7 +33,7 @@
 
 #include "dbg.h"
 
-#define PROC_ICON           "cpufreq-icon"
+#define PROC_ICON           "cpufreq"
 #define SYSFS_CPU_DIRECTORY "/sys/devices/system/cpu"
 #define SCALING_GOV         "scaling_governor"
 #define SCALING_AGOV        "scaling_available_governors"
