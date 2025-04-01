@@ -714,7 +714,7 @@ netstatus_dialog_set_icon (GtkWidget *dialog)
 
   icon_theme = gtk_icon_theme_get_for_screen (gtk_window_get_screen (GTK_WINDOW (dialog)));
 
-  if ((icon_info = gtk_icon_theme_lookup_icon (icon_theme, "gnome-netstatus-tx", 48, 0)))
+  if ((icon_info = gtk_icon_theme_lookup_icon (icon_theme, "network-transmit", 48, 0)))
     {
       gtk_window_set_icon_from_file (GTK_WINDOW (dialog),
 				     gtk_icon_info_get_filename (icon_info),

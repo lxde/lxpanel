@@ -41,12 +41,12 @@ lxpanel_images_DATA = \
 	images/network-wireless-signal-ok.png \
 	images/network-wireless-signal-good.png \
 	images/network-wireless-signal-excellent.png \
-	images/gnome-netstatus-disconn.png \
-	images/gnome-netstatus-error.png \
-	images/gnome-netstatus-idle.png \
-	images/gnome-netstatus-rx.png \
-	images/gnome-netstatus-txrx.png \
-	images/gnome-netstatus-tx.png \
+	images/network-error.png \
+	images/network-idle.png \
+	images/network-offline.png \
+	images/network-receive.png \
+	images/network-transmit-receive.png \
+	images/network-transmit.png \
 	images/background.png \
 	images/volume.png \
 	images/volume-low.png \

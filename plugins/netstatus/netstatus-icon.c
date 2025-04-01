@@ -289,32 +289,32 @@ netstatus_icon_init_pixbufs (NetstatusIcon *icon)
 {
   netstatus_icon_init_pixbuf (icon,
 			      &icon->priv->icons [NETSTATUS_STATE_DISCONNECTED],
-			      "gnome-netstatus-disconn");
+			      "network-offline");
   icon->priv->scaled_icons [NETSTATUS_STATE_DISCONNECTED] = NULL;
 
   netstatus_icon_init_pixbuf (icon,
 			      &icon->priv->icons [NETSTATUS_STATE_IDLE],
-			      "gnome-netstatus-idle");
+			      "network-idle");
   icon->priv->scaled_icons [NETSTATUS_STATE_IDLE] = NULL;
 
   netstatus_icon_init_pixbuf (icon,
 			      &icon->priv->icons [NETSTATUS_STATE_TX],
-			      "gnome-netstatus-tx");
+			      "network-transmit");
   icon->priv->scaled_icons [NETSTATUS_STATE_TX] = NULL;
 
   netstatus_icon_init_pixbuf (icon,
 			      &icon->priv->icons [NETSTATUS_STATE_RX],
-			      "gnome-netstatus-rx");
+			      "network-receive");
   icon->priv->scaled_icons [NETSTATUS_STATE_RX] = NULL;
 
   netstatus_icon_init_pixbuf (icon,
 			      &icon->priv->icons [NETSTATUS_STATE_TX_RX],
-			      "gnome-netstatus-txrx");
+			      "network-transmit-receive");
   icon->priv->scaled_icons [NETSTATUS_STATE_TX_RX] = NULL;
 
   netstatus_icon_init_pixbuf (icon,
 			      &icon->priv->icons [NETSTATUS_STATE_ERROR],
-			      "gnome-netstatus-error");
+			      "network-error");
   icon->priv->scaled_icons [NETSTATUS_STATE_ERROR] = NULL;
 
   netstatus_icon_init_pixbuf (icon,
