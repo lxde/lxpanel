@@ -1,14 +1,20 @@
 LXPanel is a lightweight X11 desktop panel.
 
 To build this program you need some development packages:
-  libtool 2.2 or newer, intltool, libgtk 2.18 or newer,
-  libfm-gtk 1.2 or newer, libwnck, libkeybinder.
+  libtool 2.2 or newer, intltool, pkg-config, libx11, libglib 2.22 or newer,
+  libgtk 2.18 or newer, libfm-gtk 1.2 or newer, libwnck, libkeybinder.
 Optional development packages may be required to build some modules:
   libmenu-cache,
-  libalsasound ('volumealsa' plugin isn't built if missing),
+  libasound2 (required to build 'volume' plugin for ALSA),
+  libiw (required to build 'netstat' plugin),
+  libxml-2.0, libcurl (required to build 'weather' plugin).
+  libgtk 2.20 or newer (required to build 'xkb' plugin).
   libindicator 0.3.0 ('indicator' plugin isn't built if missing),
-  wireless-tools (required to build 'netstat' plugin),
-  libxml-2.0 (required to build 'weather' plugin).
+
+Configure and make:
+
+  ./configure                    # (run './configure --help' for more details)
+  make
 
 To install this program, three other packages are needed:
   menu-cache, libfm-gtk, lxmenu-data.
