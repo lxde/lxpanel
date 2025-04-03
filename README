@@ -79,3 +79,18 @@ About keyboard options translations in xkb plugin:
 The 'xkb' plugin can use translations from language packs that are present
     in many distributions. To use it you should have language pack which
     includes "xkeyboard-config" translations.
+
+
+About the CPUFreq plugin:
+
+A sensible setup to modify the governors from a restricted user account is
+    to add it to a dedicated group with write access to the corresponding
+    sysfs files.
+
+For instance:
+
+  for i in /sys/devices/system/cpu/cpu[0-9]*/cpufreq/scaling_governor \
+           /sys/devices/system/cpu/cpu[0-9]*/cpufreq/scaling_setspeed ; do
+      chown root:cpufreq "$i"
+      chmod 664 "$i"
+  done
