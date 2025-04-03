@@ -10,6 +10,19 @@
 * Improved weather plugin: correct local time, normal closing of dialog,
     easier to recognize information in dialog and tooltip, better quality
     of weather conditions icon and image.
+* HiDPI support on GTK+ 3.
+* Extended battery life check to about a minute before triggering battery
+    alarm.
+* Added an option to disable square brackets around minimized window names.
+* Reworked xkb plugin.
+* Improved tracking of minimized windows.
+* Implemented check for sensors returning error instead of temperature.
+* Restored disabled CPUFreq plugin.
+* Improved icons and updated icon names.
+* Updated the default configuration files.
+* Various fixes for GTK+ 3 compatibility.
+* Various bug fixes and improvements.
+* Updated translations.
 
 0.10.1
 -------------------------------------------------------------------------
