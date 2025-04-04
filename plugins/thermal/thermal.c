@@ -45,7 +45,13 @@
 #define SYSFS_THERMAL_TRIP  "trip_point_0_temp"
 
 #define MAX_NUM_SENSORS 10
-#define MAX_AUTOMATIC_CRITICAL_TEMP 150 /* in degrees Celsius */
+#define TEMPERATURE_INTERNAL_FACTOR 10 /* temperature in degrees celcius is obtained by dividing internal value by TEMPERATURE_INTERNAL_FACTOR */
+#define TIF TEMPERATURE_INTERNAL_FACTOR /* alias */
+#define TIFF ((float)TIF)
+#define MAX_AUTOMATIC_CRITICAL_TEMP (150 * TIF)
+
+#define ABSOLUTE_ZERO (-273 * TIF) /* lowest possible temperature */
+#define ERROR_TEMP (ABSOLUTE_ZERO - 5) /* temperature-returning functions shall return ERROR_TEMP if an error was encountered */
 
 #if !GLIB_CHECK_VERSION(2, 40, 0)
 # define g_info(...) g_log(G_LOG_DOMAIN, G_LOG_LEVEL_INFO, __VA_ARGS__)
@@ -60,7 +66,9 @@ typedef struct thermal {
     GString *tip;
     int warning1;
     int warning2;
-    int not_custom_levels, auto_sensor;
+    int warning1_user; /* user-supplied values are in degrees celcius */
+    int warning2_user;
+    int not_custom_levels, auto_sensor, show_decimal;
     char *sensor,
          *str_cl_normal,
          *str_cl_warning1,
@@ -85,13 +93,13 @@ proc_get_critical(char const* sensor_path){
     char buf[ 256 ], sstmp [ 100 ];
     char* pstr;
 
-    if(sensor_path == NULL) return -1;
+    if(sensor_path == NULL) return ERROR_TEMP;
 
     snprintf(sstmp,sizeof(sstmp),"%s%s",sensor_path,PROC_THERMAL_TRIP);
 
     if (!(state = fopen( sstmp, "r"))) {
         g_warning("thermal: cannot open %s", sstmp);
-        return -1;
+        return ERROR_TEMP;
     }
 
     while( fgets(buf, 256, state) &&
@@ -104,11 +112,11 @@ proc_get_critical(char const* sensor_path){
 
         pstr[strlen(pstr)-3] = '\0';
         fclose(state);
-        return atoi(pstr);
+        return atoi(pstr) * TIF; /* this file contains only integer degrees */
     }
 
     fclose(state);
-    return -1;
+    return ERROR_TEMP;
 }
 
 static gint
@@ -117,13 +125,13 @@ proc_get_temperature(char const* sensor_path){
     char buf[ 256 ], sstmp [ 100 ];
     char* pstr;
 
-    if(sensor_path == NULL) return -1;
+    if(sensor_path == NULL) return ERROR_TEMP;
 
     snprintf(sstmp,sizeof(sstmp),"%s%s",sensor_path,PROC_THERMAL_TEMPF);
 
     if (!(state = fopen( sstmp, "r"))) {
         g_warning("thermal: cannot open %s", sstmp);
-        return -1;
+        return ERROR_TEMP;
     }
 
     while( fgets(buf, 256, state) &&
@@ -136,11 +144,11 @@ proc_get_temperature(char const* sensor_path){
 
         pstr[strlen(pstr)-3] = '\0';
         fclose(state);
-        return atoi(pstr);
+        return atoi(pstr) * TIF; /* this file contains only integer degrees */
     }
 
     fclose(state);
-    return -1;
+    return ERROR_TEMP;
 }
 
 static gint _get_reading(const char *path, gboolean quiet)
@@ -152,26 +160,26 @@ static gint _get_reading(const char *path, gboolean quiet)
     if (!(state = fopen(path, "r"))) {
         if (!quiet)
             g_warning("thermal: cannot open %s", path);
-        return -1;
+        return ERROR_TEMP;
     }
 
     while( fgets(buf, 256, state) &&
             ! ( pstr = buf ) );
+    fclose(state);
     if( pstr )
     {
-        fclose(state);
-        return atoi(pstr)/1000;
+        /* this file uses one thousandth of a degree as unit */
+        return TIF <= 1000 ? (atoi(pstr) / (1000 / TIF)) : (atoi(pstr) * (TIF / 1000)); 
     }
 
-    fclose(state);
-    return -1;
+    return ERROR_TEMP;
 }
 
 static gint
 sysfs_get_critical(char const* sensor_path){
     char sstmp [ 100 ];
 
-    if(sensor_path == NULL) return -1;
+    if(sensor_path == NULL) return ERROR_TEMP;
 
     snprintf(sstmp,sizeof(sstmp),"%s%s",sensor_path,SYSFS_THERMAL_TRIP);
 
@@ -182,7 +190,7 @@ static gint
 sysfs_get_temperature(char const* sensor_path){
     char sstmp [ 100 ];
 
-    if(sensor_path == NULL) return -1;
+    if(sensor_path == NULL) return ERROR_TEMP;
 
     snprintf(sstmp,sizeof(sstmp),"%s%s",sensor_path,SYSFS_THERMAL_TEMPF);
 
@@ -195,11 +203,11 @@ hwmon_get_critical(char const* sensor_path)
     char sstmp [ 100 ];
     int spl;
 
-    if(sensor_path == NULL) return -1;
+    if(sensor_path == NULL) return ERROR_TEMP;
 
     spl = strlen(sensor_path) - 6;
     if (spl < 17 || spl > 94)
-        return -1;
+        return ERROR_TEMP;
 
     snprintf(sstmp, sizeof(sstmp), "%.*s_crit", spl, sensor_path);
 
@@ -209,28 +217,44 @@ hwmon_get_critical(char const* sensor_path)
 static gint
 hwmon_get_temperature(char const* sensor_path)
 {
-    if(sensor_path == NULL) return -1;
+    if(sensor_path == NULL) return ERROR_TEMP;
 
     return _get_reading(sensor_path, FALSE);
 }
 
+static gint
+rawfile_get_temperature(char const* sensor_path)
+{
+    if(sensor_path == NULL) return ERROR_TEMP;
+
+    /* assume same format as /sys/class/thermal */
+    return _get_reading(sensor_path, FALSE);
+}
+
+static gint
+rawfile_get_critical(char const* sensor_path)
+{
+    /* this case is not supported, let users use custom thresholds */
+    return ERROR_TEMP;
+}
+
 static gint get_temperature(thermal *th, gint *warn)
 {
-    gint max = -273;
+    gint max = ABSOLUTE_ZERO;
     gint cur, i, w = 0;
 
     for(i = 0; i < th->numsensors; i++){
         cur = th->get_temperature[i](th->sensor_array[i]);
         if (w == 2) ; /* already warning2 */
         else if (th->not_custom_levels &&
-                 th->critical[i] > 0 && cur >= th->critical[i] - 5)
+                 th->critical[i] > 0 && cur >= th->critical[i] - 5 * TIF)
             w = 2;
         else if ((!th->not_custom_levels || th->critical[i] < 0) &&
                  cur >= th->warning2)
             w = 2;
         else if (w == 1) ; /* already warning1 */
         else if (th->not_custom_levels &&
-                 th->critical[i] > 0 && cur >= th->critical[i] - 10)
+                 th->critical[i] > 0 && cur >= th->critical[i] - 10 * TIF)
             w = 1;
         else if ((!th->not_custom_levels || th->critical[i] < 0) &&
                  cur >= th->warning1)
@@ -267,6 +291,12 @@ update_display(thermal *th)
     GdkColor color;
     gchar *separator;
 
+    if (!th->not_custom_levels) {
+        /* user-supplied values are in degrees celcius */
+        th->warning1 = th->warning1_user * TIF;
+        th->warning2 = th->warning2_user * TIF;
+    }
+
     temp = get_temperature(th, &i);
     if (i >= 2)
         color = th->cl_warning2;
@@ -275,18 +305,26 @@ update_display(thermal *th)
     else
         color = th->cl_normal;
 
-    if(temp == -1)
+    if(temp == ERROR_TEMP)
         lxpanel_draw_label_text(th->panel, th->namew, "NA", TRUE, 1, TRUE);
     else
     {
-        snprintf(buffer, sizeof(buffer), "%02d", temp);
+        if (th->show_decimal)
+            snprintf(buffer, sizeof(buffer), "%.1f", (float)temp / TIFF);
+        else
+            snprintf(buffer, sizeof(buffer), "%02d", temp / TIF));
+
         lxpanel_draw_label_text_with_color(th->panel, th->namew, buffer, TRUE, 1, &color);
     }
 
     g_string_truncate(th->tip, 0);
     separator = "";
     for (i = 0; i < th->numsensors; i++){
-        g_string_append_printf(th->tip, "%s%s:\t%2d°C", separator, th->sensor_name[i], th->temperature[i]);
+        gint sensor_temp = th->temperature[i];
+        if (th->show_decimal)
+            g_string_append_printf(th->tip, "%s%s:\t%.1f°C", separator, th->sensor_name[i], (float)sensor_temp / TIFF);
+        else
+            g_string_append_printf(th->tip, "%s%s:\t%2d°C", separator, th->sensor_name[i], sensor_temp / TIF);
         separator = "\n";
     }
     gtk_widget_set_tooltip_text(th->namew, th->tip->str);
@@ -454,28 +492,38 @@ static gboolean applyConfig(gpointer p)
     /* FIXME: support wildcards in th->sensor */
     if(th->sensor == NULL) th->auto_sensor = TRUE;
     if(th->auto_sensor) check_sensors(th);
-    else if (strncmp(th->sensor, "/sys/", 5) != 0)
+    else if (strncmp(th->sensor, "/proc/", 6) == 0) {
         add_sensor(th, th->sensor, th->sensor, proc_get_temperature, proc_get_critical);
-    else if (strncmp(th->sensor, "/sys/class/hwmon/", 17) != 0)
-        add_sensor(th, th->sensor, th->sensor, sysfs_get_temperature, sysfs_get_critical);
-    else
-        add_sensor(th, th->sensor, th->sensor, hwmon_get_temperature, hwmon_get_critical);
+    }
+    else if (strncmp(th->sensor, "/sys/", 5) == 0) {
+        if (strncmp(th->sensor, "/sys/class/hwmon/", 17) != 0)
+            add_sensor(th, th->sensor, th->sensor, sysfs_get_temperature, sysfs_get_critical);
+        else
+            add_sensor(th, th->sensor, th->sensor, hwmon_get_temperature, hwmon_get_critical);
+    } else {
+        /* custom file */
+        add_sensor(th, th->sensor, th->sensor, rawfile_get_temperature, rawfile_get_critical);
+    }
 
     critical = get_critical(th);
 
     if(th->not_custom_levels){
-        th->warning1 = critical - 10;
-        th->warning2 = critical - 5;
+        th->warning1 = critical - 10 * TIF;
+        th->warning2 = critical - 5 * TIF;
+    } else {
+        th->warning1 = th->warning1_user * TIF;
+        th->warning2 = th->warning2_user * TIF;
     }
 
     config_group_set_string(th->settings, "NormalColor", th->str_cl_normal);
     config_group_set_string(th->settings, "Warning1Color", th->str_cl_warning1);
     config_group_set_string(th->settings, "Warning2Color", th->str_cl_warning2);
+    config_group_set_int(th->settings, "ShowDecimal", th->show_decimal);
     config_group_set_int(th->settings, "AutomaticLevels", th->not_custom_levels);
     /* TODO: clean obsolete setting
     config_setting_remove(th->settings, "CustomLevels"); */
-    config_group_set_int(th->settings, "Warning1Temp", th->warning1);
-    config_group_set_int(th->settings, "Warning2Temp", th->warning2);
+    config_group_set_int(th->settings, "Warning1Temp", th->warning1_user);
+    config_group_set_int(th->settings, "Warning2Temp", th->warning2_user);
     config_group_set_int(th->settings, "AutomaticSensor", th->auto_sensor);
     config_group_set_string(th->settings, "Sensor", th->sensor);
     RET(FALSE);
@@ -534,10 +582,13 @@ thermal_constructor(LXPanel *panel, config_setting_t *settings)
     /* backward compatibility for wrong variable */
     config_setting_lookup_int(settings, "CustomLevels", &th->not_custom_levels);
     config_setting_lookup_int(settings, "AutomaticLevels", &th->not_custom_levels);
+    config_setting_lookup_int(settings, "ShowDecimal", &th->show_decimal);
     if (config_setting_lookup_string(settings, "Sensor", &tmp))
         th->sensor = g_strdup(tmp);
-    config_setting_lookup_int(settings, "Warning1Temp", &th->warning1);
-    config_setting_lookup_int(settings, "Warning2Temp", &th->warning2);
+    config_setting_lookup_int(settings, "Warning1Temp", &th->warning1_user);
+    config_setting_lookup_int(settings, "Warning2Temp", &th->warning2_user);
+    th->warning1 = th->warning1_user * TIF;
+    th->warning2 = th->warning2_user * TIF;
 
     if(!th->str_cl_normal)
         th->str_cl_normal = g_strdup("#00ff00");
@@ -567,11 +618,12 @@ static GtkWidget *config(LXPanel *panel, GtkWidget *p)
             _("Normal color"), &th->str_cl_normal, CONF_TYPE_STR,
             _("Warning1 color"), &th->str_cl_warning1, CONF_TYPE_STR,
             _("Warning2 color"), &th->str_cl_warning2, CONF_TYPE_STR,
+            _("Show Decimal Place"), &th->show_decimal, CONF_TYPE_BOOL,
             _("Automatic sensor location"), &th->auto_sensor, CONF_TYPE_BOOL, // FIXME: if off, disable next one
             _("Sensor"), &th->sensor, CONF_TYPE_STR, // FIXME: create a list to select instead
             _("Automatic temperature levels"), &th->not_custom_levels, CONF_TYPE_BOOL, // FIXME: if off, disable two below
-            _("Warning1 temperature"), &th->warning1, CONF_TYPE_INT,
-            _("Warning2 temperature"), &th->warning2, CONF_TYPE_INT,
+            _("Warning1 temperature"), &th->warning1_user, CONF_TYPE_INT,
+            _("Warning2 temperature"), &th->warning2_user, CONF_TYPE_INT,
             NULL);
 
     RET(dialog);
