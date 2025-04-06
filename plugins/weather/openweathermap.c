@@ -1,7 +1,7 @@
 /*
  * Copyright (C) 2012-2014 Piotr Sipika.
  * Copyright (C) 2019 Andriy Grytsenko <andrej@rep.kiev.ua>
- * Copyright (C) 2023 Ingo Brückl
+ * Copyright (C) 2023,2025 Ingo Brückl
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -801,9 +801,9 @@ display_name="City of Berlin, Green Lake County, Вісконсин, Сполу�
     if (!value) /* no class property */
         goto _fail;
 
-    res = strcmp(value, "place");
+    res = (strcmp(value, "place") && strcmp(value, "boundary"));
     xmlFree(value);
-    if (res != 0) /* ignore other than class="place" */
+    if (res != 0) /* ignore other than class="place" or class="boundary" */
         goto _fail;
 
     value = CHAR_P(xmlGetProp(pNode, XMLCHAR_P("lon")));
@@ -930,7 +930,7 @@ getOSMLocationInfo(ProviderInfo * instance, const gchar * pczLocation)
     GList * pList = NULL;
     gchar * pcEscapedLocation = convertToASCII(pczLocation);
     gchar * cQuery = g_strdup_printf("https://nominatim.openstreetmap.org/search?"
-                                     "q=%s&addressdetails=1&format=xml",
+                                     "q=%s&addressdetails=1&format=xml&layer=address",
                                      pcEscapedLocation);
     const gchar * locale;
     struct utsname uts;
