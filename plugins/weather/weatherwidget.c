@@ -1,6 +1,6 @@
 /**
  * Copyright (c) 2012-2014 Piotr Sipika; see the AUTHORS file for more.
- * Copyright (C) 2023 Ingo Brückl
+ * Copyright (C) 2023,2025 Ingo Brückl
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -2137,7 +2137,8 @@ gtk_weather_show_location_list(GtkWeather * weather, GList * list)
 
   /* state */
   cell_renderer = gtk_cell_renderer_text_new();
-  treeview_column = gtk_tree_view_column_new_with_attributes(C_("Politics", "State"),
+  /* This means a state, a county, a province, or similar. */
+  treeview_column = gtk_tree_view_column_new_with_attributes(_("Region"),
                                                              cell_renderer,
                                                              "text",
                                                              STATE_COLUMN,

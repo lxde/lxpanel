@@ -833,11 +833,12 @@ display_name="City of Berlin, Green Lake County, Вісконсин, Сполу�
             else if (!info->pcCity_ && xmlStrEqual(pCurr->name, CONSTXMLCHAR_P("city")))
                 info->pcCity_ = g_strdup(value);
             else if (xmlStrEqual(pCurr->name, CONSTXMLCHAR_P("state")))
+            {
+                g_free(info->pcState_);
                 info->pcState_ = g_strdup(value);
-/*
-            else if (xmlStrEqual(pCurr->name, CONSTXMLCHAR_P("county")))
-                info->pcCounty_ = g_strdup(value);
-*/
+            }
+            else if (!info->pcState_ && xmlStrEqual(pCurr->name, CONSTXMLCHAR_P("county")))
+                info->pcState_ = g_strdup(value);
             else if (xmlStrEqual(pCurr->name, CONSTXMLCHAR_P("country")))
                 info->pcCountry_ = g_strdup(value);
             xmlFree(value);
