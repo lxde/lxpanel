@@ -2,13 +2,13 @@
 # Copyright (C) 2006 lxde team
 # This file is distributed under the same license as the lxpanel package.
 # Ivan Masár <helix84@centrum.sk>, 2007, 2009, 2010.
-# Jose Riha <jose1711 gmail com>, 2020.
+# Jose Riha <jose1711 gmail com>, 2020, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-03-30 13:47+0200\n"
-"PO-Revision-Date: 2020-12-12 22:51+0100\n"
+"PO-Revision-Date: 2025-04-07 00:09+0200\n"
 "Last-Translator: Jose Riha <jose1711@gmail.com>\n"
 "Language-Team: Slovak <sk-i18n@lists.linux.sk>\n"
 "Language: sk\n"
@@ -277,7 +277,6 @@ msgid "Spacer"
 msgstr "Rozostup"
 
 #: ../src/space.c:396 ../plugins/batt/batt.c:740
-#, fuzzy
 #| msgid "Size"
 msgctxt "Width"
 msgid "Size"
@@ -317,7 +316,7 @@ msgstr "Ploché tlačidlá"
 
 #: ../data/ui/launchtaskbar.glade.h:9
 msgid "Show square brackets around the names of minimized windows"
-msgstr ""
+msgstr "Zobrazovať hranaté zátvorky okolo názvov minimalizovaných okien"
 
 #: ../data/ui/launchtaskbar.glade.h:10
 msgid "Show windows from all desktops"
@@ -547,7 +546,6 @@ msgid "Custom color"
 msgstr "Vlastná farba"
 
 #: ../data/ui/panel-pref.glade.h:32
-#, fuzzy
 #| msgid "Size"
 msgctxt "Font"
 msgid "Size"
@@ -982,14 +980,13 @@ msgid "Display system temperature"
 msgstr "Zobrazovanie teploty systému"
 
 #: ../plugins/cpufreq/cpufreq.c:283
-#, fuzzy
 #| msgid "CPUFreq frontend"
 msgid "CPUFreq not supported"
-msgstr "Používateľské rozhranie pre CPUFreq"
+msgstr "CPUFreq nie je podporované"
 
 #: ../plugins/cpufreq/cpufreq.c:292
 msgid "   Frequency"
-msgstr ""
+msgstr "   frekvencia"
 
 #: ../plugins/cpufreq/cpufreq.c:356
 #, c-format
@@ -1015,10 +1012,10 @@ msgstr ""
 "lxpanel."
 
 #: ../plugins/volumealsa/volumealsa.c:615
-#, fuzzy, c-format
+#, c-format
 #| msgid "Volume"
 msgid "Volume: %d%%"
-msgstr "Hlasitosť"
+msgstr "Hlasitosť: %d%%"
 
 #: ../plugins/volumealsa/volumealsa.c:703
 msgid ""
@@ -1061,14 +1058,13 @@ msgid "Speaker+LO"
 msgstr "Reproduktor+LO"
 
 #: ../plugins/volumealsa/volumealsa.c:1332
-#, fuzzy
 #| msgid "Speaker+LO"
 msgid "Speaker"
-msgstr "Reproduktor+LO"
+msgstr "Reproduktor"
 
 #: ../plugins/volumealsa/volumealsa.c:1332
 msgid "Beep"
-msgstr ""
+msgstr "Pípnutie"
 
 #: ../plugins/volumealsa/volumealsa.c:1371
 msgid "default"
@@ -1094,7 +1090,7 @@ msgstr "Kliknite pre posuvník hlasitosti"
 #: ../plugins/volumealsa/volumealsa.c:1467
 #: ../plugins/volumealsa/volumealsa.c:1472
 msgid "Click to select, then press a mouse button"
-msgstr ""
+msgstr "Kliknite pre výber, potom kliknite myšou"
 
 #: ../plugins/volumealsa/volumealsa.c:1466
 msgid "Click for Toggle Mute"
@@ -1112,7 +1108,7 @@ msgstr "Klávesová skratka pre zvýšenie hlasitosti"
 #: ../plugins/volumealsa/volumealsa.c:1480
 #: ../plugins/volumealsa/volumealsa.c:1483
 msgid "Click to select, then press a key"
-msgstr ""
+msgstr "Kliknite pre výber, potom stlačte kláves"
 
 #: ../plugins/volumealsa/volumealsa.c:1479
 msgid "Hotkey for Volume Down"
@@ -1361,7 +1357,6 @@ msgid "The interface name"
 msgstr "Názov rozhrania"
 
 #: ../plugins/netstatus/netstatus-iface.c:157
-#, fuzzy
 #| msgid "State"
 msgctxt "Network"
 msgid "State"
@@ -1606,10 +1601,10 @@ msgid "Sending/Receiving"
 msgstr "Odosiela/prijíma"
 
 #: ../plugins/batt/batt.c:159
-#, fuzzy, c-format
+#, c-format
 #| msgid "Battery %d: %d%% charged, %d:%02d until full"
 msgid "Battery: %d%% charged, %d:%02d until full"
-msgstr "Batéria %d: nabitá na %d %%, %d:%02d do plného nabitia"
+msgstr "Batéria: nabitá na %d %%, %d:%02d do plného nabitia"
 
 #: ../plugins/batt/batt.c:163
 #, c-format
@@ -1617,10 +1612,10 @@ msgid "Battery %d: %d%% charged, %d:%02d until full"
 msgstr "Batéria %d: nabitá na %d %%, %d:%02d do plného nabitia"
 
 #: ../plugins/batt/batt.c:178
-#, fuzzy, c-format
+#, c-format
 #| msgid "Battery %d: %d%% charged, %d:%02d left"
 msgid "Battery: %d%% charged, %d:%02d left"
-msgstr "Batéria %d: nabitá na %d %%, %d: zostáva %02d"
+msgstr "Batéria: nabitá na %d %%, zostáva %d:%02d"
 
 #: ../plugins/batt/batt.c:182
 #, c-format
@@ -1628,10 +1623,10 @@ msgid "Battery %d: %d%% charged, %d:%02d left"
 msgstr "Batéria %d: nabitá na %d %%, %d: zostáva %02d"
 
 #: ../plugins/batt/batt.c:190
-#, fuzzy, c-format
+#, c-format
 #| msgid "Battery %d: %d%% charged"
 msgid "Battery: %d%% charged"
-msgstr "Batéria %d: nabitá na %d %%"
+msgstr "Batéria: nabitá na %d %%"
 
 #: ../plugins/batt/batt.c:194
 #, c-format
@@ -1711,7 +1706,7 @@ msgstr ""
 "%sPrúd teraz:\t\t\t%5d mA"
 
 #: ../plugins/batt/batt.c:222
-#, fuzzy, c-format
+#, c-format
 #| msgid ""
 #| "\n"
 #| "%sCurrent Voltage:\t\t%.3lf V"
@@ -1780,7 +1775,7 @@ msgstr "Počet batérií na monitorovanie"
 
 #: ../plugins/batt/batt.c:744
 msgid "Don't show number of battery"
-msgstr ""
+msgstr "Nezobrazovať číslo batérie"
 
 #: ../plugins/batt/batt.c:754
 msgid "Display battery status using ACPI"
@@ -1870,7 +1865,7 @@ msgstr "Farba RAM"
 
 #: ../plugins/monitors/monitors.c:750
 msgid "Show memory used by cache as free"
-msgstr ""
+msgstr "Zobrazovať pamäť použiťú pre cache ako voľnú"
 
 #: ../plugins/monitors/monitors.c:751
 msgid "Action when clicked (default: lxtask)"
@@ -2062,7 +2057,6 @@ msgid "City"
 msgstr "Mesto"
 
 #: ../plugins/weather/weatherwidget.c:2140
-#, fuzzy
 #| msgid "State"
 msgctxt "Politics"
 msgid "State"
