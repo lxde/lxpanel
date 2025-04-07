@@ -2034,7 +2034,7 @@ msgstr "Borg"
 #. This means a state, a county, a province, or similar.
 #: ../plugins/weather/weatherwidget.c:2141
 msgid "Region"
-msgstr ""
+msgstr "Hérað/Svæði"
 
 #: ../plugins/weather/weatherwidget.c:2151
 msgid "Country"
