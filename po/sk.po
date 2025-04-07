@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-04-07 09:15+0200\n"
-"PO-Revision-Date: 2025-04-07 00:09+0200\n"
+"PO-Revision-Date: 2025-04-07 22:01+0200\n"
 "Last-Translator: Jose Riha <jose1711@gmail.com>\n"
 "Language-Team: Slovak <sk-i18n@lists.linux.sk>\n"
 "Language: sk\n"
@@ -2059,7 +2059,7 @@ msgstr "Mesto"
 #. This means a state, a county, a province, or similar.
 #: ../plugins/weather/weatherwidget.c:2141
 msgid "Region"
-msgstr ""
+msgstr "Oblasť"
 
 #: ../plugins/weather/weatherwidget.c:2151
 msgid "Country"
