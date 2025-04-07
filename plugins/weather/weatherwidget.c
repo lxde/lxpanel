@@ -2117,7 +2117,7 @@ gtk_weather_show_location_list(GtkWeather * weather, GList * list)
                                                    GTK_STOCK_CANCEL, GTK_RESPONSE_REJECT,
                                                    NULL);
 
-  gtk_widget_set_size_request(dialog, 300, 250);
+  gtk_widget_set_size_request(dialog, 400, 300);
 
   /* Set dialog window icon */
   gtk_weather_set_window_icon(GTK_WINDOW(dialog), "gtk-properties");
