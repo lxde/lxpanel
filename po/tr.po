@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-30 13:47+0200\n"
+"POT-Creation-Date: 2025-04-07 09:15+0200\n"
 "PO-Revision-Date: 2017-05-22 14:39+0000\n"
 "Last-Translator: nyucel <necdetyucel@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -2046,13 +2046,13 @@ msgid "Sunset:"
 msgstr "Günbatımı:"
 
 #: ../plugins/weather/weatherwidget.c:1958
-#: ../plugins/weather/weatherwidget.c:2309
+#: ../plugins/weather/weatherwidget.c:2310
 #, c-format
 msgid "Forecast for %s unavailable."
 msgstr "%s için hava tahmini kullanılamıyor."
 
 #: ../plugins/weather/weatherwidget.c:1967
-#: ../plugins/weather/weatherwidget.c:2314
+#: ../plugins/weather/weatherwidget.c:2315
 #, c-format
 msgid "Location not set."
 msgstr "Konum ayarlanmadı."
@@ -2071,29 +2071,27 @@ msgstr "'%s' için konum eşleşmeleri"
 msgid "City"
 msgstr "Şehir"
 
-#: ../plugins/weather/weatherwidget.c:2140
-#, fuzzy
-#| msgid "State"
-msgctxt "Politics"
-msgid "State"
-msgstr "Durum"
+#. This means a state, a county, a province, or similar.
+#: ../plugins/weather/weatherwidget.c:2141
+msgid "Region"
+msgstr ""
 
-#: ../plugins/weather/weatherwidget.c:2150
+#: ../plugins/weather/weatherwidget.c:2151
 msgid "Country"
 msgstr "Ülke"
 
 # Önceki çevirmene: takıntı borç, sorun, obsesyon (en çok bu kullanılır) ya da
 # manita anlamına gelir. Yöresel ağızda ise mücevher.  Ancak "plugin" anlamına
 # gelmez.
-#: ../plugins/weather/weatherwidget.c:2289
+#: ../plugins/weather/weatherwidget.c:2290
 msgid "Currently in "
 msgstr "Şu anda çık "
 
-#: ../plugins/weather/weatherwidget.c:2295
+#: ../plugins/weather/weatherwidget.c:2296
 msgid "Today: "
 msgstr "Bugün: "
 
-#: ../plugins/weather/weatherwidget.c:2296
+#: ../plugins/weather/weatherwidget.c:2297
 msgid "Tomorrow: "
 msgstr "Yarın: "
 
@@ -2185,9 +2183,15 @@ msgstr ""
 msgid "m"
 msgstr ""
 
-#: ../plugins/weather/openweathermap.c:1052
+#: ../plugins/weather/openweathermap.c:1058
 msgid "OpenWeatherMap"
 msgstr ""
+
+#, fuzzy
+#~| msgid "State"
+#~ msgctxt "Politics"
+#~ msgid "State"
+#~ msgstr "Durum"
 
 #~ msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
 #~ msgstr " --log <sayı> -- günlük düzeyini belirle 0-5. 0 - hiç 5 - geveze\n"

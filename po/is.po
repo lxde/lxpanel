@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LXPanel 0.8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-30 13:47+0200\n"
+"POT-Creation-Date: 2025-04-07 09:15+0200\n"
 "PO-Revision-Date: 2025-03-30 12:58+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic\n"
@@ -271,7 +271,6 @@ msgid "Spacer"
 msgstr "Bil"
 
 #: ../src/space.c:396 ../plugins/batt/batt.c:740
-#| msgid "Size"
 msgctxt "Width"
 msgid "Size"
 msgstr "Breidd"
@@ -540,7 +539,6 @@ msgid "Custom color"
 msgstr "Sérsniðinn litur"
 
 #: ../data/ui/panel-pref.glade.h:32
-#| msgid "Size"
 msgctxt "Font"
 msgid "Size"
 msgstr "Stærð"
@@ -972,7 +970,6 @@ msgid "Display system temperature"
 msgstr "Birta hitastig í kerfinu"
 
 #: ../plugins/cpufreq/cpufreq.c:283
-#| msgid "CPUFreq frontend"
 msgid "CPUFreq not supported"
 msgstr "CPUFreq ekki stutt"
 
@@ -1003,7 +1000,6 @@ msgstr "ALSA (eða pulseaudio) á í vandræðum. Athugaðu lxpanel-atvikaskrár
 
 #: ../plugins/volumealsa/volumealsa.c:615
 #, c-format
-#| msgid "Volume"
 msgid "Volume: %d%%"
 msgstr "Hljóðstyrkur: %d%%"
 
@@ -1048,7 +1044,6 @@ msgid "Speaker+LO"
 msgstr "Hátalari+LÚ"
 
 #: ../plugins/volumealsa/volumealsa.c:1332
-#| msgid "Speaker+LO"
 msgid "Speaker"
 msgstr "Hátalari"
 
@@ -1346,7 +1341,6 @@ msgid "The interface name"
 msgstr "Heiti netkortsins"
 
 #: ../plugins/netstatus/netstatus-iface.c:157
-#| msgid "State"
 msgctxt "Network"
 msgid "State"
 msgstr "Staða"
@@ -1589,7 +1583,6 @@ msgstr "Sendi/Móttek"
 
 #: ../plugins/batt/batt.c:159
 #, c-format
-#| msgid "Battery %d: %d%% charged, %d:%02d until full"
 msgid "Battery: %d%% charged, %d:%02d until full"
 msgstr "Rafhlaða: %d%% hlaðin, %d:%02d þar til fullhlaðin"
 
@@ -1600,7 +1593,6 @@ msgstr "Rafhlaða %d: %d%% hlaðin, %d:%02d þar til fullhlaðin"
 
 #: ../plugins/batt/batt.c:178
 #, c-format
-#| msgid "Battery %d: %d%% charged, %d:%02d left"
 msgid "Battery: %d%% charged, %d:%02d left"
 msgstr "Rafhlaða: %d%% hlaðin, %d:%02d eftir"
 
@@ -1611,7 +1603,6 @@ msgstr "Rafhlaða %d: %d%% hlaðin, %d:%02d eftir"
 
 #: ../plugins/batt/batt.c:190
 #, c-format
-#| msgid "Battery %d: %d%% charged"
 msgid "Battery: %d%% charged"
 msgstr "Rafhlaða: %d%% hlaðin"
 
@@ -1694,9 +1685,6 @@ msgstr ""
 
 #: ../plugins/batt/batt.c:222
 #, c-format
-#| msgid ""
-#| "\n"
-#| "%sCurrent Voltage:\t\t%.3lf V"
 msgid ""
 "\n"
 "%sVoltage now:\t\t%.3lf V"
@@ -2018,13 +2006,13 @@ msgid "Sunset:"
 msgstr "Sólsetur:"
 
 #: ../plugins/weather/weatherwidget.c:1958
-#: ../plugins/weather/weatherwidget.c:2309
+#: ../plugins/weather/weatherwidget.c:2310
 #, c-format
 msgid "Forecast for %s unavailable."
 msgstr "Spá fyrir %s er ekki tiltæk."
 
 #: ../plugins/weather/weatherwidget.c:1967
-#: ../plugins/weather/weatherwidget.c:2314
+#: ../plugins/weather/weatherwidget.c:2315
 #, c-format
 msgid "Location not set."
 msgstr "Staðsetning var ekki skilgreind."
@@ -2043,25 +2031,24 @@ msgstr "Samsvarandi staðir fyrir '%s'"
 msgid "City"
 msgstr "Borg"
 
-#: ../plugins/weather/weatherwidget.c:2140
-#| msgid "State"
-msgctxt "Politics"
-msgid "State"
-msgstr "Staða"
+#. This means a state, a county, a province, or similar.
+#: ../plugins/weather/weatherwidget.c:2141
+msgid "Region"
+msgstr ""
 
-#: ../plugins/weather/weatherwidget.c:2150
+#: ../plugins/weather/weatherwidget.c:2151
 msgid "Country"
 msgstr "Land"
 
-#: ../plugins/weather/weatherwidget.c:2289
+#: ../plugins/weather/weatherwidget.c:2290
 msgid "Currently in "
 msgstr "Núna í "
 
-#: ../plugins/weather/weatherwidget.c:2295
+#: ../plugins/weather/weatherwidget.c:2296
 msgid "Today: "
 msgstr "Í dag: "
 
-#: ../plugins/weather/weatherwidget.c:2296
+#: ../plugins/weather/weatherwidget.c:2297
 msgid "Tomorrow: "
 msgstr "Á morgun: "
 
@@ -2153,6 +2140,11 @@ msgstr "m/sek"
 msgid "m"
 msgstr "m"
 
-#: ../plugins/weather/openweathermap.c:1052
+#: ../plugins/weather/openweathermap.c:1058
 msgid "OpenWeatherMap"
 msgstr "OpenWeatherMap"
+
+#~| msgid "State"
+#~ msgctxt "Politics"
+#~ msgid "State"
+#~ msgstr "Staða"

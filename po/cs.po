@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel 0.3.99\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-30 13:47+0200\n"
+"POT-Creation-Date: 2025-04-07 09:15+0200\n"
 "PO-Revision-Date: 2016-11-01 00:05+0100\n"
 "Last-Translator: Pavel Fric <pavelfric@seznam.cz>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -2030,13 +2030,13 @@ msgid "Sunset:"
 msgstr "Západ Slunce:"
 
 #: ../plugins/weather/weatherwidget.c:1958
-#: ../plugins/weather/weatherwidget.c:2309
+#: ../plugins/weather/weatherwidget.c:2310
 #, c-format
 msgid "Forecast for %s unavailable."
 msgstr "Předpověď pro %s není dostupná."
 
 #: ../plugins/weather/weatherwidget.c:1967
-#: ../plugins/weather/weatherwidget.c:2314
+#: ../plugins/weather/weatherwidget.c:2315
 #, c-format
 msgid "Location not set."
 msgstr "Poloha nebyla zadána."
@@ -2055,26 +2055,24 @@ msgstr "Stanoviště odpovídá '%s'"
 msgid "City"
 msgstr "Město"
 
-#: ../plugins/weather/weatherwidget.c:2140
-#, fuzzy
-#| msgid "State"
-msgctxt "Politics"
-msgid "State"
-msgstr "Stav"
+#. This means a state, a county, a province, or similar.
+#: ../plugins/weather/weatherwidget.c:2141
+msgid "Region"
+msgstr ""
 
-#: ../plugins/weather/weatherwidget.c:2150
+#: ../plugins/weather/weatherwidget.c:2151
 msgid "Country"
 msgstr "Země"
 
-#: ../plugins/weather/weatherwidget.c:2289
+#: ../plugins/weather/weatherwidget.c:2290
 msgid "Currently in "
 msgstr "Nyní v "
 
-#: ../plugins/weather/weatherwidget.c:2295
+#: ../plugins/weather/weatherwidget.c:2296
 msgid "Today: "
 msgstr "Dnes: "
 
-#: ../plugins/weather/weatherwidget.c:2296
+#: ../plugins/weather/weatherwidget.c:2297
 msgid "Tomorrow: "
 msgstr "Zítra: "
 
@@ -2166,9 +2164,15 @@ msgstr ""
 msgid "m"
 msgstr ""
 
-#: ../plugins/weather/openweathermap.c:1052
+#: ../plugins/weather/openweathermap.c:1058
 msgid "OpenWeatherMap"
 msgstr ""
+
+#, fuzzy
+#~| msgid "State"
+#~ msgctxt "Politics"
+#~ msgid "State"
+#~ msgstr "Stav"
 
 #~ msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
 #~ msgstr ""

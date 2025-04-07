@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LxPanel\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-30 13:47+0200\n"
+"POT-Creation-Date: 2025-04-07 09:15+0200\n"
 "PO-Revision-Date: 2012-10-24 14:43+0200\n"
 "Last-Translator: Steve <yorvik.ubunto@gmail.com>\n"
 "Language-Team: English UK en_GB <yorvik.ubunto@googlemail.com>\n"
@@ -2018,13 +2018,13 @@ msgid "Sunset:"
 msgstr ""
 
 #: ../plugins/weather/weatherwidget.c:1958
-#: ../plugins/weather/weatherwidget.c:2309
+#: ../plugins/weather/weatherwidget.c:2310
 #, c-format
 msgid "Forecast for %s unavailable."
 msgstr ""
 
 #: ../plugins/weather/weatherwidget.c:1967
-#: ../plugins/weather/weatherwidget.c:2314
+#: ../plugins/weather/weatherwidget.c:2315
 #, fuzzy, c-format
 msgid "Location not set."
 msgstr "Logout command is not set"
@@ -2043,27 +2043,25 @@ msgstr ""
 msgid "City"
 msgstr ""
 
-#: ../plugins/weather/weatherwidget.c:2140
-#, fuzzy
-#| msgid "State"
-msgctxt "Politics"
-msgid "State"
-msgstr "State"
+#. This means a state, a county, a province, or similar.
+#: ../plugins/weather/weatherwidget.c:2141
+msgid "Region"
+msgstr ""
 
-#: ../plugins/weather/weatherwidget.c:2150
+#: ../plugins/weather/weatherwidget.c:2151
 msgid "Country"
 msgstr ""
 
-#: ../plugins/weather/weatherwidget.c:2289
+#: ../plugins/weather/weatherwidget.c:2290
 #, fuzzy
 msgid "Currently in "
 msgstr "Currently loaded plugins"
 
-#: ../plugins/weather/weatherwidget.c:2295
+#: ../plugins/weather/weatherwidget.c:2296
 msgid "Today: "
 msgstr ""
 
-#: ../plugins/weather/weatherwidget.c:2296
+#: ../plugins/weather/weatherwidget.c:2297
 msgid "Tomorrow: "
 msgstr ""
 
@@ -2156,9 +2154,15 @@ msgstr ""
 msgid "m"
 msgstr ""
 
-#: ../plugins/weather/openweathermap.c:1052
+#: ../plugins/weather/openweathermap.c:1058
 msgid "OpenWeatherMap"
 msgstr ""
+
+#, fuzzy
+#~| msgid "State"
+#~ msgctxt "Politics"
+#~ msgid "State"
+#~ msgstr "State"
 
 #~ msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
 #~ msgstr " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"

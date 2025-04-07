@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-30 13:47+0200\n"
+"POT-Creation-Date: 2025-04-07 09:15+0200\n"
 "PO-Revision-Date: 2017-05-22 15:08+0000\n"
 "Last-Translator: صفا الفليج <safa1996alfulaij@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -2029,13 +2029,13 @@ msgid "Sunset:"
 msgstr "الغروب:"
 
 #: ../plugins/weather/weatherwidget.c:1958
-#: ../plugins/weather/weatherwidget.c:2309
+#: ../plugins/weather/weatherwidget.c:2310
 #, c-format
 msgid "Forecast for %s unavailable."
 msgstr "تنبّؤ طقس %s غير متوفّر."
 
 #: ../plugins/weather/weatherwidget.c:1967
-#: ../plugins/weather/weatherwidget.c:2314
+#: ../plugins/weather/weatherwidget.c:2315
 #, c-format
 msgid "Location not set."
 msgstr "لم يُعيَّن مكان."
@@ -2054,26 +2054,24 @@ msgstr "الأماكن المطابقة لِـ '%s'"
 msgid "City"
 msgstr "المدينة"
 
-#: ../plugins/weather/weatherwidget.c:2140
-#, fuzzy
-#| msgid "State"
-msgctxt "Politics"
-msgid "State"
-msgstr "الحالة"
+#. This means a state, a county, a province, or similar.
+#: ../plugins/weather/weatherwidget.c:2141
+msgid "Region"
+msgstr ""
 
-#: ../plugins/weather/weatherwidget.c:2150
+#: ../plugins/weather/weatherwidget.c:2151
 msgid "Country"
 msgstr "الدّولة"
 
-#: ../plugins/weather/weatherwidget.c:2289
+#: ../plugins/weather/weatherwidget.c:2290
 msgid "Currently in "
 msgstr "حاليًّا في "
 
-#: ../plugins/weather/weatherwidget.c:2295
+#: ../plugins/weather/weatherwidget.c:2296
 msgid "Today: "
 msgstr "اليوم: "
 
-#: ../plugins/weather/weatherwidget.c:2296
+#: ../plugins/weather/weatherwidget.c:2297
 msgid "Tomorrow: "
 msgstr "الغدّ: "
 
@@ -2165,9 +2163,15 @@ msgstr ""
 msgid "m"
 msgstr ""
 
-#: ../plugins/weather/openweathermap.c:1052
+#: ../plugins/weather/openweathermap.c:1058
 msgid "OpenWeatherMap"
 msgstr ""
+
+#, fuzzy
+#~| msgid "State"
+#~ msgctxt "Politics"
+#~ msgid "State"
+#~ msgstr "الحالة"
 
 #~ msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
 #~ msgstr ""

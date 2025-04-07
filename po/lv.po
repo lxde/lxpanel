@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-30 13:47+0200\n"
+"POT-Creation-Date: 2025-04-07 09:15+0200\n"
 "PO-Revision-Date: 2019-02-26 19:16+0000\n"
 "Last-Translator: External Translation Source <translation@rep.kiev.ua>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1970,13 +1970,13 @@ msgid "Sunset:"
 msgstr ""
 
 #: ../plugins/weather/weatherwidget.c:1958
-#: ../plugins/weather/weatherwidget.c:2309
+#: ../plugins/weather/weatherwidget.c:2310
 #, c-format
 msgid "Forecast for %s unavailable."
 msgstr ""
 
 #: ../plugins/weather/weatherwidget.c:1967
-#: ../plugins/weather/weatherwidget.c:2314
+#: ../plugins/weather/weatherwidget.c:2315
 #, c-format
 msgid "Location not set."
 msgstr ""
@@ -1995,26 +1995,24 @@ msgstr ""
 msgid "City"
 msgstr ""
 
-#: ../plugins/weather/weatherwidget.c:2140
-#, fuzzy
-#| msgid "State"
-msgctxt "Politics"
-msgid "State"
-msgstr "Stāvoklis"
+#. This means a state, a county, a province, or similar.
+#: ../plugins/weather/weatherwidget.c:2141
+msgid "Region"
+msgstr ""
 
-#: ../plugins/weather/weatherwidget.c:2150
+#: ../plugins/weather/weatherwidget.c:2151
 msgid "Country"
 msgstr ""
 
-#: ../plugins/weather/weatherwidget.c:2289
+#: ../plugins/weather/weatherwidget.c:2290
 msgid "Currently in "
 msgstr ""
 
-#: ../plugins/weather/weatherwidget.c:2295
+#: ../plugins/weather/weatherwidget.c:2296
 msgid "Today: "
 msgstr ""
 
-#: ../plugins/weather/weatherwidget.c:2296
+#: ../plugins/weather/weatherwidget.c:2297
 msgid "Tomorrow: "
 msgstr ""
 
@@ -2106,6 +2104,12 @@ msgstr ""
 msgid "m"
 msgstr ""
 
-#: ../plugins/weather/openweathermap.c:1052
+#: ../plugins/weather/openweathermap.c:1058
 msgid "OpenWeatherMap"
 msgstr ""
+
+#, fuzzy
+#~| msgid "State"
+#~ msgctxt "Politics"
+#~ msgid "State"
+#~ msgstr "Stāvoklis"

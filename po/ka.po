@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-30 13:47+0200\n"
+"POT-Creation-Date: 2025-04-07 09:15+0200\n"
 "PO-Revision-Date: 2025-03-30 14:36+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <(nothing)>\n"
@@ -999,7 +999,6 @@ msgstr "ALSA-ს (pulseaudio-ს) პრობლემა. ჩაიხედ�
 
 #: ../plugins/volumealsa/volumealsa.c:615
 #, c-format
-#| msgid "Volume"
 msgid "Volume: %d%%"
 msgstr "ხმა: %d%%"
 
@@ -2008,13 +2007,13 @@ msgid "Sunset:"
 msgstr "დაისი:"
 
 #: ../plugins/weather/weatherwidget.c:1958
-#: ../plugins/weather/weatherwidget.c:2309
+#: ../plugins/weather/weatherwidget.c:2310
 #, c-format
 msgid "Forecast for %s unavailable."
 msgstr "ამინდის პროგნოზი %s-სთვის ხელმისაწვდომი არაა."
 
 #: ../plugins/weather/weatherwidget.c:1967
-#: ../plugins/weather/weatherwidget.c:2314
+#: ../plugins/weather/weatherwidget.c:2315
 #, c-format
 msgid "Location not set."
 msgstr "მდებარეობა დაყენებული არაა."
@@ -2033,24 +2032,24 @@ msgstr "მდებარეობის დამთხვევები '%s'
 msgid "City"
 msgstr "ქალაქი"
 
-#: ../plugins/weather/weatherwidget.c:2140
-msgctxt "Politics"
-msgid "State"
-msgstr "შტატი"
+#. This means a state, a county, a province, or similar.
+#: ../plugins/weather/weatherwidget.c:2141
+msgid "Region"
+msgstr ""
 
-#: ../plugins/weather/weatherwidget.c:2150
+#: ../plugins/weather/weatherwidget.c:2151
 msgid "Country"
 msgstr "ქვეყანა"
 
-#: ../plugins/weather/weatherwidget.c:2289
+#: ../plugins/weather/weatherwidget.c:2290
 msgid "Currently in "
 msgstr "ამჟამად "
 
-#: ../plugins/weather/weatherwidget.c:2295
+#: ../plugins/weather/weatherwidget.c:2296
 msgid "Today: "
 msgstr "დღეს: "
 
-#: ../plugins/weather/weatherwidget.c:2296
+#: ../plugins/weather/weatherwidget.c:2297
 msgid "Tomorrow: "
 msgstr "ხვალ: "
 
@@ -2142,6 +2141,10 @@ msgstr "მ/წმ"
 msgid "m"
 msgstr "წთ"
 
-#: ../plugins/weather/openweathermap.c:1052
+#: ../plugins/weather/openweathermap.c:1058
 msgid "OpenWeatherMap"
 msgstr "OpenWeatherMap"
+
+#~ msgctxt "Politics"
+#~ msgid "State"
+#~ msgstr "შტატი"
