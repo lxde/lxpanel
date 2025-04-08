@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-04-07 09:15+0200\n"
-"PO-Revision-Date: 2025-03-30 19:13+0100\n"
+"PO-Revision-Date: 2025-04-08 22:16+0100\n"
 "Last-Translator: Hugo Carvalho <hugokarvalho@hotmail.com>\n"
 "Language-Team: Portuguese\n"
 "Language: pt\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.0.1\n"
+"X-Generator: Poedit 3.5\n"
 "X-Pootle-Revision: 71\n"
 "X-Pootle-Path: /pt/lxpanel/po/pt.po\n"
 "X-Source-Language: C\n"
@@ -36,7 +36,7 @@ msgstr ""
 
 #: ../src/configurator.c:635
 msgid "Currently loaded plugins"
-msgstr "Plugins atualmente carregados"
+msgstr "Complementos atualmente carregados"
 
 #: ../src/configurator.c:644
 msgid "Stretch"
@@ -44,11 +44,11 @@ msgstr "Esticar"
 
 #: ../src/configurator.c:782
 msgid "Add plugin to panel"
-msgstr "Adicionar plugin ao painel"
+msgstr "Adicionar complemento ao painel"
 
 #: ../src/configurator.c:810
 msgid "Available plugins"
-msgstr "Plugins disponíveis"
+msgstr "Complementos disponíveis"
 
 #: ../src/configurator.c:1430
 msgid "Logout command is not set"
@@ -672,8 +672,8 @@ msgid ""
 "Taskbar shows all opened windows and allows to iconify them, shade or get "
 "focus"
 msgstr ""
-"A barra de tarefas mostra todas as janelas abertas e permite iconificá-las, "
-"sombreá-las ou obter foco"
+"A barra de tarefas mostra todas as janelas abertas e permite-lhe minimizá-"
+"las, recolhê-las ou focá-las"
 
 #: ../plugins/launchtaskbar.c:2503
 msgid "Bar with buttons to launch application and/or show all opened windows"
@@ -795,7 +795,7 @@ msgstr "Paginador da área de trabalho"
 
 #: ../plugins/pager.c:230 ../plugins/pager.c:246
 msgid "Simple pager plugin"
-msgstr "Plugin de paginação simples"
+msgstr "Complemento simples do paginador"
 
 #: ../plugins/tray.c:691
 msgid "System Tray"
@@ -2047,7 +2047,7 @@ msgstr "Cidade"
 #. This means a state, a county, a province, or similar.
 #: ../plugins/weather/weatherwidget.c:2141
 msgid "Region"
-msgstr ""
+msgstr "Região"
 
 #: ../plugins/weather/weatherwidget.c:2151
 msgid "Country"
@@ -2067,7 +2067,7 @@ msgstr "Amanhã: "
 
 #: ../plugins/weather/weather.c:415
 msgid "Weather Plugin"
-msgstr "Plugin meteorológico"
+msgstr "Complemento meteorológico"
 
 #: ../plugins/weather/weather.c:416
 msgid "Show weather conditions for a location."
