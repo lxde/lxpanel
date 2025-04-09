@@ -1,3 +1,10 @@
+0.11.1
+-------------------------------------------------------------------------
+* Less restrictive location query and more detailed display of results
+    in the weather plugin.
+* Minor fixes related to the new icons.
+* Updated translations.
+
 0.11.0
 -------------------------------------------------------------------------
 * Added tooltips to application launch bar and panel settings.
