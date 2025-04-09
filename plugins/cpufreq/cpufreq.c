@@ -304,7 +304,7 @@ cpufreq_menu(cpufreq *cf){
     for( l = cf->governors; l; l = l->next )
     {
       if(strcmp((char*)l->data, cf->cur_governor) == 0){
-        snprintf(buff, sizeof(buff), "▸ %s", l->data);
+        snprintf(buff, sizeof(buff), "▸  %s", l->data);
         menuitem = GTK_MENU_ITEM(gtk_menu_item_new_with_label(strdup(buff)));
       }else{
         snprintf(buff, sizeof(buff), "   %s", l->data);
