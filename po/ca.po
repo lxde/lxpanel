@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: LXPanel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-04-07 09:15+0200\n"
-"PO-Revision-Date: 2019-02-27 15:14+0000\n"
+"PO-Revision-Date: 2025-10-22 10:18+0200\n"
 "Last-Translator: Davidmp <rbndavid@gmail.com>\n"
 "Language-Team: David Medina <rbndavid@gmail.com>\n"
 "Language: ca\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Pootle 2.8\n"
+"X-Generator: Poedit 3.6\n"
 "X-Pootle-Revision: 0\n"
 "X-Pootle-Path: /ca/lxpanel/po/ca.po\n"
 "X-POOTLE-MTIME: 1551280468.294464\n"
@@ -100,7 +100,7 @@ msgstr "Plafó d'escriptori per al projecte LXDE"
 #: ../src/panel.c:1480
 #, c-format
 msgid "\"%s\" Settings"
-msgstr "Paràmetres \"%s\""
+msgstr "Paràmetres de \"%s\""
 
 #: ../src/panel.c:1501
 msgid "Add / Remove Panel Items"
@@ -176,9 +176,9 @@ msgid "Logout"
 msgstr "Surt"
 
 #: ../src/main.c:323
-#, fuzzy, c-format
+#, c-format
 msgid "lxpanel %s - lightweight GTK+ panel for UNIX desktops\n"
-msgstr "lxpanel %s - Plafó lleuger en GTK2+ per a escriptoris UNIX\n"
+msgstr "lxpanel %s - Plafó lleuger en GTK+ per a escriptoris UNIX\n"
 
 #: ../src/main.c:324
 #, c-format
@@ -273,8 +273,6 @@ msgid "Spacer"
 msgstr "Espaiador"
 
 #: ../src/space.c:396 ../plugins/batt/batt.c:740
-#, fuzzy
-#| msgid "Size"
 msgctxt "Width"
 msgid "Size"
 msgstr "Mida"
@@ -313,7 +311,7 @@ msgstr "Botons plans"
 
 #: ../data/ui/launchtaskbar.glade.h:9
 msgid "Show square brackets around the names of minimized windows"
-msgstr ""
+msgstr "Mostra els noms de les finestres minimitzades entre claudàtors."
 
 #: ../data/ui/launchtaskbar.glade.h:10
 msgid "Show windows from all desktops"
@@ -545,8 +543,6 @@ msgid "Custom color"
 msgstr "Color personalitzat"
 
 #: ../data/ui/panel-pref.glade.h:32
-#, fuzzy
-#| msgid "Size"
 msgctxt "Font"
 msgid "Size"
 msgstr "Mida"
@@ -668,13 +664,12 @@ msgid "Bar with buttons to launch application"
 msgstr "Barra amb botons per llançar aplicacions"
 
 #: ../plugins/launchtaskbar.c:2483
-#, fuzzy
 msgid ""
 "Taskbar shows all opened windows and allows to iconify them, shade or get "
 "focus"
 msgstr ""
-"La barra de tasques mostra totes les finestres obertes i permet iconificar-"
-"les, plegar-les o obtenir el focus"
+"La barra de tasques mostra totes les finestres obertes i permet fer-ne "
+"icones, enfosquir-les o obtenir el focus."
 
 #: ../plugins/launchtaskbar.c:2503
 msgid "Bar with buttons to launch application and/or show all opened windows"
@@ -983,14 +978,12 @@ msgid "Display system temperature"
 msgstr "Mostra la temperatura del sistema"
 
 #: ../plugins/cpufreq/cpufreq.c:283
-#, fuzzy
-#| msgid "CPUFreq frontend"
 msgid "CPUFreq not supported"
-msgstr "Frontal de freq. de CPU"
+msgstr "Freqüència de CPU no compatible"
 
 #: ../plugins/cpufreq/cpufreq.c:292
 msgid "   Frequency"
-msgstr ""
+msgstr "Freqüència"
 
 #: ../plugins/cpufreq/cpufreq.c:356
 #, c-format
@@ -1006,11 +999,10 @@ msgid "CPUFreq frontend"
 msgstr "Frontal de freq. de CPU"
 
 #: ../plugins/cpufreq/cpufreq.c:433
-#, fuzzy
 msgid "Display CPU frequency and allow one to change governors and frequency"
 msgstr ""
 "Mostra la freqüència de la CPU i permet canviar-ne els governadors i la "
-"freqüència"
+"freqüència."
 
 #: ../plugins/volumealsa/volumealsa.c:247
 msgid "ALSA (or pulseaudio) had a problem. Please check the lxpanel logs."
@@ -1019,10 +1011,10 @@ msgstr ""
 "registres de l'lxpanel."
 
 #: ../plugins/volumealsa/volumealsa.c:615
-#, fuzzy, c-format
+#, c-format
 #| msgid "Volume"
 msgid "Volume: %d%%"
-msgstr "Volum"
+msgstr "Volum: %d%%"
 
 #: ../plugins/volumealsa/volumealsa.c:703
 msgid ""
@@ -1065,14 +1057,12 @@ msgid "Speaker+LO"
 msgstr "Altaveu+LS"
 
 #: ../plugins/volumealsa/volumealsa.c:1332
-#, fuzzy
-#| msgid "Speaker+LO"
 msgid "Speaker"
-msgstr "Altaveu+LS"
+msgstr "Altaveu"
 
 #: ../plugins/volumealsa/volumealsa.c:1332
 msgid "Beep"
-msgstr ""
+msgstr "Bip"
 
 #: ../plugins/volumealsa/volumealsa.c:1371
 msgid "default"
@@ -1098,7 +1088,7 @@ msgstr "Cliqueu per al botó lliscant del volum"
 #: ../plugins/volumealsa/volumealsa.c:1467
 #: ../plugins/volumealsa/volumealsa.c:1472
 msgid "Click to select, then press a mouse button"
-msgstr ""
+msgstr "Feu clic per seleccionar i, a continuació, premeu un botó del ratolí."
 
 #: ../plugins/volumealsa/volumealsa.c:1466
 msgid "Click for Toggle Mute"
@@ -1116,7 +1106,7 @@ msgstr "Drecera per apujar el volum"
 #: ../plugins/volumealsa/volumealsa.c:1480
 #: ../plugins/volumealsa/volumealsa.c:1483
 msgid "Click to select, then press a key"
-msgstr ""
+msgstr "Feu clic per seleccionar i, a continuació, premeu una tecla."
 
 #: ../plugins/volumealsa/volumealsa.c:1479
 msgid "Hotkey for Volume Down"
@@ -1364,8 +1354,6 @@ msgid "The interface name"
 msgstr "Nom de la interfície"
 
 #: ../plugins/netstatus/netstatus-iface.c:157
-#, fuzzy
-#| msgid "State"
 msgctxt "Network"
 msgid "State"
 msgstr "Estat"
@@ -1608,10 +1596,9 @@ msgid "Sending/Receiving"
 msgstr "Enviant/Rebent"
 
 #: ../plugins/batt/batt.c:159
-#, fuzzy, c-format
-#| msgid "Battery %d: %d%% charged, %d:%02d until full"
+#, c-format
 msgid "Battery: %d%% charged, %d:%02d until full"
-msgstr "Bateria %d: carregada al %d%%, %d:%02d fins a la càrrega total"
+msgstr "Bateria: %d%% carregada, %d:%02d fins que estigui plena"
 
 #: ../plugins/batt/batt.c:163
 #, c-format
@@ -1619,10 +1606,9 @@ msgid "Battery %d: %d%% charged, %d:%02d until full"
 msgstr "Bateria %d: carregada al %d%%, %d:%02d fins a la càrrega total"
 
 #: ../plugins/batt/batt.c:178
-#, fuzzy, c-format
-#| msgid "Battery %d: %d%% charged, %d:%02d left"
+#, c-format
 msgid "Battery: %d%% charged, %d:%02d left"
-msgstr "Bateria %d: carregada al %d%%, falten %d:%02d"
+msgstr "Bateria: %d%% carregada, %d:%02d restants"
 
 #: ../plugins/batt/batt.c:182
 #, c-format
@@ -1630,10 +1616,9 @@ msgid "Battery %d: %d%% charged, %d:%02d left"
 msgstr "Bateria %d: carregada al %d%%, falten %d:%02d"
 
 #: ../plugins/batt/batt.c:190
-#, fuzzy, c-format
-#| msgid "Battery %d: %d%% charged"
+#, c-format
 msgid "Battery: %d%% charged"
-msgstr "Batteria %d: carregada al %d%%"
+msgstr "Bateria: %d%% carregada"
 
 #: ../plugins/batt/batt.c:194
 #, c-format
@@ -1713,7 +1698,7 @@ msgstr ""
 "%sCorrent actual:\t\t\t%5d mA"
 
 #: ../plugins/batt/batt.c:222
-#, fuzzy, c-format
+#, c-format
 #| msgid ""
 #| "\n"
 #| "%sCurrent Voltage:\t\t%.3lf V"
@@ -1722,7 +1707,7 @@ msgid ""
 "%sVoltage now:\t\t%.3lf V"
 msgstr ""
 "\n"
-"%sVoltatge del corrent:\t\t%.3lf V"
+"%sVoltatge actual:\t\t%.3lf V"
 
 #: ../plugins/batt/batt.c:259
 msgid "No batteries found"
@@ -1782,7 +1767,7 @@ msgstr "Número de la bateria per monitorar"
 
 #: ../plugins/batt/batt.c:744
 msgid "Don't show number of battery"
-msgstr ""
+msgstr "No mostris el número de la bateria."
 
 #: ../plugins/batt/batt.c:754
 msgid "Display battery status using ACPI"
@@ -1873,7 +1858,7 @@ msgstr "Color de la RAM"
 
 #: ../plugins/monitors/monitors.c:750
 msgid "Show memory used by cache as free"
-msgstr ""
+msgstr "Mostra la memòria usada per la memòria cau com a lliure."
 
 #: ../plugins/monitors/monitors.c:751
 msgid "Action when clicked (default: lxtask)"
@@ -2067,7 +2052,7 @@ msgstr "Ciutat"
 #. This means a state, a county, a province, or similar.
 #: ../plugins/weather/weatherwidget.c:2141
 msgid "Region"
-msgstr ""
+msgstr "Regió"
 
 #: ../plugins/weather/weatherwidget.c:2151
 msgid "Country"
