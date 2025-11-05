@@ -962,7 +962,7 @@ static void on_gtk_cursor_blink_time_changed(GObject *gsettings, GParamSpec *psp
     if (tb->flash_timeout == 0) /* nothing to do? */
         return;
     g_source_remove(tb->flash_timeout);
-    g_object_get(gtk_widget_get_settings(GTK_WIDGET(tb)), "gtk-cursor-blink-time",
+    g_object_get(gtk_widget_get_settings(GTK_WIDGET(tb->plugin)), "gtk-cursor-blink-time",
                  &interval, NULL);
     tb->flash_timeout = g_timeout_add(interval / 2, flash_window_timeout, tb);
 }
