@@ -78,6 +78,7 @@ getURL(const gchar * pczURL, gchar ** pcData, gint * piDataSize, const gchar ** 
     curl = curl_easy_init();
     curl_easy_setopt(curl, CURLOPT_URL, pczURL);
     curl_easy_setopt(curl, CURLOPT_HTTPHEADER, headers);
+    curl_easy_setopt(curl, CURLOPT_TIMEOUT, 10L);
     curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, write_data);
     curl_easy_setopt(curl, CURLOPT_WRITEDATA, &data);
     res = curl_easy_perform(curl);
