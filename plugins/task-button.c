@@ -727,16 +727,26 @@ static GdkPixbuf * _wnck_gdk_pixbuf_get_from_pixmap(GdkScreen *screen, Pixmap xp
   GdkPixbuf *pixbuf = NULL;
   Display *xdisplay;
   XWindowAttributes attrs;
+  Window root;
+  int x, y;
+  unsigned int w, h, border, depth;
 
   surface = NULL;
   xdisplay = GDK_DISPLAY_XDISPLAY(gdk_display_get_default());
 
   gdk_error_trap_push();
 
+  /* The depth must be taken from the pixmap itself, not from the window
+   * `win' (the root window returned by XGetGeometry): icon masks are
+   * 1-bit bitmaps, and treating them as root-depth pixmaps makes every
+   * pixel of the mask zero, i.e. the whole icon fully transparent. */
+  if (!XGetGeometry (xdisplay, xpixmap, &root, &x, &y, &w, &h, &border, &depth))
+    goto TRAP_POP;
+
   if (!XGetWindowAttributes (xdisplay, win, &attrs))
     goto TRAP_POP;
 
-  if (attrs.depth == 1)
+  if (depth == 1)
     {
       surface = cairo_xlib_surface_create_for_bitmap (xdisplay,
                                                       xpixmap,
@@ -746,9 +756,21 @@ static GdkPixbuf * _wnck_gdk_pixbuf_get_from_pixmap(GdkScreen *screen, Pixmap xp
     }
   else
     {
+      Visual *visual = attrs.visual;
+
+      if ((unsigned int) attrs.depth != depth)
+        {
+          /* Not the root depth (e.g. 32-bit ARGB): find a matching visual. */
+          XVisualInfo vinfo;
+
+          if (!XMatchVisualInfo (xdisplay, XScreenNumberOfScreen (attrs.screen),
+                                 (int) depth, TrueColor, &vinfo))
+            goto TRAP_POP;
+          visual = vinfo.visual;
+        }
       surface = cairo_xlib_surface_create (xdisplay,
                                            xpixmap,
-                                           attrs.visual,
+                                           visual,
                                            width, height);
     }
 
@@ -776,6 +798,11 @@ static GdkPixbuf * apply_mask(GdkPixbuf * pixbuf, GdkPixbuf * mask)
     guchar * src = gdk_pixbuf_get_pixels(mask);
     int dst_stride = gdk_pixbuf_get_rowstride(with_alpha);
     int src_stride = gdk_pixbuf_get_rowstride(mask);
+    int src_channels = gdk_pixbuf_get_n_channels(mask);
+    /* A mask read from a cairo bitmap surface (GTK3) comes back as black RGBA
+     * with the bit in the alpha channel; one from a GDK colormap (GTK2) comes
+     * back as RGB where s[0] == s[1] == s[2] is 255 if the bit was set. */
+    int src_bit = gdk_pixbuf_get_has_alpha(mask) ? 3 : 0;
 
     /* Loop to do the work. */
     int i;
@@ -784,11 +811,10 @@ static GdkPixbuf * apply_mask(GdkPixbuf * pixbuf, GdkPixbuf * mask)
         int j;
         for (j = 0; j < w; j += 1)
         {
-            guchar * s = src + i * src_stride + j * 3;
+            guchar * s = src + i * src_stride + j * src_channels;
             guchar * d = dst + i * dst_stride + j * 4;
 
-            /* s[0] == s[1] == s[2], they are 255 if the bit was set, 0 otherwise. */
-            d[3] = ((s[0] == 0) ? 0 : 255); /* 0 = transparent, 255 = opaque */
+            d[3] = ((s[src_bit] == 0) ? 0 : 255); /* 0 = transparent, 255 = opaque */
         }
     }
 
