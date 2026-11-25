@@ -39,6 +39,7 @@ static const char usage[] =
         "Usage: lxpanelctl <command>\n\n"
         "Available commands:\n"
         "menu\t\t\tshow system menu\n"
+        "show\t\t\tshow panel if hidden\n"
         "run\t\t\tshow run dialog\n"
         "config\t\t\tshow configuration dialog\n"
         "restart\t\t\trestart lxpanel\n"
@@ -49,6 +50,8 @@ static int get_cmd( const char* cmd )
 {
     if( ! strcmp( cmd, "menu") )
         return LXPANEL_CMD_SYS_MENU;
+    if( ! strcmp( cmd, "show") )
+        return LXPANEL_CMD_SHOW_PANEL;
     else if( ! strcmp( cmd, "run") )
         return LXPANEL_CMD_RUN;
     else if( ! strcmp( cmd, "config") )

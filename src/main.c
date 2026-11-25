@@ -114,6 +114,16 @@ static void process_client_msg ( XClientMessageEvent* ev )
             break;
         }
 #endif
+        case LXPANEL_CMD_SHOW_PANEL:
+            GSList* l;
+            for( l = all_panels; l; l = l->next )
+            {
+                LXPanel* p = (LXPanel*)l->data;
+
+                if (p->priv->box != NULL)
+                    ah_show_panel(p);
+            }
+            break;
         case LXPANEL_CMD_RUN:
             gtk_run();
             break;
