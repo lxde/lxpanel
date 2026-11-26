@@ -327,6 +327,7 @@ usage()
 //    g_print(_(" --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"));
 //    g_print(_(" --configure -- launch configuration utility\n"));
     g_print(_(" --profile name -- use specified profile\n"));
+    g_print(_(" --gtk-theme name -- use specified GTK theme\n"));
     g_print("\n");
     g_print(_(" -h  -- same as --help\n"));
     g_print(_(" -p  -- same as --profile\n"));
@@ -464,6 +465,7 @@ int main(int argc, char *argv[], char *env[])
 {
     int i;
     const char* desktop_name;
+    const char *gtk_theme = NULL;
     char *file;
 
     setlocale(LC_CTYPE, "");
@@ -509,6 +511,14 @@ int main(int argc, char *argv[], char *env[])
             }
         } else if (!strcmp(argv[i], "--configure") || !strcmp(argv[i], "-C")) {
             config = 1;
+        } else if (!strcmp(argv[i], "--gtk-theme")) {
+            i++;
+            if (i == argc || argv[i][0] == '\0' || argv[i][0] == '-') {
+                g_critical("lxpanel: missing GTK theme name");
+                usage();
+                exit(1);
+            }
+            gtk_theme = argv[i];
         } else if (!strcmp(argv[i], "--profile") || !strcmp(argv[i], "-p")) {
             i++;
             if (i == argc) {
@@ -524,6 +534,11 @@ int main(int argc, char *argv[], char *env[])
             exit(1);
         }
     }
+
+    /* Apply an optional process-local GTK theme override. */
+    if (gtk_theme != NULL)
+        g_object_set(gtk_settings_get_default(),
+                     "gtk-theme-name", gtk_theme, NULL);
 
     /* Add a gtkrc file to be parsed too. */
     file = _user_config_file_name("gtkrc", NULL);
