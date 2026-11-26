@@ -447,6 +447,23 @@ static gboolean lxpanel_button_press(GtkWidget *widget, GdkEventButton *event)
     return FALSE;
 }
 
+/* Refresh embedded tray backgrounds when the panel becomes visible again. */
+static gboolean lxpanel_visibility_notify(GtkWidget *widget,
+                                          GdkEventVisibility *event)
+{
+    LXPanel *panel = LXPANEL(widget);
+
+    if (event->state == GDK_VISIBILITY_FULLY_OBSCURED)
+        panel->priv->fully_obscured = TRUE;
+    else if (panel->priv->fully_obscured)
+    {
+        panel->priv->fully_obscured = FALSE;
+        _panel_queue_update_background(panel);
+    }
+
+    return FALSE;
+}
+
 static void lxpanel_class_init(PanelToplevelClass *klass)
 {
     GObjectClass *gobject_class = (GObjectClass *)klass;
@@ -473,6 +490,7 @@ static void lxpanel_class_init(PanelToplevelClass *klass)
     widget_class->configure_event = lxpanel_configure_event;
     widget_class->style_set = lxpanel_style_set;
     widget_class->map_event = lxpanel_map_event;
+    widget_class->visibility_notify_event = lxpanel_visibility_notify;
     widget_class->button_press_event = lxpanel_button_press;
     widget_class->button_release_event = _lxpanel_button_release;
     widget_class->motion_notify_event = _lxpanel_motion_notify;
@@ -501,6 +519,7 @@ static void lxpanel_init(PanelToplevel *self)
     Panel *p = g_new0(Panel, 1);
 
     self->priv = p;
+    gtk_widget_add_events(GTK_WIDGET(self), GDK_VISIBILITY_NOTIFY_MASK);
     p->topgwin = self;
     p->align = ALIGN_CENTER;
     p->edge = EDGE_NONE;

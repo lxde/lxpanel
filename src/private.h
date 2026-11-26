@@ -170,6 +170,7 @@ struct _Panel {
     GtkWidget * move_plugin;            /* widgets involved in movement */
     PanelPluginMoveData move_before;
     PanelPluginMoveData move_after;
+    gboolean fully_obscured;
 };
 
 typedef struct {
