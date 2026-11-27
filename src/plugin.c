@@ -197,7 +197,21 @@ void plugin_widget_set_background(GtkWidget * w, LXPanel * panel)
             {
                 GdkWindow *window = gtk_widget_get_window(w);
 #if GTK_CHECK_VERSION(3, 0, 0)
-                gdk_window_set_background_pattern(window, NULL);
+                if (GTK_IS_SOCKET(w) && p->transparent &&
+                    !p->background && p->alpha == 255)
+                {
+                    cairo_pattern_t *pattern;
+
+                    pattern = cairo_pattern_create_rgb(
+                        p->gtintcolor.red / 65535.0,
+                        p->gtintcolor.green / 65535.0,
+                        p->gtintcolor.blue / 65535.0);
+
+                    gdk_window_set_background_pattern(window, pattern);
+                    cairo_pattern_destroy(pattern);
+                }
+                else
+                    gdk_window_set_background_pattern(window, NULL);
 #else
                 gdk_window_set_back_pixmap(window, NULL, TRUE);
 #endif
